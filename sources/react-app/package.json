@@ -1,0 +1,49 @@
+{
+  "name": "wordify-craftercms-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craftercms/content": "^1.2.0",
+    "@craftercms/ice": "^1.2.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-intl": "^4.2.2",
+    "react-relay": "^9.0.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "relay-runtime": "^9.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "./build.sh",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "relay": "relay-compiler --src ./src --schema ./data/schema.graphql"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://authoring.sample.com:8080",
+  "devDependencies": {
+    "babel-plugin-macros": "^2.8.0",
+    "babel-plugin-relay": "^9.0.0",
+    "graphql": "^14.6.0",
+    "relay-compiler": "^9.0.0",
+    "relay-config": "^9.0.0"
+  }
+}
