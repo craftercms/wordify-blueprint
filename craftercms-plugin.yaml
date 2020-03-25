@@ -31,15 +31,15 @@ plugin:
       email: info@craftersoftware.com
       url: https://craftersoftware.com/
   build:
-    id: c3d2a5444e6a24b5e0481d6ba87901d0b02716c8
-    date: 2019-01-23T00:00:00Z
+    id: 4468e5deabf5e6d0740cd1a77df56f67093ec943
+    date: 2020-03-25T00:00:00Z
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT
   crafterCmsVersions:
     - major: 3
       minor: 1
-      patch: 1
+      patch: 6
   crafterCmsEditions:
     - community
     - enterprise
