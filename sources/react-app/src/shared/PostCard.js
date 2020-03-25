@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as published by
+ * the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
@@ -60,8 +76,8 @@ export default function (props) {
       );
     case LANDSCAPE:
       return (
-        <div className="post-entry-horizontal">
-          <Link to={slug} className={classes?.root} {...ice}>
+        <div className="post-entry-horizontal" {...ice}>
+          <Link to={slug} className={classes?.root}>
             <div className="image" style={{ backgroundImage: `url(${mainImage_s})` }} />
             <span className="text">
               <div className="post-meta">
@@ -94,9 +110,8 @@ export default function (props) {
           to={slug}
           className={`a-block d-flex align-items-center ${classes?.root ?? ''}`}
           style={{ backgroundImage: `url(${mainImage_s})` }}
-          {...ice}
         >
-          <div className={`text ${classes?.innerWrapper}`}>
+          <div className={`text ${classes?.innerWrapper}`} {...ice}>
             <div className="post-meta">
               {
                 tags &&

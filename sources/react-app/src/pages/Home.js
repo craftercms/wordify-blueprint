@@ -1,20 +1,33 @@
+/*
+ * Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as published by
+ * the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
-import Bio from '../components/Bio';
 import Slider from '../components/Slider';
-import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import PostCard from '../shared/PostCard';
+import SidebarBios from '../shared/SidebarBios';
+import SidebarSearch from '../shared/SidebarSearch';
+import PopularPostsAside from '../shared/PopularPostsAside';
+import SidebarCategories from '../shared/SidebarCategories';
+import SidebarTags from '../shared/SidebarTags';
 // import environment from '../relayEnvironment';
 // import graphql from 'babel-plugin-relay/macro';
 // import { parseDescriptor } from '@craftercms/content';
 // import { createRenderProp } from '../shared/QueryRenderProp';
-
-const translations = defineMessages({
-  searchFormPlaceholder: {
-    id: 'home.searchFormPlaceholder',
-    defaultMessage: 'Type a keyword and hit enter'
-  }
-});
 
 // export default () => (
 //   <QueryRenderer
@@ -32,12 +45,14 @@ const translations = defineMessages({
 export default function (props) {
   const {
     model: {
+      craftercms: {
+        path
+      },
       bios_o,
       slider_o
     },
     posts
   } = props;
-  const { formatMessage } = useIntl();
   return (
     <BaseLayout>
       <section className="site-section pt-5 pb-5">
@@ -46,7 +61,7 @@ export default function (props) {
             {
               slider_o?.map((slider, index) =>
                 <div className="col-md-12" key={index}>
-                  <Slider model={slider} />
+                  <Slider model={slider} parentModelId={path} />
                 </div>
               )
             }
@@ -93,86 +108,17 @@ export default function (props) {
               </div>
             </div>
             <div className="col-md-12 col-lg-4 sidebar">
-              <div className="sidebar-box search-form-wrap">
-                <form action="#" className="search-form">
-                  <div className="form-group">
-                    <span className="icon fa fa-search" />
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="s"
-                      placeholder={formatMessage(translations.searchFormPlaceholder)}
-                    />
-                  </div>
-                </form>
-              </div>
-              {
-                bios_o?.map(bio =>
-                  <div className="sidebar-box" key={bio.craftercms.id}>
-                    <Bio model={bio} />
-                  </div>
-                )
-              }
-              <div className="sidebar-box">
-                <h3 className="heading">
-                  <FormattedMessage
-                    id="home.popularPostSectionTitle"
-                    defaultMessage="Popular Posts"
-                  />
-                </h3>
-                <div className="post-entry-sidebar">
-                  <ul>
-                    <li>
-                      <a href="/">
-                        <img src="/static-assets/images/img_2.jpg" alt="" className="mr-4" />
-                        <div className="text">
-                          <h4>How to Find the Video Games of Your Youth</h4>
-                          <div className="post-meta">
-                            <span className="mr-2">March 15, 2018 </span>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="sidebar-box">
-                <h3 className="heading">
-                  <FormattedMessage
-                    id="home.categoriesSectionTitle"
-                    defaultMessage="Categories"
-                  />
-                </h3>
-                <ul className="categories">
-                  <li><a href="/">Food <span>(12)</span></a></li>
-                  <li><a href="/">Travel <span>(22)</span></a></li>
-                  <li><a href="/">Lifestyle <span>(37)</span></a></li>
-                  <li><a href="/">Business <span>(42)</span></a></li>
-                  <li><a href="/">Adventure <span>(14)</span></a></li>
-                </ul>
-              </div>
-              <div className="sidebar-box">
-                <h3 className="heading">
-                  <FormattedMessage
-                    id="home.tagsSectionTitle"
-                    defaultMessage="Tags"
-                  />
-                </h3>
-                <ul className="tags">
-                  <li><a href="/">Travel</a></li>
-                  <li><a href="/">Adventure</a></li>
-                  <li><a href="/">Food</a></li>
-                  <li><a href="/">Lifestyle</a></li>
-                  <li><a href="/">Business</a></li>
-                  <li><a href="/">Freelancing</a></li>
-                  <li><a href="/">Travel</a></li>
-                  <li><a href="/">Adventure</a></li>
-                  <li><a href="/">Food</a></li>
-                  <li><a href="/">Lifestyle</a></li>
-                  <li><a href="/">Business</a></li>
-                  <li><a href="/">Freelancing</a></li>
-                </ul>
-              </div>
+
+              <SidebarSearch />
+
+              <SidebarBios bios={bios_o} />
+
+              <PopularPostsAside posts={posts} />
+
+              <SidebarCategories />
+
+              <SidebarTags />
+
             </div>
           </div>
         </div>
