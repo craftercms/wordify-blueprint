@@ -1,9 +1,31 @@
+/*
+ * Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as published by
+ * the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import PopularPostsAside from '../shared/PopularPostsAside';
+import SidebarBios from '../shared/SidebarBios';
+import SidebarCategories from '../shared/SidebarCategories';
+import SidebarTags from '../shared/SidebarTags';
 
 export default function (props) {
-  const { posts } = props;
+  const {
+    bios_o,
+    posts
+  } = props;
   return (
     <BaseLayout>
       <section className="site-section">
@@ -57,55 +79,14 @@ export default function (props) {
                 </form>
               </div>
 
-              <div className="sidebar-box">
-                <div className="bio text-center">
-                  <img src="/static-assets/images/person_1.jpg" alt="" className="img-fluid"/>
-                    <div className="bio-body">
-                      <h2>Meagan Smith</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt
-                        repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias
-                        minus.</p>
-                      <p><a href="/" className="btn btn-primary btn-sm">Read my bio</a></p>
-                      <p className="social">
-                        <a href="/" className="p-2"><span className="fa fa-facebook"/></a>
-                        <a href="/" className="p-2"><span className="fa fa-twitter"/></a>
-                        <a href="/" className="p-2"><span className="fa fa-instagram"/></a>
-                        <a href="/" className="p-2"><span className="fa fa-youtube-play"/></a>
-                      </p>
-                    </div>
-                </div>
-              </div>
+              <SidebarBios bios={bios_o} />
 
               <PopularPostsAside posts={posts} />
 
-              <div className="sidebar-box">
-                <h3 className="heading">Categories</h3>
-                <ul className="categories">
-                  <li><a href="/">Food <span>(12)</span></a></li>
-                  <li><a href="/">Travel <span>(22)</span></a></li>
-                  <li><a href="/">Lifestyle <span>(37)</span></a></li>
-                  <li><a href="/">Business <span>(42)</span></a></li>
-                  <li><a href="/">Adventure <span>(14)</span></a></li>
-                </ul>
-              </div>
+              <SidebarCategories/>
 
-              <div className="sidebar-box">
-                <h3 className="heading">Tags</h3>
-                <ul className="tags">
-                  <li><a href="/">Travel</a></li>
-                  <li><a href="/">Adventure</a></li>
-                  <li><a href="/">Food</a></li>
-                  <li><a href="/">Lifestyle</a></li>
-                  <li><a href="/">Business</a></li>
-                  <li><a href="/">Freelancing</a></li>
-                  <li><a href="/">Travel</a></li>
-                  <li><a href="/">Adventure</a></li>
-                  <li><a href="/">Food</a></li>
-                  <li><a href="/">Lifestyle</a></li>
-                  <li><a href="/">Business</a></li>
-                  <li><a href="/">Freelancing</a></li>
-                </ul>
-              </div>
+              <SidebarTags/>
+
             </div>
 
           </div>

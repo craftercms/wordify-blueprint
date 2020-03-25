@@ -1,10 +1,30 @@
+/*
+ * Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 as published by
+ * the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
-import Bio from '../components/Bio';
-import ContentType from '../shared/ContentType';
-import PostCard, { LANDSCAPE, LANDSCAPE_COMPRESSED } from '../shared/PostCard';
+import { WrappedContentType } from '../shared/ContentType';
+import PostCard, { LANDSCAPE } from '../shared/PostCard';
 import { FormattedMessage } from 'react-intl';
 import PopularPostsAside from '../shared/PopularPostsAside';
+import DropZone from '../shared/DropZone';
+import SidebarBios from '../shared/SidebarBios';
+import SidebarSearch from '../shared/SidebarSearch';
+import SidebarTags from '../shared/SidebarTags';
+import SidebarCategories from '../shared/SidebarCategories';
 
 export default function (props) {
   const {
@@ -29,16 +49,21 @@ export default function (props) {
               <div className="row">
                 <div className="col-md-12">
                   <h2 className="mb-4">{headline_s}</h2>
+                  <DropZone component="div" model={model}>
                   {
                     content_o?.map(component =>
-                      <div className="mb-5" key={component.craftercms.id}>
-                        <ContentType
-                          model={component}
-                          parentModelId={modelPath}
-                        />
-                      </div>
+                      <WrappedContentType
+                        model={component}
+                        parentModelId={modelPath}
+                        key={component.craftercms.id}
+                        wrapper={{
+                          component: 'div',
+                          className: 'mb-5'
+                        }}
+                      />
                     )
                   }
+                  </DropZone>
                 </div>
               </div>
 
@@ -78,54 +103,17 @@ export default function (props) {
 
             </div>
             <div className="col-md-12 col-lg-4 sidebar">
-              <div className="sidebar-box search-form-wrap">
-                <form action="#" className="search-form">
-                  <div className="form-group">
-                    <span className="icon fa fa-search" />
-                    <input type="text" className="form-control" id="s" placeholder="Type a keyword and hit enter" />
-                  </div>
-                </form>
-              </div>
 
-              {
-                bios_o?.map(bio =>
-                  <div className="sidebar-box" key={bio.craftercms.id}>
-                    <Bio model={bio} />
-                  </div>
-                )
-              }
+              <SidebarSearch />
+
+              <SidebarBios bios={bios_o} />
 
               <PopularPostsAside posts={posts} />
 
-              <div className="sidebar-box">
-                <h3 className="heading">Categories</h3>
-                <ul className="categories">
-                  <li><a href="/">Food <span>(12)</span></a></li>
-                  <li><a href="/">Travel <span>(22)</span></a></li>
-                  <li><a href="/">Lifestyle <span>(37)</span></a></li>
-                  <li><a href="/">Business <span>(42)</span></a></li>
-                  <li><a href="/">Adventure <span>(14)</span></a></li>
-                </ul>
-              </div>
+              <SidebarCategories/>
 
+              <SidebarTags/>
 
-              <div className="sidebar-box">
-                <h3 className="heading">Tags</h3>
-                <ul className="tags">
-                  <li><a href="/">Travel</a></li>
-                  <li><a href="/">Adventure</a></li>
-                  <li><a href="/">Food</a></li>
-                  <li><a href="/">Lifestyle</a></li>
-                  <li><a href="/">Business</a></li>
-                  <li><a href="/">Freelancing</a></li>
-                  <li><a href="/">Travel</a></li>
-                  <li><a href="/">Adventure</a></li>
-                  <li><a href="/">Food</a></li>
-                  <li><a href="/">Lifestyle</a></li>
-                  <li><a href="/">Business</a></li>
-                  <li><a href="/">Freelancing</a></li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
