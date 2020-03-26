@@ -1086,13 +1086,15 @@ textarea.form-control {
 .post-entry-horizontal {
   margin-bottom: 30px; }
   .post-entry-horizontal a {
+    top: 0;
+    width: 100%;
     overflow: hidden;
     display: table;
     position: relative;
-    top: 0;
     -webkit-transition: .1s all ease;
     -o-transition: .1s all ease;
-    transition: .1s all ease; }
+    transition: .1s all ease;
+    table-layout: fixed }
     .post-entry-horizontal a .image, .post-entry-horizontal a .text {
       display: table-cell;
       vertical-align: middle; }

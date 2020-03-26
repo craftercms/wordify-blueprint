@@ -1339,11 +1339,13 @@ textarea.form-control {
 .post-entry-horizontal {
 	margin-bottom: 30px;
 	a {
+		top: 0;
+		width: 100%;
 		overflow: hidden;
 		display: table;
 		position: relative;
-		top: 0;
 		transition: .1s all ease;
+		table-layout: fixed;
 		.image, .text {
 			display: table-cell;
 			vertical-align: middle;
