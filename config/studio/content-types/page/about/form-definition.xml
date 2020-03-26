@@ -3,7 +3,7 @@
 	<description></description>
 	<objectType>page</objectType>
 	<content-type>/page/about</content-type>
-	<imageThumbnail>undefined</imageThumbnail>
+	<imageThumbnail>about.png</imageThumbnail>
 	<quickCreate>false</quickCreate>
 	<quickCreatePath></quickCreatePath>
 	<properties>		<property>
