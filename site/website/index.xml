@@ -4,18 +4,17 @@
   <display-template>/templates/web/entry.ftl</display-template>
   <no-template-required/>
   <merge-strategy>inherit-levels</merge-strategy>
-  <placeInNav>false</placeInNav>
+  <placeInNav>true</placeInNav>
   <file-name>index.xml</file-name>
   <internal-name>Home</internal-name>
-  <orderDefault_f>-1</orderDefault_f>
+  <orderDefault_f>2000</orderDefault_f>
   <objectGroupId>8d7f</objectGroupId>
   <objectId>8d7f21fa-5e09-00aa-8340-853b7db302da</objectId>
   <folder-name/>
   <createdDate>2017-1-31T16:18:14.000Z</createdDate>
   <createdDate_dt>2017-1-31T16:18:14.000Z</createdDate_dt>
-  <lastModifiedDate>2020-03-21T17:52:45.793Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-03-21T17:52:45.793Z</lastModifiedDate_dt>
-  <title_t>Crafter CMS Wordify</title_t>
+  <lastModifiedDate>2020-03-25T09:58:34.941Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-03-25T09:58:34.941Z</lastModifiedDate_dt>
   <disabled>false</disabled>
   <bios_o item-list="true">
     <item datasource="bios">
@@ -59,4 +58,7 @@
       </component>
     </item>
   </slider_o>
+  <pageTitle_s>Crafter CMS Wordify</pageTitle_s>
+  <pageDescription_s>Colorlib's Wordify template as a Crafter CMS site</pageDescription_s>
+  <navLabel>Home</navLabel>
 </page>
