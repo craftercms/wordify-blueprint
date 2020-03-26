@@ -15,29 +15,27 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<!--
-    This file configures the drag-and-drop components available in the Preview Tools. Those components can then
-    be dragged and dropped on a drop-zone within a page.
-
-    The structure of this file is:
-
-    <config>
-        <category> (list of components that can be created on the fly during the drag and drop)
-            <label />
-            <component>
-                <label />
-                <type /> (reference content type of the component)
-                <path /> (where to store these components)
-            </component>
-        </category>
-        <browse> (list of browse paths of where to find ready components to be dragged/dropped)
-            <label />
-            <path /> (where to look for)
-        </browse>
-    </config>
--->
 <config>
-    <category>
-        <label>General</label>
-    </category>
+  <category>
+    <label>Components</label>
+    <component>
+      <label>Image</label>
+      <type>/component/image</type>
+      <path>/components/images</path>
+    </component>
+    <component>
+      <label>Rich Text</label>
+      <type>/component/rich_text</type>
+      <path>/components/rich_text</path>
+    </component>
+    <component>
+      <label>Responsive Columns</label>
+      <type>/component/responsive_columns</type>
+      <path>/components/responsive_columns</path>
+    </component>
+  </category>
+  <browse>
+    <label>Bios</label>
+    <path>/site/components/bios</path>
+  </browse>
 </config>
