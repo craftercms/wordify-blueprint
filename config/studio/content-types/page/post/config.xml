@@ -8,6 +8,6 @@
 	<previewable>true</previewable>
 	<quickCreate>true</quickCreate>
 	<quickCreatePath>/site/website/articles/{year}/{month}</quickCreatePath>
-	<noThumbnail>true</noThumbnail>
-	<image-thumbnail></image-thumbnail>
+	<noThumbnail>false</noThumbnail>
+	<image-thumbnail>post.png</image-thumbnail>
 </content-type>
