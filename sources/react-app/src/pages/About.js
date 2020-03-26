@@ -49,7 +49,7 @@ export default function (props) {
               <div className="row">
                 <div className="col-md-12">
                   <h2 className="mb-4">{headline_s}</h2>
-                  <DropZone component="div" model={model}>
+                  <DropZone component="div" model={model} fieldId="content_o">
                   {
                     content_o?.map(component =>
                       <WrappedContentType

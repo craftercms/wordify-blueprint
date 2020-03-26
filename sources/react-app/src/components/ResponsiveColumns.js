@@ -16,6 +16,7 @@
 
 import React from 'react';
 import ContentType from '../shared/ContentType';
+import DropZone from '../shared/DropZone';
 
 export default function (props) {
   const {
@@ -29,7 +30,13 @@ export default function (props) {
     <div {...ice} className="row mb-5">
       {
         columns_o?.map(({ columnSize_s, content_o }, index) =>
-          <div className={`col-md-${columnSize_s} mb-4`} key={`${modelId}_${columnSize_s}_${index}`}>
+          <DropZone
+            model={model}
+            component="div"
+            fieldId="content_o"
+            className={`col-md-${columnSize_s} mb-4`}
+            key={`${modelId}_${columnSize_s}_${index}`}
+          >
             {
               content_o?.map?.(component =>
                 <ContentType
@@ -39,7 +46,7 @@ export default function (props) {
                 />
               )
             }
-          </div>
+          </DropZone>
         )
       }
     </div>

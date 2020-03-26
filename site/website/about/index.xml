@@ -11,28 +11,28 @@
   <internal-name>About</internal-name>
   <navLabel>About</navLabel>
   <placeInNav>true</placeInNav>
-  <orderDefault_f>1000</orderDefault_f>
+  <orderDefault_f>3000</orderDefault_f>
   <createdDate>2020-03-21T11:22:32.098Z</createdDate>
   <createdDate_dt>2020-03-21T11:22:32.098Z</createdDate_dt>
-  <lastModifiedDate>2020-03-23T08:07:22.766Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-03-23T08:07:22.766Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-03-26T11:15:45.364Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-03-26T11:15:45.364Z</lastModifiedDate_dt>
   <bios_o item-list="true">
     <item datasource="bio">
       <key>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
-      <value>David Craig Bio</value>
+      <value>John Doe's Bio</value>
       <include>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
     <item datasource="bio">
       <key>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
-      <value>Megan Smith's Bio</value>
+      <value>Jane Doe's Bio</value>
       <include>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
   </bios_o>
   <pageTitle_s>Wordify - About The Author</pageTitle_s>
   <pageDescription_s/>
-  <headline_s>Hi There! I'm Craig David</headline_s>
+  <headline_s>Hi There! I'm John Doe</headline_s>
   <content_o item-list="true">
     <item datasource="image" inline="true">
       <key>8cb817ea-ad49-f1e1-1d3e-743b63a97bd6</key>

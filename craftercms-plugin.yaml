@@ -25,6 +25,18 @@ plugin:
       - title: Homepage
         description: Screenshot of the homepage
         url: /studio/static-assets/images/blueprints/wordify/home.png
+      - title:
+        description: Screenshot of the category page
+        url: /studio/static-assets/images/blueprints/wordify/category.png
+      - title:
+        description: Screenshot of the post page
+        url: /studio/static-assets/images/blueprints/wordify/post.png
+      - title:
+        description: Screenshot of the about page
+        url: /studio/static-assets/images/blueprints/wordify/about.png
+      - title:
+        description: Screenshot of the contact page
+        url: /studio/static-assets/images/blueprints/wordify/contact.png
   developer:
     company:
       name: Crafter Software

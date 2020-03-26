@@ -48,6 +48,7 @@ export function useNavigation() {
                 contentTypeId: content__type
                 url: localId(transform: "storeUrlToRenderUrl")
                 placeInNav(filter: { equals: true }) @skip(if: true)
+                orderDefault_f
               }
             }
           }
@@ -67,7 +68,8 @@ export function usePencil(props) {
 }
 
 export function useDnD(props) {
-  const { model } = props;
+  const { model, fieldId } = props;
   const [{ isAuthoring }] = useGlobalContext();
-  return useDropZone({ model, isAuthoring }).props;
+  // Note on version 1.2.3 of SDK, zoneName will be depricated, in favour of fieldId
+  return useDropZone({ model, zoneName: fieldId, isAuthoring }).props;
 }

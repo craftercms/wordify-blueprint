@@ -23,9 +23,11 @@ import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarBios from '../shared/SidebarBios';
+import DropZone from '../shared/DropZone';
 
 export default function (props) {
   const { model, posts } = props;
+  const modelPath = model.craftercms.path;
   return (
     <BaseLayout>
       <section className="site-section py-lg">
@@ -44,22 +46,30 @@ export default function (props) {
               <h1 className="mb-4">{model.headline_s}</h1>
               <a className="category mb-5" href="/">Food</a> <a className="category mb-5" href="/">Travel</a>
 
-              <div className="post-content-body">
+              <DropZone
+                model={model}
+                component="div"
+                fieldId="content_o"
+                className="post-content-body"
+              >
                 {
                   model.content_o?.map(component =>
                     <ContentType
                       model={component}
-                      parentModelId={model.craftercms.path}
                       key={component.craftercms.id}
+                      parentModelId={modelPath}
                     />
                   )
                 }
-              </div>
-
+              </DropZone>
 
               <div className="pt-5">
-                <p>Categories: <a href="/">Food</a>, <a href="/">Travel</a> Tags: <a href="/">#manila</a>, <a
-                  href="/">#asia</a></p>
+                <div>
+                  Categories: <a href="/">Food</a>, <a href="/">Travel</a>
+                </div>
+                <div>
+                  Tags: <a href="/">#manila</a>, <a href="/">#asia</a>
+                </div>
               </div>
 
 

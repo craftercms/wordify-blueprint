@@ -1,17 +1,12 @@
 <form>
   <title>Contact</title>
   <description></description>
-  <content-type>/page/contact</content-type>
   <objectType>page</objectType>
+  <content-type>/page/contact</content-type>
+  <imageThumbnail>contact.png</imageThumbnail>
   <quickCreate>false</quickCreate>
   <quickCreatePath></quickCreatePath>
   <properties>
-    <property>
-      <name>content-type</name>
-      <label>Content Type</label>
-      <value>/page/contact</value>
-      <type>string</type>
-    </property>
     <property>
       <name>display-template</name>
       <label>Display Template</label>
@@ -88,7 +83,7 @@
           <constraints>
             <constraint>
               <name>required</name>
-              <value>true</value>
+              <value><![CDATA[true]]></value>
               <type>boolean</type>
             </constraint>
           </constraints>
@@ -104,7 +99,7 @@
           <properties>
             <property>
               <name>readonly</name>
-              <value>[]</value>
+              <value></value>
               <type>boolean</type>
             </property>
           </properties>
@@ -139,7 +134,7 @@
           <constraints>
             <constraint>
               <name>required</name>
-              <value>true</value>
+              <value><![CDATA[true]]></value>
               <type>boolean</type>
             </constraint>
           </constraints>
@@ -240,4 +235,5 @@
       </fields>
     </section>
   </sections>
+  <datasources></datasources>
 </form>

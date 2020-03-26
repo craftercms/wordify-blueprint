@@ -23,5 +23,6 @@ export default function (props) {
   const cleanProps = { ...props };
   delete cleanProps.model;
   delete cleanProps.component;
+  delete cleanProps.fieldId;
   return <Component {...ice} {...cleanProps} />;
 }
