@@ -3,7 +3,7 @@
 	<description></description>
 	<objectType>component</objectType>
 	<content-type>/component/rich_text</content-type>
-	<imageThumbnail>undefined</imageThumbnail>
+	<imageThumbnail>photography.png</imageThumbnail>
 	<quickCreate>false</quickCreate>
 	<quickCreatePath></quickCreatePath>
 	<properties>		<property>
