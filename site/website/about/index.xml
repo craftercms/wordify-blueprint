@@ -14,8 +14,8 @@
 	<orderDefault_f>3000</orderDefault_f>
 	<createdDate>2020-03-21T11:22:32.098Z</createdDate>
 	<createdDate_dt>2020-03-21T11:22:32.098Z</createdDate_dt>
-	<lastModifiedDate>2020-03-26T08:54:38.848Z</lastModifiedDate>
-	<lastModifiedDate_dt>2020-03-26T08:54:38.848Z</lastModifiedDate_dt>
+	<lastModifiedDate>2020-03-26T11:15:45.364Z</lastModifiedDate>
+	<lastModifiedDate_dt>2020-03-26T11:15:45.364Z</lastModifiedDate_dt>
 	<bios_o item-list="true">	<item datasource="bio">	<key>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
 	<value>John Doe's Bio</value>
 	<include>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
@@ -77,5 +77,23 @@
         <lastModifiedDate>2020-03-23T08:07:28.756Z</lastModifiedDate>
         <lastModifiedDate_dt>2020-03-23T08:07:28.756Z</lastModifiedDate_dt>
       </component>
+	</item>	<item datasource="image" inline="true">	<key>02c6ae3f-8b75-e68f-efde-d1ff81685bdf</key>
+	<value>Bottom Image</value>
+<component id="02c6ae3f-8b75-e68f-efde-d1ff81685bdf">
+	<content-type>/component/image</content-type>
+	<display-template>/templates/web/components/image.ftl</display-template>
+	<no-template-required/>
+	<merge-strategy>inherit-levels</merge-strategy>
+	<objectGroupId>02c6</objectGroupId>
+	<objectId>02c6ae3f-8b75-e68f-efde-d1ff81685bdf</objectId>
+	<file-name>02c6ae3f-8b75-e68f-efde-d1ff81685bdf.xml</file-name>
+	<internal-name>Bottom Image</internal-name>
+	<alternativeText_s/>
+	<image_s>/static-assets/images/img_9.jpg</image_s>
+	<createdDate>2020-03-26T11:15:45.859Z</createdDate>
+	<createdDate_dt>2020-03-26T11:15:45.859Z</createdDate_dt>
+	<lastModifiedDate>2020-03-26T11:15:45.859Z</lastModifiedDate>
+	<lastModifiedDate_dt>2020-03-26T11:15:45.859Z</lastModifiedDate_dt>
+</component>
 	</item></content_o>
 </page>
