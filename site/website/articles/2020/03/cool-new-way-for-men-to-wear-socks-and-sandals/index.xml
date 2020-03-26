@@ -45,40 +45,6 @@
         <lastModifiedDate>2020-03-21T16:09:52.050Z</lastModifiedDate>
         <lastModifiedDate_dt>2020-03-21T16:09:52.050Z</lastModifiedDate_dt>
       </component>
-	</item>	<item datasource="richTextSections" inline="true">	<key>0aa38516-44c6-c092-8a89-97ed01f25041</key>
-	<value>Quibusdam autem</value>
-<component id="0aa38516-44c6-c092-8a89-97ed01f25041">
-        <content-type>/component/rich_text</content-type>
-        <display-template>/templates/web/components/rich_text.ftl</display-template>
-        <no-template-required/>
-        <merge-strategy>inherit-levels</merge-strategy>
-        <objectGroupId>0aa3</objectGroupId>
-        <objectId>0aa38516-44c6-c092-8a89-97ed01f25041</objectId>
-        <file-name>0aa38516-44c6-c092-8a89-97ed01f25041.xml</file-name>
-        <internal-name>Quibusdam autem</internal-name>
-        <content_html>&lt;p&gt;Quibusdam autem, quas molestias recusandae aperiam molestiae modi qui ipsam vel. Placeat
-          tenetur veritatis tempore quos impedit dicta, error autem, quae sint inventore ipsa quidem. Quo voluptate
-          quisquam reiciendis, minus, animi minima eum officia doloremque repellat eos, odio doloribus cum.&lt;/p&gt;
-          &lt;p&gt;Temporibus quo dolore veritatis doloribus delectus dolores perspiciatis recusandae ducimus, nisi
-          quod, incidunt ut quaerat, magnam cupiditate. Aut, laboriosam magnam, nobis dolore fugiat impedit
-          necessitatibus nisi cupiditate, quas repellat itaque molestias sit libero voluptas eveniet omnis illo ullam
-          dolorem minima.&lt;/p&gt;
-          &lt;p&gt;Porro amet accusantium libero fugit totam, deserunt ipsa, dolorem, vero expedita illo similique saepe
-          nisi deleniti. Cumque, laboriosam, porro! Facilis voluptatem sequi nulla quidem, provident eius quos pariatur
-          maxime sapiente illo nostrum quibusdam aliquid fugiat! Earum quod fuga id officia.&lt;/p&gt;
-          &lt;p&gt;Illo magnam at dolore ad enim fugiat ut maxime facilis autem, nulla cumque quis commodi eos nisi unde
-          soluta, ipsa eius aspernatur sint atque! Nihil, eveniet illo ea, mollitia fuga accusamus dolor dolorem
-          perspiciatis rerum hic, consectetur error rem aspernatur!&lt;/p&gt;
-          &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus magni explicabo id molestiae,
-          minima quas assumenda consectetur, nobis neque rem, incidunt quam tempore perferendis provident obcaecati
-          sapiente, animi vel expedita omnis quae ipsa! Obcaecati eligendi sed odio labore vero reiciendis facere
-          accusamus molestias eaque impedit, consequuntur quae fuga vitae fugit?&lt;/p&gt;
-        </content_html>
-        <createdDate>2020-03-21T16:14:15.352Z</createdDate>
-        <createdDate_dt>2020-03-21T16:14:15.352Z</createdDate_dt>
-        <lastModifiedDate>2020-03-21T16:14:15.352Z</lastModifiedDate>
-        <lastModifiedDate_dt>2020-03-21T16:14:15.352Z</lastModifiedDate_dt>
-      </component>
 	</item>	<item datasource="responsiveColumns" inline="true">	<key>14397648-d047-fcea-7497-314af89d1a3e</key>
 	<value>Side by side images</value>
 <component id="14397648-d047-fcea-7497-314af89d1a3e">
@@ -171,6 +137,40 @@
         <createdDate_dt>2020-03-21T16:12:28.213Z</createdDate_dt>
         <lastModifiedDate>2020-03-24T17:48:44.794Z</lastModifiedDate>
         <lastModifiedDate_dt>2020-03-24T17:48:44.794Z</lastModifiedDate_dt>
+      </component>
+	</item>	<item datasource="richTextSections" inline="true">	<key>0aa38516-44c6-c092-8a89-97ed01f25041</key>
+	<value>Quibusdam autem</value>
+<component id="0aa38516-44c6-c092-8a89-97ed01f25041">
+        <content-type>/component/rich_text</content-type>
+        <display-template>/templates/web/components/rich_text.ftl</display-template>
+        <no-template-required/>
+        <merge-strategy>inherit-levels</merge-strategy>
+        <objectGroupId>0aa3</objectGroupId>
+        <objectId>0aa38516-44c6-c092-8a89-97ed01f25041</objectId>
+        <file-name>0aa38516-44c6-c092-8a89-97ed01f25041.xml</file-name>
+        <internal-name>Quibusdam autem</internal-name>
+        <content_html>&lt;p&gt;Quibusdam autem, quas molestias recusandae aperiam molestiae modi qui ipsam vel. Placeat
+          tenetur veritatis tempore quos impedit dicta, error autem, quae sint inventore ipsa quidem. Quo voluptate
+          quisquam reiciendis, minus, animi minima eum officia doloremque repellat eos, odio doloribus cum.&lt;/p&gt;
+          &lt;p&gt;Temporibus quo dolore veritatis doloribus delectus dolores perspiciatis recusandae ducimus, nisi
+          quod, incidunt ut quaerat, magnam cupiditate. Aut, laboriosam magnam, nobis dolore fugiat impedit
+          necessitatibus nisi cupiditate, quas repellat itaque molestias sit libero voluptas eveniet omnis illo ullam
+          dolorem minima.&lt;/p&gt;
+          &lt;p&gt;Porro amet accusantium libero fugit totam, deserunt ipsa, dolorem, vero expedita illo similique saepe
+          nisi deleniti. Cumque, laboriosam, porro! Facilis voluptatem sequi nulla quidem, provident eius quos pariatur
+          maxime sapiente illo nostrum quibusdam aliquid fugiat! Earum quod fuga id officia.&lt;/p&gt;
+          &lt;p&gt;Illo magnam at dolore ad enim fugiat ut maxime facilis autem, nulla cumque quis commodi eos nisi unde
+          soluta, ipsa eius aspernatur sint atque! Nihil, eveniet illo ea, mollitia fuga accusamus dolor dolorem
+          perspiciatis rerum hic, consectetur error rem aspernatur!&lt;/p&gt;
+          &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus magni explicabo id molestiae,
+          minima quas assumenda consectetur, nobis neque rem, incidunt quam tempore perferendis provident obcaecati
+          sapiente, animi vel expedita omnis quae ipsa! Obcaecati eligendi sed odio labore vero reiciendis facere
+          accusamus molestias eaque impedit, consequuntur quae fuga vitae fugit?&lt;/p&gt;
+        </content_html>
+        <createdDate>2020-03-21T16:14:15.352Z</createdDate>
+        <createdDate_dt>2020-03-21T16:14:15.352Z</createdDate_dt>
+        <lastModifiedDate>2020-03-21T16:14:15.352Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-03-21T16:14:15.352Z</lastModifiedDate_dt>
       </component>
 	</item></content_o>
 	<blurb_t>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt</blurb_t>
