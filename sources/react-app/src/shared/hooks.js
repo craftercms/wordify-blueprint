@@ -70,5 +70,6 @@ export function usePencil(props) {
 export function useDnD(props) {
   const { model, fieldId } = props;
   const [{ isAuthoring }] = useGlobalContext();
+  // Note on version 1.2.3 of SDK, zoneName will be depricated, in favour of fieldId
   return useDropZone({ model, zoneName: fieldId, isAuthoring }).props;
 }
