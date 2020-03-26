@@ -21,17 +21,14 @@
     <component>
       <label>Image</label>
       <type>/component/image</type>
-      <path>/components/images</path>
     </component>
     <component>
       <label>Rich Text</label>
       <type>/component/rich_text</type>
-      <path>/components/rich_text</path>
     </component>
     <component>
       <label>Responsive Columns</label>
       <type>/component/responsive_columns</type>
-      <path>/components/responsive_columns</path>
     </component>
   </category>
   <browse>
