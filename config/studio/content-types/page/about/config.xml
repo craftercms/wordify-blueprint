@@ -8,6 +8,6 @@
 	<previewable>true</previewable>
 	<quickCreate>false</quickCreate>
 	<quickCreatePath></quickCreatePath>
-	<noThumbnail>true</noThumbnail>
-	<image-thumbnail></image-thumbnail>
+	<noThumbnail>false</noThumbnail>
+	<image-thumbnail>about.png</image-thumbnail>
 </content-type>
