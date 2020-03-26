@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
-	<content-type>/page/entry</content-type>
-	<display-template>/templates/web/entry.ftl</display-template>
-	<no-template-required/>
-	<merge-strategy>inherit-levels</merge-strategy>
-	<placeInNav>true</placeInNav>
-	<file-name>index.xml</file-name>
-	<internal-name>Home</internal-name>
-	<orderDefault_f>2000</orderDefault_f>
-	<objectGroupId>8d7f</objectGroupId>
-	<objectId>8d7f21fa-5e09-00aa-8340-853b7db302da</objectId>
-	<folder-name/>
-	<createdDate>2017-1-31T16:18:14.000Z</createdDate>
-	<createdDate_dt>2017-1-31T16:18:14.000Z</createdDate_dt>
-	<lastModifiedDate>2020-03-25T09:58:34.941Z</lastModifiedDate>
-	<lastModifiedDate_dt>2020-03-25T09:58:34.941Z</lastModifiedDate_dt>
-	<disabled>false</disabled>
-	<bios_o item-list="true">	<item datasource="bios">	<key>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
-	<value>David Craig Bio</value>
-	<include>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
-	<disableFlattening>false</disableFlattening>
-	</item></bios_o>
-	<slider_o item-list="true">	<item datasource="sliders" inline="true">	<key>31e6f69a-e298-2201-695b-1de7db559352</key>
-	<value>Home Slider</value>
-<component id="31e6f69a-e298-2201-695b-1de7db559352">
+  <content-type>/page/entry</content-type>
+  <display-template>/templates/web/entry.ftl</display-template>
+  <no-template-required/>
+  <merge-strategy>inherit-levels</merge-strategy>
+  <placeInNav>true</placeInNav>
+  <file-name>index.xml</file-name>
+  <internal-name>Home</internal-name>
+  <orderDefault_f>2000</orderDefault_f>
+  <objectGroupId>8d7f</objectGroupId>
+  <objectId>8d7f21fa-5e09-00aa-8340-853b7db302da</objectId>
+  <folder-name/>
+  <createdDate>2017-1-31T16:18:14.000Z</createdDate>
+  <createdDate_dt>2017-1-31T16:18:14.000Z</createdDate_dt>
+  <lastModifiedDate>2020-03-25T09:58:34.941Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-03-25T09:58:34.941Z</lastModifiedDate_dt>
+  <disabled>false</disabled>
+  <bios_o item-list="true">
+    <item datasource="bios">
+      <key>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
+      <value>David Craig Bio</value>
+      <include>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
+      <disableFlattening>false</disableFlattening>
+    </item>
+  </bios_o>
+  <slider_o item-list="true">
+    <item datasource="sliders" inline="true">
+      <key>31e6f69a-e298-2201-695b-1de7db559352</key>
+      <value>Home Slider</value>
+      <component id="31e6f69a-e298-2201-695b-1de7db559352">
         <content-type>/component/slider</content-type>
         <display-template>/templates/web/components/slider.ftl</display-template>
         <no-template-required/>
@@ -51,8 +56,9 @@
         <lastModifiedDate>2020-03-21T17:52:50.268Z</lastModifiedDate>
         <lastModifiedDate_dt>2020-03-21T17:52:50.268Z</lastModifiedDate_dt>
       </component>
-	</item></slider_o>
-	<pageTitle_s>Crafter CMS Wordify</pageTitle_s>
-	<pageDescription_s>Colorlib's Wordify template as a Crafter CMS site</pageDescription_s>
-	<navLabel>Home</navLabel>
+    </item>
+  </slider_o>
+  <pageTitle_s>Crafter CMS Wordify</pageTitle_s>
+  <pageDescription_s>Colorlib's Wordify template as a Crafter CMS site</pageDescription_s>
+  <navLabel>Home</navLabel>
 </page>
