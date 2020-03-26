@@ -26,10 +26,10 @@ export default function Header() {
         <div className="container">
           <div className="row">
             <div className="col-9 social">
-              <a href="/"><span className="fa fa-twitter"/></a>
-              <a href="/"><span className="fa fa-facebook"/></a>
-              <a href="/"><span className="fa fa-instagram"/></a>
-              <a href="/"><span className="fa fa-youtube-play"/></a>
+              <a href="/"><span className="fa fa-twitter" /></a>
+              <a href="/"><span className="fa fa-facebook" /></a>
+              <a href="/"><span className="fa fa-instagram" /></a>
+              <a href="/"><span className="fa fa-youtube-play" /></a>
             </div>
             <div className="col-3 search-top">
               <form action="#" className="search-top-form">
@@ -56,7 +56,12 @@ export default function Header() {
           <div className="collapse navbar-collapse" id="navbarMenu">
             <ul className="navbar-nav mx-auto">
               {
-                nav?.map(page =>
+                nav?.sort(
+                  (
+                    { orderDefault_f: a },
+                    { orderDefault_f: b }
+                  ) => (a < b) ? -1 : ((a > b) ? 1 : 0)
+                ).map((page) =>
                   <li className="nav-item" key={page.url}>
                     <NavLink
                       exact

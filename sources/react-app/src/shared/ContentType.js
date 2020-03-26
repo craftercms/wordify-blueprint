@@ -32,7 +32,14 @@ export function ContentType(props) {
 
 export function WrappedContentType(props) {
 
-  const { wrapper, wrapper: { component: Wrapper = 'div' } } = props;
+  const {
+    wrapper,
+    wrapper: {
+      component: Wrapper = 'div'
+    } = {
+      component: 'div'
+    }
+  } = props;
 
   const ice = usePencil(props);
 
