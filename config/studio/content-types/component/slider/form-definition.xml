@@ -160,38 +160,38 @@
     <datasource>
       <type>shared-content</type>
       <id>blogPosts</id>
-      <title>Blog Posts</title>
+      <title>Posts</title>
       <interface>item</interface>
       <properties>
         <property>
           <name>enableCreateNew</name>
           <value>true</value>
-          <type>undefined</type>
+          <type />
         </property>
         <property>
           <name>enableBrowseExisting</name>
           <value>true</value>
-          <type>undefined</type>
+          <type />
         </property>
         <property>
           <name>enableSearchExisting</name>
           <value>true</value>
-          <type>undefined</type>
+          <type />
         </property>
         <property>
           <name>repoPath</name>
-          <value>/site/website/articles/{year}/{month}</value>
-          <type>undefined</type>
+          <value>/site/components/post/{year}/{month}</value>
+          <type />
         </property>
         <property>
           <name>browsePath</name>
-          <value>/site/website/articles</value>
-          <type>undefined</type>
+          <value>/site/components/post</value>
+          <type />
         </property>
         <property>
           <name>type</name>
-          <value>/page/post</value>
-          <type>undefined</type>
+          <value>/component/post</value>
+          <type />
         </property>
       </properties>
     </datasource>
