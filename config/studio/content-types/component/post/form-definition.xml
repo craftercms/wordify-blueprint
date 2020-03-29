@@ -1,11 +1,11 @@
 <form>
   <title>Post</title>
-  <description></description>
+  <description/>
   <objectType>component</objectType>
   <content-type>/component/post</content-type>
   <imageThumbnail>post.png</imageThumbnail>
   <quickCreate>false</quickCreate>
-  <quickCreatePath></quickCreatePath>
+  <quickCreatePath/>
   <properties>
     <property>
       <name>display-template</name>
@@ -233,6 +233,49 @@
             <constraint>
               <name>required</name>
               <value><![CDATA[false]]></value>
+              <type>boolean</type>
+            </constraint>
+            <constraint>
+              <name>pattern</name>
+              <value><![CDATA[]]></value>
+              <type>string</type>
+            </constraint>
+          </constraints>
+        </field>
+        <field>
+          <type>input</type>
+          <id>slug_s</id>
+          <iceId></iceId>
+          <title>Slug</title>
+          <description>The friendly URL for this post</description>
+          <defaultValue></defaultValue>
+          <help></help>
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>200</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value></value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[true]]></value>
               <type>boolean</type>
             </constraint>
             <constraint>
@@ -598,7 +641,7 @@
         </property>
         <property>
           <name>repoPath</name>
-          <value>/site/components/bios</value>
+          <value>/site/components/bio</value>
           <type>undefined</type>
         </property>
         <property>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
-  <content-type>/page/post</content-type>
-  <display-template>/templates/web/post.ftl</display-template>
+  <content-type>/component/post</content-type>
+  <display-template>/templates/web/components/post.ftl</display-template>
   <no-template-required/>
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>ea10</objectGroupId>
@@ -11,13 +11,15 @@
   <internal-name>Men Socks and Sandals</internal-name>
   <navLabel>There’s a Cool New Way for Men to Wear Socks and Sandals</navLabel>
   <placeInNav>false</placeInNav>
-  <orderDefault_f>-1</orderDefault_f>
+  <orderDefault_f/>
   <createdDate>2020-03-21T11:29:30.420Z</createdDate>
   <createdDate_dt>2020-03-21T11:29:30.420Z</createdDate_dt>
   <lastModifiedDate>2020-03-24T17:48:13.890Z</lastModifiedDate>
   <lastModifiedDate_dt>2020-03-24T17:48:13.890Z</lastModifiedDate_dt>
-  <mainImage_s>/static-assets/images/img_12.jpg</mainImage_s>
   <pageTitle_s>Cool New Way for Men to Wear Socks and Sandals</pageTitle_s>
+  <pageDescription_s/>
+  <slug_s>cool-new-way-for-men-to-wear-socks-and-sandals</slug_s>
+  <mainImage_s>/static-assets/images/img_12.jpg</mainImage_s>
   <headline_s>There’s a Cool New Way for Men to Wear Socks and Sandals</headline_s>
   <content_o item-list="true">
     <item datasource="richTextSections" inline="true">
@@ -189,5 +191,4 @@
       <disableFlattening>false</disableFlattening>
     </item>
   </authorBio_o>
-  <pageDescription_s/>
 </page>

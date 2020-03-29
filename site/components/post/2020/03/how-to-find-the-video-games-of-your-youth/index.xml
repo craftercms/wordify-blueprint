@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
-  <content-type>/page/post</content-type>
-  <display-template>/templates/web/post.ftl</display-template>
+  <content-type>/component/post</content-type>
+  <display-template>/templates/web/components/post.ftl</display-template>
   <no-template-required/>
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>2db5</objectGroupId>
@@ -10,15 +10,17 @@
   <folder-name>how-to-find-the-video-games-of-your-youth</folder-name>
   <internal-name>Video Games of Your Youth</internal-name>
   <navLabel>How to Find the Video Games of Your Youth</navLabel>
-  <pageTitle_s>How to Find the Video Games of Your Youth</pageTitle_s>
-  <headline_s>How to Find the Video Games of Your Youth</headline_s>
   <placeInNav>false</placeInNav>
-  <orderDefault_f>-1</orderDefault_f>
-  <mainImage_s>/static-assets/images/img_1.jpg</mainImage_s>
+  <orderDefault_f/>
   <createdDate>2020-03-21T15:18:28.488Z</createdDate>
   <createdDate_dt>2020-03-21T15:18:28.488Z</createdDate_dt>
   <lastModifiedDate>2020-03-22T20:01:48.575Z</lastModifiedDate>
   <lastModifiedDate_dt>2020-03-22T20:01:48.575Z</lastModifiedDate_dt>
+  <pageTitle_s>How to Find the Video Games of Your Youth</pageTitle_s>
+  <pageDescription_s/>
+  <slug_s>how-to-find-the-video-games-of-your-youth</slug_s>
+  <mainImage_s>/static-assets/images/img_1.jpg</mainImage_s>
+  <headline_s>How to Find the Video Games of Your Youth</headline_s>
   <content_o item-list="true">
     <item datasource="richTextSections" inline="true">
       <key>543ab594-1eb0-4d66-6536-8fb3c0b90b62</key>
@@ -121,7 +123,6 @@
       </component>
     </item>
   </content_o>
-  <pageDescription_s/>
   <blurb_t/>
   <authorBio_o item-list="true">
     <item datasource="bios">
