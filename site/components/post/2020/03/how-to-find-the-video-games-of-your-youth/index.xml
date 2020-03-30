@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<page>
+<component>
   <content-type>/component/post</content-type>
   <display-template>/templates/web/components/post.ftl</display-template>
   <no-template-required/>
@@ -132,4 +132,4 @@
       <disableFlattening>false</disableFlattening>
     </item>
   </authorBio_o>
-</page>
+</component>
