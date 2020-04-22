@@ -4,7 +4,7 @@
   "extensions": {
     "endpoints": {
       "Default GraphQL Endpoint": {
-        "url": "http://authoring.sample.com:8080/api/1/site/graphql?crafterSite=wordify",
+        "url": "http://localhost:8080/api/1/site/graphql?crafterSite=wordify",
         "headers": {
           "user-agent": "JS GraphQL"
         },

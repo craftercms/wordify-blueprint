@@ -18,7 +18,8 @@ import React, { useEffect, useState } from 'react';
 
 import CircularProgressSpinner from './CircularProgressSpinner';
 import { fetchQuery } from '../relayEnvironment';
-import byUrlQuery from './byUrlQuery';
+// import byUrlQuery from './byUrlQuery';
+import byUrlQuery from './queries.graphql';
 import ContentType from './ContentType';
 import { parseDescriptor } from '@craftercms/content';
 import { reportNavigation } from '@craftercms/ice';
@@ -33,7 +34,8 @@ export default function DynamicRoute(props) {
     let destroyed = false;
     reportNavigation(url);
     fetchQuery(
-      { text: byUrlQuery.params.text.replace(/__typename/g, '') },
+      // { text: byUrlQuery.params.text.replace(/__typename/g, '') },
+      { text: byUrlQuery },
       {
         url: `.*${url === '/' ? 'website/index' : url}.*`,
         includePosts: true
@@ -43,6 +45,14 @@ export default function DynamicRoute(props) {
         const model = parseDescriptor(data.content.items?.[0]);
         const posts = parseDescriptor(data.posts.items);
         setState({ model, posts });
+        if (model) {
+          window.scroll(0, 0);
+          document.title = model.pageTitle_s ?? 'Wordify Crafter CMS';
+          if (model.pageDescription_s) {
+            const description = document.head.querySelector('meta[name="description"]');
+            description && description.setAttribute('content', model.pageDescription_s ?? '');
+          }
+        }
       }
     });
     return () => {
