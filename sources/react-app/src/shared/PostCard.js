@@ -38,7 +38,6 @@ export default function (props) {
     numOfComments = 3,
     model,
     model: {
-      slug = model.craftercms.path.replace(/(\/site\/website)|(index\.xml)/g, '').replace(/(\/\/)/g, '/'),
       // pageTitle_s,
       // pageDescription_s,
       // authorBio_o,
@@ -56,6 +55,10 @@ export default function (props) {
       },
     }
   } = props;
+  const slug = model.craftercms.path
+    .replace(/(\/site\/components)|(index\.xml)/g, '')
+    .replace(/(\/\/)/g, '/')
+    .replace('post/', 'articles/');
   const { props: ice } = useICE({ model, parentModelId, isAuthoring });
   switch (format) {
     case PORTRAIT:
