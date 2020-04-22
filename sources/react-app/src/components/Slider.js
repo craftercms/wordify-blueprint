@@ -42,7 +42,7 @@ export default function (props) {
 
   const [posts, setPosts] = useState(null);
   const paths = posts_o?.reduce(
-    (accum, { key }, index) => `${accum}${index ? D : ''}${key}`,
+    (accum, { craftercms: { path } }, index) => `${accum}${index ? D : ''}${path}`,
     ''
   );
 
