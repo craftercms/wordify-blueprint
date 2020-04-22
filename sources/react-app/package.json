@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "./build.sh",
+    "build": "chmod +x build.sh; ./build.sh",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "relay": "relay-compiler --src ./src --schema ./data/schema.graphql"
@@ -38,7 +38,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://authoring.sample.com:8080",
+  "proxy": "http://localhost:8080",
   "devDependencies": {
     "babel-plugin-macros": "^2.8.0",
     "babel-plugin-relay": "^9.0.0",

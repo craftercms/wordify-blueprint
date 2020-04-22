@@ -208,6 +208,15 @@ graphql`
     posts_o {
       item {
         key
+        component {
+          ...byUrlQueryContentItemFields
+          slug: localId(transform: "storeUrlToRenderUrl")
+          pageTitle_s
+          pageDescription_s
+          blurb_t
+          headline_s
+          mainImage_s
+        }
       }
     }
   }

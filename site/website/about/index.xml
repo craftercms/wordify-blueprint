@@ -18,15 +18,15 @@
   <lastModifiedDate_dt>2020-03-26T11:15:45.364Z</lastModifiedDate_dt>
   <bios_o item-list="true">
     <item datasource="bio">
-      <key>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
+      <key>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
       <value>John Doe's Bio</value>
-      <include>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
+      <include>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
     <item datasource="bio">
-      <key>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
+      <key>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
       <value>Jane Doe's Bio</value>
-      <include>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
+      <include>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
   </bios_o>

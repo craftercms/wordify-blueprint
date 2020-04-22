@@ -448,7 +448,7 @@
         </property>
         <property>
           <name>browsePath</name>
-          <value>/components/bios</value>
+          <value>/components/bio</value>
           <type>undefined</type>
         </property>
         <property>

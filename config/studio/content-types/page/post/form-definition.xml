@@ -598,7 +598,7 @@
         </property>
         <property>
           <name>repoPath</name>
-          <value>/site/components/bios</value>
+          <value>/site/components/bio</value>
           <type>undefined</type>
         </property>
         <property>
