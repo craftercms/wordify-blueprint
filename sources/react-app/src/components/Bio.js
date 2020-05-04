@@ -31,13 +31,17 @@ export default function (props) {
       profilePic_s,
       linkButtonText_s,
       linkButtonUrl_s,
-      showLinkButton_b
+      showLinkButton_b,
+      facebookLink_s,
+      twitterLink_s,
+      instagramLink_s,
+      youTubeLink_s
     }
   } = props;
   return (
     <>
       <div className="bio text-center" {...ice}>
-        <img src={profilePic_s} alt="" className="img-fluid"/>
+        <img src={profilePic_s} alt="" className="img-fluid" />
         <div className="bio-body">
           <h2>{name_s}</h2>
           <p>{bio_t}</p>
@@ -50,10 +54,30 @@ export default function (props) {
             </p>
           }
           <p className="social">
-            <a href="/" className="p-2"><span className="fa fa-facebook"/></a>
-            <a href="/" className="p-2"><span className="fa fa-twitter"/></a>
-            <a href="/" className="p-2"><span className="fa fa-instagram"/></a>
-            <a href="/" className="p-2"><span className="fa fa-youtube-play"/></a>
+            {
+              facebookLink_s &&
+              <a href={facebookLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
+                <span className="fa fa-facebook" />
+              </a>
+            }
+            {
+              twitterLink_s &&
+              <a href={twitterLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
+                <span className="fa fa-twitter" />
+              </a>
+            }
+            {
+              instagramLink_s &&
+              <a href={instagramLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
+                <span className="fa fa-instagram" />
+              </a>
+            }
+            {
+              youTubeLink_s &&
+              <a href={youTubeLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
+                <span className="fa fa-youtube-play" />
+              </a>
+            }
           </p>
         </div>
       </div>
