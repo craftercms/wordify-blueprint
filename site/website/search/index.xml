@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
 	<content-type>/page/search</content-type>
-	<content-type>/page/search</content-type>
 	<display-template/>
 	<no-template-required/>
 	<merge-strategy>inherit-levels</merge-strategy>
