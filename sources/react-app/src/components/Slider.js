@@ -18,6 +18,7 @@ import React, { useEffect, useState } from 'react';
 import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
 import { getItem, parseDescriptor } from '@craftercms/content/esm2015';
 import { usePencil } from '../shared/hooks';
+import { useGlobalContext } from '../shared/context';
 
 const D = '{-}'; // divider
 const C = {
@@ -36,6 +37,7 @@ export default function (props) {
     }
   } = props;
 
+  const [{ $ }] = useGlobalContext();
   const ice = usePencil(props);
 
   // region "Sample"
@@ -75,7 +77,7 @@ export default function (props) {
 
   useEffect(() => {
     if (posts) {
-      const $carousel = window.$('.home-slider');
+      const $carousel = $('.home-slider');
       $carousel.owlCarousel({
         loop: true,
         autoplay: true,
@@ -105,7 +107,7 @@ export default function (props) {
         $carousel.owlCarousel('destroy');
       };
     }
-  }, [posts]);
+  }, [posts, $]);
 
   return (
     <div className="owl-carousel owl-theme home-slider" {...ice}>

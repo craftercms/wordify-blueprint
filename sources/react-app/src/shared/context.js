@@ -34,7 +34,8 @@ function GlobalContextProvider(props) {
     locale: 'en',
     pages: null,
     pagesLoading: false,
-    theme: 'light'
+    theme: 'light',
+    $: props.jQuery
   });
   const value = useMemo(() => [state, setState], [state, setState]);
   return <GlobalContext.Provider value={value} {...props} />;
