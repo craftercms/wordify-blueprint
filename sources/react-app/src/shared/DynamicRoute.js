@@ -18,35 +18,48 @@ import React, { useEffect, useState } from 'react';
 
 import CircularProgressSpinner from './CircularProgressSpinner';
 import { fetchQuery } from '../relayEnvironment';
-// import byUrlQuery from './byUrlQuery';
 import byUrlQuery from './queries.graphql';
 import ContentType from './ContentType';
 import { parseDescriptor } from '@craftercms/content';
 import { reportNavigation } from '@craftercms/ice';
+import { parse } from 'query-string';
+
+const limit = 3;
 
 export default function DynamicRoute(props) {
-
-  const { match } = props;
-  const url = match.url;
+  const { match, location } = props;
   const [state, setState] = useState(null);
+  const url = match.url;
 
   useEffect(() => {
     let destroyed = false;
+    let page = parseInt(parse(location.search).page ?? 1) - 1;
+    const pagination = { limit, offset: page ? (page * limit) : 0 };
     reportNavigation(url);
     fetchQuery(
       // { text: byUrlQuery.params.text.replace(/__typename/g, '') },
       { text: byUrlQuery },
       {
         url: `.*${url === '/' ? 'website/index' : url}.*`,
-        includePosts: true
+        includePosts: true,
+        postsLimit: pagination.limit,
+        postsOffset: pagination.offset
       }
     ).then(({ data }) => {
       if (!destroyed) {
         const model = parseDescriptor(data.content.items?.[0]);
         const posts = parseDescriptor(data.posts.items);
-        setState({ model, posts });
+        setState({
+          model,
+          posts,
+          meta: {
+            posts: {
+              total: data.posts.total,
+              ...pagination
+            }
+          }
+        });
         if (model) {
-          window.scroll(0, 0);
           document.title = model.pageTitle_s ?? 'Wordify Crafter CMS';
           if (model.pageDescription_s) {
             const description = document.head.querySelector('meta[name="description"]');
@@ -58,24 +71,11 @@ export default function DynamicRoute(props) {
     return () => {
       destroyed = true;
     };
-  }, [url]);
+  }, [url, location.search]);
 
-  // return (
-  //   <QueryRenderer
-  //     variables={{ url: `.*${url === '/' ? 'website/index' : url}.*` }}
-  //     render={createRenderProp((props) => {
-  //       const content = props.content.items?.[0];
-  //       if (!content) {
-  //         return <NotFound />;
-  //       } else {
-  //         // console.log(content, props.content);
-  //         return 'ToDo';
-  //       }
-  //     })}
-  //     environment={environment}
-  //     query={byUrlQuery}
-  //   />
-  // );
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [url])
 
   if (state === null) {
     return <CircularProgressSpinner />;

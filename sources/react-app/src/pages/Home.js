@@ -24,23 +24,8 @@ import SidebarSearch from '../shared/SidebarSearch';
 import PopularPostsAside from '../shared/PopularPostsAside';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
-// import environment from '../relayEnvironment';
-// import graphql from 'babel-plugin-relay/macro';
-// import { parseDescriptor } from '@craftercms/content';
-// import { createRenderProp } from '../shared/QueryRenderProp';
-
-// export default () => (
-//   <QueryRenderer
-//     environment={environment}
-//     query={graphql`
-//
-//     `}
-//     render={createRenderProp((props) => {
-//       const content = parseDescriptor(props.main.items[0]);
-//       return <HomeComponent model={content}/>;
-//     })}
-//   />
-// );
+import { Link } from 'react-router-dom';
+import { parse } from 'query-string';
 
 export default function (props) {
   const {
@@ -51,8 +36,17 @@ export default function (props) {
       bios_o,
       slider_o
     },
-    posts
+    posts,
+    meta: {
+      posts: {
+        total,
+        limit
+      }
+    }
   } = props;
+  const pageNumber = parseInt(parse(window.location.search).page ?? 1);
+  const pageIndex = pageNumber - 1;
+  const numOfPages = Math.ceil(total / limit);
   return (
     <BaseLayout>
       <section className="site-section pt-5 pb-5">
@@ -91,21 +85,45 @@ export default function (props) {
                   )
                 }
               </div>
-              <div className="row mt-5">
-                <div className="col-md-12 text-center">
-                  <nav aria-label="Page navigation" className="text-center">
-                    <ul className="pagination">
-                      <li className="page-item  active"><a className="page-link" href="/">&lt;</a></li>
-                      <li className="page-item"><a className="page-link" href="/">1</a></li>
-                      <li className="page-item"><a className="page-link" href="/">2</a></li>
-                      <li className="page-item"><a className="page-link" href="/">3</a></li>
-                      <li className="page-item"><a className="page-link" href="/">4</a></li>
-                      <li className="page-item"><a className="page-link" href="/">5</a></li>
-                      <li className="page-item"><a className="page-link" href="/">&gt;</a></li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
+              {
+                numOfPages > 1 && (
+                  <div className="row mt-5">
+                    <div className="col-md-12 text-center">
+                      <nav aria-label="Page navigation" className="text-center">
+                        <ul className="pagination">
+                          <li
+                            className="page-item"
+                            style={{ visibility: pageNumber > 1 ? '' : 'hidden' }}
+                          >
+                            <Link
+                              onClick={(e) => e.preventDefault()} className="page-link"
+                              to={`/?page=${pageNumber - 1}`}
+                            >&lt;</Link>
+                          </li>
+                          {
+                            new Array(numOfPages).fill(null).map((naught, index) =>
+                              <li
+                                className={`page-item ${index === pageIndex ? 'active' : ''}`}
+                                key={index}
+                              >
+                                <Link className="page-link" to={`/?page=${index + 1}`}>
+                                  {index + 1}
+                                </Link>
+                              </li>
+                            )
+                          }
+                          <li
+                            className="page-item"
+                            style={{ visibility: pageNumber < numOfPages ? '' : 'hidden' }}
+                          >
+                            <Link className="page-link" to={`/?page=${pageNumber + 1}`}>&gt;</Link>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                )
+              }
             </div>
             <div className="col-md-12 col-lg-4 sidebar">
 
