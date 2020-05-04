@@ -357,7 +357,7 @@
         </property>
         <property>
           <name>browsePath</name>
-          <value>/components/bio</value>
+          <value>/site/components/bio</value>
           <type>undefined</type>
         </property>
         <property>
