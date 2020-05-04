@@ -14,6 +14,10 @@
 	<name_s>Jane Doe</name_s>
 	<linkButtonText_s/>
 	<linkButtonUrl_s/>
+	<facebookLink_s>https://facebook.com</facebookLink_s>
+	<twitterLink_s>https://twitter.com</twitterLink_s>
+	<instagramLink_s>https://instagram.com</instagramLink_s>
+	<youTubeLink_s>https://youtube.com</youTubeLink_s>
 	<createdDate>2020-03-22T07:43:01.359Z</createdDate>
 	<createdDate_dt>2020-03-22T07:43:01.359Z</createdDate_dt>
 	<lastModifiedDate>2020-03-26T08:51:50.712Z</lastModifiedDate>

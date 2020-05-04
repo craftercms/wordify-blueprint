@@ -140,10 +140,20 @@ type component_bio implements ContentItem {
     "Values used to filter the results"
     filter: DateFilters
   ): DateTime!
+  "Facebook Link"
+  facebookLink_s(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
   "Component ID"
   file__name(
     "Values used to filter the results"
     filter: TextFilters
+  ): String
+  "Instagram Link"
+  instagramLink_s(
+    "Values used to filter the results"
+    filter: StringFilters
   ): String
   "The name/label of the item in Authoring (can also be used as a navigation label in Delivery)"
   internal__name(
@@ -197,6 +207,16 @@ type component_bio implements ContentItem {
     "Values used to filter the results"
     filter: BooleanFilters
   ): Boolean
+  "Twitter Link"
+  twitterLink_s(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+  "YouTube Link"
+  youTubeLink_s(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
 }
 
 "Query for content-type /component/bio"
@@ -331,6 +351,120 @@ type component_level__descriptor implements ContentItem {
 type component_level__descriptor_query {
   "List of items"
   items: [component_level__descriptor!]
+  "Total number of items found"
+  total: Int!
+}
+
+"Post"
+type component_post implements ContentItem {
+  "Author Bio"
+  authorBio_o: component_post_authorBio_o_items
+  "Blurb"
+  blurb_t(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+  "The content type of the item"
+  content__type(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String!
+  "Content"
+  content_o: ContentIncludeWrapper
+  "The created date of the item"
+  createdDate_dt(
+    "Values used to filter the results"
+    filter: DateFilters
+  ): DateTime!
+  "Component ID"
+  file__name(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+  "Headline"
+  headline_s(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+  "The name/label of the item in Authoring (can also be used as a navigation label in Delivery)"
+  internal__name(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+  "The last modified date of the item"
+  lastModifiedDate_dt(
+    "Values used to filter the results"
+    filter: DateFilters
+  ): DateTime!
+  "The path of the item"
+  localId(
+    "Values used to filter the results"
+    filter: StringFilters,
+    "The name of the transformer to apply"
+    transform: String
+  ): String
+  "Main Image"
+  mainImage_s(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+  "Nav Label"
+  navLabel(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+  "The objectGroupId for the item"
+  objectGroupId(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String!
+  "The objectId of the item"
+  objectId(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String!
+  "Page Description"
+  pageDescription_s(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+  "Page Title"
+  pageTitle_s(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+  "Place in Nav"
+  placeInNav(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+  "Slug"
+  slug_s(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+}
+
+"Contains the data from another item in the site"
+type component_post_authorBio_o_flattened_item {
+  "The content of the item"
+  component: component_bio!
+  "The path of the item"
+  key: String!
+  "The name of the item"
+  value: String!
+}
+
+"Wrapper for flattened items"
+type component_post_authorBio_o_items {
+  "List of flattened items"
+  item: [component_post_authorBio_o_flattened_item!]
+}
+
+"Query for content-type /component/post"
+type component_post_query {
+  "List of items"
+  items: [component_post!]
   "Total number of items found"
   total: Int!
 }
@@ -520,7 +654,7 @@ type component_slider implements ContentItem {
 "Contains the data from another item in the site"
 type component_slider_posts_o_flattened_item {
   "The content of the item"
-  component: page_post!
+  component: component_post!
   "The path of the item"
   key: String!
   "The name of the item"
@@ -592,6 +726,17 @@ type craftercms_site {
     "The order to sort items"
     sortOrder: SortOrder
   ): component_level__descriptor_query!
+  "Items of content-type /component/post"
+  component_post(
+    "The number of items to return"
+    limit: Int,
+    "The number of items to skip"
+    offset: Int,
+    "The name of the field to sort items"
+    sortBy: String,
+    "The order to sort items"
+    sortOrder: SortOrder
+  ): component_post_query!
   "Items of content-type /component/responsive_columns"
   component_responsive_columns(
     "The number of items to return"

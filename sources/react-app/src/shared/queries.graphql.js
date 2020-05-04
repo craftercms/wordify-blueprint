@@ -137,6 +137,10 @@ export default `
     linkButtonText_s
     linkButtonUrl_s
     showLinkButton_b
+    facebookLink_s
+    twitterLink_s
+    instagramLink_s
+    youTubeLink_s
   }
 
   fragment byUrlQueryRichText on component_rich_text {

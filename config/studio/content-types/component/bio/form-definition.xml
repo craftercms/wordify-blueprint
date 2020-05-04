@@ -301,13 +301,15 @@
           <properties>
             <property>
               <name>width</name>
-              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot; }
+              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
+                }
               </value>
               <type>range</type>
             </property>
             <property>
               <name>height</name>
-              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot; }
+              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
+                }
               </value>
               <type>range</type>
             </property>
@@ -337,6 +339,185 @@
               <name>required</name>
               <value><![CDATA[]]></value>
               <type>boolean</type>
+            </constraint>
+          </constraints>
+        </field>
+      </fields>
+    </section>
+    <section>
+      <title>Social Media Links</title>
+      <description></description>
+      <defaultOpen>true</defaultOpen>
+      <fields>
+        <field>
+          <type>input</type>
+          <id>facebookLink_s</id>
+          <iceId></iceId>
+          <title>Facebook Link</title>
+          <description></description>
+          <defaultValue></defaultValue>
+          <help></help>
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>500</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value></value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+            <constraint>
+              <name>pattern</name>
+              <value><![CDATA[]]></value>
+              <type>string</type>
+            </constraint>
+          </constraints>
+        </field>
+        <field>
+          <type>input</type>
+          <id>twitterLink_s</id>
+          <iceId></iceId>
+          <title>Twitter Link</title>
+          <description></description>
+          <defaultValue></defaultValue>
+          <help></help>
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>500</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value></value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+            <constraint>
+              <name>pattern</name>
+              <value><![CDATA[]]></value>
+              <type>string</type>
+            </constraint>
+          </constraints>
+        </field>
+        <field>
+          <type>input</type>
+          <id>instagramLink_s</id>
+          <iceId></iceId>
+          <title>Instagram Link</title>
+          <description></description>
+          <defaultValue></defaultValue>
+          <help></help>
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>500</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value></value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+            <constraint>
+              <name>pattern</name>
+              <value><![CDATA[]]></value>
+              <type>string</type>
+            </constraint>
+          </constraints>
+        </field>
+        <field>
+          <type>input</type>
+          <id>youTubeLink_s</id>
+          <iceId></iceId>
+          <title>YouTube Link</title>
+          <description></description>
+          <defaultValue></defaultValue>
+          <help></help>
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>500</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value></value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+            <constraint>
+              <name>pattern</name>
+              <value><![CDATA[]]></value>
+              <type>string</type>
             </constraint>
           </constraints>
         </field>
