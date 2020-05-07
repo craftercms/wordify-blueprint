@@ -1,11 +1,11 @@
 <form>
   <title>Homepage</title>
-  <description></description>
+  <description/>
   <objectType>page</objectType>
   <content-type>/page/entry</content-type>
   <imageThumbnail>home.png</imageThumbnail>
   <quickCreate>false</quickCreate>
-  <quickCreatePath></quickCreatePath>
+  <quickCreatePath/>
   <properties>
     <property>
       <name>display-template</name>
