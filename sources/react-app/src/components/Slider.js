@@ -19,12 +19,9 @@ import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
 import { getItem, parseDescriptor } from '@craftercms/content/esm2015';
 import { usePencil } from '../shared/hooks';
 import { useGlobalContext } from '../shared/context';
+import { C } from '../shared/utils';
 
 const D = '{-}'; // divider
-const C = {
-  baseUrl: process.env.REACT_APP_CRAFTERCMS_BASE_URL,
-  site: process.env.REACT_APP_CRAFTERCMS_SITE_ID
-};
 
 export default function (props) {
 

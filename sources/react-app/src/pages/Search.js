@@ -16,22 +16,14 @@
 
 import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
-import Slider from '../components/Slider';
 import { FormattedMessage } from 'react-intl';
-import PostCard from '../shared/PostCard';
-import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import PopularPostsAside from '../shared/PopularPostsAside';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
-import { Link } from 'react-router-dom';
-import { parse } from 'query-string';
 
 export default function (props) {
-  const {
-    posts
-  } = props;
-
+  const { posts } = props;
   return (
     <BaseLayout>
       <section className="site-section pt-5 py-sm">

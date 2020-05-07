@@ -22,6 +22,7 @@ export default {
   '/page/contact': lazy(() => import('../pages/Contact')),
   '/page/category': lazy(() => import('../pages/Category')),
   '/page/post': lazy(() => import('../pages/Post')),
+  '/page/search': lazy(() => import('../pages/Search')),
   '/component/header': lazy(() => import('../components/Header')),
   '/component/footer': lazy(() => import('../components/Footer')),
   '/component/bio': lazy(() => import('../components/Bio')),

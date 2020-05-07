@@ -14,10 +14,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { useEffect, useReducer, useRef } from 'react';
+import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import { fetchQuery } from '../relayEnvironment';
 import { useGlobalContext } from './context';
-import { useICE, useDropZone } from '@craftercms/ice/esm2015/react';
+import { useDropZone, useICE } from '@craftercms/ice/esm2015/react';
+import { parse } from 'query-string';
 
 function reducer(state, nextState) {
   return { ...state, ...nextState };
@@ -70,6 +71,12 @@ export function usePencil(props) {
 export function useDnD(props) {
   const { model, fieldId } = props;
   const [{ isAuthoring }] = useGlobalContext();
-  // Note on version 1.2.3 of SDK, zoneName will be depricated, in favour of fieldId
+  // Note on version 1.2.3 of SDK, zoneName will be deprecated, in favour of fieldId
   return useDropZone({ model, zoneName: fieldId, isAuthoring }).props;
+}
+
+export function useSearchQuery() {
+  const [query, setQuery] = useState(() => parse(window.location.search).q ?? '');
+  const onChange = useCallback((e) => setQuery(e.target.value), []);
+  return [query, onChange, setQuery];
 }

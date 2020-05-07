@@ -23,3 +23,8 @@ export function isAuthoring() {
     attr === 'true'
   );
 }
+
+export const C = {
+  baseUrl: process.env.REACT_APP_CRAFTERCMS_BASE_URL,
+  site: process.env.REACT_APP_CRAFTERCMS_SITE_ID
+};
