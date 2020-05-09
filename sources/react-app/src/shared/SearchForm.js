@@ -18,7 +18,7 @@ export default function (props) {
       className={classes.form}
       onSubmit={(e) => {
         e.preventDefault();
-        history.push(`/search?q=${query}`);
+        query.trim() && history.push(`/search?q=${query}`);
       }}
     >
       <div className={classes.inputWrapper}>

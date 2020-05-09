@@ -19,7 +19,7 @@ import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
 import { getItem, parseDescriptor } from '@craftercms/content/esm2015';
 import { usePencil } from '../shared/hooks';
 import { useGlobalContext } from '../shared/context';
-import { C } from '../shared/utils';
+import { crafterConfig } from '../shared/utils';
 
 const D = '{-}'; // divider
 
@@ -48,12 +48,12 @@ export default function (props) {
   useEffect(() => {
     let invalid = false;
     paths && Promise.all(
-      paths.split(D).map((path) => getItem(path, C).toPromise())
+      paths.split(D).map((path) => getItem(path, crafterConfig).toPromise())
     ).then(parseDescriptor).then((loadedPosts) => {
       (!invalid) && Promise.all(
         loadedPosts.flatMap(
           ({ authorBio_o }) => authorBio_o.map(bio => bio.craftercms.path)
-        ).map(path => getItem(path, C).toPromise())
+        ).map(path => getItem(path, crafterConfig).toPromise())
       ).then(parseDescriptor).then((loadedBios) => {
         (!invalid) && setPosts(
           loadedPosts.map((p) => ({
