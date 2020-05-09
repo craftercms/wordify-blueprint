@@ -35,7 +35,7 @@ export default function (props) {
     format = PORTRAIT,
     showBlurb = false,
     tags = '',
-    numOfComments = 3,
+    numOfComments,
     model,
     model: {
       // pageTitle_s,
@@ -71,7 +71,12 @@ export default function (props) {
                 <img src={authorAvatarUrl} alt="" /> {authorName}
               </span>
               {' • '}<span className="mr-2">{formatDate(dateModified)}</span>
-              {' • '}<span className="ml-2"><span className="fa fa-comments" /> {numOfComments}</span>
+              {
+                numOfComments &&
+                <>
+                  {' • '}<span className="ml-2"><span className="fa fa-comments" /> {numOfComments}</span>
+                </>
+              }
             </div>
             <h2>{headline_s}</h2>
           </div>
@@ -88,7 +93,12 @@ export default function (props) {
                   <img src={authorAvatarUrl} alt="" /> {authorName}
                 </span>
                 • <span className="mr-2">{formatDate(dateModified)}</span>
-                • <span className="ml-2"><span className="fa fa-comments" /> ${numOfComments}</span>
+                {
+                  numOfComments &&
+                  <>
+                    • <span className="ml-2"><span className="fa fa-comments" /> ${numOfComments}</span>
+                  </>
+                }
               </div>
               <h2>{headline_s}</h2>
             </span>
@@ -124,7 +134,12 @@ export default function (props) {
                 </>
               }
               <span className="mr-2">{formatDate(dateModified)}</span>
-              {' • '}<span className="ml-2"><span className="fa fa-comments"/> {numOfComments}</span>
+              {
+                numOfComments &&
+                <>
+                  {' • '}<span className="ml-2"><span className="fa fa-comments"/> {numOfComments}</span>
+                </>
+              }
             </div>
             <h3>{headline_s}</h3>
             {

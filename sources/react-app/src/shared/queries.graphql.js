@@ -137,6 +137,10 @@ export default `
     linkButtonText_s
     linkButtonUrl_s
     showLinkButton_b
+    facebookLink_s
+    twitterLink_s
+    instagramLink_s
+    youTubeLink_s
   }
 
   fragment byUrlQueryRichText on component_rich_text {
@@ -191,7 +195,8 @@ export default `
   }
 
   query byUrlQuery(
-    $url: String, $skipContentType: Boolean = true
+    $url: String
+    $skipContentType: Boolean = true
     $includePosts: Boolean = true
     $postsLimit: Int = 8
     $postsOffset: Int = 0
@@ -206,7 +211,7 @@ export default `
         )
         content__type(
           filter:{
-            regex: ".*(bio|post|entry|category|contact|about).*"
+            regex: ".*(bio|post|entry|category|contact|about|search).*"
           }
         ) @skip (if: $skipContentType)
         ...on page_entry {

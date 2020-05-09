@@ -1,11 +1,11 @@
 <form>
   <title>Homepage</title>
-  <description></description>
+  <description/>
   <objectType>page</objectType>
   <content-type>/page/entry</content-type>
   <imageThumbnail>home.png</imageThumbnail>
   <quickCreate>false</quickCreate>
-  <quickCreatePath></quickCreatePath>
+  <quickCreatePath/>
   <properties>
     <property>
       <name>display-template</name>
@@ -448,7 +448,7 @@
         </property>
         <property>
           <name>browsePath</name>
-          <value>/components/bio</value>
+          <value>/site/components/bio</value>
           <type>undefined</type>
         </property>
         <property>

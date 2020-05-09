@@ -17,6 +17,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useNavigation } from '../shared/hooks';
+import SearchForm from '../shared/SearchForm';
 
 export default function Header() {
   const nav = useNavigation();
@@ -32,10 +33,10 @@ export default function Header() {
               <a href="/"><span className="fa fa-youtube-play" /></a>
             </div>
             <div className="col-3 search-top">
-              <form action="#" className="search-top-form">
-                <span className="icon fa fa-search" />
-                <input type="text" id="s" placeholder="Type keyword to search..." />
-              </form>
+              <SearchForm
+                classes={{ form: 'search-top-form' }}
+                placeholder="Type keyword to search..."
+              />
             </div>
           </div>
         </div>
@@ -43,16 +44,17 @@ export default function Header() {
       <div className="container logo-wrap">
         <div className="row pt-5">
           <div className="col-12 text-center">
-            <a className="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button"
-               aria-expanded="false" aria-controls="navbarMenu"><span className="burger-lines"></span></a>
+            <a
+              className="absolute-toggle d-block d-md-none" data-toggle="collapse"
+              href="#navbarMenu" role="button"
+              aria-expanded="false" aria-controls="navbarMenu"
+            ><span className="burger-lines"></span></a>
             <h1 className="site-logo"><Link to="/">Wordify</Link></h1>
           </div>
         </div>
       </div>
-
       <nav className="navbar navbar-expand-md navbar-light bg-light">
         <div className="container">
-
           <div className="collapse navbar-collapse" id="navbarMenu">
             <ul className="navbar-nav mx-auto">
               {
@@ -75,7 +77,6 @@ export default function Header() {
                 )
               }
             </ul>
-
           </div>
         </div>
       </nav>

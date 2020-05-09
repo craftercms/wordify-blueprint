@@ -19,9 +19,12 @@ import ReactDOM from 'react-dom';
 import App from './shared/App';
 // import * as serviceWorker from './serviceWorker';
 
+// On occasions, Crafter's jQuery overrides the site's jQuery
+// briefly. This will get fixed on next releases of Crafter CMS,
+// but for now, adding jQuery to the global context to 'cache' it.
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App jQuery={window.jQuery} />
   </React.StrictMode>,
   document.getElementById('root')
 );

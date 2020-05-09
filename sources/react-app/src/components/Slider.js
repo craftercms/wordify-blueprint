@@ -18,12 +18,10 @@ import React, { useEffect, useState } from 'react';
 import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
 import { getItem, parseDescriptor } from '@craftercms/content/esm2015';
 import { usePencil } from '../shared/hooks';
+import { useGlobalContext } from '../shared/context';
+import { crafterConfig } from '../shared/utils';
 
 const D = '{-}'; // divider
-const C = {
-  baseUrl: process.env.REACT_APP_CRAFTERCMS_BASE_URL,
-  site: process.env.REACT_APP_CRAFTERCMS_SITE_ID
-};
 
 export default function (props) {
 
@@ -36,6 +34,7 @@ export default function (props) {
     }
   } = props;
 
+  const [{ $ }] = useGlobalContext();
   const ice = usePencil(props);
 
   // region "Sample"
@@ -49,12 +48,12 @@ export default function (props) {
   useEffect(() => {
     let invalid = false;
     paths && Promise.all(
-      paths.split(D).map((path) => getItem(path, C).toPromise())
+      paths.split(D).map((path) => getItem(path, crafterConfig).toPromise())
     ).then(parseDescriptor).then((loadedPosts) => {
       (!invalid) && Promise.all(
         loadedPosts.flatMap(
           ({ authorBio_o }) => authorBio_o.map(bio => bio.craftercms.path)
-        ).map(path => getItem(path, C).toPromise())
+        ).map(path => getItem(path, crafterConfig).toPromise())
       ).then(parseDescriptor).then((loadedBios) => {
         (!invalid) && setPosts(
           loadedPosts.map((p) => ({
@@ -75,7 +74,7 @@ export default function (props) {
 
   useEffect(() => {
     if (posts) {
-      const $carousel = window.$('.home-slider');
+      const $carousel = $('.home-slider');
       $carousel.owlCarousel({
         loop: true,
         autoplay: true,
@@ -105,7 +104,7 @@ export default function (props) {
         $carousel.owlCarousel('destroy');
       };
     }
-  }, [posts]);
+  }, [posts, $]);
 
   return (
     <div className="owl-carousel owl-theme home-slider" {...ice}>

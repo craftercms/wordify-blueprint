@@ -16,6 +16,7 @@
 
 import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
+import SearchForm from './SearchForm';
 
 const translations = defineMessages({
   searchFormPlaceholder: {
@@ -27,20 +28,16 @@ const translations = defineMessages({
 export default function () {
   const { formatMessage } = useIntl();
   return (
-    <>
-      <div className="sidebar-box search-form-wrap">
-        <form action="#" className="search-form">
-          <div className="form-group">
-            <span className="icon fa fa-search"/>
-            <input
-              id="s"
-              type="text"
-              className="form-control"
-              placeholder={formatMessage(translations.searchFormPlaceholder)}
-            />
-          </div>
-        </form>
-      </div>
-    </>
+    <div className="sidebar-box search-form-wrap">
+      <SearchForm
+        id="s"
+        placeholder={formatMessage(translations.searchFormPlaceholder)}
+        classes={{
+          form: 'search-form',
+          input: 'form-control',
+          inputWrapper: 'form-group'
+        }}
+      />
+    </div>
   );
 }

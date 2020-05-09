@@ -22,14 +22,14 @@ import AppIntl from './AppIntl';
 import { isAuthoring } from './utils';
 import { addAuthoringSupport } from '@craftercms/ice/esm2015/ice';
 
-export default function App() {
+export default function App(props) {
   useEffect(() => {
     if (isAuthoring()) {
       addAuthoringSupport();
     }
   }, []);
   return (
-    <GlobalContextProvider>
+    <GlobalContextProvider jQuery={props.jQuery}>
       <AppIntl>
         <Suspense
           fallback={
