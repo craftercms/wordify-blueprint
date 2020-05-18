@@ -20,7 +20,7 @@ import CircularProgressSpinner from './CircularProgressSpinner';
 import { GlobalContextProvider } from './context';
 import AppIntl from './AppIntl';
 import { isAuthoring } from './utils';
-import { addAuthoringSupport } from '@craftercms/ice/esm2015/ice';
+import { addAuthoringSupport } from '@craftercms/ice';
 
 export default function App(props) {
   useEffect(() => {

@@ -16,7 +16,7 @@
 
 import React, { useEffect, useState } from 'react';
 import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
-import { getItem, parseDescriptor } from '@craftercms/content/esm2015';
+import { getItem, parseDescriptor } from '@craftercms/content';
 import { usePencil } from '../shared/hooks';
 import { useGlobalContext } from '../shared/context';
 import { crafterConfig } from '../shared/utils';

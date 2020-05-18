@@ -17,7 +17,7 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import { fetchQuery } from '../relayEnvironment';
 import { useGlobalContext } from './context';
-import { useDropZone, useICE } from '@craftercms/ice/esm2015/react';
+import { useDropZone, useICE } from '@craftercms/ice/react';
 import { parse } from 'query-string';
 import { useLocation } from 'react-router-dom';
 import { crafterConfig, createResource, preParseSearchResults } from './utils';
