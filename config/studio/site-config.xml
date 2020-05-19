@@ -27,15 +27,17 @@
    <default-timezone>EST5EDT</default-timezone>
    <published-repository>
       <enable-staging-environment>false</enable-staging-environment>
-      <staging-environment>staging</staging-environment>
-      <live-environment>live</live-environment>
    </published-repository>
    <publishing>
-      <comments><!-- Global setting would apply to all -->
+      <comments>
+<!-- Global setting would apply to all -->
          <required>false</required>
          <!-- Additional (also optional) specific overrides -->
+
          <!-- <delete-required/> -->
+
          <!-- <bulk-publish-required/> -->
+
          <!-- <publish-by-commit-required/> -->
       </comments>
    </publishing>
@@ -64,7 +66,8 @@
         Required placeholders: ${type}, ${name}
      -->
    <plugin-folder-pattern>/config/studio/plugins/${type}/${name}</plugin-folder-pattern>
-   <repository rootPrefix="/site"><!-- default inheritance file name -->
+   <repository rootPrefix="/site">
+<!-- default inheritance file name -->
       <level-descriptor>crafter-level-descriptor.level.xml</level-descriptor>
       <!-- The section below classifies items into folders for two dashboard widgets:
         - Items Waiting For Approval
@@ -91,7 +94,8 @@
                  attach-root-prefix="false"/>
       </folders>
       <!-- Item Patterns -->
-      <patterns><!-- The section below helps determine the type of content based on regex. This shows up in two places:
+      <patterns>
+<!-- The section below helps determine the type of content based on regex. This shows up in two places:
             - The activity audit log.
             - The UI icon used for the item
             -->
