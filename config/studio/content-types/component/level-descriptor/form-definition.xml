@@ -85,6 +85,49 @@
 			<fields>
 				<field>
 					<type>input</type>
+					<id>siteName_s</id>
+					<iceId/>
+					<title>Site Name</title>
+					<description/>
+					<defaultValue />
+					<help/>
+					<properties>
+						<property>
+							<name>size</name>
+							<value>50</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>maxlength</name>
+							<value>80</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value/>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>tokenize</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
+					</properties>
+					<constraints>
+						<constraint>
+							<name>required</name>
+							<value><![CDATA[true]]></value>
+							<type>boolean</type>
+						</constraint>
+						<constraint>
+							<name>pattern</name>
+							<value><![CDATA[]]></value>
+							<type>string</type>
+						</constraint>
+					</constraints>
+				</field>
+				<field>
+					<type>input</type>
 					<id>pageTitle_s</id>
 					<iceId/>
 					<title>Page Title</title>

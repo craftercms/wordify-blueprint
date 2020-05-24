@@ -45,9 +45,12 @@ export default function Header() {
         <div className="row pt-5">
           <div className="col-12 text-center">
             <a
-              className="absolute-toggle d-block d-md-none" data-toggle="collapse"
-              href="#navbarMenu" role="button"
-              aria-expanded="false" aria-controls="navbarMenu"
+              className="absolute-toggle d-block d-md-none"
+              data-toggle="collapse"
+              href="#navbarMenu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="navbarMenu"
             ><span className="burger-lines"></span></a>
             <h1 className="site-logo"><Link to="/">Wordify</Link></h1>
           </div>
