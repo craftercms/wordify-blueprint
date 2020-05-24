@@ -16,18 +16,17 @@
 
 import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
-import ContentType from '../shared/ContentType';
 import PopularPostsAside from '../shared/PopularPostsAside';
 import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarBios from '../shared/SidebarBios';
-import DropZone from '../shared/DropZone';
+import { ContentType, Field } from '@craftercms/studio-guest';
+import contentTypeMap from '../shared/contentTypeMap';
 
 export default function (props) {
   const { model, posts } = props;
-  const modelPath = model.craftercms.path;
   return (
     <BaseLayout>
       <section className="site-section py-lg">
@@ -35,7 +34,14 @@ export default function (props) {
           <div className="row blog-entries element-animate-disabled">
 
             <div className="col-md-12 col-lg-8 main-content">
-              <img src={model.mainImage_s} alt="" className="img-fluid mb-5" />
+              <Field
+                component="img"
+                model={model}
+                fieldId="mainImage_s"
+                src={model.mainImage_s}
+                alt=""
+                className="img-fluid mb-5"
+              />
               <div className="post-meta">
                 <span className="author mr-2">
                   <img src="/static-assets/images/person_1.jpg" alt="" className="mr-2" /> Colorlib
@@ -43,25 +49,37 @@ export default function (props) {
                 {' • '}<span className="mr-2">{model.createdDate_dt}</span>
                 {' • '}<span className="ml-2"><span className="fa fa-comments" /> 3</span>
               </div>
-              <h1 className="mb-4">{model.headline_s}</h1>
-              <a className="category mb-5" href="/">Food</a> <a className="category mb-5" href="/">Travel</a>
+              <Field
+                component="h1"
+                model={model}
+                fieldId="headline_s"
+                className="mb-4"
+              >{model.headline_s}</Field>
+              <a className="category mb-5" href="/">Food</a> <a
+              className="category mb-5" href="/">Travel</a>
 
-              <DropZone
+              <Field
                 model={model}
                 component="div"
                 fieldId="content_o"
                 className="post-content-body"
               >
                 {
-                  model.content_o?.map(component =>
-                    <ContentType
-                      model={component}
+                  model.content_o?.map((component, index) =>
+                    <Field
                       key={component.craftercms.id}
-                      parentModelId={modelPath}
-                    />
+                      model={model}
+                      fieldId="content_o"
+                      index={index}
+                    >
+                      <ContentType
+                        model={component}
+                        contentTypeMap={contentTypeMap}
+                      />
+                    </Field>
                   )
                 }
-              </DropZone>
+              </Field>
 
               <div className="pt-5">
                 <div>
@@ -79,15 +97,15 @@ export default function (props) {
 
             <div className="col-md-12 col-lg-4 sidebar">
 
-              <SidebarSearch/>
+              <SidebarSearch />
 
-              <SidebarBios bios={model.authorBio_o}/>
+              <SidebarBios bios={model.authorBio_o} />
 
               <PopularPostsAside posts={posts} />
 
-              <SidebarCategories/>
+              <SidebarCategories />
 
-              <SidebarTags/>
+              <SidebarTags />
 
             </div>
 
@@ -98,14 +116,18 @@ export default function (props) {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h2 className="mb-3 ">Related Post</h2>
+              <h2 className="mb-3">Related Post</h2>
             </div>
           </div>
           <div className="row">
             {
               posts?.map((post) =>
                 <div key={post.craftercms.id} className="col-md-6 col-lg-4">
-                  <PostCard model={post} format={IMAGE_BACKGROUND} classes={{ root: 'sm height-md' }} />
+                  <PostCard
+                    model={post}
+                    format={IMAGE_BACKGROUND}
+                    classes={{ root: 'sm height-md' }}
+                  />
                 </div>
               )
             }

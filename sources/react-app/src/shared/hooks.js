@@ -17,13 +17,12 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import { fetchQuery } from '../relayEnvironment';
 import { useGlobalContext } from './context';
-import { useDropZone, useICE } from '@craftercms/ice/react';
 import { parse } from 'query-string';
 import { useLocation } from 'react-router-dom';
-import { crafterConfig, createResource, preParseSearchResults } from './utils';
-import { createQuery, search } from '@craftercms/search';
+import { crafterConfig, createResource } from './utils';
 import { map } from 'rxjs/operators';
-import { parseDescriptor } from '@craftercms/content';
+import { createQuery, search } from '@craftercms/search';
+import { parseDescriptor, preParseSearchResults } from '@craftercms/content';
 
 export const neverResource = createResource(() => new Promise(() => void 0));
 
@@ -67,19 +66,6 @@ export function useNavigation() {
     }
   }, [update, pages, pagesLoading]);
   return pages;
-}
-
-export function usePencil(props) {
-  const { model, parentModelId } = props;
-  const [{ isAuthoring }] = useGlobalContext();
-  return useICE({ model, parentModelId, isAuthoring }).props;
-}
-
-export function useDnD(props) {
-  const { model, fieldId } = props;
-  const [{ isAuthoring }] = useGlobalContext();
-  // Note on version 1.2.3 of SDK, zoneName will be deprecated, in favour of fieldId
-  return useDropZone({ model, zoneName: fieldId, isAuthoring }).props;
 }
 
 export function useSearchQuery() {
@@ -134,4 +120,3 @@ export function useUrlSearchQueryFetchResource() {
   }, [query]);
   return resource;
 }
-

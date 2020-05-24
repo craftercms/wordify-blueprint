@@ -14,113 +14,70 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
-import { getItem, parseDescriptor } from '@craftercms/content';
-import { usePencil } from '../shared/hooks';
 import { useGlobalContext } from '../shared/context';
-import { crafterConfig } from '../shared/utils';
-
-const D = '{-}'; // divider
+import { Field } from '@craftercms/studio-guest';
 
 export default function (props) {
 
   const {
+    model,
     model: {
-      craftercms: {
-        id
-      },
       posts_o
     }
   } = props;
 
   const [{ $ }] = useGlobalContext();
-  const ice = usePencil(props);
-
-  // region "Sample"
-
-  const [posts, setPosts] = useState(null);
-  const paths = posts_o?.reduce(
-    (accum, { craftercms: { path } }, index) => `${accum}${index ? D : ''}${path}`,
-    ''
-  );
 
   useEffect(() => {
-    let invalid = false;
-    paths && Promise.all(
-      paths.split(D).map((path) => getItem(path, crafterConfig).toPromise())
-    ).then(parseDescriptor).then((loadedPosts) => {
-      (!invalid) && Promise.all(
-        loadedPosts.flatMap(
-          ({ authorBio_o }) => authorBio_o.map(bio => bio.craftercms.path)
-        ).map(path => getItem(path, crafterConfig).toPromise())
-      ).then(parseDescriptor).then((loadedBios) => {
-        (!invalid) && setPosts(
-          loadedPosts.map((p) => ({
-            ...p,
-            authorBio_o: p.authorBio_o.map(
-              b => loadedBios.find(lb => b.craftercms.path === lb.craftercms.path)
-            )
-          }))
-        );
-      });
+    const $carousel = $('.home-slider');
+    // noinspection CheckTagEmptyBody
+    $carousel.owlCarousel({
+      loop: true,
+      autoplay: false,
+      margin: 10,
+      animateOut: 'fadeOut',
+      animateIn: 'fadeIn',
+      nav: true,
+      autoplayHoverPause: true,
+      items: 1,
+      navText: ['<span class="ion-chevron-left"></span>', '<span class="ion-chevron-right"></span>'],
+      responsive: {
+        0: {
+          items: 1,
+          nav: false
+        },
+        600: {
+          items: 1,
+          nav: false
+        },
+        1000: {
+          items: 1,
+          nav: true
+        }
+      }
     });
     return () => {
-      invalid = true;
+      $carousel.owlCarousel('destroy');
     };
-  }, [id, paths]);
-
-  // endregion
-
-  useEffect(() => {
-    if (posts) {
-      const $carousel = $('.home-slider');
-      $carousel.owlCarousel({
-        loop: true,
-        autoplay: true,
-        margin: 10,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        nav: true,
-        autoplayHoverPause: true,
-        items: 1,
-        navText: ['<span class="ion-chevron-left"></span>', '<span class="ion-chevron-right"></span>'],
-        responsive: {
-          0: {
-            items: 1,
-            nav: false
-          },
-          600: {
-            items: 1,
-            nav: false
-          },
-          1000: {
-            items: 1,
-            nav: true
-          }
-        }
-      });
-      return () => {
-        $carousel.owlCarousel('destroy');
-      };
-    }
-  }, [posts, $]);
+  }, [$]);
 
   return (
-    <div className="owl-carousel owl-theme home-slider" {...ice}>
+    <Field model={model} className="owl-carousel owl-theme home-slider">
       {
-        posts?.map(model =>
-          <div key={model.craftercms.id}>
+        posts_o?.map((component, index) =>
+          <Field model={model} fieldId="posts_o" index={index} key={component.craftercms.id}>
             <PostCard
               tags="Food"
-              model={model}
+              model={component}
               showBlurb
               format={IMAGE_BACKGROUND}
               classes={{ root: 'height-lg', innerWrapper: 'half-to-full' }}
             />
-          </div>
+          </Field>
         )
       }
-    </div>
+    </Field>
   );
 }

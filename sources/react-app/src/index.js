@@ -17,7 +17,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './shared/App';
+import Cookies from 'js-cookie';
 // import * as serviceWorker from './serviceWorker';
+
+if (
+  process.env.REACT_APP_CRAFTERCMS_SITE_ID &&
+  Cookies.get('crafterSite') !== process.env.REACT_APP_CRAFTERCMS_SITE_ID
+) {
+  Cookies.set('crafterSite', process.env.REACT_APP_CRAFTERCMS_SITE_ID)
+}
 
 // On occasions, Crafter's jQuery overrides the site's jQuery
 // briefly. This will get fixed on next releases of Crafter CMS,

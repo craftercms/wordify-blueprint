@@ -117,6 +117,40 @@ export default `
     }
   }
 
+  fragment byUrlQueryPost on component_post {
+    ...byUrlQueryContentItemFields
+    slug: localId(transform: "storeUrlToRenderUrl")
+    pageTitle_s
+    pageDescription_s
+    blurb_t
+    headline_s
+    mainImage_s
+    content_o {
+      item {
+        key
+        component {
+          ...on component_rich_text {
+            ...byUrlQueryRichText
+          }
+          ...on component_image {
+            ...byUrlQueryImage
+          }
+          ...on component_responsive_columns {
+            ...byUrlQueryResponsiveColumns
+          }
+        }
+      }
+    }
+    authorBio_o {
+      item {
+        key
+        component {
+          ...byUrlQueryBioFragment
+        }
+      }
+    }
+  }
+
   fragment byUrlQueryContentItemFields on ContentItem {
     guid: objectId
     path: localId
@@ -189,6 +223,14 @@ export default `
           blurb_t
           headline_s
           mainImage_s
+          authorBio_o {
+            item {
+              key,
+              component {
+                ...byUrlQueryBioFragment
+              }
+            }
+          }
         }
       }
     }
@@ -229,12 +271,15 @@ export default `
         ...on page_post {
           ...byUrlQueryPostPage
         }
+        ...on component_post {
+          ...byUrlQueryPost
+        }
       }
     }
-    posts: page_post(limit: $postsLimit, offset: $postsOffset) @include(if: $includePosts) {
+    posts: component_post(limit: $postsLimit, offset: $postsOffset) @include(if: $includePosts) {
       total
       items {
-        ...byUrlQueryPostPage
+        ...byUrlQueryPost
       }
     }
   }

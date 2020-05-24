@@ -17,8 +17,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { useICE } from '@craftercms/ice/react';
-import { useGlobalContext } from './context';
+import { Field, RenderField } from '@craftercms/studio-guest';
 
 export const
   PORTRAIT = 'portrait',
@@ -28,48 +27,37 @@ export const
 
 export default function (props) {
   const { formatDate } = useIntl();
-  const [{ isAuthoring }] = useGlobalContext();
   const {
     classes,
-    parentModelId,
     format = PORTRAIT,
     showBlurb = false,
     tags = '',
     numOfComments,
     model,
     model: {
-      // pageTitle_s,
-      // pageDescription_s,
-      // authorBio_o,
       authorBio_o: [{
         name_s: authorName,
         profilePic_s: authorAvatarUrl
       }],
       blurb_t,
-      // content_o,
       headline_s,
       mainImage_s,
-      mainImageAlt_s = '',
       craftercms: {
         dateModified
-      },
+      }
     }
   } = props;
-  const slug = model.craftercms.path
-    .replace(/(\/site\/components)|(index\.xml)/g, '')
-    .replace(/(\/\/)/g, '/')
-    .replace('post/', 'articles/');
-  const { props: ice } = useICE({ model, parentModelId, isAuthoring });
+  const slug = computeSlug(model.craftercms.path);
   switch (format) {
     case PORTRAIT:
       return (
-        <Link to={slug} className={`blog-entry ${classes?.root ?? ''}`} {...ice}>
-          <img src={mainImage_s} alt={mainImageAlt_s} />
+        <Field component={Link} model={model} to={slug} className={`blog-entry ${classes?.root ?? ''}`}>
+          <Field component="img" model={model} fieldId="mainImage_s" src={mainImage_s} alt="" />
           <div className="blog-content-body">
             <div className="post-meta">
-              <span className="author mr-2">
+              <Field component="span" model={model} fieldId="authorBio_o" index={0} className="author mr-2">
                 <img src={authorAvatarUrl} alt="" /> {authorName}
-              </span>
+              </Field>
               {' • '}<span className="mr-2">{formatDate(dateModified)}</span>
               {
                 numOfComments &&
@@ -78,20 +66,26 @@ export default function (props) {
                 </>
               }
             </div>
-            <h2>{headline_s}</h2>
+            <RenderField component="h2" model={model} fieldId="headline_s" />
           </div>
-        </Link>
+        </Field>
       );
     case LANDSCAPE:
       return (
-        <div className="post-entry-horizontal" {...ice}>
-          <Link to={slug} className={classes?.root}>
-            <div className="image" style={{ backgroundImage: `url(${mainImage_s})` }} />
+        <div className="post-entry-horizontal">
+          {/* Notice: Adding the ICE to the above element wouldn't stop the link from navigating when clicked */}
+          <Field component={Link} model={model} to={slug} className={classes?.root}>
+            <Field
+              model={model}
+              fieldId="mainImage_s"
+              className="image"
+              style={{ backgroundImage: `url(${mainImage_s})` }}
+            />
             <span className="text">
               <div className="post-meta">
-                <span className="author mr-2">
+                <Field className="author mr-2" model={model} fieldId="authorBio_o" index={0}>
                   <img src={authorAvatarUrl} alt="" /> {authorName}
-                </span>
+                </Field>
                 • <span className="mr-2">{formatDate(dateModified)}</span>
                 {
                   numOfComments &&
@@ -100,31 +94,37 @@ export default function (props) {
                   </>
                 }
               </div>
-              <h2>{headline_s}</h2>
+              <RenderField component="h2" fieldId="headline_s" model={model} />
             </span>
-          </Link>
+          </Field>
         </div>
       );
     case LANDSCAPE_COMPRESSED:
       return (
-        <Link to={slug} className={classes?.root} {...ice}>
-          <img src={mainImage_s} alt={mainImageAlt_s} className="mr-4" />
+        <Field component={Link} model={model} to={slug} className={classes?.root}>
+          <Field component="img" model={model} fieldId="mainImage_s" src={mainImage_s} alt="" className="mr-4" />
           <div className="text">
-            <h4>{headline_s}</h4>
+            <RenderField component="h4" model={model} fieldId="headline_s" />
             <div className="post-meta">
               <span className="mr-2">{formatDate(dateModified)}</span>
             </div>
           </div>
-        </Link>
+        </Field>
       );
     case IMAGE_BACKGROUND:
       return (
-        <Link
-          to={slug}
+        <Field
+          model={model}
+          fieldId="mainImage_s"
           className={`a-block d-flex align-items-center ${classes?.root ?? ''}`}
           style={{ backgroundImage: `url(${mainImage_s})` }}
         >
-          <div className={`text ${classes?.innerWrapper}`} {...ice}>
+          <Field
+            component={Link}
+            model={model}
+            to={slug}
+            className={`text ${classes?.innerWrapper}`}
+          >
             <div className="post-meta">
               {
                 tags &&
@@ -141,19 +141,27 @@ export default function (props) {
                 </>
               }
             </div>
-            <h3>{headline_s}</h3>
+            <RenderField component="h3" model={model} fieldId="headline_s" />
             {
-              showBlurb && <p>{blurb_t}</p>
+              showBlurb && <Field component="p" model={model} fieldId="blurb_t">{blurb_t}</Field>
             }
-          </div>
-        </Link>
+          </Field>
+        </Field>
       );
     default:
       console.error(`Unknown PostCard format "${format}" on post "${headline_s}"`);
       return (
-        <Link to={slug} className={classes?.root} {...ice}>
+        <Field component={Link} model={model} to={slug} className={classes?.root}>
           <h2>{headline_s}</h2>
-        </Link>
+        </Field>
       );
   }
+}
+
+function computeSlug(path) {
+  return path
+    .replace(/(\/site\/components)|(index\.xml)/g, '')
+    .replace(/(\/site\/website)|(index\.xml)/g, '')
+    .replace(/(\/\/)/g, '/')
+    .replace('post/', 'articles/');
 }

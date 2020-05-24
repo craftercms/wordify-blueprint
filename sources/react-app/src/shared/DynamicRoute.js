@@ -19,10 +19,12 @@ import React, { useEffect, useState } from 'react';
 import CircularProgressSpinner from './CircularProgressSpinner';
 import { fetchQuery } from '../relayEnvironment';
 import byUrlQuery from './queries.graphql';
-import ContentType from './ContentType';
 import { parseDescriptor } from '@craftercms/content';
 import { reportNavigation } from '@craftercms/ice';
 import { parse } from 'query-string';
+import { isAuthoring } from './utils';
+import { Guest, ContentType } from '@craftercms/studio-guest';
+import contentTypeMap from './contentTypeMap';
 
 const limit = 3;
 
@@ -37,7 +39,6 @@ export default function DynamicRoute(props) {
     const pagination = { limit, offset: page ? (page * limit) : 0 };
     reportNavigation(url);
     fetchQuery(
-      // { text: byUrlQuery.params.text.replace(/__typename/g, '') },
       { text: byUrlQuery },
       {
         url: `.*${url === '/' ? 'website/index' : url}.*`,
@@ -75,12 +76,16 @@ export default function DynamicRoute(props) {
 
   useEffect(() => {
     window.scroll(0, 0);
-  }, [url])
+  }, [url]);
 
   if (state === null) {
     return <CircularProgressSpinner />;
   } else {
-    return <ContentType {...state} {...props} />;
+    return (
+      <Guest modelId={state.model?.craftercms.id} isAuthoring={isAuthoring()}>
+        <ContentType {...state} {...props} contentTypeMap={contentTypeMap} />
+      </Guest>
+    );
   }
 
 }

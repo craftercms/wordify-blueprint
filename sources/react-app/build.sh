@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 echo "Making sure all deps are met"
-yarn
+# TODO: re-enable yarn
 
-echo "Compiling relay stuff"
-yarn relay
+# Disabled as relay is currently not used.
+# echo "Compiling relay stuff"
+# yarn relay
 
 echo "Running react build"
 react-scripts build

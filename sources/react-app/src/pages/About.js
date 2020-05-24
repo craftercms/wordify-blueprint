@@ -16,15 +16,15 @@
 
 import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
-import { WrappedContentType } from '../shared/ContentType';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
 import { FormattedMessage } from 'react-intl';
 import PopularPostsAside from '../shared/PopularPostsAside';
-import DropZone from '../shared/DropZone';
 import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarTags from '../shared/SidebarTags';
 import SidebarCategories from '../shared/SidebarCategories';
+import { Field, ContentType } from '@craftercms/studio-guest';
+import contentTypeMap from '../shared/contentTypeMap';
 
 export default function (props) {
   const {
@@ -32,13 +32,10 @@ export default function (props) {
     posts,
     model: {
       headline_s,
-      // pageTitle_s,
-      // pageDescription_s,
       bios_o,
       content_o
     }
   } = props;
-  const modelPath = model.craftercms.path;
   return (
     <BaseLayout>
       <section className="site-section pt-5">
@@ -48,22 +45,28 @@ export default function (props) {
 
               <div className="row">
                 <div className="col-md-12">
-                  <h2 className="mb-4">{headline_s}</h2>
-                  <DropZone component="div" model={model} fieldId="content_o">
-                  {
-                    content_o?.map(component =>
-                      <WrappedContentType
-                        model={component}
-                        parentModelId={modelPath}
-                        key={component.craftercms.id}
-                        wrapper={{
-                          component: 'div',
-                          className: 'mb-5'
-                        }}
-                      />
-                    )
-                  }
-                  </DropZone>
+                  <Field component="h2" model={model} fieldId="headline_s" className="mb-4">{headline_s}</Field>
+                  <Field
+                    model={model}
+                    fieldId="content_o"
+                  >
+                    {
+                      content_o?.map((component, index) =>
+                        <Field
+                          key={component.craftercms.id}
+                          className="mb-5"
+                          model={model}
+                          fieldId="content_o"
+                          index={index}
+                        >
+                          <ContentType
+                            model={component}
+                            contentTypeMap={contentTypeMap}
+                          />
+                        </Field>
+                      )
+                    }
+                  </Field>
                 </div>
               </div>
 

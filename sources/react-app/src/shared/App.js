@@ -14,20 +14,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import Router from './Router';
 import CircularProgressSpinner from './CircularProgressSpinner';
 import { GlobalContextProvider } from './context';
 import AppIntl from './AppIntl';
-import { isAuthoring } from './utils';
-import { addAuthoringSupport } from '@craftercms/ice';
 
 export default function App(props) {
-  useEffect(() => {
-    if (isAuthoring()) {
-      addAuthoringSupport();
-    }
-  }, []);
   return (
     <GlobalContextProvider jQuery={props.jQuery}>
       <AppIntl>

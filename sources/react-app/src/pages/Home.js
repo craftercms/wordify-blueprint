@@ -26,13 +26,12 @@ import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 import { Link } from 'react-router-dom';
 import { parse } from 'query-string';
+import { Field } from '@craftercms/studio-guest';
 
 export default function (props) {
   const {
+    model,
     model: {
-      craftercms: {
-        path
-      },
       bios_o,
       slider_o
     },
@@ -54,9 +53,9 @@ export default function (props) {
           <div className="row">
             {
               slider_o?.map((slider, index) =>
-                <div className="col-md-12" key={index}>
-                  <Slider model={slider} parentModelId={path} />
-                </div>
+                <Field model={model} fieldId="slider_o" className="col-md-12" key={index}>
+                  <Slider model={slider} />
+                </Field>
               )
             }
           </div>

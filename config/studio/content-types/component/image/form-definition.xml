@@ -1,11 +1,11 @@
 <form>
   <title>Image</title>
-  <description></description>
+  <description/>
   <objectType>component</objectType>
   <content-type>/component/image</content-type>
   <imageThumbnail>img_2.jpg</imageThumbnail>
   <quickCreate>false</quickCreate>
-  <quickCreatePath></quickCreatePath>
+  <quickCreatePath/>
   <properties>
     <property>
       <name>display-template</name>
@@ -16,7 +16,7 @@
     <property>
       <name>no-template-required</name>
       <label>No Template Required</label>
-      <value></value>
+      <value/>
       <type>boolean</type>
     </property>
     <property>
@@ -29,17 +29,17 @@
   <sections>
     <section>
       <title>System Fields</title>
-      <description></description>
+      <description/>
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>auto-filename</type>
           <id>file-name</id>
-          <iceId></iceId>
+          <iceId/>
           <title>Component ID</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description/>
+          <defaultValue/>
+          <help/>
           <properties>
             <property>
               <name>size</name>
@@ -53,7 +53,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value/>
               <type>boolean</type>
             </property>
           </properties>
@@ -63,11 +63,11 @@
         <field>
           <type>input</type>
           <id>internal-name</id>
-          <iceId></iceId>
+          <iceId/>
           <title>Internal Name</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description/>
+          <defaultValue/>
+          <help/>
           <properties>
             <property>
               <name>size</name>
@@ -81,7 +81,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value/>
               <type>boolean</type>
             </property>
             <property>
@@ -102,17 +102,17 @@
     </section>
     <section>
       <title>Content Fields</title>
-      <description></description>
+      <description/>
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>image-picker</type>
           <id>image_s</id>
-          <iceId></iceId>
+          <iceId/>
           <title>Image</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description/>
+          <defaultValue/>
+          <help/>
           <properties>
             <property>
               <name>width</name>
@@ -128,12 +128,12 @@
             </property>
             <property>
               <name>thumbnailWidth</name>
-              <value></value>
+              <value/>
               <type>int</type>
             </property>
             <property>
               <name>thumbnailHeight</name>
-              <value></value>
+              <value/>
               <type>int</type>
             </property>
             <property>
@@ -143,7 +143,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value/>
               <type>boolean</type>
             </property>
           </properties>
@@ -158,11 +158,11 @@
         <field>
           <type>input</type>
           <id>alternativeText_s</id>
-          <iceId></iceId>
+          <iceId/>
           <title>Alternative Text</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description/>
+          <defaultValue/>
+          <help/>
           <properties>
             <property>
               <name>size</name>
@@ -176,7 +176,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value/>
               <type>boolean</type>
             </property>
             <property>

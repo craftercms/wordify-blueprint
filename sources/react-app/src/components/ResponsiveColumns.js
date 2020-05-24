@@ -15,40 +15,44 @@
  */
 
 import React from 'react';
-import ContentType from '../shared/ContentType';
-import DropZone from '../shared/DropZone';
+import { ContentType, Field } from '@craftercms/studio-guest';
+import contentTypeMap from '../shared/contentTypeMap';
 
 export default function (props) {
   const {
-    ice,
     model,
-    parentModelId,
     model: { columns_o }
   } = props;
   const modelId = model.craftercms.id;
   return (
-    <div {...ice} className="row mb-5">
+    <Field model={model} className="row mb-5">
       {
         columns_o?.map(({ columnSize_s, content_o }, index) =>
-          <DropZone
+          <Field
             model={model}
             component="div"
-            fieldId="content_o"
+            fieldId="columns_o"
             className={`col-md-${columnSize_s} mb-4`}
             key={`${modelId}_${columnSize_s}_${index}`}
           >
             {
-              content_o?.map?.(component =>
-                <ContentType
+              content_o?.map((component, index) =>
+                <Field
                   key={component.craftercms.id}
-                  model={component}
-                  parentModelId={parentModelId}
-                />
+                  model={model}
+                  index={index}
+                  fieldId="columns_o"
+                >
+                  <ContentType
+                    model={component}
+                    contentTypeMap={contentTypeMap}
+                  />
+                </Field>
               )
             }
-          </DropZone>
+          </Field>
         )
       }
-    </div>
+    </Field>
   );
 }

@@ -15,10 +15,11 @@
  */
 
 import React from 'react';
+import { Field } from '@craftercms/studio-guest';
 
 export default function (props) {
   const {
-    ice,
+    model,
     model: {
       // craftercms: {
       //   id,
@@ -40,17 +41,26 @@ export default function (props) {
   } = props;
   return (
     <>
-      <div className="bio text-center" {...ice}>
-        <img src={profilePic_s} alt="" className="img-fluid" />
+      <Field className="bio text-center" model={model}>
+        <Field
+          component="img"
+          src={profilePic_s}
+          alt=""
+          className="img-fluid"
+          model={model}
+          fieldId="profilePic_s"
+        />
         <div className="bio-body">
-          <h2>{name_s}</h2>
-          <p>{bio_t}</p>
+          <Field component="h2" model={model} fieldId="name_s">
+            {name_s}
+          </Field>
+          <Field component="p" model={model} fieldId="bio_t">{bio_t}</Field>
           {
             showLinkButton_b &&
             <p>
-              <a href={linkButtonUrl_s} className="btn btn-primary btn-sm rounded">
+              <Field component="a" model={model} fieldId="linkButtonText_s,linkButtonUrl_s" href={linkButtonUrl_s} className="btn btn-primary btn-sm rounded">
                 {linkButtonText_s}
-              </a>
+              </Field>
             </p>
           }
           <p className="social">
@@ -80,7 +90,7 @@ export default function (props) {
             }
           </p>
         </div>
-      </div>
+      </Field>
     </>
   );
 }

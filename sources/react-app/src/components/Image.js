@@ -15,15 +15,23 @@
  */
 
 import React from 'react';
+import { Field } from '@craftercms/studio-guest';
 
 export default function (props) {
   const {
-    ice,
+    model,
     model: { image_s, alternativeText_s }
   } = props;
   return (
     <>
-      <img {...ice} src={image_s} alt={alternativeText_s || ''} className="img-fluid" />
+      <Field
+        component="img"
+        fieldId="image_s,alternativeText_s"
+        src={image_s}
+        alt={alternativeText_s || ''}
+        className="img-fluid"
+        model={model}
+      />
     </>
   );
 }

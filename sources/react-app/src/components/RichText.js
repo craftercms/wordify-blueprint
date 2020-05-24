@@ -15,17 +15,20 @@
  */
 
 import React from 'react';
+import { Field } from '@craftercms/studio-guest';
 
 export default function (props) {
   const {
-    ice,
-    model: {
-      content_html_raw
-    }
+    model,
+    model: { content_html_raw }
   } = props;
   return (
     <>
-      <div {...ice} dangerouslySetInnerHTML={{ __html: content_html_raw }} />
+      <Field
+        model={model}
+        fieldId="content_html"
+        dangerouslySetInnerHTML={{ __html: content_html_raw }}
+      />
     </>
   );
 }

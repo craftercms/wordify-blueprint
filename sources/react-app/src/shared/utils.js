@@ -14,6 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import { crafterConf } from '@craftercms/classes';
+
 export function isAuthoring() {
   const html = document.documentElement;
   const attr = html.getAttribute('data-craftercms-preview');
@@ -55,24 +57,4 @@ export const crafterConfig = {
   site: process.env.REACT_APP_CRAFTERCMS_SITE_ID
 };
 
-// TODO: To be moved to sdk and/or removed
-// https://github.com/craftercms/craftercms/issues/4057
-const propsToRemove = ['rootId', 'crafterSite', 'crafterPublishedDate', 'crafterPublishedDate_dt', 'inheritsFrom_smv'];
-export function preParseSearchResults(source) {
-  Object.entries(source).forEach(([prop, value]) => {
-    if (propsToRemove.includes(prop)) {
-      delete source[prop];
-    } else if (prop.endsWith('_o')) {
-      if (!Array.isArray(value.item)) {
-        source[prop] = { item: [value.item] };
-      }
-      source[prop].item.forEach((item, i) => {
-        source[prop].item[i] = preParseSearchResults(item);
-        if (item.component) {
-          source[prop].item[i].component = preParseSearchResults(item.component);
-        }
-      });
-    }
-  });
-  return source;
-}
+crafterConf.configure(crafterConfig);
