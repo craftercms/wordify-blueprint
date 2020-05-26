@@ -21,7 +21,7 @@ import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 import SidebarSearch from '../shared/SidebarSearch';
-import SidebarBios from '../shared/SidebarBios';
+import { SidebarBiosWithICE } from '../shared/SidebarBios';
 import { ContentType, Field } from '@craftercms/studio-guest';
 import contentTypeMap from '../shared/contentTypeMap';
 
@@ -99,7 +99,7 @@ export default function (props) {
 
               <SidebarSearch />
 
-              <SidebarBios bios={model.authorBio_o} />
+              <SidebarBiosWithICE model={model} fieldId="authorBio_o" />
 
               <PopularPostsAside posts={posts} />
 

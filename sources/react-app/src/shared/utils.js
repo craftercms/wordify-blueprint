@@ -15,6 +15,7 @@
  */
 
 import { crafterConf } from '@craftercms/classes';
+import Cookies from 'js-cookie';
 
 export function isAuthoring() {
   const html = document.documentElement;
@@ -53,8 +54,8 @@ export function createResource(factory) {
 }
 
 export const crafterConfig = {
-  baseUrl: process.env.REACT_APP_CRAFTERCMS_BASE_URL,
-  site: process.env.REACT_APP_CRAFTERCMS_SITE_ID
+  baseUrl: process.env.REACT_APP_CRAFTERCMS_BASE_URL ?? '',
+  site: process.env.REACT_APP_CRAFTERCMS_SITE_ID ?? Cookies.get('crafterSite')
 };
 
 crafterConf.configure(crafterConfig);

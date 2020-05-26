@@ -17,15 +17,11 @@
 import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import PopularPostsAside from '../shared/PopularPostsAside';
-import SidebarBios from '../shared/SidebarBios';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 
 export default function (props) {
-  const {
-    bios_o,
-    posts
-  } = props;
+  const { posts } = props;
   return (
     <BaseLayout>
       <section className="site-section">
@@ -79,7 +75,7 @@ export default function (props) {
                 </form>
               </div>
 
-              <SidebarBios bios={bios_o} />
+              {/*<SidebarBiosWithICE model={model} fieldId="bios_o" />*/}
 
               <PopularPostsAside posts={posts} />
 

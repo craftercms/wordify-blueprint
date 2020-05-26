@@ -19,11 +19,11 @@ import BaseLayout from '../shared/BaseLayout';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
 import { FormattedMessage } from 'react-intl';
 import PopularPostsAside from '../shared/PopularPostsAside';
-import SidebarBios from '../shared/SidebarBios';
+import { SidebarBiosWithICE } from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarTags from '../shared/SidebarTags';
 import SidebarCategories from '../shared/SidebarCategories';
-import { Field, ContentType } from '@craftercms/studio-guest';
+import { ContentType, Field, RenderField } from '@craftercms/studio-guest';
 import contentTypeMap from '../shared/contentTypeMap';
 
 export default function (props) {
@@ -31,8 +31,6 @@ export default function (props) {
     model,
     posts,
     model: {
-      headline_s,
-      bios_o,
       content_o
     }
   } = props;
@@ -45,7 +43,7 @@ export default function (props) {
 
               <div className="row">
                 <div className="col-md-12">
-                  <Field component="h2" model={model} fieldId="headline_s" className="mb-4">{headline_s}</Field>
+                  <RenderField component="h2" model={model} fieldId="headline_s" className="mb-4" />
                   <Field
                     model={model}
                     fieldId="content_o"
@@ -109,7 +107,7 @@ export default function (props) {
 
               <SidebarSearch />
 
-              <SidebarBios bios={bios_o} />
+              <SidebarBiosWithICE model={model} fieldId="bios_o" />
 
               <PopularPostsAside posts={posts} />
 

@@ -68,9 +68,7 @@ export default function (props) {
 
               <SidebarSearch />
 
-              {/*
-              <SidebarBios bios={bios_o} />
-              */}
+              {/*<SidebarBios bios={bios_o} />*/}
 
               <PopularPostsAside posts={posts} />
 

@@ -16,23 +16,34 @@
 
 import React from 'react';
 import Bio from '../components/Bio';
+import { Field } from '@craftercms/studio-guest';
 
 export default function (props) {
   const { bios } = props;
   return (
     <>
       {
-        bios?.map(bio => <SidebarBio key={bio.craftercms.id} model={bio} />)
+        bios?.map(bio =>
+          <div key={bio.craftercms.id} className="sidebar-box">
+            <Bio model={bio} />
+          </div>
+        )
       }
     </>
   );
 }
 
-function SidebarBio(props) {
-  const bio = props.model;
+export function SidebarBiosWithICE(props) {
+  const { model, fieldId } = props;
   return (
-    <div className="sidebar-box">
-      <Bio model={bio} />
-    </div>
+    <Field model={model} fieldId={fieldId}>
+      {
+        model[fieldId]?.map((bio, index) =>
+          <Field key={bio.craftercms.id} model={model} fieldId={fieldId} index={index} className="sidebar-box">
+            <Bio model={bio} />
+          </Field>
+        )
+      }
+    </Field>
   );
 }

@@ -19,7 +19,7 @@ import BaseLayout from '../shared/BaseLayout';
 import Slider from '../components/Slider';
 import { FormattedMessage } from 'react-intl';
 import PostCard from '../shared/PostCard';
-import SidebarBios from '../shared/SidebarBios';
+import { SidebarBiosWithICE } from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import PopularPostsAside from '../shared/PopularPostsAside';
 import SidebarCategories from '../shared/SidebarCategories';
@@ -32,7 +32,6 @@ export default function (props) {
   const {
     model,
     model: {
-      bios_o,
       slider_o
     },
     posts,
@@ -128,7 +127,7 @@ export default function (props) {
 
               <SidebarSearch />
 
-              <SidebarBios bios={bios_o} />
+              <SidebarBiosWithICE model={model} fieldId="bios_o" />
 
               <PopularPostsAside posts={posts} />
 

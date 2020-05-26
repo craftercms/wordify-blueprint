@@ -39,7 +39,6 @@ export default function (props) {
         name_s: authorName,
         profilePic_s: authorAvatarUrl
       }],
-      blurb_t,
       headline_s,
       mainImage_s,
       craftercms: {
@@ -51,18 +50,30 @@ export default function (props) {
   switch (format) {
     case PORTRAIT:
       return (
-        <Field component={Link} model={model} to={slug} className={`blog-entry ${classes?.root ?? ''}`}>
-          <Field component="img" model={model} fieldId="mainImage_s" src={mainImage_s} alt="" />
+        <Field
+          component={Link}
+          model={model}
+          to={slug}
+          className={`blog-entry ${classes?.root ?? ''}`}
+        >
+          <RenderField component="img" model={model} target="src" fieldId="mainImage_s" alt="" />
           <div className="blog-content-body">
             <div className="post-meta">
-              <Field component="span" model={model} fieldId="authorBio_o" index={0} className="author mr-2">
+              <Field
+                component="span"
+                model={model}
+                fieldId="authorBio_o"
+                index={0}
+                className="author mr-2"
+              >
                 <img src={authorAvatarUrl} alt="" /> {authorName}
               </Field>
               {' • '}<span className="mr-2">{formatDate(dateModified)}</span>
               {
                 numOfComments &&
                 <>
-                  {' • '}<span className="ml-2"><span className="fa fa-comments" /> {numOfComments}</span>
+                  {' • '}<span className="ml-2"><span className="fa fa-comments" /> {numOfComments}
+                </span>
                 </>
               }
             </div>
@@ -75,11 +86,12 @@ export default function (props) {
         <div className="post-entry-horizontal">
           {/* Notice: Adding the ICE to the above element wouldn't stop the link from navigating when clicked */}
           <Field component={Link} model={model} to={slug} className={classes?.root}>
-            <Field
+            <RenderField
               model={model}
               fieldId="mainImage_s"
+              target="style.backgroundImage"
+              format={(src) => `url(${src})`}
               className="image"
-              style={{ backgroundImage: `url(${mainImage_s})` }}
             />
             <span className="text">
               <div className="post-meta">
@@ -102,7 +114,14 @@ export default function (props) {
     case LANDSCAPE_COMPRESSED:
       return (
         <Field component={Link} model={model} to={slug} className={classes?.root}>
-          <Field component="img" model={model} fieldId="mainImage_s" src={mainImage_s} alt="" className="mr-4" />
+          <RenderField
+            component="img"
+            target="src"
+            model={model}
+            fieldId="mainImage_s"
+            className="mr-4"
+            alt=""
+          />
           <div className="text">
             <RenderField component="h4" model={model} fieldId="headline_s" />
             <div className="post-meta">
@@ -137,13 +156,14 @@ export default function (props) {
               {
                 numOfComments &&
                 <>
-                  {' • '}<span className="ml-2"><span className="fa fa-comments"/> {numOfComments}</span>
+                  {' • '}<span className="ml-2"><span className="fa fa-comments" /> {numOfComments}
+                </span>
                 </>
               }
             </div>
             <RenderField component="h3" model={model} fieldId="headline_s" />
             {
-              showBlurb && <Field component="p" model={model} fieldId="blurb_t">{blurb_t}</Field>
+              showBlurb && <RenderField component="p" model={model} fieldId="blurb_t" />
             }
           </Field>
         </Field>

@@ -15,19 +15,17 @@
  */
 
 import React from 'react';
-import { Field } from '@craftercms/studio-guest';
+import { RenderField } from '@craftercms/studio-guest';
 
 export default function (props) {
-  const {
-    model,
-    model: { content_html_raw }
-  } = props;
+  const { model } = props;
   return (
     <>
-      <Field
+      <RenderField
         model={model}
         fieldId="content_html"
-        dangerouslySetInnerHTML={{ __html: content_html_raw }}
+        target="dangerouslySetInnerHTML"
+        format={(content_html_raw) => ({ __html: content_html_raw })}
       />
     </>
   );

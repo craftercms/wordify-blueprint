@@ -18,13 +18,12 @@ import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import PopularPostsAside from '../shared/PopularPostsAside';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
-import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 
 export default function (props) {
-  const { bios_o, posts } = props;
+  const { posts } = props;
   return (
     <BaseLayout>
       <section className="site-section pt-5">
@@ -65,8 +64,8 @@ export default function (props) {
             <div className="col-md-12 col-lg-4 sidebar">
 
               <SidebarSearch />
-              
-              <SidebarBios bios={bios_o} />
+
+              {/*<SidebarBiosWithICE model={model} fieldId="bios_o" />*/}
 
               <PopularPostsAside posts={posts} />
 

@@ -15,21 +15,12 @@
  */
 
 import React from 'react';
-import { Field } from '@craftercms/studio-guest';
+import { Field, RenderField } from '@craftercms/studio-guest';
 
 export default function (props) {
   const {
     model,
     model: {
-      // craftercms: {
-      //   id,
-      //   contentTypeId,
-      //   label,
-      //   path,
-      // },
-      bio_t,
-      name_s,
-      profilePic_s,
       linkButtonText_s,
       linkButtonUrl_s,
       showLinkButton_b,
@@ -42,23 +33,27 @@ export default function (props) {
   return (
     <>
       <Field className="bio text-center" model={model}>
-        <Field
+        <RenderField
           component="img"
-          src={profilePic_s}
-          alt=""
-          className="img-fluid"
+          target="src"
           model={model}
           fieldId="profilePic_s"
+          className="img-fluid"
+          alt=""
         />
         <div className="bio-body">
-          <Field component="h2" model={model} fieldId="name_s">
-            {name_s}
-          </Field>
-          <Field component="p" model={model} fieldId="bio_t">{bio_t}</Field>
+          <RenderField component="h2" model={model} fieldId="name_s" />
+          <RenderField component="p" model={model} fieldId="bio_t" />
           {
             showLinkButton_b &&
             <p>
-              <Field component="a" model={model} fieldId="linkButtonText_s,linkButtonUrl_s" href={linkButtonUrl_s} className="btn btn-primary btn-sm rounded">
+              <Field
+                component="a"
+                model={model}
+                fieldId="linkButtonText_s,linkButtonUrl_s"
+                className="btn btn-primary btn-sm rounded"
+                href={linkButtonUrl_s}
+              >
                 {linkButtonText_s}
               </Field>
             </p>
