@@ -15,22 +15,23 @@
  */
 
 import React from 'react';
-import { Field } from '@craftercms/studio-guest';
+import { RenderField } from '@craftercms/studio-guest';
 
 export default function (props) {
   const {
     model,
-    model: { image_s, alternativeText_s }
+    // TODO: alternativeText_s should also be rendered by RenderField to pickup updates
+    model: { alternativeText_s }
   } = props;
   return (
     <>
-      <Field
+      <RenderField
         component="img"
-        fieldId="image_s,alternativeText_s"
-        src={image_s}
-        alt={alternativeText_s || ''}
-        className="img-fluid"
         model={model}
+        fieldId="image_s"
+        target="src"
+        alt={alternativeText_s ?? ''}
+        className="img-fluid"
       />
     </>
   );
