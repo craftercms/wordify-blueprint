@@ -29,10 +29,7 @@ import contentTypeMap from '../shared/contentTypeMap';
 export default function (props) {
   const {
     model,
-    posts,
-    model: {
-      content_o
-    }
+    posts
   } = props;
   return (
     <BaseLayout>
@@ -44,7 +41,30 @@ export default function (props) {
               <div className="row">
                 <div className="col-md-12">
                   <RenderField component="h2" model={model} fieldId="headline_s" className="mb-4" />
-                  <Field
+                  {/* Using render field here allows react to pick up updates
+                      but there are open issues when deleting and sometimes inserting */}
+                  <RenderField
+                    model={model}
+                    fieldId="content_o"
+                    format={(content_o) => content_o?.map((component, index) =>
+                      <Field
+                        key={component.craftercms.id}
+                        className="mb-5"
+                        style={{ padding: 10 }}
+                        model={model}
+                        fieldId="content_o"
+                        index={index}
+                      >
+                        <ContentType
+                          model={component}
+                          contentTypeMap={contentTypeMap}
+                        />
+                      </Field>
+                    )}
+                  />
+                  {/* Using field, there are no issues when performing insert/deletes
+                      but changes aren't picked up by react. */}
+                  {/*<Field
                     model={model}
                     fieldId="content_o"
                   >
@@ -53,6 +73,7 @@ export default function (props) {
                         <Field
                           key={component.craftercms.id}
                           className="mb-5"
+                          style={{ padding: 10 }}
                           model={model}
                           fieldId="content_o"
                           index={index}
@@ -64,7 +85,7 @@ export default function (props) {
                         </Field>
                       )
                     }
-                  </Field>
+                  </Field>*/}
                 </div>
               </div>
 
