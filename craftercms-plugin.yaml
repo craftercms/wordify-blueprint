@@ -14,7 +14,7 @@ plugin:
   version:
     major: 1
     minor: 0
-    patch: 0
+    patch: 1
   description: |
     Wordify template blueprint
   website:
@@ -55,6 +55,9 @@ plugin:
     - major: 3
       minor: 1
       patch: 7
+    - major: 3
+      minor: 1
+      patch: 8
     - major: 3
       minor: 2
       patch: 0
