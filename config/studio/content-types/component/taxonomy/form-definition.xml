@@ -31,7 +31,7 @@
 			<defaultOpen>true</defaultOpen>
 			<fields>
 				<field>
-					<type>auto-filename</type>
+					<type>file-name</type>
 					<id>file-name</id>
 					<iceId></iceId>
 					<title>Component ID</title>
