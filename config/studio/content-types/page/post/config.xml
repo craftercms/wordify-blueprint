@@ -1,13 +1,13 @@
 <content-type name="/page/post" is-wcm-type="true">
-  <label>Post</label>
-  <form>/page/post</form>
-  <form-path>simple</form-path>
-  <model-instance-path>NOT-USED-BY-SIMPLE-FORM-ENGINE</model-instance-path>
-  <file-extension>xml</file-extension>
-  <content-as-folder>true</content-as-folder>
-  <previewable>true</previewable>
-  <quickCreate>true</quickCreate>
-  <quickCreatePath>/site/website/articles/{year}/{month}</quickCreatePath>
-  <noThumbnail>false</noThumbnail>
-  <image-thumbnail>post.png</image-thumbnail>
+	<label>Post</label>
+	<form>/page/post</form>
+	<form-path>simple</form-path>
+	<model-instance-path>NOT-USED-BY-SIMPLE-FORM-ENGINE</model-instance-path>
+	<file-extension>xml</file-extension>
+	<content-as-folder>true</content-as-folder>
+	<previewable>true</previewable>
+	<quickCreate>true</quickCreate>
+	<quickCreatePath>/site/website/articles/{year}/{month}</quickCreatePath>
+	<noThumbnail>false</noThumbnail>
+	<image-thumbnail>post.png</image-thumbnail>
 </content-type>
