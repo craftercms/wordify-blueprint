@@ -121,6 +121,11 @@ export default `
         value_smv
       }
     }
+    tags_o {
+      item {
+        value_smv
+      }
+    }
   }
 
   fragment byUrlQueryContentItemFields on ContentItem {

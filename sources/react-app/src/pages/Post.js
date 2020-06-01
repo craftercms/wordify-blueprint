@@ -28,6 +28,9 @@ import DropZone from '../shared/DropZone';
 export default function (props) {
   const { model, posts } = props;
   const modelPath = model.craftercms.path;
+
+  console.log("MODEL", model);
+
   return (
     <BaseLayout>
       <section className="site-section py-lg">
@@ -77,7 +80,12 @@ export default function (props) {
                   }
                 </div>
                 <div>
-                  Tags: <a href="/">#manila</a>, <a href="/">#asia</a>
+                  Tags:
+                  {
+                    model.tags_o?.map((tag, i) =>
+                      <a href="/" key={i}>{tag.value_smv}{model.tags_o.length === i+1 ? '' : ','}</a>
+                    )
+                  }
                 </div>
               </div>
 

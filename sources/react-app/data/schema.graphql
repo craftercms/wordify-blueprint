@@ -445,6 +445,8 @@ type component_post implements ContentItem {
   ): String
   "Categories"
   categories_o: component_post_categories_o_items
+  "Tags"
+  tags_o: component_post_tags_o_items
 }
 
 "Contains the data from another item in the site"
@@ -472,6 +474,12 @@ type component_post_categories_o_flattened_items {
 
 "Wrapper for categories flattened items"
 type component_post_categories_o_items {
+  "List of flattened items"
+  item: [page_post_categories_o_flattened_items!]
+}
+
+"Wrapper for tags flattened items"
+type component_post_tags_o_items {
   "List of flattened items"
   item: [page_post_categories_o_flattened_items!]
 }
@@ -1331,6 +1339,8 @@ type page_post implements ContentItem & Page {
   ): Boolean
   "Categories"
   categories_o: page_post_categories_o_items
+  "Tags"
+  tags_o: page_post_tags_o_items
 }
 
 "Contains the data from another item in the site"
@@ -1360,6 +1370,17 @@ type page_post_categories_o_flattened_items {
 type page_post_categories_o_items {
   "List of flattened items"
   item: [page_post_categories_o_flattened_items!]
+}
+
+type page_post_tags_o_flattened_items {
+  "The value of the item"
+  value_smv: String!
+}
+
+"Wrapper for tags flattened items"
+type page_post_tags_o_items {
+  "List of flattened items"
+  item: [page_post_tags_o_flattened_items!]
 }
 
 "Query for content-type /page/post"
