@@ -443,6 +443,8 @@ type component_post implements ContentItem {
     "Values used to filter the results"
     filter: StringFilters
   ): String
+  "Categories"
+  categories_o: component_post_categories_o_items
 }
 
 "Contains the data from another item in the site"
@@ -459,6 +461,19 @@ type component_post_authorBio_o_flattened_item {
 type component_post_authorBio_o_items {
   "List of flattened items"
   item: [component_post_authorBio_o_flattened_item!]
+}
+
+type component_post_categories_o_flattened_items {
+  "The key of the item"
+  key: String!
+  "The value of the item"
+  value_smv: String!
+}
+
+"Wrapper for categories flattened items"
+type component_post_categories_o_items {
+  "List of flattened items"
+  item: [page_post_categories_o_flattened_items!]
 }
 
 "Query for content-type /component/post"
@@ -1314,6 +1329,8 @@ type page_post implements ContentItem & Page {
     "Values used to filter the results"
     filter: BooleanFilters
   ): Boolean
+  "Categories"
+  categories_o: page_post_categories_o_items
 }
 
 "Contains the data from another item in the site"
@@ -1330,6 +1347,19 @@ type page_post_authorBio_o_flattened_item {
 type page_post_authorBio_o_items {
   "List of flattened items"
   item: [page_post_authorBio_o_flattened_item!]
+}
+
+type page_post_categories_o_flattened_items {
+  "The key of the item"
+  key: String!
+  "The value of the item"
+  value_smv: String!
+}
+
+"Wrapper for categories flattened items"
+type page_post_categories_o_items {
+  "List of flattened items"
+  item: [page_post_categories_o_flattened_items!]
 }
 
 "Query for content-type /page/post"

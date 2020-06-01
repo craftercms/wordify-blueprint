@@ -115,6 +115,12 @@ export default `
         }
       }
     }
+    categories_o {
+      item {
+        key
+        value_smv
+      }
+    }
   }
 
   fragment byUrlQueryContentItemFields on ContentItem {
