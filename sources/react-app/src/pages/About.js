@@ -42,7 +42,7 @@ export default function (props) {
                 <div className="col-md-12">
                   <RenderField component="h2" model={model} fieldId="headline_s" className="mb-4" />
                   {/* Using render field here allows react to pick up updates but there are open
-                  issues when deleting and sometimes inserting. */}
+                      issues when deleting and sometimes inserting. */}
                   <RenderField
                     model={model}
                     fieldId="content_o"

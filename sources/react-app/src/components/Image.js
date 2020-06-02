@@ -15,12 +15,12 @@
  */
 
 import React from 'react';
-import { RenderField } from '@craftercms/studio-guest';
+import { Model, RenderField } from '@craftercms/studio-guest';
 
 export default function (props) {
   const { model } = props;
   return (
-    <>
+    <Model model={model}>
       <RenderField
         component="img"
         model={model}
@@ -28,6 +28,6 @@ export default function (props) {
         target="src,alt"
         className="img-fluid"
       />
-    </>
+    </Model>
   );
 }

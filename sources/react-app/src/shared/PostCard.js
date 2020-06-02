@@ -84,7 +84,8 @@ export default function (props) {
     case LANDSCAPE:
       return (
         <div className="post-entry-horizontal">
-          {/* Notice: Adding the ICE to the above element wouldn't stop the link from navigating when clicked */}
+          {/* Notice: Adding the ICE to the above element wouldn't stop
+              the link from navigating when clicked */}
           <Field component={Link} model={model} to={slug} className={classes?.root}>
             <RenderField
               model={model}

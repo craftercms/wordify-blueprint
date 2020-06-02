@@ -31,61 +31,59 @@ export default function (props) {
     }
   } = props;
   return (
-    <>
-      <Field className="bio text-center" model={model}>
-        <RenderField
-          component="img"
-          target="src"
-          model={model}
-          fieldId="profilePic_s"
-          className="img-fluid"
-          alt=""
-        />
-        <div className="bio-body">
-          <RenderField component="h2" model={model} fieldId="name_s" />
-          <RenderField component="p" model={model} fieldId="bio_t" />
-          {
-            showLinkButton_b &&
-            <p>
-              <Field
-                component="a"
-                model={model}
-                fieldId="linkButtonText_s,linkButtonUrl_s"
-                className="btn btn-primary btn-sm rounded"
-                href={linkButtonUrl_s}
-              >
-                {linkButtonText_s}
-              </Field>
-            </p>
-          }
-          <p className="social">
-            {
-              facebookLink_s &&
-              <a href={facebookLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
-                <span className="fa fa-facebook" />
-              </a>
-            }
-            {
-              twitterLink_s &&
-              <a href={twitterLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
-                <span className="fa fa-twitter" />
-              </a>
-            }
-            {
-              instagramLink_s &&
-              <a href={instagramLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
-                <span className="fa fa-instagram" />
-              </a>
-            }
-            {
-              youTubeLink_s &&
-              <a href={youTubeLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
-                <span className="fa fa-youtube-play" />
-              </a>
-            }
+    <Field className="bio text-center" model={model}>
+      <RenderField
+        component="img"
+        target="src"
+        model={model}
+        fieldId="profilePic_s"
+        className="img-fluid"
+        alt=""
+      />
+      <div className="bio-body">
+        <RenderField component="h2" model={model} fieldId="name_s" />
+        <RenderField component="p" model={model} fieldId="bio_t" />
+        {
+          showLinkButton_b &&
+          <p>
+            <Field
+              component="a"
+              model={model}
+              fieldId="linkButtonText_s,linkButtonUrl_s"
+              className="btn btn-primary btn-sm rounded"
+              href={linkButtonUrl_s}
+            >
+              {linkButtonText_s}
+            </Field>
           </p>
-        </div>
-      </Field>
-    </>
+        }
+        <p className="social">
+          {
+            facebookLink_s &&
+            <a href={facebookLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
+              <span className="fa fa-facebook" />
+            </a>
+          }
+          {
+            twitterLink_s &&
+            <a href={twitterLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
+              <span className="fa fa-twitter" />
+            </a>
+          }
+          {
+            instagramLink_s &&
+            <a href={instagramLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
+              <span className="fa fa-instagram" />
+            </a>
+          }
+          {
+            youTubeLink_s &&
+            <a href={youTubeLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
+              <span className="fa fa-youtube-play" />
+            </a>
+          }
+        </p>
+      </div>
+    </Field>
   );
 }
