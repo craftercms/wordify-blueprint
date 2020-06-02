@@ -41,14 +41,15 @@ export default function (props) {
               <div className="row">
                 <div className="col-md-12">
                   <RenderField component="h2" model={model} fieldId="headline_s" className="mb-4" />
-                  {/* Using render field here allows react to pick up updates
-                      but there are open issues when deleting and sometimes inserting */}
+                  {/* Using render field here allows react to pick up updates but there are open
+                  issues when deleting and sometimes inserting. */}
                   <RenderField
                     model={model}
                     fieldId="content_o"
                     format={(content_o) => content_o?.map((component, index) =>
+                      /* Note: Please use index in conjunction with the model id */
                       <Field
-                        key={component.craftercms.id}
+                        key={`${component.craftercms.id}_${index}`}
                         className="mb-5"
                         style={{ padding: 10 }}
                         model={model}
@@ -62,30 +63,6 @@ export default function (props) {
                       </Field>
                     )}
                   />
-                  {/* Using field, there are no issues when performing insert/deletes
-                      but changes aren't picked up by react. */}
-                  {/*<Field
-                    model={model}
-                    fieldId="content_o"
-                  >
-                    {
-                      content_o?.map((component, index) =>
-                        <Field
-                          key={component.craftercms.id}
-                          className="mb-5"
-                          style={{ padding: 10 }}
-                          model={model}
-                          fieldId="content_o"
-                          index={index}
-                        >
-                          <ContentType
-                            model={component}
-                            contentTypeMap={contentTypeMap}
-                          />
-                        </Field>
-                      )
-                    }
-                  </Field>*/}
                 </div>
               </div>
 
