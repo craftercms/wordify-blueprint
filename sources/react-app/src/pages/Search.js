@@ -40,7 +40,7 @@ function SearchResults({ resource }) {
 }
 
 export default function (props) {
-  const { posts, categories } = props;
+  const { posts, categories, tags } = props;
   const resource = useUrlSearchQueryFetchResource();
   return (
     <BaseLayout>
@@ -76,7 +76,7 @@ export default function (props) {
 
               <SidebarCategories categories={categories} />
 
-              <SidebarTags />
+              <SidebarTags tags={tags} />
 
             </div>
           </div>

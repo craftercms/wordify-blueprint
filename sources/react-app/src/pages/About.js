@@ -31,6 +31,7 @@ export default function (props) {
     model,
     posts,
     categories,
+    tags,
     model: {
       headline_s,
       // pageTitle_s,
@@ -113,7 +114,7 @@ export default function (props) {
 
               <SidebarCategories categories={categories} />
 
-              <SidebarTags/>
+              <SidebarTags tags={tags} />
 
             </div>
           </div>

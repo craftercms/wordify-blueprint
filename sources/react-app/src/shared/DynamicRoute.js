@@ -42,6 +42,7 @@ export default function DynamicRoute(props) {
       {
         url: `.*${url === '/' ? 'website/index' : url}.*`,
         includePosts: true,
+        includeTaxonomies: true,
         postsLimit: pagination.limit,
         postsOffset: pagination.offset
       }
@@ -51,11 +52,13 @@ export default function DynamicRoute(props) {
         const posts = parseDescriptor(data.posts.items);
         const taxonomies = parseDescriptor(data.taxonomies.items);
         const categories = taxonomies.filter(taxonomy => taxonomy.craftercms.path.includes('categories.xml'))[0].items.item;
+        const tags = taxonomies.filter(taxonomy => taxonomy.craftercms.path.includes('tags.xml'))[0].items.item;
 
         setState({
           model,
           posts,
           categories,
+          tags,
           meta: {
             posts: {
               total: data.posts.total,

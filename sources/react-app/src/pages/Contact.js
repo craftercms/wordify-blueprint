@@ -25,7 +25,8 @@ export default function (props) {
   const {
     bios_o,
     posts,
-    categories
+    categories,
+    tags
   } = props;
   return (
     <BaseLayout>
@@ -86,7 +87,7 @@ export default function (props) {
 
               <SidebarCategories categories={categories} />
 
-              <SidebarTags/>
+              <SidebarTags tags={tags} />
 
             </div>
 

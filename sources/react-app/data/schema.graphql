@@ -1462,18 +1462,23 @@ type page_post_query {
   total: Int!
 }
 
-"Item for repeat group of tags_o"
+"Item for field tags_o"
 type page_post_tags_o_item {
-  "Value"
-  value_smv(
+  "The key of the item"
+  key(
     "Values used to filter the results"
     filter: TextFilters
   ): String
+  "The value of the item"
+  value_smv(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
 }
 
-"Wrapper for list of items of tags_o"
+"Wrapper for field tags_o"
 type page_post_tags_o_items {
-  "List of items of tags_o"
+  "List of items for field tags_o"
   item: [page_post_tags_o_item]
 }
 

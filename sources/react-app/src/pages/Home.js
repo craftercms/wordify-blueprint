@@ -38,6 +38,7 @@ export default function (props) {
     },
     posts,
     categories,
+    tags,
     meta: {
       posts: {
         total,
@@ -136,7 +137,7 @@ export default function (props) {
 
               <SidebarCategories categories={categories} />
 
-              <SidebarTags />
+              <SidebarTags tags={tags} />
 
             </div>
           </div>
