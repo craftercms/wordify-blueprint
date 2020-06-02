@@ -266,6 +266,12 @@ const byUrlQuery = graphql`
         ...byUrlQueryPostPage
       }
     }
+    taxonomies: component_taxonomy {
+      total
+      items {
+        ...byUrlQueryTaxonomies
+      }
+    }
   }
 `;
 

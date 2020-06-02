@@ -40,7 +40,7 @@ function SearchResults({ resource }) {
 }
 
 export default function (props) {
-  const { posts } = props;
+  const { posts, categories } = props;
   const resource = useUrlSearchQueryFetchResource();
   return (
     <BaseLayout>
@@ -74,7 +74,7 @@ export default function (props) {
 
               <PopularPostsAside posts={posts} />
 
-              <SidebarCategories />
+              <SidebarCategories categories={categories} />
 
               <SidebarTags />
 

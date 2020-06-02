@@ -30,6 +30,7 @@ export default function (props) {
   const {
     model,
     posts,
+    categories,
     model: {
       headline_s,
       // pageTitle_s,
@@ -110,7 +111,7 @@ export default function (props) {
 
               <PopularPostsAside posts={posts} />
 
-              <SidebarCategories/>
+              <SidebarCategories categories={categories} />
 
               <SidebarTags/>
 

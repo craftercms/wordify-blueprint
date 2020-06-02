@@ -204,6 +204,16 @@ export default `
       }
     }
   }
+  
+  fragment byUrlQueryTaxonomies on component_taxonomy {
+    ...byUrlQueryContentItemFields
+    items {
+      item {
+        key 
+        value
+      }
+    }
+  }
 
   query byUrlQuery(
     $url: String
@@ -246,6 +256,12 @@ export default `
       total
       items {
         ...byUrlQueryPostPage
+      }
+    }
+    taxonomies: component_taxonomy {      
+      total
+      items {
+        ...byUrlQueryTaxonomies
       }
     }
   }

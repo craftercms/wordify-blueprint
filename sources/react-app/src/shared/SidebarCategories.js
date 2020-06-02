@@ -17,7 +17,11 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-export default function () {
+export default function (props) {
+  const {
+    categories
+  } = props;
+
   return (
     <div className="sidebar-box">
       <h3 className="heading">
@@ -27,11 +31,11 @@ export default function () {
         />
       </h3>
       <ul className="categories">
-        <li><a href="/">Food <span>(12)</span></a></li>
-        <li><a href="/">Travel <span>(22)</span></a></li>
-        <li><a href="/">Lifestyle <span>(37)</span></a></li>
-        <li><a href="/">Business <span>(42)</span></a></li>
-        <li><a href="/">Adventure <span>(14)</span></a></li>
+        {
+          categories?.map((category, i) =>
+            <li key={category.key}><a href="/">{category.value} <span>(12)</span></a></li>    //TODO: count pending
+          )
+        }
       </ul>
     </div>
   );
