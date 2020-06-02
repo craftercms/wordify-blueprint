@@ -132,4 +132,14 @@
       <disableFlattening>false</disableFlattening>
     </item>
   </authorBio_o>
+  <categories_o>	<item>	<key>lifestyle</key>
+    <value_smv>Lifestyle</value_smv>
+  </item>	<item>	<key>adventure</key>
+    <value_smv>Adventure</value_smv>
+  </item></categories_o>
+  <tags_o>	<item>	<key>adventure</key>
+    <value_smv>Adventure</value_smv>
+  </item>	<item>	<key>lifestyle</key>
+    <value_smv>Lifestyle</value_smv>
+  </item></tags_o>
 </component>
