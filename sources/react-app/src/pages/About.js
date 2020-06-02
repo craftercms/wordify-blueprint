@@ -51,7 +51,6 @@ export default function (props) {
                       <Field
                         key={`${component.craftercms.id}_${index}`}
                         className="mb-5"
-                        style={{ padding: 10 }}
                         model={model}
                         fieldId="content_o"
                         index={index}
