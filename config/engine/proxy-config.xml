@@ -47,7 +47,7 @@
     </server>
     <server>
       <id>preview</id>
-      <url>http://localhost:3000</url>
+      <url>http://localhost:8080</url>
       <patterns>
         <pattern>.*</pattern>
       </patterns>
