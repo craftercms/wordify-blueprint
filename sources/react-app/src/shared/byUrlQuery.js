@@ -266,7 +266,7 @@ const byUrlQuery = graphql`
         ...byUrlQueryPostPage
       }
     }
-    taxonomies: component_taxonomy {
+    taxonomies: component_taxonomy @include(if: $includeTaxonomies) {
       total
       items {
         ...byUrlQueryTaxonomies
