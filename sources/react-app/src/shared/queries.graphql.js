@@ -115,6 +115,18 @@ export default `
         }
       }
     }
+    categories_o {
+      item {
+        key
+        value_smv
+      }
+    }
+    tags_o {
+      item {
+        value_smv
+        key
+      }
+    }
   }
 
   fragment byUrlQueryContentItemFields on ContentItem {
@@ -193,11 +205,22 @@ export default `
       }
     }
   }
+  
+  fragment byUrlQueryTaxonomies on component_taxonomy {
+    ...byUrlQueryContentItemFields
+    items {
+      item {
+        key 
+        value
+      }
+    }
+  }
 
   query byUrlQuery(
     $url: String
     $skipContentType: Boolean = true
     $includePosts: Boolean = true
+    $includeTaxonomies: Boolean = true
     $postsLimit: Int = 8
     $postsOffset: Int = 0
   ) {
@@ -235,6 +258,12 @@ export default `
       total
       items {
         ...byUrlQueryPostPage
+      }
+    }
+    taxonomies: component_taxonomy @include(if: $includeTaxonomies) {      
+      total
+      items {
+        ...byUrlQueryTaxonomies
       }
     }
   }
