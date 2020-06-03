@@ -24,7 +24,9 @@ import SidebarTags from '../shared/SidebarTags';
 export default function (props) {
   const {
     bios_o,
-    posts
+    posts,
+    categories,
+    tags
   } = props;
   return (
     <BaseLayout>
@@ -83,9 +85,9 @@ export default function (props) {
 
               <PopularPostsAside posts={posts} />
 
-              <SidebarCategories/>
+              <SidebarCategories categories={categories} />
 
-              <SidebarTags/>
+              <SidebarTags tags={tags} />
 
             </div>
 

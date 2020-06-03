@@ -26,7 +26,7 @@ import SidebarBios from '../shared/SidebarBios';
 import DropZone from '../shared/DropZone';
 
 export default function (props) {
-  const { model, posts } = props;
+  const { model, posts, categories, tags } = props;
   const modelPath = model.craftercms.path;
   return (
     <BaseLayout>
@@ -44,7 +44,11 @@ export default function (props) {
                 {' • '}<span className="ml-2"><span className="fa fa-comments" /> 3</span>
               </div>
               <h1 className="mb-4">{model.headline_s}</h1>
-              <a className="category mb-5" href="/">Food</a> <a className="category mb-5" href="/">Travel</a>
+              {
+                model.categories_o?.map(category =>
+                  <a className="category mb-5" href="/" key={category.key}>{category.value_smv}</a>
+                )
+              }
 
               <DropZone
                 model={model}
@@ -65,10 +69,20 @@ export default function (props) {
 
               <div className="pt-5">
                 <div>
-                  Categories: <a href="/">Food</a>, <a href="/">Travel</a>
+                  Categories:
+                  {
+                    model.categories_o?.map((category, i) =>
+                      <a href="/" key={category.key}>{category.value_smv}{model.categories_o.length === i+1 ? '' : ','}</a>
+                    )
+                  }
                 </div>
                 <div>
-                  Tags: <a href="/">#manila</a>, <a href="/">#asia</a>
+                  Tags:
+                  {
+                    model.tags_o?.map((tag, i) =>
+                      <a href="/" key={i}>#{tag.value_smv}{model.tags_o.length === i+1 ? '' : ','}</a>
+                    )
+                  }
                 </div>
               </div>
 
@@ -85,9 +99,9 @@ export default function (props) {
 
               <PopularPostsAside posts={posts} />
 
-              <SidebarCategories/>
+              <SidebarCategories categories={categories} />
 
-              <SidebarTags/>
+              <SidebarTags tags={tags} />
 
             </div>
 

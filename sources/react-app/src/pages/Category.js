@@ -24,7 +24,7 @@ import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 
 export default function (props) {
-  const { bios_o, posts } = props;
+  const { bios_o, posts, categories, tags } = props;
   return (
     <BaseLayout>
       <section className="site-section pt-5">
@@ -70,9 +70,9 @@ export default function (props) {
 
               <PopularPostsAside posts={posts} />
 
-              <SidebarCategories/>
+              <SidebarCategories categories={categories} />
 
-              <SidebarTags/>
+              <SidebarTags tags={tags} />
 
             </div>
           </div>

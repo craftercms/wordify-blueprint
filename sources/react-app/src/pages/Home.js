@@ -37,6 +37,8 @@ export default function (props) {
       slider_o
     },
     posts,
+    categories,
+    tags,
     meta: {
       posts: {
         total,
@@ -133,9 +135,9 @@ export default function (props) {
 
               <PopularPostsAside posts={posts} />
 
-              <SidebarCategories />
+              <SidebarCategories categories={categories} />
 
-              <SidebarTags />
+              <SidebarTags tags={tags} />
 
             </div>
           </div>
