@@ -17,7 +17,11 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-export default function () {
+export default function (props) {
+  const {
+    tags
+  } = props;
+
   return (
     <div className="sidebar-box">
       <h3 className="heading">
@@ -27,18 +31,11 @@ export default function () {
         />
       </h3>
       <ul className="tags">
-        <li><a href="/">Travel</a></li>
-        <li><a href="/">Adventure</a></li>
-        <li><a href="/">Food</a></li>
-        <li><a href="/">Lifestyle</a></li>
-        <li><a href="/">Business</a></li>
-        <li><a href="/">Freelancing</a></li>
-        <li><a href="/">Travel</a></li>
-        <li><a href="/">Adventure</a></li>
-        <li><a href="/">Food</a></li>
-        <li><a href="/">Lifestyle</a></li>
-        <li><a href="/">Business</a></li>
-        <li><a href="/">Freelancing</a></li>
+        {
+          tags?.map((tag) =>
+            <li key={tag.key}><a href="/">{tag.value}</a></li>
+          )
+        }
       </ul>
     </div>
   );
