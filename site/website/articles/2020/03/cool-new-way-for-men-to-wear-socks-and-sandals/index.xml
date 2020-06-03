@@ -14,8 +14,8 @@
   <orderDefault_f>-1</orderDefault_f>
   <createdDate>2020-03-21T11:29:30.420Z</createdDate>
   <createdDate_dt>2020-03-21T11:29:30.420Z</createdDate_dt>
-  <lastModifiedDate>2020-03-24T17:48:13.890Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-03-24T17:48:13.890Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-06-02T19:41:39.622Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-02T19:41:39.622Z</lastModifiedDate_dt>
   <mainImage_s>/static-assets/images/img_12.jpg</mainImage_s>
   <pageTitle_s>Cool New Way for Men to Wear Socks and Sandals</pageTitle_s>
   <headline_s>There’s a Cool New Way for Men to Wear Socks and Sandals</headline_s>
@@ -190,4 +190,16 @@
     </item>
   </authorBio_o>
   <pageDescription_s/>
+  <categories_o>
+    <item>
+      <key>lifestyle</key>
+      <value_smv>Lifestyle</value_smv>
+    </item>
+  </categories_o>
+  <tags_o>
+    <item>
+      <key>lifestyle</key>
+      <value_smv>Lifestyle</value_smv>
+    </item>
+  </tags_o>
 </page>
