@@ -33,7 +33,7 @@ export default function (props) {
       <ul className="categories">
         {
           categories?.map((category, i) =>
-            <li key={category.key}><a href="/">{category.value} <span>(12)</span></a></li>    //TODO: count pending
+            <li key={category.key}><a href="/">{category.value}</a></li>
           )
         }
       </ul>
