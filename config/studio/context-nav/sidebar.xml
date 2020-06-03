@@ -52,6 +52,16 @@
                     <showRootItem>true</showRootItem>
                   </params>
                 </modulehook>
+                
+                <!-- Taxonomy -->
+                <modulehook>
+                  <name>wcm-root-folder</name>
+                  <params>
+                    <label>Taxonomy</label>
+                    <path>/site/taxonomy</path>
+                    <showRootItem>true</showRootItem>
+                  </params>
+                </modulehook>
 
                 <!-- Static Assets -->
                 <modulehook>
