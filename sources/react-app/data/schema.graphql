@@ -675,6 +675,82 @@ type component_slider_query {
   total: Int!
 }
 
+"Taxonomy"
+type component_taxonomy implements ContentItem {
+  "The content type of the item"
+  content__type(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String!
+  "The created date of the item"
+  createdDate_dt(
+    "Values used to filter the results"
+    filter: DateFilters
+  ): DateTime!
+  "Component ID"
+  file__name(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+  "The name/label of the item in Authoring (can also be used as a navigation label in Delivery)"
+  internal__name(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+  "Items"
+  items: component_taxonomy_items_items
+  "The last modified date of the item"
+  lastModifiedDate_dt(
+    "Values used to filter the results"
+    filter: DateFilters
+  ): DateTime!
+  "The path of the item"
+  localId(
+    "Values used to filter the results"
+    filter: StringFilters,
+    "The name of the transformer to apply"
+    transform: String
+  ): String
+  "The objectGroupId for the item"
+  objectGroupId(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String!
+  "The objectId of the item"
+  objectId(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String!
+}
+
+"Item for repeat group of items"
+type component_taxonomy_items_item {
+  "Key"
+  key(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+  "Value"
+  value(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+}
+
+"Wrapper for list of items of items"
+type component_taxonomy_items_items {
+  "List of items of items"
+  item: [component_taxonomy_items_item]
+}
+
+"Query for content-type /component/taxonomy"
+type component_taxonomy_query {
+  "List of items"
+  items: [component_taxonomy!]
+  "Total number of items found"
+  total: Int!
+}
+
 "Query for all components"
 type components_query {
   "List of items"
@@ -770,6 +846,17 @@ type craftercms_site {
     "The order to sort items"
     sortOrder: SortOrder
   ): component_slider_query!
+  "Items of content-type /component/taxonomy"
+  component_taxonomy(
+    "The number of items to return"
+    limit: Int,
+    "The number of items to skip"
+    offset: Int,
+    "The name of the field to sort items"
+    sortBy: String,
+    "The order to sort items"
+    sortOrder: SortOrder
+  ): component_taxonomy_query!
   "All components"
   components(
     "The number of items to return"
@@ -847,6 +934,17 @@ type craftercms_site {
     "The order to sort items"
     sortOrder: SortOrder
   ): page_post_query!
+  "Items of content-type /page/search"
+  page_search(
+    "The number of items to return"
+    limit: Int,
+    "The number of items to skip"
+    offset: Int,
+    "The name of the field to sort items"
+    sortBy: String,
+    "The order to sort items"
+    sortOrder: SortOrder
+  ): page_search_query!
   "All pages"
   pages(
     "The number of items to return"
@@ -1235,6 +1333,8 @@ type page_post implements ContentItem & Page {
     "Values used to filter the results"
     filter: TextFilters
   ): String
+  "Categories"
+  categories_o: page_post_categories_o_items
   "The content type of the item"
   content__type(
     "Values used to filter the results"
@@ -1314,6 +1414,8 @@ type page_post implements ContentItem & Page {
     "Values used to filter the results"
     filter: BooleanFilters
   ): Boolean
+  "Tags"
+  tags_o: page_post_tags_o_items
 }
 
 "Contains the data from another item in the site"
@@ -1332,10 +1434,152 @@ type page_post_authorBio_o_items {
   item: [page_post_authorBio_o_flattened_item!]
 }
 
+"Item for field categories_o"
+type page_post_categories_o_item {
+  "The key of the item"
+  key(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+  "The value of the item"
+  value_smv(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+}
+
+"Wrapper for field categories_o"
+type page_post_categories_o_items {
+  "List of items for field categories_o"
+  item: [page_post_categories_o_item]
+}
+
 "Query for content-type /page/post"
 type page_post_query {
   "List of items"
   items: [page_post!]
+  "Total number of items found"
+  total: Int!
+}
+
+"Item for field tags_o"
+type page_post_tags_o_item {
+  "The key of the item"
+  key(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+  "The value of the item"
+  value_smv(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+}
+
+"Wrapper for field tags_o"
+type page_post_tags_o_items {
+  "List of items for field tags_o"
+  item: [page_post_tags_o_item]
+}
+
+"Search"
+type page_search implements ContentItem & Page {
+  "Bios"
+  bios_o: page_search_bios_o_items
+  "The content type of the item"
+  content__type(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String!
+  "The created date of the item"
+  createdDate_dt(
+    "Values used to filter the results"
+    filter: DateFilters
+  ): DateTime!
+  "Disable Page"
+  disabled(
+    "Values used to filter the results"
+    filter: BooleanFilters
+  ): Boolean
+  "Page URL"
+  file__name(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+  "The name/label of the item in Authoring (can also be used as a navigation label in Delivery)"
+  internal__name(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+  "The last modified date of the item"
+  lastModifiedDate_dt(
+    "Values used to filter the results"
+    filter: DateFilters
+  ): DateTime!
+  "The path of the item"
+  localId(
+    "Values used to filter the results"
+    filter: StringFilters,
+    "The name of the transformer to apply"
+    transform: String
+  ): String
+  "The label of the page in the navigation"
+  navLabel(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+  "The objectGroupId for the item"
+  objectGroupId(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String!
+  "The objectId of the item"
+  objectId(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String!
+  "The order the page has in the navigation"
+  orderDefault_f(
+    "Values used to filter the results"
+    filter: FloatFilters
+  ): Float
+  "Page Description"
+  pageDescription_s(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+  "Page Title"
+  pageTitle_s(
+    "Values used to filter the results"
+    filter: StringFilters
+  ): String
+  "If the page should be placed in the navigation"
+  placeInNav(
+    "Values used to filter the results"
+    filter: BooleanFilters
+  ): Boolean
+}
+
+"Contains the data from another item in the site"
+type page_search_bios_o_flattened_item {
+  "The content of the item"
+  component: component_bio!
+  "The path of the item"
+  key: String!
+  "The name of the item"
+  value: String!
+}
+
+"Wrapper for flattened items"
+type page_search_bios_o_items {
+  "List of flattened items"
+  item: [page_search_bios_o_flattened_item!]
+}
+
+"Query for content-type /page/search"
+type page_search_query {
+  "List of items"
+  items: [page_search!]
   "Total number of items found"
   total: Int!
 }
