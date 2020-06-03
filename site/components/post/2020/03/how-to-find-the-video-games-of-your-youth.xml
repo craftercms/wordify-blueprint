@@ -144,12 +144,12 @@
   </categories_o>
   <tags_o>
     <item>
-      <key>adventure</key>
-      <value>Adventure</value>
-    </item>
-    <item>
       <key>lifestyle</key>
       <value>Lifestyle</value>
+    </item>
+    <item>
+      <key>adventure</key>
+      <value>Adventure</value>
     </item>
   </tags_o>
 </component>

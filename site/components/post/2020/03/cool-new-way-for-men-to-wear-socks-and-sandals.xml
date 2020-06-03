@@ -197,11 +197,19 @@
       <key>lifestyle</key>
       <value>Lifestyle</value>
     </item>
+    <item>
+      <key>travel</key>
+      <value>Travel</value>
+    </item>
   </categories_o>
   <tags_o>
     <item>
       <key>lifestyle</key>
       <value>Lifestyle</value>
+    </item>
+    <item>
+      <key>travel</key>
+      <value>Travel</value>
     </item>
   </tags_o>
 </component>
