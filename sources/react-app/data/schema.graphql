@@ -104,7 +104,7 @@ interface Page {
 "Holds the content of another item in the site"
 type ContentInclude {
   "The content of the item"
-  component: ContentItem!
+  component: ContentItem
   "The path of the item"
   key(
     "Values used to filter the results"
@@ -364,6 +364,8 @@ type component_post implements ContentItem {
     "Values used to filter the results"
     filter: TextFilters
   ): String
+  "Categories"
+  categories_o: component_post_categories_o_items
   "The content type of the item"
   content__type(
     "Values used to filter the results"
@@ -443,12 +445,14 @@ type component_post implements ContentItem {
     "Values used to filter the results"
     filter: StringFilters
   ): String
+  "Tags"
+  tags_o: component_post_tags_o_items
 }
 
 "Contains the data from another item in the site"
 type component_post_authorBio_o_flattened_item {
   "The content of the item"
-  component: component_bio!
+  component: component_bio
   "The path of the item"
   key: String!
   "The name of the item"
@@ -461,12 +465,52 @@ type component_post_authorBio_o_items {
   item: [component_post_authorBio_o_flattened_item!]
 }
 
+"Item for field categories_o"
+type component_post_categories_o_item {
+  "The key of the item"
+  key(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+  "The value of the item"
+  value(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+}
+
+"Wrapper for field categories_o"
+type component_post_categories_o_items {
+  "List of items for field categories_o"
+  item: [component_post_categories_o_item]
+}
+
 "Query for content-type /component/post"
 type component_post_query {
   "List of items"
   items: [component_post!]
   "Total number of items found"
   total: Int!
+}
+
+"Item for field tags_o"
+type component_post_tags_o_item {
+  "The key of the item"
+  key(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+  "The value of the item"
+  value(
+    "Values used to filter the results"
+    filter: TextFilters
+  ): String
+}
+
+"Wrapper for field tags_o"
+type component_post_tags_o_items {
+  "List of items for field tags_o"
+  item: [component_post_tags_o_item]
 }
 
 "Responsive Columns"
@@ -654,7 +698,7 @@ type component_slider implements ContentItem {
 "Contains the data from another item in the site"
 type component_slider_posts_o_flattened_item {
   "The content of the item"
-  component: component_post!
+  component: component_post
   "The path of the item"
   key: String!
   "The name of the item"
@@ -1041,7 +1085,7 @@ type page_about implements ContentItem & Page {
 "Contains the data from another item in the site"
 type page_about_bios_o_flattened_item {
   "The content of the item"
-  component: component_bio!
+  component: component_bio
   "The path of the item"
   key: String!
   "The name of the item"
@@ -1303,7 +1347,7 @@ type page_entry implements ContentItem & Page {
 "Contains the data from another item in the site"
 type page_entry_bios_o_flattened_item {
   "The content of the item"
-  component: component_bio!
+  component: component_bio
   "The path of the item"
   key: String!
   "The name of the item"
@@ -1421,7 +1465,7 @@ type page_post implements ContentItem & Page {
 "Contains the data from another item in the site"
 type page_post_authorBio_o_flattened_item {
   "The content of the item"
-  component: component_bio!
+  component: component_bio
   "The path of the item"
   key: String!
   "The name of the item"
@@ -1442,9 +1486,9 @@ type page_post_categories_o_item {
     filter: TextFilters
   ): String
   "The value of the item"
-  value_smv(
+  value(
     "Values used to filter the results"
-    filter: StringFilters
+    filter: TextFilters
   ): String
 }
 
@@ -1470,9 +1514,9 @@ type page_post_tags_o_item {
     filter: TextFilters
   ): String
   "The value of the item"
-  value_smv(
+  value(
     "Values used to filter the results"
-    filter: StringFilters
+    filter: TextFilters
   ): String
 }
 
@@ -1563,7 +1607,7 @@ type page_search implements ContentItem & Page {
 "Contains the data from another item in the site"
 type page_search_bios_o_flattened_item {
   "The content of the item"
-  component: component_bio!
+  component: component_bio
   "The path of the item"
   key: String!
   "The name of the item"

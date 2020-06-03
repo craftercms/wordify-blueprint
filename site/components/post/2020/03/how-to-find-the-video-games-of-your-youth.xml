@@ -135,21 +135,21 @@
   <categories_o>
     <item>
       <key>lifestyle</key>
-      <value_smv>Lifestyle</value_smv>
+      <value>Lifestyle</value>
     </item>
     <item>
       <key>adventure</key>
-      <value_smv>Adventure</value_smv>
+      <value>Adventure</value>
     </item>
   </categories_o>
   <tags_o>
     <item>
       <key>adventure</key>
-      <value_smv>Adventure</value_smv>
+      <value>Adventure</value>
     </item>
     <item>
       <key>lifestyle</key>
-      <value_smv>Lifestyle</value_smv>
+      <value>Lifestyle</value>
     </item>
   </tags_o>
 </component>

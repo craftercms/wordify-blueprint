@@ -193,13 +193,13 @@
   <categories_o>
     <item>
       <key>lifestyle</key>
-      <value_smv>Lifestyle</value_smv>
+      <value>Lifestyle</value>
     </item>
   </categories_o>
   <tags_o>
     <item>
       <key>lifestyle</key>
-      <value_smv>Lifestyle</value_smv>
+      <value>Lifestyle</value>
     </item>
   </tags_o>
 </page>
