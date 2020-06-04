@@ -21,8 +21,6 @@ export default function (props) {
   const {
     model,
     model: {
-      linkButtonText_s,
-      linkButtonUrl_s,
       showLinkButton_b,
       facebookLink_s,
       twitterLink_s,
@@ -46,15 +44,13 @@ export default function (props) {
         {
           showLinkButton_b &&
           <p>
-            <Field
+            <RenderField
               component="a"
               model={model}
               fieldId="linkButtonText_s,linkButtonUrl_s"
+              target="children,href"
               className="btn btn-primary btn-sm rounded"
-              href={linkButtonUrl_s}
-            >
-              {linkButtonText_s}
-            </Field>
+            />
           </p>
         }
         <p className="social">

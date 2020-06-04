@@ -16,7 +16,7 @@
 
 import React from 'react';
 import Bio from '../components/Bio';
-import { Field } from '@craftercms/studio-guest';
+import { Field, RenderField } from '@craftercms/studio-guest';
 
 export default function (props) {
   const { bios } = props;
@@ -36,14 +36,20 @@ export default function (props) {
 export function SidebarBiosWithICE(props) {
   const { model, fieldId } = props;
   return (
-    <Field model={model} fieldId={fieldId}>
-      {
-        model[fieldId]?.map((bio, index) =>
-          <Field key={bio.craftercms.id} model={model} fieldId={fieldId} index={index} className="sidebar-box">
-            <Bio model={bio} />
-          </Field>
-        )
-      }
-    </Field>
+    <RenderField
+      model={model}
+      fieldId={fieldId}
+      format={(bios) => bios?.map((bio, index) =>
+        <Field
+          key={`${bio.craftercms.id}_${index}`}
+          model={model}
+          fieldId={fieldId}
+          index={index}
+          className="sidebar-box"
+        >
+          <Bio model={bio} />
+        </Field>
+      )}
+    />
   );
 }
