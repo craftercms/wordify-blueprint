@@ -118,12 +118,12 @@ export default `
     categories_o {
       item {
         key
-        value
+        value_smv
       }
     }
     tags_o {
       item {
-        value
+        value_smv
         key
       }
     }

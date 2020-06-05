@@ -473,9 +473,9 @@ type component_post_categories_o_item {
     filter: TextFilters
   ): String
   "The value of the item"
-  value(
+  value_smv(
     "Values used to filter the results"
-    filter: TextFilters
+    filter: StringFilters
   ): String
 }
 
@@ -501,9 +501,9 @@ type component_post_tags_o_item {
     filter: TextFilters
   ): String
   "The value of the item"
-  value(
+  value_smv(
     "Values used to filter the results"
-    filter: TextFilters
+    filter: StringFilters
   ): String
 }
 
@@ -1486,9 +1486,9 @@ type page_post_categories_o_item {
     filter: TextFilters
   ): String
   "The value of the item"
-  value(
+  value_smv(
     "Values used to filter the results"
-    filter: TextFilters
+    filter: StringFilters
   ): String
 }
 
@@ -1514,9 +1514,9 @@ type page_post_tags_o_item {
     filter: TextFilters
   ): String
   "The value of the item"
-  value(
+  value_smv(
     "Values used to filter the results"
-    filter: TextFilters
+    filter: StringFilters
   ): String
 }
 
