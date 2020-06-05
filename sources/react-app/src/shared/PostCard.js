@@ -58,7 +58,8 @@ export default function (props) {
   const slug = model.craftercms.path
     .replace(/(\/site\/components)|(index\.xml)/g, '')
     .replace(/(\/\/)/g, '/')
-    .replace('post/', 'articles/');
+    .replace('post/', 'articles/')
+    .replace('.xml', '/');
   const { props: ice } = useICE({ model, parentModelId, isAuthoring });
   switch (format) {
     case PORTRAIT:
