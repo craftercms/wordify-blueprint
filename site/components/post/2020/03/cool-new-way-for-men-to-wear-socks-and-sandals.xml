@@ -195,21 +195,21 @@
   <categories_o>
     <item>
       <key>lifestyle</key>
-      <value>Lifestyle</value>
+      <value_smv>Lifestyle</value_smv>
     </item>
     <item>
       <key>travel</key>
-      <value>Travel</value>
+      <value_smv>Travel</value_smv>
     </item>
   </categories_o>
   <tags_o>
     <item>
       <key>lifestyle</key>
-      <value>Lifestyle</value>
+      <value_smv>Lifestyle</value_smv>
     </item>
     <item>
       <key>travel</key>
-      <value>Travel</value>
+      <value_smv>Travel</value_smv>
     </item>
   </tags_o>
 </component>
