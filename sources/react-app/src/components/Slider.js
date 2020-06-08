@@ -112,7 +112,6 @@ export default function (props) {
         posts?.map(model =>
           <div key={model.craftercms.id}>
             <PostCard
-              tags="Food"
               model={model}
               showBlurb
               format={IMAGE_BACKGROUND}

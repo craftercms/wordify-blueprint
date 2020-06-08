@@ -34,7 +34,6 @@ export default function (props) {
     parentModelId,
     format = PORTRAIT,
     showBlurb = false,
-    tags = '',
     numOfComments,
     model,
     model: {
@@ -50,6 +49,7 @@ export default function (props) {
       headline_s,
       mainImage_s,
       mainImageAlt_s = '',
+      categories_o,
       craftercms: {
         dateModified
       },
@@ -128,9 +128,13 @@ export default function (props) {
           <div className={`text ${classes?.innerWrapper}`} {...ice}>
             <div className="post-meta">
               {
-                tags &&
+                categories_o &&
                 <>
-                  <span className="category">{tags}</span>
+                  {
+                    categories_o?.map(category =>
+                      <span className="category" key={category.key}>{category.value_smv}</span>
+                    )
+                  }
                   {' • '}
                 </>
               }
