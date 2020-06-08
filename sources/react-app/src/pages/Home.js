@@ -21,7 +21,7 @@ import { FormattedMessage } from 'react-intl';
 import PostCard from '../shared/PostCard';
 import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
-import PopularPostsAside from '../shared/PopularPostsAside';
+import RecentPostsAside from '../shared/RecentPostsAside';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 import { Link } from 'react-router-dom';
@@ -133,7 +133,7 @@ export default function (props) {
 
               <SidebarBios bios={bios_o} />
 
-              <PopularPostsAside posts={posts} />
+              <RecentPostsAside posts={posts} />
 
               <SidebarCategories categories={categories} />
 

@@ -254,7 +254,12 @@ export default `
         }
       }
     }
-    posts: page_post(limit: $postsLimit, offset: $postsOffset) @include(if: $includePosts) {
+    posts: page_post(
+      limit: $postsLimit, 
+      offset: $postsOffset,
+      sortOrder: DESC,
+      sortBy: "lastModifiedDate_dt"
+    ) @include(if: $includePosts) {
       total
       items {
         ...byUrlQueryPostPage

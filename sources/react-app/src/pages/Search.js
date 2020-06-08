@@ -18,7 +18,7 @@ import React, { Suspense } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import { FormattedMessage } from 'react-intl';
 import SidebarSearch from '../shared/SidebarSearch';
-import PopularPostsAside from '../shared/PopularPostsAside';
+import RecentPostsAside from '../shared/RecentPostsAside';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 import { useUrlSearchQueryFetchResource } from '../shared/hooks';
@@ -72,7 +72,7 @@ export default function (props) {
               <SidebarBios bios={bios_o} />
               */}
 
-              <PopularPostsAside posts={posts} />
+              <RecentPostsAside posts={posts} />
 
               <SidebarCategories categories={categories} />
 

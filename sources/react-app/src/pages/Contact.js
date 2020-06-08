@@ -16,7 +16,7 @@
 
 import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
-import PopularPostsAside from '../shared/PopularPostsAside';
+import RecentPostsAside from '../shared/RecentPostsAside';
 import SidebarBios from '../shared/SidebarBios';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
@@ -83,7 +83,7 @@ export default function (props) {
 
               <SidebarBios bios={bios_o} />
 
-              <PopularPostsAside posts={posts} />
+              <RecentPostsAside posts={posts} />
 
               <SidebarCategories categories={categories} />
 

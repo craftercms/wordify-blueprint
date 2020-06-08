@@ -24,7 +24,7 @@ export default function ({ posts }) {
       <h3 className="heading">
         <FormattedMessage
           id="common.popularPostsTitle"
-          defaultMessage="Popular Posts"
+          defaultMessage="Recent Posts"
         />
       </h3>
       <div className="post-entry-sidebar">

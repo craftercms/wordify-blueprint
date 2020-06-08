@@ -19,7 +19,7 @@ import BaseLayout from '../shared/BaseLayout';
 import { WrappedContentType } from '../shared/ContentType';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
 import { FormattedMessage } from 'react-intl';
-import PopularPostsAside from '../shared/PopularPostsAside';
+import RecentPostsAside from '../shared/RecentPostsAside';
 import DropZone from '../shared/DropZone';
 import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
@@ -110,7 +110,7 @@ export default function (props) {
 
               <SidebarBios bios={bios_o} />
 
-              <PopularPostsAside posts={posts} />
+              <RecentPostsAside posts={posts} />
 
               <SidebarCategories categories={categories} />
 
