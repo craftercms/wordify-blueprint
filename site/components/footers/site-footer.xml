@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+	<content-type>/component/footer</content-type>
+	<display-template/>
+	<no-template-required/>
+	<merge-strategy>inherit-levels</merge-strategy>
+	<objectGroupId>891f</objectGroupId>
+	<objectId>891f6c2f-c0c2-5af1-52c3-59083d8667bb</objectId>
+	<file-name>891f6c2f-c0c2-5af1-52c3-59083d8667bb.xml</file-name>
+	<internal-name>Site Footer</internal-name>
+	<about_t>Lorem ipsum dolor sit amet sa ksal sk sa, consectetur adipisicing elit. Ipsa harum inventore reiciendis.</about_t>
+	<socialLinks_o item-list="true">	<item>	<url_s>/</url_s>
+	<socialNetwork_s>twitter</socialNetwork_s>
+	</item>	<item>	<url_s>/</url_s>
+	<socialNetwork_s>facebook</socialNetwork_s>
+	</item>	<item>	<url_s>/</url_s>
+	<socialNetwork_s>instagram</socialNetwork_s>
+	</item>	<item>	<url_s>/</url_s>
+	<socialNetwork_s>vimeo</socialNetwork_s>
+	</item>	<item>	<url_s>/</url_s>
+	<socialNetwork_s>youtube-play</socialNetwork_s>
+	</item>	<item>	<url_s>/</url_s>
+	<socialNetwork_s>snapchat</socialNetwork_s>
+	</item></socialLinks_o>
+	<createdDate>2020-06-09T18:18:18.055Z</createdDate>
+	<createdDate_dt>2020-06-09T18:18:18.055Z</createdDate_dt>
+	<lastModifiedDate>2020-06-09T18:23:46.006Z</lastModifiedDate>
+	<lastModifiedDate_dt>2020-06-09T18:23:46.006Z</lastModifiedDate_dt>
+</component>
