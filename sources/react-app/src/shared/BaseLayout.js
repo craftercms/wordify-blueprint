@@ -19,11 +19,11 @@ import Footer from '../components/Footer';
 import React from 'react';
 import { useGlobalContext } from './context';
 
-export default function BaseLayout({ children }) {
+export default function BaseLayout({ pageTitle, children }) {
   const [{ theme }] = useGlobalContext();
   return (
     <div className={`wrap theme-${theme}`}>
-      <Header />
+      <Header pageTitle={pageTitle}/>
       <div className="wrap">
         {children}
       </div>

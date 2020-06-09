@@ -33,6 +33,7 @@ export default function (props) {
       craftercms: {
         path
       },
+      pageTitle_s,
       bios_o,
       slider_o
     },
@@ -50,7 +51,7 @@ export default function (props) {
   const pageIndex = pageNumber - 1;
   const numOfPages = Math.ceil(total / limit);
   return (
-    <BaseLayout>
+    <BaseLayout pageTitle={pageTitle_s}>
       <section className="site-section pt-5 pb-5">
         <div className="container">
           <div className="row">
