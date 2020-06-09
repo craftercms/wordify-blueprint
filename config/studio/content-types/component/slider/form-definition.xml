@@ -100,7 +100,7 @@
           <id>posts_o</id>
           <iceId></iceId>
           <title>Posts</title>
-          <description></description>
+          <description>Leave blank to auto-show latest or manually select featured posts</description>
           <defaultValue></defaultValue>
           <help></help>
           <properties>
