@@ -16,8 +16,11 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useFooter } from '../shared/hooks';
 
 export default function Footer() {
+  const footer = useFooter();
+
   return (
     <footer className="site-footer">
       <div className="container">
@@ -28,78 +31,40 @@ export default function Footer() {
               <img src="/static-assets/images/img_1.jpg" alt="" className="img-fluid" />
             </p>
 
-            <p>Lorem ipsum dolor sit amet sa ksal sk sa, consectetur adipisicing elit. Ipsa harum inventore
-              reiciendis. <Link to="/">Read More</Link></p>
+            <p>{footer?.about_t}</p>
           </div>
           <div className="col-md-6 ml-auto">
             <div className="row">
-              <div className="col-md-7">
-                <h3>Latest Post</h3>
-                <div className="post-entry-sidebar">
-                  <ul>
-                    <li>
-                      <Link to="/">
-                        <img src="/static-assets/images/img_6.jpg" alt="" className="mr-4" />
-                        <div className="text">
-                          <h4>How to Find the Video Games of Your Youth</h4>
-                          <div className="post-meta">
-                            <span className="mr-2">March 15, 2018 </span> &bullet;
-                            <span className="ml-2"><span className="fa fa-comments"></span> 3</span>
-                          </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <img src="/static-assets/images/img_3.jpg" alt="" className="mr-4" />
-                        <div className="text">
-                          <h4>How to Find the Video Games of Your Youth</h4>
-                          <div className="post-meta">
-                            <span className="mr-2">March 15, 2018 </span> &bullet;
-                            <span className="ml-2"><span className="fa fa-comments"></span> 3</span>
-                          </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <img src="/static-assets/images/img_4.jpg" alt="" className="mr-4" />
-                        <div className="text">
-                          <h4>How to Find the Video Games of Your Youth</h4>
-                          <div className="post-meta">
-                            <span className="mr-2">March 15, 2018 </span> &bullet;
-                            <span className="ml-2"><span className="fa fa-comments"></span> 3</span>
-                          </div>
-                        </div>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+              <div className="col-md-6">
+                <h3>Quick Links</h3>
+                <ul className="list-unstyled">
+                  {
+                    footer?.quickLinks_o.item.map((link, i) =>
+                      <li key={i}>
+                        <Link to={link.url_s}>{link.label_s}</Link>
+                      </li>
+                    )
+                  }
+                </ul>
               </div>
+
               <div className="col-md-1"></div>
 
-              <div className="col-md-4">
-
-                <div className="mb-5">
-                  <h3>Quick Links</h3>
-                  <ul className="list-unstyled">
-                    <li><Link to="/">About Us</Link></li>
-                    <li><Link to="/">Travel</Link></li>
-                    <li><Link to="/">Adventure</Link></li>
-                    <li><Link to="/">Courses</Link></li>
-                    <li><Link to="/">Categories</Link></li>
-                  </ul>
-                </div>
-
+              <div className="col-md-5">
                 <div className="mb-5">
                   <h3>Social</h3>
+                  {/* TODO: not getting social media types taxonomy value */}
                   <ul className="list-unstyled footer-social">
-                    <li><Link to="/"><span className="fa fa-twitter"></span> Twitter</Link></li>
-                    <li><Link to="/"><span className="fa fa-facebook"></span> Facebook</Link></li>
-                    <li><Link to="/"><span className="fa fa-instagram"></span> Instagram</Link></li>
-                    <li><Link to="/"><span className="fa fa-vimeo"></span> Vimeo</Link></li>
-                    <li><Link to="/"><span className="fa fa-youtube-play"></span> Youtube</Link></li>
-                    <li><Link to="/"><span className="fa fa-snapchat"></span> Snapshot</Link></li>
+                    {
+                      footer?.socialLinks_o.item.map((link) =>
+                        <li key={link.socialNetwork_s}>
+                          <Link to="/">
+                            <span className={'fa fa-' + link.socialNetwork_s}></span>
+                            {link.socialNetwork_s}
+                          </Link>
+                        </li>
+                      )
+                    }
                   </ul>
                 </div>
               </div>
