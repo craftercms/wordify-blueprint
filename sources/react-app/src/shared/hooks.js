@@ -69,6 +69,54 @@ export function useNavigation() {
   return pages;
 }
 
+export function useFooter() {
+  const [{ footer, footerLoading }, update] = useGlobalContext();
+  const destroyedRef = useRef(false);
+
+  useEffect(() => {
+    return () => {
+      destroyedRef.current = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!footer && !footerLoading) {
+      update({ footerLoading: true });
+      fetchQuery({
+        text: `
+          query Footer {
+            component_footer {
+              items {
+                about_t
+                file__name(filter: {matches: "site-footer.xml"})
+                internal__name
+                localId
+                socialLinks_o {
+                  item {
+                    socialNetwork_s
+                    url_s
+                  }
+                }
+                quickLinks_o {
+                  item {
+                    label_s
+                    url_s
+                  }
+                }
+                copyright_html
+                copyright_html_raw
+              }
+            }
+          }
+        `
+      }).then(({ data }) => {
+        (!destroyedRef.current) && update({ footer: data.component_footer.items[0] });
+      });
+    }
+  }, [update, footer, footerLoading]);
+  return footer;
+}
+
 export function usePencil(props) {
   const { model, parentModelId } = props;
   const [{ isAuthoring }] = useGlobalContext();
