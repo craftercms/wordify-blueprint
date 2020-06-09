@@ -17,8 +17,11 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import PostCard, { LANDSCAPE_COMPRESSED } from './PostCard';
+import { usePosts } from './hooks';
 
-export default function ({ posts }) {
+export default function () {
+  const posts = usePosts();
+
   return (
     <div className="sidebar-box">
       <h3 className="heading">

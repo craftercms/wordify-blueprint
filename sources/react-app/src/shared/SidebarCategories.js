@@ -16,11 +16,12 @@
 
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { useCategories } from './hooks';
 
-export default function (props) {
-  const {
-    categories
-  } = props;
+export default function () {
+  const categories = useCategories();
+
+  //TODO: use resource to add suspense state
 
   return (
     <div className="sidebar-box">

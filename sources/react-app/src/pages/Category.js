@@ -22,9 +22,11 @@ import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
+import { usePosts } from '../shared/hooks';
 
 export default function (props) {
-  const { bios_o, posts, categories, tags } = props;
+  const { bios_o } = props;
+  const posts = usePosts();
   return (
     <BaseLayout>
       <section className="site-section pt-5">
@@ -68,11 +70,11 @@ export default function (props) {
               
               <SidebarBios bios={bios_o} />
 
-              <RecentPostsAside posts={posts} />
+              <RecentPostsAside />
 
-              <SidebarCategories categories={categories} />
+              <SidebarCategories />
 
-              <SidebarTags tags={tags} />
+              <SidebarTags />
 
             </div>
           </div>

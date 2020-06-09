@@ -26,6 +26,7 @@ import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 import { Link } from 'react-router-dom';
 import { parse } from 'query-string';
+import { usePosts } from '../shared/hooks';
 
 export default function (props) {
   const {
@@ -37,9 +38,6 @@ export default function (props) {
       bios_o,
       slider_o
     },
-    posts,
-    categories,
-    tags,
     meta: {
       posts: {
         total,
@@ -50,6 +48,8 @@ export default function (props) {
   const pageNumber = parseInt(parse(window.location.search).page ?? 1);
   const pageIndex = pageNumber - 1;
   const numOfPages = Math.ceil(total / limit);
+  const posts = usePosts();
+
   return (
     <BaseLayout pageTitle={pageTitle_s}>
       <section className="site-section pt-5 pb-5">
@@ -134,11 +134,11 @@ export default function (props) {
 
               <SidebarBios bios={bios_o} />
 
-              <RecentPostsAside posts={posts} />
+              <RecentPostsAside />
 
-              <SidebarCategories categories={categories} />
+              <SidebarCategories />
 
-              <SidebarTags tags={tags} />
+              <SidebarTags />
 
             </div>
           </div>

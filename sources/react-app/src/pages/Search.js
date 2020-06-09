@@ -39,8 +39,7 @@ function SearchResults({ resource }) {
   );
 }
 
-export default function (props) {
-  const { posts, categories, tags } = props;
+export default function () {
   const resource = useUrlSearchQueryFetchResource();
   return (
     <BaseLayout>
@@ -72,11 +71,11 @@ export default function (props) {
               <SidebarBios bios={bios_o} />
               */}
 
-              <RecentPostsAside posts={posts} />
+              <RecentPostsAside />
 
-              <SidebarCategories categories={categories} />
+              <SidebarCategories />
 
-              <SidebarTags tags={tags} />
+              <SidebarTags />
 
             </div>
           </div>

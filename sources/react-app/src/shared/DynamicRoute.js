@@ -49,14 +49,12 @@ export default function DynamicRoute(props) {
     ).then(({ data }) => {
       if (!destroyed) {
         const model = parseDescriptor(data.content.items?.[0]);
-        const posts = parseDescriptor(data.posts.items);
-        const taxonomies = parseDescriptor(data.taxonomies.items);
+        const taxonomies = parseDescriptor(data.taxonomies.items);    // TODO: REMOVE
         const categories = taxonomies.filter(taxonomy => taxonomy.craftercms.path.includes('categories.xml'))[0].items.item;
         const tags = taxonomies.filter(taxonomy => taxonomy.craftercms.path.includes('tags.xml'))[0].items.item;
 
         setState({
           model,
-          posts,
           categories,
           tags,
           meta: {

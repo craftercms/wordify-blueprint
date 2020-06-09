@@ -26,7 +26,7 @@ import SidebarBios from '../shared/SidebarBios';
 import DropZone from '../shared/DropZone';
 
 export default function (props) {
-  const { model, posts, categories, tags } = props;
+  const { model, posts } = props;
   const modelPath = model.craftercms.path;
   return (
     <BaseLayout>
@@ -99,9 +99,9 @@ export default function (props) {
 
               <RecentPostsAside posts={posts} />
 
-              <SidebarCategories categories={categories} />
+              <SidebarCategories />
 
-              <SidebarTags tags={tags} />
+              <SidebarTags />
 
             </div>
 

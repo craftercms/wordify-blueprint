@@ -25,13 +25,11 @@ import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarTags from '../shared/SidebarTags';
 import SidebarCategories from '../shared/SidebarCategories';
+import { usePosts } from '../shared/hooks';
 
 export default function (props) {
   const {
     model,
-    posts,
-    categories,
-    tags,
     model: {
       headline_s,
       // pageTitle_s,
@@ -40,6 +38,8 @@ export default function (props) {
       content_o
     }
   } = props;
+  const posts = usePosts();
+
   const modelPath = model.craftercms.path;
   return (
     <BaseLayout>
@@ -110,11 +110,11 @@ export default function (props) {
 
               <SidebarBios bios={bios_o} />
 
-              <RecentPostsAside posts={posts} />
+              <RecentPostsAside />
 
-              <SidebarCategories categories={categories} />
+              <SidebarCategories />
 
-              <SidebarTags tags={tags} />
+              <SidebarTags />
 
             </div>
           </div>

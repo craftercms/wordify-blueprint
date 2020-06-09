@@ -23,10 +23,7 @@ import SidebarTags from '../shared/SidebarTags';
 
 export default function (props) {
   const {
-    bios_o,
-    posts,
-    categories,
-    tags
+    bios_o
   } = props;
   return (
     <BaseLayout>
@@ -83,11 +80,11 @@ export default function (props) {
 
               <SidebarBios bios={bios_o} />
 
-              <RecentPostsAside posts={posts} />
+              <RecentPostsAside />
 
-              <SidebarCategories categories={categories} />
+              <SidebarCategories />
 
-              <SidebarTags tags={tags} />
+              <SidebarTags />
 
             </div>
 
