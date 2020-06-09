@@ -31,7 +31,7 @@
 			<defaultOpen>true</defaultOpen>
 			<fields>
 				<field>
-					<type>filename</type>
+					<type>file-name</type>
 					<id>file-name</id>
 					<iceId></iceId>
 					<title>Component ID</title>
@@ -76,6 +76,16 @@
 							<name>maxlength</name>
 							<value>50</value>
 							<type>int</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value></value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>tokenize</name>
+							<value>false</value>
+							<type>boolean</type>
 						</property>
 					</properties>
 					<constraints>
