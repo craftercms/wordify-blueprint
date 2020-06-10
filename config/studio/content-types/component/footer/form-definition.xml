@@ -16,7 +16,7 @@
     <property>
       <name>no-template-required</name>
       <label>No Template Required</label>
-      <value/>
+      <value>true</value>
       <type>boolean</type>
     </property>
     <property>
@@ -149,6 +149,86 @@
           </constraints>
         </field>
         <field>
+          <type>rte-tinymce5</type>
+          <id>copyright_html</id>
+          <iceId/>
+          <title>Copyright</title>
+          <description/>
+          <defaultValue/>
+          <help/>
+          <properties>
+            <property>
+              <name>width</name>
+              <value/>
+              <type>int</type>
+            </property>
+            <property>
+              <name>height</name>
+              <value/>
+              <type>int</type>
+            </property>
+            <property>
+              <name>autoGrow</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>forceRootBlockPTag</name>
+              <value>true</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>forcePTags</name>
+              <value>true</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>forceBRTags</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>supportedChannels</name>
+              <value/>
+              <type>supportedChannels</type>
+            </property>
+            <property>
+              <name>rteConfiguration</name>
+              <value>generic</value>
+              <type>string</type>
+            </property>
+            <property>
+              <name>imageManager</name>
+              <value/>
+              <type>datasource:image</type>
+            </property>
+            <property>
+              <name>videoManager</name>
+              <value/>
+              <type>datasource:video</type>
+            </property>
+            <property>
+              <name>fileManager</name>
+              <value/>
+              <type>datasource:item</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+          </constraints>
+        </field>
+      </fields>
+    </section>
+    <section>
+      <title>Social Links</title>
+      <description/>
+      <defaultOpen>false</defaultOpen>
+      <fields>
+        <field>
           <type>repeat</type>
           <id>socialLinks_o</id>
           <iceId/>
@@ -247,6 +327,13 @@
             </field>
           </fields>
         </field>
+      </fields>
+    </section>
+    <section>
+      <title>Quick Links</title>
+      <description/>
+      <defaultOpen>false</defaultOpen>
+      <fields>
         <field>
           <type>repeat</type>
           <id>quickLinks_o</id>
