@@ -179,7 +179,7 @@ export default `
 
   fragment byUrlQueryRichText on component_rich_text {
     ...byUrlQueryContentItemFields
-    content_html_raw
+    content_html: content_html_raw
   }
 
   fragment byUrlQueryImage on component_image {

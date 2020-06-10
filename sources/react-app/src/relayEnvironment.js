@@ -20,12 +20,18 @@ import {
   RecordSource,
   Store
 } from 'relay-runtime';
+import { siteName } from './shared/utils';
+
+let graphqlServer = process.env.REACT_APP_GRAPHQL_SERVER;
+if (!graphqlServer.includes(siteName)) {
+  graphqlServer += `?crafterSite=${siteName}`;
+}
 
 export function fetchQuery(
   operation,
   variables
 ) {
-  return fetch(process.env.REACT_APP_GRAPHQL_SERVER, {
+  return fetch(graphqlServer, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

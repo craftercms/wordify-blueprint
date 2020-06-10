@@ -21,6 +21,7 @@ export default function (props) {
   const {
     model,
     model: {
+      linkButtonText_s,
       showLinkButton_b,
       facebookLink_s,
       twitterLink_s,
@@ -40,9 +41,9 @@ export default function (props) {
       />
       <div className="bio-body">
         <RenderField component="h2" model={model} fieldId="name_s" />
-        <RenderField component="p" model={model} fieldId="bio_t" />
         {
           showLinkButton_b &&
+          linkButtonText_s &&
           <p>
             <RenderField
               component="a"
@@ -53,6 +54,7 @@ export default function (props) {
             />
           </p>
         }
+        <RenderField component="p" model={model} fieldId="bio_t" />
         <p className="social">
           {
             facebookLink_s &&

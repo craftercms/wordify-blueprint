@@ -22,11 +22,13 @@ import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 import SidebarSearch from '../shared/SidebarSearch';
 import { SidebarBiosWithICE } from '../shared/SidebarBios';
-import { ContentType, Field } from '@craftercms/studio-guest';
+import { ContentType, Field, RenderField } from '@craftercms/studio-guest';
 import contentTypeMap from '../shared/contentTypeMap';
+import { useIntl } from 'react-intl';
 
 export default function (props) {
   const { model, posts } = props;
+  const { formatDate } = useIntl();
   return (
     <BaseLayout>
       <section className="site-section py-lg">
@@ -34,52 +36,49 @@ export default function (props) {
           <div className="row blog-entries element-animate-disabled">
 
             <div className="col-md-12 col-lg-8 main-content">
-              <Field
+              <RenderField
                 component="img"
                 model={model}
                 fieldId="mainImage_s"
-                src={model.mainImage_s}
+                target="src"
                 alt=""
                 className="img-fluid mb-5"
               />
               <div className="post-meta">
                 <span className="author mr-2">
-                  <img src="/static-assets/images/person_1.jpg" alt="" className="mr-2" /> Colorlib
+                  <img src={model.authorBio_o?.[0]?.profilePic_s} alt="" className="mr-2" /> {model.authorBio_o?.[0]?.name_s}
                 </span>
-                {' • '}<span className="mr-2">{model.createdDate_dt}</span>
+                {' • '}<span className="mr-2">{formatDate(model.dateCreated)}</span>
                 {' • '}<span className="ml-2"><span className="fa fa-comments" /> 3</span>
               </div>
-              <Field
+              <RenderField
                 component="h1"
                 model={model}
                 fieldId="headline_s"
                 className="mb-4"
-              >{model.headline_s}</Field>
+              />
               <a className="category mb-5" href="/">Food</a> <a
               className="category mb-5" href="/">Travel</a>
 
-              <Field
+              <RenderField
                 model={model}
                 component="div"
                 fieldId="content_o"
                 className="post-content-body"
-              >
-                {
-                  model.content_o?.map((component, index) =>
-                    <Field
-                      key={component.craftercms.id}
-                      model={model}
-                      fieldId="content_o"
-                      index={index}
-                    >
-                      <ContentType
-                        model={component}
-                        contentTypeMap={contentTypeMap}
-                      />
-                    </Field>
-                  )
-                }
-              </Field>
+                format={(content_o) => content_o?.map((component, index) =>
+                  <Field
+                    key={`${component.craftercms.id}_${index}`}
+                    model={model}
+                    index={index}
+                    fieldId="content_o"
+                  >
+                    <ContentType
+                      model={component}
+                      contentTypeMap={contentTypeMap}
+                    />
+                  </Field>
+                )}
+              />
 
               <div className="pt-5">
                 <div>

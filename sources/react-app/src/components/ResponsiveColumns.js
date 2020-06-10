@@ -15,44 +15,45 @@
  */
 
 import React from 'react';
-import { ContentType, Field } from '@craftercms/studio-guest';
+import { ContentType, Field, Model, RenderField } from '@craftercms/studio-guest';
 import contentTypeMap from '../shared/contentTypeMap';
 
 export default function (props) {
-  const {
-    model,
-    model: { columns_o }
-  } = props;
-  const modelId = model.craftercms.id;
+  const { model } = props;
   return (
-    <Field model={model} className="row mb-5">
-      {
-        columns_o?.map(({ columnSize_s, content_o }, index) =>
+    <Model model={model}>
+      <RenderField
+        model={model}
+        fieldId="columns_o"
+        className="row mb-5"
+        format={(columns_o) => columns_o?.map(({ columnSize_s, content_o }, index) =>
           <Field
+            key={`${model.craftercms.id}_columns_o_${index}`}
             model={model}
-            component="div"
             fieldId="columns_o"
+            index={index}
             className={`col-md-${columnSize_s} mb-4`}
-            key={`${modelId}_${columnSize_s}_${index}`}
           >
-            {
-              content_o?.map((component, index) =>
-                <Field
-                  key={component.craftercms.id}
-                  model={model}
-                  index={index}
-                  fieldId="columns_o"
-                >
-                  <ContentType
-                    model={component}
-                    contentTypeMap={contentTypeMap}
-                  />
-                </Field>
-              )
-            }
+            <Field model={model} fieldId="columns_o.content_o" index={index}>
+              {
+                content_o?.map((component, subIndex) =>
+                  <Field
+                    key={`${component.craftercms.id}_${subIndex}`}
+                    model={model}
+                    fieldId="columns_o.content_o"
+                    index={`${index}.${subIndex}`}
+                  >
+                    <ContentType
+                      model={component}
+                      contentTypeMap={contentTypeMap}
+                    />
+                  </Field>
+                )
+              }
+            </Field>
           </Field>
-        )
-      }
-    </Field>
+        )}
+      />
+    </Model>
   );
 }

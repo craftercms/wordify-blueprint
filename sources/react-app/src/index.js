@@ -18,13 +18,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './shared/App';
 import Cookies from 'js-cookie';
+import { siteName } from './shared/utils';
 // import * as serviceWorker from './serviceWorker';
 
-if (
-  process.env.REACT_APP_CRAFTERCMS_SITE_ID &&
-  Cookies.get('crafterSite') !== process.env.REACT_APP_CRAFTERCMS_SITE_ID
-) {
-  Cookies.set('crafterSite', process.env.REACT_APP_CRAFTERCMS_SITE_ID)
+if (Cookies.get('crafterSite') !== siteName) {
+  Cookies.set('crafterSite', siteName);
 }
 
 // On occasions, Crafter's jQuery overrides the site's jQuery

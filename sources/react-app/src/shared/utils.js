@@ -53,9 +53,14 @@ export function createResource(factory) {
   };
 }
 
+export const siteName = process.env.REACT_APP_CRAFTERCMS_SITE_ID || Cookies.get('crafterSite');
+if (!siteName) {
+  throw new Error('Site not set.');
+}
+
 export const crafterConfig = {
   baseUrl: process.env.REACT_APP_CRAFTERCMS_BASE_URL ?? '',
-  site: process.env.REACT_APP_CRAFTERCMS_SITE_ID ?? Cookies.get('crafterSite')
+  site: siteName
 };
 
 crafterConf.configure(crafterConfig);

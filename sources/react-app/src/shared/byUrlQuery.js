@@ -163,7 +163,7 @@ graphql`
 graphql`
   fragment byUrlQueryRichText on component_rich_text {
     ...byUrlQueryContentItemFields
-    content_html_raw
+    content_html: content_html_raw
   }
 `;
 
