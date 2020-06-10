@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
-	<content-type>/component/taxonomy</content-type>
-	<display-template/>
-	<no-template-required>true</no-template-required>
-	<merge-strategy>inherit-levels</merge-strategy>
-	<objectGroupId>1944</objectGroupId>
-	<objectId>194443a5-0fcf-3aac-1457-a68d7c5cb802</objectId>
-	<items item-list="true">	<item>	<key>travel</key>
-	<value>Travel</value>
-	</item>	<item>	<key>adventure</key>
-	<value>Adventure</value>
-	</item>	<item>	<key>food</key>
-	<value>Food</value>
-	</item>	<item>	<key>lifestyle</key>
-	<value>Lifestyle</value>
-	</item>	<item>	<key>business</key>
-	<value>Business</value>
-	</item>	<item>	<key>freelancing</key>
-	<value>Freelancing</value>
-	</item></items>
-	<file-name>tags.xml</file-name>
-	<folder-name/>
-	<internal-name>Tags</internal-name>
-	<createdDate>2020-06-02T19:02:35.747Z</createdDate>
-	<createdDate_dt>2020-06-02T19:02:35.747Z</createdDate_dt>
-	<lastModifiedDate>2020-06-02T19:02:35.747Z</lastModifiedDate>
-	<lastModifiedDate_dt>2020-06-02T19:02:35.747Z</lastModifiedDate_dt>
+  <content-type>/component/taxonomy</content-type>
+  <display-template/>
+  <no-template-required>true</no-template-required>
+  <merge-strategy>inherit-levels</merge-strategy>
+  <objectGroupId>1944</objectGroupId>
+  <objectId>194443a5-0fcf-3aac-1457-a68d7c5cb802</objectId>
+  <items item-list="true">
+    <item>
+      <key>travel</key>
+      <value>Travel</value>
+    </item>
+    <item>
+      <key>adventure</key>
+      <value>Adventure</value>
+    </item>
+    <item>
+      <key>food</key>
+      <value>Food</value>
+    </item>
+    <item>
+      <key>lifestyle</key>
+      <value>Lifestyle</value>
+    </item>
+    <item>
+      <key>business</key>
+      <value>Business</value>
+    </item>
+    <item>
+      <key>freelancing</key>
+      <value>Freelancing</value>
+    </item>
+  </items>
+  <file-name>tags.xml</file-name>
+  <folder-name/>
+  <internal-name>Tags</internal-name>
+  <createdDate>2020-06-02T19:02:35.747Z</createdDate>
+  <createdDate_dt>2020-06-02T19:02:35.747Z</createdDate_dt>
+  <lastModifiedDate>2020-06-02T19:02:35.747Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-02T19:02:35.747Z</lastModifiedDate_dt>
 </component>

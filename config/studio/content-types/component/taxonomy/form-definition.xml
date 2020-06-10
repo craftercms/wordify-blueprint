@@ -1,16 +1,16 @@
 <form>
   <title>Taxonomy</title>
-  <description></description>
+  <description/>
   <objectType>component</objectType>
   <content-type>/component/taxonomy</content-type>
   <imageThumbnail>undefined</imageThumbnail>
   <quickCreate>false</quickCreate>
-  <quickCreatePath></quickCreatePath>
+  <quickCreatePath/>
   <properties>
     <property>
       <name>display-template</name>
       <label>Display Template</label>
-      <value></value>
+      <value/>
       <type>template</type>
     </property>
     <property>
@@ -29,17 +29,17 @@
   <sections>
     <section>
       <title>Taxonomy Properties</title>
-      <description></description>
+      <description/>
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>file-name</type>
           <id>file-name</id>
-          <iceId></iceId>
+          <iceId/>
           <title>Component ID</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description/>
+          <defaultValue/>
+          <help/>
           <properties>
             <property>
               <name>size</name>
@@ -53,7 +53,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value/>
               <type>boolean</type>
             </property>
           </properties>
@@ -63,11 +63,11 @@
         <field>
           <type>input</type>
           <id>internal-name</id>
-          <iceId></iceId>
+          <iceId/>
           <title>Internal Name</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description/>
+          <defaultValue/>
+          <help/>
           <properties>
             <property>
               <name>size</name>
@@ -91,9 +91,9 @@
         <field>
           <type>repeat</type>
           <id>items</id>
-          <iceId></iceId>
+          <iceId/>
           <title>Items</title>
-          <description></description>
+          <description/>
           <minOccurs>1</minOccurs>
           <maxOccurs>*</maxOccurs>
           <properties>
@@ -112,11 +112,11 @@
             <field>
               <type>input</type>
               <id>key</id>
-              <iceId></iceId>
+              <iceId/>
               <title>Key</title>
-              <description></description>
-              <defaultValue></defaultValue>
-              <help></help>
+              <description/>
+              <defaultValue/>
+              <help/>
               <properties>
                 <property>
                   <name>size</name>
@@ -130,7 +130,7 @@
                 </property>
                 <property>
                   <name>readonly</name>
-                  <value></value>
+                  <value/>
                   <type>boolean</type>
                 </property>
                 <property>
@@ -155,11 +155,11 @@
             <field>
               <type>input</type>
               <id>value</id>
-              <iceId></iceId>
+              <iceId/>
               <title>Value</title>
-              <description></description>
-              <defaultValue></defaultValue>
-              <help></help>
+              <description/>
+              <defaultValue/>
+              <help/>
               <properties>
                 <property>
                   <name>size</name>
@@ -173,7 +173,7 @@
                 </property>
                 <property>
                   <name>readonly</name>
-                  <value></value>
+                  <value/>
                   <type>boolean</type>
                 </property>
                 <property>
@@ -200,5 +200,5 @@
       </fields>
     </section>
   </sections>
-  <datasources></datasources>
+  <datasources/>
 </form>

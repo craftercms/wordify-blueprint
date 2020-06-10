@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
-	<content-type>/component/taxonomy</content-type>
-	<display-template/>
-	<no-template-required>true</no-template-required>
-	<merge-strategy>inherit-levels</merge-strategy>
-	<objectGroupId>6527</objectGroupId>
-	<objectId>6527de48-d49b-d75c-0ecc-dd39cd83c903</objectId>
-	<items item-list="true">	<item>	<key>food</key>
-	<value>Food</value>
-	</item>	<item>	<key>travel</key>
-	<value>Travel</value>
-	</item>	<item>	<key>lifestyle</key>
-	<value>Lifestyle</value>
-	</item>	<item>	<key>business</key>
-	<value>Business</value>
-	</item>	<item>	<key>adventure</key>
-	<value>Adventure</value>
-	</item></items>
-	<file-name>categories.xml</file-name>
-	<folder-name/>
-	<internal-name>Categories</internal-name>
-	<createdDate>2020-06-01T18:50:58.959Z</createdDate>
-	<createdDate_dt>2020-06-01T18:50:58.959Z</createdDate_dt>
-	<lastModifiedDate>2020-06-01T18:50:58.959Z</lastModifiedDate>
-	<lastModifiedDate_dt>2020-06-01T18:50:58.959Z</lastModifiedDate_dt>
+  <content-type>/component/taxonomy</content-type>
+  <display-template/>
+  <no-template-required>true</no-template-required>
+  <merge-strategy>inherit-levels</merge-strategy>
+  <objectGroupId>6527</objectGroupId>
+  <objectId>6527de48-d49b-d75c-0ecc-dd39cd83c903</objectId>
+  <items item-list="true">
+    <item>
+      <key>food</key>
+      <value>Food</value>
+    </item>
+    <item>
+      <key>travel</key>
+      <value>Travel</value>
+    </item>
+    <item>
+      <key>lifestyle</key>
+      <value>Lifestyle</value>
+    </item>
+    <item>
+      <key>business</key>
+      <value>Business</value>
+    </item>
+    <item>
+      <key>adventure</key>
+      <value>Adventure</value>
+    </item>
+  </items>
+  <file-name>categories.xml</file-name>
+  <folder-name/>
+  <internal-name>Categories</internal-name>
+  <createdDate>2020-06-01T18:50:58.959Z</createdDate>
+  <createdDate_dt>2020-06-01T18:50:58.959Z</createdDate_dt>
+  <lastModifiedDate>2020-06-01T18:50:58.959Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-01T18:50:58.959Z</lastModifiedDate_dt>
 </component>

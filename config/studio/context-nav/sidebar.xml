@@ -52,7 +52,7 @@
                     <showRootItem>true</showRootItem>
                   </params>
                 </modulehook>
-                
+
                 <!-- Taxonomy -->
                 <modulehook>
                   <name>wcm-root-folder</name>
