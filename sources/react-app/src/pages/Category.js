@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useContext } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import RecentPostsAside from '../shared/RecentPostsAside';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
@@ -23,12 +23,15 @@ import SidebarSearch from '../shared/SidebarSearch';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 import { usePosts } from '../shared/hooks';
+import { GlobalContext } from '../shared/context';
 
 export default function (props) {
   const { bios_o } = props;
   const posts = usePosts();
+  const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
+
   return (
-    <BaseLayout>
+    <BaseLayout siteTitle={siteTitle}>
       <section className="site-section pt-5">
         <div className="container">
           <div className="row mb-4">

@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useContext } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import Slider from '../components/Slider';
 import { FormattedMessage } from 'react-intl';
@@ -27,6 +27,7 @@ import SidebarTags from '../shared/SidebarTags';
 import { Link } from 'react-router-dom';
 import { parse } from 'query-string';
 import { usePosts } from '../shared/hooks';
+import { GlobalContext } from '../shared/context';
 
 export default function (props) {
   const {
@@ -34,7 +35,6 @@ export default function (props) {
       craftercms: {
         path
       },
-      pageTitle_s,
       bios_o,
       slider_o
     },
@@ -49,9 +49,10 @@ export default function (props) {
   const pageIndex = pageNumber - 1;
   const numOfPages = Math.ceil(total / limit);
   const posts = usePosts();
+  const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
 
   return (
-    <BaseLayout pageTitle={pageTitle_s}>
+    <BaseLayout siteTitle={siteTitle}>
       <section className="site-section pt-5 pb-5">
         <div className="container">
           <div className="row">

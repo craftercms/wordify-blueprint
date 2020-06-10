@@ -19,7 +19,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useNavigation } from '../shared/hooks';
 import SearchForm from '../shared/SearchForm';
 
-export default function Header({ pageTitle }) {
+export default function Header({ siteTitle }) {
   const nav = useNavigation();
   return (
     <header role="banner">
@@ -49,7 +49,7 @@ export default function Header({ pageTitle }) {
               href="#navbarMenu" role="button"
               aria-expanded="false" aria-controls="navbarMenu"
             ><span className="burger-lines"></span></a>
-            <h1 className="site-logo"><Link to="/">{ pageTitle ?? 'Wordify' }</Link></h1>
+            <h1 className="site-logo"><Link to="/">{ siteTitle }</Link></h1>
           </div>
         </div>
       </div>

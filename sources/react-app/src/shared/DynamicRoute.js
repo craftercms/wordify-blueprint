@@ -23,6 +23,7 @@ import ContentType from './ContentType';
 import { parseDescriptor } from '@craftercms/content';
 import { reportNavigation } from '@craftercms/ice';
 import { parse } from 'query-string';
+import { useLevelDescriptor } from './hooks';
 
 const limit = 3;
 
@@ -30,6 +31,8 @@ export default function DynamicRoute(props) {
   const { match, location } = props;
   const [state, setState] = useState(null);
   const url = match.url;
+
+  useLevelDescriptor(); // load levelDescriptor into global context
 
   useEffect(() => {
     let destroyed = false;

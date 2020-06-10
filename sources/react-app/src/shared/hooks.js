@@ -103,8 +103,6 @@ export function useFooter() {
                     url_s
                   }
                 }
-                copyright_html
-                copyright_html_raw
               }
             }
           }
@@ -309,6 +307,36 @@ export function useCategories() {
 export function useTags() {
   const taxonomies = useTaxonomies();
   return taxonomies?.filter(taxonomy => taxonomy.craftercms.path.includes('tags.xml'))[0].items.item;
+}
+
+export function useLevelDescriptor() {
+  const [{ levelDescriptor, levelDescriptorLoading }, update] = useGlobalContext();
+  const destroyedRef = useRef(false);
+  useEffect(() => {
+    return () => {
+      destroyedRef.current = true;
+    };
+  }, []);
+  useEffect(() => {
+    if (!levelDescriptor && !levelDescriptorLoading) {
+      update({ taxonomiesLoading: true });
+      fetchQuery({
+        text: `
+          query Taxonomies {
+            component_level__descriptor {
+              items {
+                siteTitle_s
+                file__name(filter: {matches: "crafter-level-descriptor.level.xml"})
+              }
+            }
+          }
+        `
+      }).then(({ data }) => {
+        (!destroyedRef.current) && update({ levelDescriptor: (data.component_level__descriptor.items[0]) });
+      });
+    }
+  }, [update, levelDescriptor, levelDescriptorLoading]);
+  return levelDescriptor;
 }
 
 export function usePencil(props) {

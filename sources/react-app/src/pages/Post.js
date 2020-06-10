@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useContext } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import ContentType from '../shared/ContentType';
 import RecentPostsAside from '../shared/RecentPostsAside';
@@ -24,12 +24,14 @@ import SidebarTags from '../shared/SidebarTags';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarBios from '../shared/SidebarBios';
 import DropZone from '../shared/DropZone';
+import { GlobalContext } from '../shared/context';
 
 export default function (props) {
   const { model, posts } = props;
   const modelPath = model.craftercms.path;
+  const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
   return (
-    <BaseLayout>
+    <BaseLayout siteTitle={siteTitle}>
       <section className="site-section py-lg">
         <div className="container">
           <div className="row blog-entries element-animate-disabled">
