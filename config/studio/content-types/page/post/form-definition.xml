@@ -510,13 +510,6 @@
               <type>boolean</type>
             </property>
             <property>
-              <name>contentTypes</name>
-              <value>
-                ,/component/image,/component/responsive_columns,/component/rich_text,/component/slider
-              </value>
-              <type>contentTypes</type>
-            </property>
-            <property>
               <name>tags</name>
               <value/>
               <type>string</type>
@@ -568,11 +561,6 @@
               <name>useSingleValueFilename</name>
               <value/>
               <type>boolean</type>
-            </property>
-            <property>
-              <name>contentTypes</name>
-              <value>,/component/bio</value>
-              <type>contentTypes</type>
             </property>
             <property>
               <name>tags</name>
