@@ -103,6 +103,7 @@ export function useFooter() {
                     url_s
                   }
                 }
+                copyright_html_raw
               }
             }
           }
@@ -115,7 +116,7 @@ export function useFooter() {
   return footer;
 }
 
-export function usePosts() {
+export function useRecentPosts() {
   const [{ posts, postsLoading }, update] = useGlobalContext();
   const destroyedRef = useRef(false);
 

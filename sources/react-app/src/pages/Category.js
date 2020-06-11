@@ -22,12 +22,12 @@ import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
-import { usePosts } from '../shared/hooks';
+import { useRecentPosts } from '../shared/hooks';
 import { GlobalContext } from '../shared/context';
 
 export default function (props) {
   const { bios_o } = props;
-  const posts = usePosts();
+  const posts = useRecentPosts();
   const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
 
   return (

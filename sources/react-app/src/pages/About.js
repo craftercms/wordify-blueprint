@@ -25,7 +25,7 @@ import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarTags from '../shared/SidebarTags';
 import SidebarCategories from '../shared/SidebarCategories';
-import { usePosts } from '../shared/hooks';
+import { useRecentPosts } from '../shared/hooks';
 import { GlobalContext } from '../shared/context';
 
 export default function (props) {
@@ -39,7 +39,7 @@ export default function (props) {
       content_o
     }
   } = props;
-  const posts = usePosts();
+  const posts = useRecentPosts();
   const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
 
   const modelPath = model.craftercms.path;

@@ -17,7 +17,7 @@
 import React, { useEffect, useState } from 'react';
 import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
 import { getItem, parseDescriptor } from '@craftercms/content/esm2015';
-import { usePencil, usePosts } from '../shared/hooks';
+import { usePencil, useRecentPosts } from '../shared/hooks';
 import { useGlobalContext } from '../shared/context';
 import { crafterConfig } from '../shared/utils';
 
@@ -36,7 +36,7 @@ export default function (props) {
 
   // if no posts are set, use recent posts
   if (posts_o.length === 0) {
-    posts_o = usePosts();
+    posts_o = useRecentPosts();
   }
 
   const [{ $ }] = useGlobalContext();

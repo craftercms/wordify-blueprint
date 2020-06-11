@@ -26,7 +26,7 @@ import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
 import { Link } from 'react-router-dom';
 import { parse } from 'query-string';
-import { usePosts } from '../shared/hooks';
+import { useRecentPosts } from '../shared/hooks';
 import { GlobalContext } from '../shared/context';
 
 export default function (props) {
@@ -48,7 +48,7 @@ export default function (props) {
   const pageNumber = parseInt(parse(window.location.search).page ?? 1);
   const pageIndex = pageNumber - 1;
   const numOfPages = Math.ceil(total / limit);
-  const posts = usePosts();
+  const posts = useRecentPosts();
   const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
 
   return (
