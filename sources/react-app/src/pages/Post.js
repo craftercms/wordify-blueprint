@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import ContentType from '../shared/ContentType';
 import RecentPostsAside from '../shared/RecentPostsAside';
@@ -25,11 +25,143 @@ import SidebarSearch from '../shared/SidebarSearch';
 import SidebarBios from '../shared/SidebarBios';
 import DropZone from '../shared/DropZone';
 import { GlobalContext } from '../shared/context';
+import { fetchQuery } from '../relayEnvironment';
+import { parseDescriptor } from '@craftercms/content';
 
 export default function (props) {
   const { model, posts } = props;
   const modelPath = model.craftercms.path;
   const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
+  const [related, setRelated] = useState();
+  const categoriesKeys = model.categories_o?.map(category => `{matches: "${category.key}"}`);
+  const tagsKeys = model.tags_o?.map(tag => `{matches: "${tag.key}"}`);
+
+  useEffect(() => {
+    fetchQuery({
+      text: `
+          query Posts {
+            page_post(limit: 2) {
+              total
+              items {
+                guid: objectId
+                path: localId(filter: {not: [{equals: "${model.craftercms.path}"}]})
+                contentTypeId: content__type
+                dateCreated: createdDate_dt
+                dateModified: lastModifiedDate_dt
+                label: internal__name
+                slug: localId(transform: "storeUrlToRenderUrl")
+                pageTitle_s
+                pageDescription_s
+                blurb_t
+                headline_s
+                mainImage_s
+                content_o {
+                  item {
+                    key
+                    component {
+                      ... on component_rich_text {
+                        guid: objectId
+                        path: localId
+                        contentTypeId: content__type
+                        dateCreated: createdDate_dt
+                        dateModified: lastModifiedDate_dt
+                        label: internal__name
+                        content_html_raw
+                      }
+                      ... on component_image {
+                        guid: objectId
+                        path: localId
+                        contentTypeId: content__type
+                        dateCreated: createdDate_dt
+                        dateModified: lastModifiedDate_dt
+                        label: internal__name
+                        alternativeText_s
+                        image_s
+                      }
+                      ... on component_responsive_columns {
+                        guid: objectId
+                        path: localId
+                        contentTypeId: content__type
+                        dateCreated: createdDate_dt
+                        dateModified: lastModifiedDate_dt
+                        label: internal__name
+                        columns_o {
+                          item {
+                            columnSize_s
+                            content_o {
+                              item {
+                                key
+                                component {
+                                  ... on component_rich_text {
+                                    guid: objectId
+                                    path: localId
+                                    contentTypeId: content__type
+                                    dateCreated: createdDate_dt
+                                    dateModified: lastModifiedDate_dt
+                                    label: internal__name
+                                    content_html_raw
+                                  }
+                                  ... on component_image {
+                                    guid: objectId
+                                    path: localId
+                                    contentTypeId: content__type
+                                    dateCreated: createdDate_dt
+                                    dateModified: lastModifiedDate_dt
+                                    label: internal__name
+                                    alternativeText_s
+                                    image_s
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                authorBio_o {
+                  item {
+                    key
+                    component {
+                      guid: objectId
+                      contentTypeId: content__type
+                      label: internal__name
+                      path: localId
+                      bio_t
+                      name_s
+                      profilePic_s
+                      linkButtonText_s
+                      linkButtonUrl_s
+                      showLinkButton_b
+                      facebookLink_s
+                      twitterLink_s
+                      instagramLink_s
+                      youTubeLink_s
+                    }
+                  }
+                }
+                categories_o {
+                  item {
+                    key(filter: {or: [${categoriesKeys.join(',')}]})
+                    value_smv
+                  }
+                }
+                tags_o {
+                  item {
+                    key(filter: {or: [${tagsKeys.join(',')}]})
+                    value_smv
+                  }
+                }
+              }
+            }
+          }
+        `
+    }).then(({ data }) => {
+      setRelated(parseDescriptor(data.page_post.items))
+    });
+  }, [model, categoriesKeys, tagsKeys]);
+
   return (
     <BaseLayout siteTitle={siteTitle}>
       <section className="site-section py-lg">
@@ -112,20 +244,25 @@ export default function (props) {
       </section>
       <section className="py-5">
         <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <h2 className="mb-3 ">Related Post</h2>
-            </div>
-          </div>
-          <div className="row">
-            {
-              posts?.map((post) =>
-                <div key={post.craftercms.id} className="col-md-6 col-lg-4">
-                  <PostCard model={post} format={IMAGE_BACKGROUND} classes={{ root: 'sm height-md' }} />
+          {
+            related &&
+            <>
+              <div className="row">
+                <div className="col-md-12">
+                  <h2 className="mb-3 ">Related Posts</h2>
                 </div>
-              )
-            }
-          </div>
+              </div>
+              <div className="row">
+                {
+                  related?.map((post) =>
+                    <div key={post.craftercms.id} className="col-md-6 col-lg-4">
+                      <PostCard model={post} format={IMAGE_BACKGROUND} classes={{ root: 'sm height-md' }} />
+                    </div>
+                  )
+                }
+              </div>
+            </>
+          }
         </div>
       </section>
     </BaseLayout>
