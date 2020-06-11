@@ -28,9 +28,10 @@ import { GlobalContext } from '../shared/context';
 
 function SearchResults({ resource }) {
   const { hits, total } = resource.read();
+  const totalResults = Number.isInteger(total) ?  total : total.value
   return (
     <>
-      <p>{total} result{total === 0 || total > 1 ? 's' : ''} found.</p>
+      <p>{totalResults} result{totalResults === 0 || totalResults > 1 ? 's' : ''} found.</p>
       {
         hits.map((post) =>
           <PostCard key={post.craftercms.id} model={post} format={LANDSCAPE} />
