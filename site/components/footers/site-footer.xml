@@ -39,8 +39,8 @@
   </socialLinks_o>
   <createdDate>2020-06-09T18:18:18.055Z</createdDate>
   <createdDate_dt>2020-06-09T18:18:18.055Z</createdDate_dt>
-  <lastModifiedDate>2020-06-10T23:32:30.773Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-06-10T23:32:30.773Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-06-11T14:25:50.308Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-11T14:25:50.308Z</lastModifiedDate_dt>
   <folder-name/>
   <quickLinks_o item-list="true">
     <item>
@@ -64,8 +64,9 @@
       <url_s>/</url_s>
     </item>
   </quickLinks_o>
-  <copyright_html>&lt;p className="small"&gt;Copyright &amp;copy; {new Date().getFullYear()} All Rights Reserved |
-    This template is made with by &lt;a href="https://colorlib.com" target="_blank" rel="noopener
+  <copyright_html>&lt;p class="small"&gt;Copyright &amp;copy; {new Date().getFullYear()} All Rights
+    Reserved | This template is made with by &lt;a href="https://colorlib.com" target="_blank"
+    rel="noopener
     noreferrer"&gt;Colorlib&lt;/a&gt;&lt;/p&gt;
   </copyright_html>
 </component>
