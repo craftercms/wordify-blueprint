@@ -190,7 +190,7 @@
     </item>
   </authorBio_o>
   <pageDescription_s/>
-  <categories_o>
+  <categories_o item-list="true">
     <item>
       <key>lifestyle</key>
       <value_smv>Lifestyle</value_smv>
@@ -200,7 +200,7 @@
       <value_smv>Travel</value_smv>
     </item>
   </categories_o>
-  <tags_o>
+  <tags_o item-list="true">
     <item>
       <key>lifestyle</key>
       <value_smv>Lifestyle</value_smv>
