@@ -320,7 +320,7 @@ export function useLevelDescriptor() {
   }, []);
   useEffect(() => {
     if (!levelDescriptor && !levelDescriptorLoading) {
-      update({ taxonomiesLoading: true });
+      update({ levelDescriptorLoading: true });
       fetchQuery({
         text: `
           query Taxonomies {
