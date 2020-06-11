@@ -24,8 +24,13 @@ import { GlobalContext } from '../shared/context';
 
 export default function (props) {
   const {
-    bios_o
+    bios_o,
+    model: {
+      headline_s,
+      message_t
+    }
   } = props;
+
   const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
   return (
     <BaseLayout siteTitle={siteTitle}>
@@ -33,7 +38,8 @@ export default function (props) {
         <div className="container">
           <div className="row mb-4">
             <div className="col-md-6">
-              <h1>Contact Me</h1>
+              <h1>{headline_s}</h1>
+              <p>{message_t}</p>
             </div>
           </div>
           <div className="row blog-entries">
