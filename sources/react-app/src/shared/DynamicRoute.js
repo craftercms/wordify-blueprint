@@ -44,7 +44,6 @@ export default function DynamicRoute(props) {
       {
         url: `.*${url === '/' ? 'website/index' : url}.*`,
         includePosts: true,
-        includeTaxonomies: true,
         postsLimit: pagination.limit,
         postsOffset: pagination.offset
       }

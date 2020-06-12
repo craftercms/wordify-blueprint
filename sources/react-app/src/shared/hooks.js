@@ -273,7 +273,7 @@ export function useTaxonomies() {
       fetchQuery({
         text: `
           query Taxonomies {
-            component_taxonomy {
+            taxonomy {
               total
               items {
                 guid: objectId
@@ -286,6 +286,7 @@ export function useTaxonomies() {
                   item {
                     key
                     value
+                    image_s
                   }
                 }
               }
@@ -293,7 +294,7 @@ export function useTaxonomies() {
           }
         `
       }).then(({ data }) => {
-        (!destroyedRef.current) && update({ taxonomies: parseDescriptor(data.component_taxonomy.items) });
+        (!destroyedRef.current) && update({ taxonomies: parseDescriptor(data.taxonomy.items) });
       });
     }
   }, [update, taxonomies]);
