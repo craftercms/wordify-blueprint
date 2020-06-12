@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
-  <content-type>/component/taxonomy</content-type>
+  <content-type>/taxonomy</content-type>
   <display-template/>
   <no-template-required>true</no-template-required>
   <merge-strategy>inherit-levels</merge-strategy>
