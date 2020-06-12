@@ -26,7 +26,7 @@ export default function (props) {
 
   return(
     <Link to={`/category/${category.key}`} className={`blog-entry category-card`}>
-      <img className="background" src={backgroundImage} />
+      <img className="background" src={backgroundImage} alt={category.value}/>
       <h2 className="title">{category.value}</h2>
     </Link>
   )
