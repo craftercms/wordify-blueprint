@@ -611,6 +611,27 @@ header {
 				}
 			}
 	}
+	.category-card {
+		display: block;
+		position: relative;
+		margin: 0;
+
+		.background {
+			max-width: 100%;
+			filter: brightness(0.6);
+		}
+		.title {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+			width: 100%;
+			text-align: center;
+			color: white;
+			font-size: 28px;
+			padding: 0 10px;
+		}
+	}
 }
 
 
