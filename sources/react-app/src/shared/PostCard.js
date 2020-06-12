@@ -17,7 +17,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { useICE } from '@craftercms/ice/esm2015/react';
+import { useICE } from '@craftercms/ice/react';
 import { useGlobalContext } from './context';
 
 export const
