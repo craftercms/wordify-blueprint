@@ -72,15 +72,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-12 text-center">
-            <p className="small">
-
-              Copyright &copy; {new Date().getFullYear()} All Rights Reserved |
-              This template is made with <i className="fa fa-heart text-danger" aria-hidden="true" /> by
-              <a href="https://colorlib.com" target="_blank" rel="noopener noreferrer">Colorlib</a>
-
-            </p>
-          </div>
+          {
+            footer &&
+            <div className="col-md-12 text-center" dangerouslySetInnerHTML={{ __html: footer.copyright_html_raw }}/>
+          }
         </div>
       </div>
     </footer>
