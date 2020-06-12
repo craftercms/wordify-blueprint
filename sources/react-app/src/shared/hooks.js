@@ -116,8 +116,9 @@ export function useFooter() {
   return footer;
 }
 
+let useRecentPostsLoading = false;
 export function useRecentPosts() {
-  const [{ posts, postsLoading }, update] = useGlobalContext();
+  const [{ posts }, update] = useGlobalContext();
   const destroyedRef = useRef(false);
 
   useEffect(() => {
@@ -127,10 +128,8 @@ export function useRecentPosts() {
   }, []);
 
   useEffect(() => {
-    if (!posts && !postsLoading) {
+    if (!posts && !useRecentPostsLoading) {
       update({ postsLoading: true });
-      // TODO: should the text go to queries.graphql.js?
-      // TODO: parameterize limit, offset, etc
       fetchQuery({
         text: `
           query Posts {
@@ -255,12 +254,13 @@ export function useRecentPosts() {
         (!destroyedRef.current) && update({ posts: parseDescriptor(data.page_post.items) });
       });
     }
-  }, [update, posts, postsLoading]);
+  }, [update, posts]);
   return posts;
 }
 
+let useTaxonomiesLoading = false;
 export function useTaxonomies() {
-  const [{ taxonomies, taxonomiesLoading }, update] = useGlobalContext();
+  const [{ taxonomies }, update] = useGlobalContext();
   const destroyedRef = useRef(false);
   useEffect(() => {
     return () => {
@@ -268,8 +268,8 @@ export function useTaxonomies() {
     };
   }, []);
   useEffect(() => {
-    if (!taxonomies && !taxonomiesLoading) {
-      update({ taxonomiesLoading: true });
+    if (!taxonomies && !useTaxonomiesLoading) {
+      useTaxonomiesLoading = true;
       fetchQuery({
         text: `
           query Taxonomies {
@@ -296,7 +296,7 @@ export function useTaxonomies() {
         (!destroyedRef.current) && update({ taxonomies: parseDescriptor(data.component_taxonomy.items) });
       });
     }
-  }, [update, taxonomies, taxonomiesLoading]);
+  }, [update, taxonomies]);
   return taxonomies;
 }
 
@@ -308,36 +308,6 @@ export function useCategories() {
 export function useTags() {
   const taxonomies = useTaxonomies();
   return taxonomies?.filter(taxonomy => taxonomy.craftercms.path.includes('tags.xml'))[0].items.item;
-}
-
-export function useLevelDescriptor() {
-  const [{ levelDescriptor, levelDescriptorLoading }, update] = useGlobalContext();
-  const destroyedRef = useRef(false);
-  useEffect(() => {
-    return () => {
-      destroyedRef.current = true;
-    };
-  }, []);
-  useEffect(() => {
-    if (!levelDescriptor && !levelDescriptorLoading) {
-      update({ levelDescriptorLoading: true });
-      fetchQuery({
-        text: `
-          query Taxonomies {
-            component_level__descriptor {
-              items {
-                siteTitle_s
-                file__name(filter: {matches: "crafter-level-descriptor.level.xml"})
-              }
-            }
-          }
-        `
-      }).then(({ data }) => {
-        (!destroyedRef.current) && update({ levelDescriptor: (data.component_level__descriptor.items[0]) });
-      });
-    }
-  }, [update, levelDescriptor, levelDescriptorLoading]);
-  return levelDescriptor;
 }
 
 export function usePencil(props) {

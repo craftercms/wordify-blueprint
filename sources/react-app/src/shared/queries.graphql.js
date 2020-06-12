@@ -255,6 +255,12 @@ export default `
         }
       }
     }
+    levelDescriptors: component_level__descriptor {
+      items {
+        siteTitle_s
+        file__name
+      }
+    }
     posts: page_post(
       limit: $postsLimit, 
       offset: $postsOffset,

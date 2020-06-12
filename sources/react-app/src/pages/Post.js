@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import ContentType from '../shared/ContentType';
 import RecentPostsAside from '../shared/RecentPostsAside';
@@ -24,14 +24,18 @@ import SidebarTags from '../shared/SidebarTags';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarBios from '../shared/SidebarBios';
 import DropZone from '../shared/DropZone';
-import { GlobalContext } from '../shared/context';
 import { fetchQuery } from '../relayEnvironment';
 import { parseDescriptor } from '@craftercms/content';
 
 export default function (props) {
-  const { model, posts } = props;
+  const {
+    model,
+    posts,
+    meta: {
+      siteTitle
+    }
+  } = props;
   const modelPath = model.craftercms.path;
-  const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
   const [related, setRelated] = useState();
   const categoriesKeys = model.categories_o?.map(category => `{matches: "${category.key}"}`);
   const tagsKeys = model.tags_o?.map(tag => `{matches: "${tag.key}"}`);

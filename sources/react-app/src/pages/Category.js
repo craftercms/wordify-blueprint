@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import RecentPostsAside from '../shared/RecentPostsAside';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
@@ -26,7 +26,14 @@ import { useRecentPosts } from '../shared/hooks';
 import { GlobalContext } from '../shared/context';
 
 export default function (props) {
-  const { bios_o } = props;
+  const {
+    bios_o,
+    match,
+    meta: {
+      siteTitle
+    }
+
+  } = props;
   const posts = useRecentPosts();
   const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
 

@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { Suspense, useContext } from 'react';
+import React, { Suspense } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import { FormattedMessage } from 'react-intl';
 import SidebarSearch from '../shared/SidebarSearch';
@@ -24,7 +24,6 @@ import SidebarTags from '../shared/SidebarTags';
 import { useUrlSearchQueryFetchResource } from '../shared/hooks';
 import CircularProgressSpinner from '../shared/CircularProgressSpinner';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
-import { GlobalContext } from '../shared/context';
 
 function SearchResults({ resource }) {
   const { hits, total } = resource.read();
@@ -41,9 +40,13 @@ function SearchResults({ resource }) {
   );
 }
 
-export default function () {
+export default function (props) {
+  const {
+    meta: {
+      siteTitle
+    }
+  } = props;
   const resource = useUrlSearchQueryFetchResource();
-  const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
   return (
     <BaseLayout siteTitle={siteTitle}>
       <section className="site-section pt-5 py-sm">

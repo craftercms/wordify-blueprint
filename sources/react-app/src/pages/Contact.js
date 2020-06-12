@@ -14,13 +14,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import RecentPostsAside from '../shared/RecentPostsAside';
 import SidebarBios from '../shared/SidebarBios';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
-import { GlobalContext } from '../shared/context';
 
 export default function (props) {
   const {
@@ -28,10 +27,12 @@ export default function (props) {
     model: {
       headline_s,
       message_t
+    },
+    meta: {
+      siteTitle
     }
   } = props;
 
-  const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
   return (
     <BaseLayout siteTitle={siteTitle}>
       <section className="site-section">

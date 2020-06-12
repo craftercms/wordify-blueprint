@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import Slider from '../components/Slider';
 import { FormattedMessage } from 'react-intl';
@@ -27,7 +27,6 @@ import SidebarTags from '../shared/SidebarTags';
 import { Link } from 'react-router-dom';
 import { parse } from 'query-string';
 import { useRecentPosts } from '../shared/hooks';
-import { GlobalContext } from '../shared/context';
 
 export default function (props) {
   const {
@@ -39,6 +38,7 @@ export default function (props) {
       slider_o
     },
     meta: {
+      siteTitle,
       posts: {
         total,
         limit
@@ -49,7 +49,6 @@ export default function (props) {
   const pageIndex = pageNumber - 1;
   const numOfPages = Math.ceil(total / limit);
   const posts = useRecentPosts();
-  const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
 
   return (
     <BaseLayout siteTitle={siteTitle}>

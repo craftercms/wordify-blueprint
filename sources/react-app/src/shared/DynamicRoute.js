@@ -52,10 +52,14 @@ export default function DynamicRoute(props) {
     ).then(({ data }) => {
       if (!destroyed) {
         const model = parseDescriptor(data.content.items?.[0]);
+        const siteTitle = data.levelDescriptors.items
+          .filter(levelDescriptor => levelDescriptor.file__name === 'crafter-level-descriptor.level.xml')
+          .map(levelDescriptor => levelDescriptor.siteTitle_s)[0];
 
         setState({
           model,
           meta: {
+            siteTitle,
             posts: {
               total: data.posts.total,
               ...pagination

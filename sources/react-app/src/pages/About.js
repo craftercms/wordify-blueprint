@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import { WrappedContentType } from '../shared/ContentType';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
@@ -26,7 +26,6 @@ import SidebarSearch from '../shared/SidebarSearch';
 import SidebarTags from '../shared/SidebarTags';
 import SidebarCategories from '../shared/SidebarCategories';
 import { useRecentPosts } from '../shared/hooks';
-import { GlobalContext } from '../shared/context';
 
 export default function (props) {
   const {
@@ -37,10 +36,12 @@ export default function (props) {
       // pageDescription_s,
       bios_o,
       content_o
+    },
+    meta: {
+      siteTitle
     }
   } = props;
   const posts = useRecentPosts();
-  const siteTitle = useContext(GlobalContext)[0].levelDescriptor.siteTitle_s;
 
   const modelPath = model.craftercms.path;
   return (
