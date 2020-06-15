@@ -16,10 +16,11 @@
 
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { useCategories } from './hooks';
+import { useCategories, usePencil } from './hooks';
 
 export default function () {
   const categories = useCategories();
+  const ice =  usePencil({ model: categories });
 
   //TODO: use resource to add suspense state
 
@@ -31,9 +32,9 @@ export default function () {
           defaultMessage="Categories"
         />
       </h3>
-      <ul className="categories">
+      <ul className="categories" {...ice}>
         {
-          categories?.map((category) =>
+          categories?.items.item.map((category) =>
             <li key={category.key}><a href="/">{category.value}</a></li>
           )
         }

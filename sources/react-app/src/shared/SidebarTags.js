@@ -16,10 +16,11 @@
 
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { useTags } from './hooks';
+import { usePencil, useTags } from './hooks';
 
 export default function () {
   const tags = useTags();
+  const ice =  usePencil({ model: tags });
 
   //TODO: use resource to add suspense state
 
@@ -31,9 +32,9 @@ export default function () {
           defaultMessage="Tags"
         />
       </h3>
-      <ul className="tags">
+      <ul className="tags" {...ice}>
         {
-          tags?.map((tag) =>
+          tags?.items.item.map((tag) =>
             <li key={tag.key}><a href="/">{tag.value}</a></li>
           )
         }

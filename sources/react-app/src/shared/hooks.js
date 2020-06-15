@@ -303,12 +303,12 @@ export function useTaxonomies() {
 
 export function useCategories() {
   const taxonomies = useTaxonomies();
-  return taxonomies?.filter(taxonomy => taxonomy.craftercms.path.includes('categories.xml'))[0].items.item;
+  return taxonomies?.filter(taxonomy => taxonomy.craftercms.path.includes('categories.xml'))[0];
 }
 
 export function useTags() {
   const taxonomies = useTaxonomies();
-  return taxonomies?.filter(taxonomy => taxonomy.craftercms.path.includes('tags.xml'))[0].items.item;
+  return taxonomies?.filter(taxonomy => taxonomy.craftercms.path.includes('tags.xml'))[0];
 }
 
 export function usePencil(props) {
