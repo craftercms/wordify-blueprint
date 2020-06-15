@@ -14,20 +14,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import { FormattedMessage } from 'react-intl';
 import SidebarSearch from '../shared/SidebarSearch';
 import RecentPostsAside from '../shared/RecentPostsAside';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
-import { useUrlSearchQueryFetchResource } from '../shared/hooks';
+import { useSearchQuery, useUrlSearchQueryFetchResource } from '../shared/hooks';
 import CircularProgressSpinner from '../shared/CircularProgressSpinner';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
+import ReactPaginate from 'react-paginate';
+import { useHistory } from 'react-router-dom';
 
-function SearchResults({ resource }) {
+function SearchResults({ resource, paginationData, onPageChange }) {
   const { hits, total } = resource.read();
-  const totalResults = Number.isInteger(total) ?  total : total.value
+
+  const totalResults = Number.isInteger(total) ?  total : total.value;
+  const pageCount = Math.ceil(totalResults/paginationData.itemsPerPage);
   return (
     <>
       <p>{totalResults} result{totalResults === 0 || totalResults > 1 ? 's' : ''} found.</p>
@@ -35,6 +39,30 @@ function SearchResults({ resource }) {
         hits.map((post) =>
           <PostCard key={post.craftercms.id} model={post} format={LANDSCAPE} />
         )
+      }
+
+      {
+        pageCount > 1 &&
+        <div className="col-md-12 text-center mt-5">
+          <ReactPaginate
+            containerClassName="pagination"
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="pagination__item"
+            previousLinkClassName="pagination__link pagination__link--arrow"
+            nextClassName="pagination__item"
+            nextLinkClassName="pagination__link pagination__link--arrow"
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={3}
+            activeClassName="active"
+            initialPage={0}
+            pageCount={pageCount}
+            onPageChange={({ selected: index }) => onPageChange(index * paginationData.itemsPerPage)}
+            disableInitialCallback={true}
+            previousLabel={<li className="page-item"><a className="page-link" href="/">&lt;</a></li>}
+            nextLabel={<li className="page-item"><a className="page-link" href="/">&gt;</a></li>}
+          />
+        </div>
       }
     </>
   );
@@ -46,7 +74,23 @@ export default function (props) {
       siteTitle
     }
   } = props;
-  const resource = useUrlSearchQueryFetchResource();
+  const [paginationData, setPaginationData] = useState({
+    itemsPerPage: 10,
+    currentPage: 0
+  });
+  let resource = useUrlSearchQueryFetchResource(paginationData.itemsPerPage);
+
+  const history = useHistory();
+  const [query] = useSearchQuery();
+
+  const onPageChange = (page) => {
+    setPaginationData({ ...paginationData, currentPage: page})
+    history.push({
+      pathname: '/search',
+      search: `?q=${query}&p=${page}`
+    });
+  }
+
   return (
     <BaseLayout siteTitle={siteTitle}>
       <section className="site-section pt-5 py-sm">
@@ -65,7 +109,11 @@ export default function (props) {
             <div className="col-md-12 col-lg-8 main-content">
               <div className="row">
                 <Suspense fallback={<CircularProgressSpinner screenHeight={false} />}>
-                  <SearchResults resource={resource} />
+                  <SearchResults
+                    resource={resource}
+                    paginationData={paginationData}
+                    onPageChange={onPageChange}
+                  />
                 </Suspense>
               </div>
             </div>

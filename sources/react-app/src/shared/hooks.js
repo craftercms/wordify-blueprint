@@ -327,18 +327,21 @@ export function useDnD(props) {
 export function useSearchQuery() {
   const { search } = useLocation();
   const [query, setQuery] = useState(() => parse(search).q ?? '');
+  const [page, setPage] = useState(() => parse(search).p ?? 0);
   const onChange = useCallback((e) => setQuery(e.target.value), []);
   useEffect(() => {
     setQuery(parse(search).q ?? '');
+    setPage(parse(search).p ?? 0);
   }, [search]);
-  return [query, onChange, setQuery];
+
+  return [query, onChange, setQuery, page];
 }
 
-const fields = ['headline_s', 'blurb_t'];
-const contentTypes = ['/page/post', '/component/post'];
-export function useUrlSearchQueryFetchResource() {
-  const [query] = useSearchQuery();
+const contentTypes = ['/page/post'];
+export function useUrlSearchQueryFetchResource(size = 1) {
+  const [query, , , page] = useSearchQuery();
   const [resource, setResource] = useState(neverResource);
+
   // https://github.com/facebook/react/issues/14413
   useEffect(() => {
     // FYI: A GraphQL query could also be used instead of a direct Elasticsearch
@@ -349,10 +352,12 @@ export function useUrlSearchQueryFetchResource() {
             'bool': {
               'filter': [
                 { 'bool': { 'should': contentTypes.map(id => ({ 'match': { 'content-type': id } })) } },
-                { 'multi_match': { 'query': query, 'fields': fields } }
+                { 'multi_match': { 'query': query, 'type': "phrase_prefix"} }
               ]
             }
-          }
+          },
+          size,
+          from: page
         }),
         crafterConfig
       ).pipe(
@@ -373,7 +378,7 @@ export function useUrlSearchQueryFetchResource() {
         })
       ).toPromise()
     ));
-  }, [query]);
+  }, [query, page, size]);
   return resource;
 }
 
