@@ -18,9 +18,17 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useNavigation } from '../shared/hooks';
 import SearchForm from '../shared/SearchForm';
+import { useGlobalContext } from '../shared/context';
 
 export default function Header({ siteTitle }) {
   const nav = useNavigation();
+
+  const [{ $ }] = useGlobalContext();
+  const toggleNavBar = (e) => {
+    e.preventDefault();
+    $('#navbarMenu').toggleClass('show');
+  };
+
   return (
     <header role="banner">
       <div className="top-bar">
@@ -47,6 +55,7 @@ export default function Header({ siteTitle }) {
             <a
               className="absolute-toggle d-block d-md-none" data-toggle="collapse"
               href="#navbarMenu" role="button"
+              onClick={toggleNavBar}
               aria-expanded="false" aria-controls="navbarMenu"
             ><span className="burger-lines"></span></a>
             <h1 className="site-logo"><Link to="/">{ siteTitle }</Link></h1>
