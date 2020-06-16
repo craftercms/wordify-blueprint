@@ -7,7 +7,7 @@
   <content-as-folder>false</content-as-folder>
   <previewable>false</previewable>
   <quickCreate>false</quickCreate>
-  <quickCreatePath></quickCreatePath>
+  <quickCreatePath />
   <noThumbnail>false</noThumbnail>
   <image-thumbnail>post.png</image-thumbnail>
 </content-type>

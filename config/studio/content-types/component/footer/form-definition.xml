@@ -1,16 +1,16 @@
 <form>
   <title>Footer</title>
-  <description/>
+  <description />
   <objectType>component</objectType>
   <content-type>/component/footer</content-type>
   <imageThumbnail>undefined</imageThumbnail>
   <quickCreate>false</quickCreate>
-  <quickCreatePath/>
+  <quickCreatePath />
   <properties>
     <property>
       <name>display-template</name>
       <label>Display Template</label>
-      <value/>
+      <value />
       <type>template</type>
     </property>
     <property>
@@ -29,17 +29,17 @@
   <sections>
     <section>
       <title>Footer Properties</title>
-      <description/>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>file-name</type>
           <id>file-name</id>
-          <iceId/>
+          <iceId />
           <title>Component ID</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -53,7 +53,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -63,11 +63,11 @@
         <field>
           <type>input</type>
           <id>internal-name</id>
-          <iceId/>
+          <iceId />
           <title>Internal Name</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -81,7 +81,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -102,17 +102,17 @@
     </section>
     <section>
       <title>Content Fields</title>
-      <description/>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>textarea</type>
           <id>about_t</id>
-          <iceId/>
+          <iceId />
           <title>About</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>cols</name>
@@ -136,7 +136,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -151,15 +151,15 @@
         <field>
           <type>rte-tinymce5</type>
           <id>copyright_html</id>
-          <iceId/>
+          <iceId />
           <title>Copyright</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>width</name>
-              <value/>
+              <value />
               <type>int</type>
             </property>
             <property>
@@ -189,7 +189,7 @@
             </property>
             <property>
               <name>supportedChannels</name>
-              <value/>
+              <value />
               <type>supportedChannels</type>
             </property>
             <property>
@@ -199,17 +199,17 @@
             </property>
             <property>
               <name>imageManager</name>
-              <value/>
+              <value />
               <type>datasource:image</type>
             </property>
             <property>
               <name>videoManager</name>
-              <value/>
+              <value />
               <type>datasource:video</type>
             </property>
             <property>
               <name>fileManager</name>
-              <value/>
+              <value />
               <type>datasource:item</type>
             </property>
           </properties>
@@ -225,15 +225,15 @@
     </section>
     <section>
       <title>Social Links</title>
-      <description/>
+      <description />
       <defaultOpen>false</defaultOpen>
       <fields>
         <field>
           <type>repeat</type>
           <id>socialLinks_o</id>
-          <iceId/>
+          <iceId />
           <title>Social Links</title>
-          <description/>
+          <description />
           <minOccurs>0</minOccurs>
           <maxOccurs>*</maxOccurs>
           <properties>
@@ -252,11 +252,11 @@
             <field>
               <type>input</type>
               <id>url_s</id>
-              <iceId/>
+              <iceId />
               <title>Url</title>
-              <description/>
-              <defaultValue/>
-              <help/>
+              <description />
+              <defaultValue />
+              <help />
               <properties>
                 <property>
                   <name>size</name>
@@ -270,7 +270,7 @@
                 </property>
                 <property>
                   <name>readonly</name>
-                  <value/>
+                  <value />
                   <type>boolean</type>
                 </property>
                 <property>
@@ -295,11 +295,11 @@
             <field>
               <type>dropdown</type>
               <id>socialNetwork_s</id>
-              <iceId/>
+              <iceId />
               <title>Social Network</title>
-              <description/>
-              <defaultValue/>
-              <help/>
+              <description />
+              <defaultValue />
+              <help />
               <properties>
                 <property>
                   <name>datasource</name>
@@ -308,12 +308,12 @@
                 </property>
                 <property>
                   <name>emptyvalue</name>
-                  <value/>
+                  <value />
                   <type>boolean</type>
                 </property>
                 <property>
                   <name>readonly</name>
-                  <value/>
+                  <value />
                   <type>boolean</type>
                 </property>
               </properties>
@@ -331,15 +331,15 @@
     </section>
     <section>
       <title>Quick Links</title>
-      <description/>
+      <description />
       <defaultOpen>false</defaultOpen>
       <fields>
         <field>
           <type>repeat</type>
           <id>quickLinks_o</id>
-          <iceId/>
+          <iceId />
           <title>Quick Links</title>
-          <description/>
+          <description />
           <minOccurs>0</minOccurs>
           <maxOccurs>*</maxOccurs>
           <properties>
@@ -358,11 +358,11 @@
             <field>
               <type>input</type>
               <id>label_s</id>
-              <iceId/>
+              <iceId />
               <title>Label</title>
-              <description/>
-              <defaultValue/>
-              <help/>
+              <description />
+              <defaultValue />
+              <help />
               <properties>
                 <property>
                   <name>size</name>
@@ -376,7 +376,7 @@
                 </property>
                 <property>
                   <name>readonly</name>
-                  <value/>
+                  <value />
                   <type>boolean</type>
                 </property>
                 <property>
@@ -401,11 +401,11 @@
             <field>
               <type>input</type>
               <id>url_s</id>
-              <iceId/>
+              <iceId />
               <title>Url</title>
-              <description/>
-              <defaultValue/>
-              <help/>
+              <description />
+              <defaultValue />
+              <help />
               <properties>
                 <property>
                   <name>size</name>
@@ -419,7 +419,7 @@
                 </property>
                 <property>
                   <name>readonly</name>
-                  <value/>
+                  <value />
                   <type>boolean</type>
                 </property>
                 <property>

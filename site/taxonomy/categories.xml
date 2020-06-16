@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
   <content-type>/taxonomy</content-type>
-  <display-template/>
+  <display-template />
   <no-template-required>true</no-template-required>
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>6527</objectGroupId>
@@ -34,7 +34,7 @@
     </item>
   </items>
   <file-name>categories.xml</file-name>
-  <folder-name/>
+  <folder-name />
   <internal-name>Categories</internal-name>
   <createdDate>2020-06-01T18:50:58.959Z</createdDate>
   <createdDate_dt>2020-06-01T18:50:58.959Z</createdDate_dt>

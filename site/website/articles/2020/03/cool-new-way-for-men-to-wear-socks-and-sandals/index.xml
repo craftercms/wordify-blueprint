@@ -2,7 +2,7 @@
 <page>
   <content-type>/page/post</content-type>
   <display-template>/templates/web/post.ftl</display-template>
-  <no-template-required/>
+  <no-template-required />
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>ea10</objectGroupId>
   <objectId>ea10fd6e-1927-2cd1-1434-683942ba9ac8</objectId>
@@ -26,7 +26,7 @@
       <component id="22b69bdb-eb3f-a9bd-693a-fda3537eab48">
         <content-type>/component/rich_text</content-type>
         <display-template>/templates/web/components/rich_text.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>22b6</objectGroupId>
         <objectId>22b69bdb-eb3f-a9bd-693a-fda3537eab48</objectId>
@@ -54,7 +54,7 @@
       <component id="14397648-d047-fcea-7497-314af89d1a3e">
         <content-type>/component/responsive_columns</content-type>
         <display-template>/templates/web/components/responsive_columns.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>1439</objectGroupId>
         <objectId>14397648-d047-fcea-7497-314af89d1a3e</objectId>
@@ -68,7 +68,7 @@
                 <component id="180d6aa8-47f9-fe27-94c3-637657c789db">
                   <content-type>/component/image</content-type>
                   <display-template>/templates/web/components/image.ftl</display-template>
-                  <no-template-required/>
+                  <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
                   <objectGroupId>280d</objectGroupId>
                   <objectId>180d6aa8-47f9-fe27-94c3-637657c789db</objectId>
@@ -93,7 +93,7 @@
                 <component id="280d6aa8-47f9-fe27-94c3-637657c789db">
                   <content-type>/component/image</content-type>
                   <display-template>/templates/web/components/image.ftl</display-template>
-                  <no-template-required/>
+                  <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
                   <objectGroupId>280d</objectGroupId>
                   <objectId>280d6aa8-47f9-fe27-94c3-637657c789db</objectId>
@@ -118,7 +118,7 @@
                 <component id="380d6aa8-47f9-fe27-94c3-637657c789db">
                   <content-type>/component/image</content-type>
                   <display-template>/templates/web/components/image.ftl</display-template>
-                  <no-template-required/>
+                  <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
                   <objectGroupId>280d</objectGroupId>
                   <objectId>380d6aa8-47f9-fe27-94c3-637657c789db</objectId>
@@ -149,7 +149,7 @@
       <component id="0aa38516-44c6-c092-8a89-97ed01f25041">
         <content-type>/component/rich_text</content-type>
         <display-template>/templates/web/components/rich_text.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>0aa3</objectGroupId>
         <objectId>0aa38516-44c6-c092-8a89-97ed01f25041</objectId>
@@ -189,7 +189,7 @@
       <disableFlattening>false</disableFlattening>
     </item>
   </authorBio_o>
-  <pageDescription_s/>
+  <pageDescription_s />
   <categories_o item-list="true">
     <item>
       <key>lifestyle</key>

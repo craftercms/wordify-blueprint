@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
 	<content-type>/component/level-descriptor</content-type>
-	<display-template/>
-	<no-template-required/>
+	<display-template />
+	<no-template-required />
 	<merge-strategy>inherit-levels</merge-strategy>
 	<objectGroupId>750f</objectGroupId>
 	<objectId>750f18d6-ff73-72da-c9de-3edbe426e84c</objectId>
 	<file-name>crafter-level-descriptor.level.xml</file-name>
-	<folder-name/>
+	<folder-name />
 	<createdDate>2017-10-9T16:52:48.000Z</createdDate>
 	<createdDate_dt>2017-10-9T16:52:48.000Z</createdDate_dt>
 	<lastModifiedDate>2020-03-22T08:45:19.119Z</lastModifiedDate>
 	<lastModifiedDate_dt>2020-03-22T08:45:19.119Z</lastModifiedDate_dt>
 	<siteTitle_s>Wordify Crafter CMS</siteTitle_s>
-	<pageDescription_s/>
+	<pageDescription_s />
 </component>

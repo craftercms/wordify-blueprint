@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
   <content-type>/taxonomy</content-type>
-  <display-template/>
+  <display-template />
   <no-template-required>true</no-template-required>
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>8a17</objectGroupId>
@@ -33,7 +33,7 @@
     </item>
   </items>
   <file-name>social-media-types.xml</file-name>
-  <folder-name/>
+  <folder-name />
   <internal-name>Social Media Types</internal-name>
   <createdDate>2020-06-09T18:10:25.677Z</createdDate>
   <createdDate_dt>2020-06-09T18:10:25.677Z</createdDate_dt>

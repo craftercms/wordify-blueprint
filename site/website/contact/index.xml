@@ -2,7 +2,7 @@
 <page>
   <content-type>/page/contact</content-type>
   <display-template>/templates/web/contact.ftl</display-template>
-  <no-template-required/>
+  <no-template-required />
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>ccb8</objectGroupId>
   <objectId>ccb8cfe3-88f7-7e89-2ad3-eed9cd936444</objectId>
@@ -17,7 +17,7 @@
   <lastModifiedDate>2020-06-11T19:02:26.024Z</lastModifiedDate>
   <lastModifiedDate_dt>2020-06-11T19:02:26.024Z</lastModifiedDate_dt>
   <pageTitle_s>Contact Us</pageTitle_s>
-  <message_t/>
-  <pageDescription_s/>
+  <message_t />
+  <pageDescription_s />
   <headline_s>Contact Me</headline_s>
 </page>

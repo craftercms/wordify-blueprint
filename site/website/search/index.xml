@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
   <content-type>/page/search</content-type>
-  <display-template/>
-  <no-template-required/>
+  <display-template />
+  <no-template-required />
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>0374</objectGroupId>
   <objectId>037478e0-f19c-3f7f-7dd7-daed416171a2</objectId>
@@ -11,7 +11,7 @@
   <internal-name>Search</internal-name>
   <navLabel>Search</navLabel>
   <pageTitle_s>Search Results</pageTitle_s>
-  <pageDescription_s/>
+  <pageDescription_s />
   <placeInNav>false</placeInNav>
   <orderDefault_f>-1</orderDefault_f>
   <disabled>false</disabled>

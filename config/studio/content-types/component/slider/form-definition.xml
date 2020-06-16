@@ -1,11 +1,11 @@
 <form>
   <title>Slider</title>
-  <description></description>
+  <description />
   <objectType>component</objectType>
   <content-type>/component/slider</content-type>
   <imageThumbnail>slider.png</imageThumbnail>
   <quickCreate>false</quickCreate>
-  <quickCreatePath></quickCreatePath>
+  <quickCreatePath />
   <properties>
     <property>
       <name>display-template</name>
@@ -16,7 +16,7 @@
     <property>
       <name>no-template-required</name>
       <label>No Template Required</label>
-      <value/>
+      <value />
       <type>boolean</type>
     </property>
     <property>
@@ -29,17 +29,17 @@
   <sections>
     <section>
       <title>System Fields</title>
-      <description/>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>auto-filename</type>
           <id>file-name</id>
-          <iceId/>
+          <iceId />
           <title>Component ID</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -53,7 +53,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -63,11 +63,11 @@
         <field>
           <type>input</type>
           <id>internal-name</id>
-          <iceId/>
+          <iceId />
           <title>Internal Name</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -92,27 +92,27 @@
     </section>
     <section>
       <title>Content Fields</title>
-      <description/>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>node-selector</type>
           <id>posts_o</id>
-          <iceId/>
+          <iceId />
           <title>Posts</title>
           <description>Leave blank to auto-show latest or manually select featured posts
           </description>
-          <defaultValue/>
-          <help/>
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>minSize</name>
-              <value/>
+              <value />
               <type>int</type>
             </property>
             <property>
               <name>maxSize</name>
-              <value/>
+              <value />
               <type>int</type>
             </property>
             <property>
@@ -122,27 +122,27 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>
               <name>disableFlattening</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>
               <name>useSingleValueFilename</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>
               <name>contentTypes</name>
-              <value/>
+              <value />
               <type>contentTypes</type>
             </property>
             <property>
               <name>tags</name>
-              <value/>
+              <value />
               <type>string</type>
             </property>
           </properties>
