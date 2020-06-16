@@ -30,7 +30,7 @@ import { useHistory } from 'react-router-dom';
 function SearchResults({ resource, paginationData, onPageChange }) {
   const { hits, total } = resource.read();
 
-  const totalResults = Number.isInteger(total) ?  total : total.value;
+  const totalResults = typeof total === 'object' ? total.value : total;
   const pageCount = Math.ceil(totalResults/paginationData.itemsPerPage);
   return (
     <>
