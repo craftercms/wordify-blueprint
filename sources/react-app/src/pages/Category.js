@@ -179,11 +179,11 @@ export default function (props) {
         setPosts(parseDescriptor(data.page_post.items))
       });
     }
-  }, [category, paginationData.currentPage]);
+  }, [category, paginationData.currentPage, paginationData.itemsPerPage]);
 
   useEffect(() => {
     setPageCount(Math.ceil(totalPosts/paginationData.itemsPerPage))
-  }, [totalPosts, setPageCount])
+  }, [totalPosts, setPageCount, paginationData.itemsPerPage])
 
   return (
     <BaseLayout siteTitle={siteTitle}>
