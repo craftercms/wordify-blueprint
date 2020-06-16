@@ -25,7 +25,7 @@ export default function (props) {
   const backgroundImage = category.image_s ?? "/static-assets/images/photography.png";
 
   return(
-    <Link to={`/category/${category.key}`} className={`blog-entry category-card`}>
+    <Link to={`/category/${category.key}`} className="blog-entry category-card">
       <img className="background" src={backgroundImage} alt={category.value}/>
       <h2 className="title">{category.value}</h2>
     </Link>
