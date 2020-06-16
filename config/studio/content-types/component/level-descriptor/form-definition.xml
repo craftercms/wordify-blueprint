@@ -21,18 +21,18 @@
   <content-type>/component/level-descriptor</content-type>
   <imageThumbnail>undefined</imageThumbnail>
   <quickCreate>false</quickCreate>
-  <quickCreatePath></quickCreatePath>
+  <quickCreatePath/>
   <properties>
     <property>
       <name>display-template</name>
       <label>Display Template</label>
-      <value></value>
+      <value/>
       <type>template</type>
     </property>
     <property>
       <name>no-template-required</name>
       <label>No Template Required</label>
-      <value></value>
+      <value/>
       <type>boolean</type>
     </property>
     <property>
@@ -45,17 +45,17 @@
   <sections>
     <section>
       <title>Section Defaults Properties</title>
-      <description></description>
+      <description/>
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>file-name</type>
           <id>file-name</id>
-          <iceId></iceId>
+          <iceId/>
           <title>File Name</title>
-          <description></description>
+          <description/>
           <defaultValue>crafter-level-descriptor.level</defaultValue>
-          <help></help>
+          <help/>
           <properties>
             <property>
               <name>size</name>
@@ -80,17 +80,17 @@
     </section>
 		<section>
 			<title>SEO</title>
-			<description></description>
+			<description/>
 			<defaultOpen>true</defaultOpen>
 			<fields>
 				<field>
 					<type>input</type>
 					<id>siteTitle_s</id>
-					<iceId></iceId>
-					<title>Page Title</title>
-					<description></description>
-					<defaultValue></defaultValue>
-					<help></help>
+					<iceId/>
+					<title>Site Title</title>
+					<description/>
+					<defaultValue/>
+					<help/>
 					<properties>
 						<property>
 							<name>size</name>
@@ -104,7 +104,7 @@
 						</property>
 						<property>
 							<name>readonly</name>
-							<value></value>
+							<value/>
 							<type>boolean</type>
 						</property>
 						<property>
@@ -129,11 +129,11 @@
 				<field>
 					<type>input</type>
 					<id>pageDescription_s</id>
-					<iceId></iceId>
+					<iceId/>
 					<title>Page Description</title>
-					<description></description>
-					<defaultValue></defaultValue>
-					<help></help>
+					<description/>
+					<defaultValue/>
+					<help/>
 					<properties>
 						<property>
 							<name>size</name>
@@ -147,7 +147,7 @@
 						</property>
 						<property>
 							<name>readonly</name>
-							<value></value>
+							<value/>
 							<type>boolean</type>
 						</property>
 						<property>
