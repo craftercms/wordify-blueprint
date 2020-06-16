@@ -42,7 +42,7 @@ export default function (props) {
   const [posts, setPosts] = useState();
 
   if (categoryId) {
-    category = categories?.filter(category => category.key === categoryId)[0];
+    category = categories?.items.item.filter(category => category.key === categoryId)[0];
   }
 
   useEffect(() => {
@@ -220,7 +220,7 @@ export default function (props) {
                   <div className="col-md-12 col-lg-8">
                     <div className="row">
                       {
-                        categories?.map(category =>
+                        categories?.items.item.map(category =>
                           <div className="col-md-6 mb-4" key={category.key}>
                             <CategoryCard category={category} />
                           </div>
