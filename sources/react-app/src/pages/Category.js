@@ -26,6 +26,7 @@ import { useCategories } from '../shared/hooks';
 import CategoryCard from '../shared/CategoryCard';
 import { fetchQuery } from '../relayEnvironment';
 import { parseDescriptor } from '@craftercms/content';
+import ReactPaginate from 'react-paginate';
 
 export default function (props) {
   const {
@@ -40,6 +41,12 @@ export default function (props) {
   const categoryId = match.params.id;
   let category;
   const [posts, setPosts] = useState();
+  const [totalPosts, setTotalPosts] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+  const [paginationData, setPaginationData] = useState({
+    itemsPerPage: 10,
+    currentPage: 0
+  });
 
   if (categoryId) {
     category = categories?.items.item.filter(category => category.key === categoryId)[0];
@@ -50,7 +57,7 @@ export default function (props) {
       fetchQuery({
         text: `
           query Posts {
-            page_post(limit: 2) {
+            page_post(limit: ${paginationData.itemsPerPage}, offset: ${(paginationData.currentPage * paginationData.itemsPerPage)}) {
               total
               items {
                 guid: objectId
@@ -168,10 +175,15 @@ export default function (props) {
           }
         `
       }).then(({ data }) => {
+        setTotalPosts(data.page_post.total);
         setPosts(parseDescriptor(data.page_post.items))
       });
     }
-  }, [category]);
+  }, [category, paginationData.currentPage]);
+
+  useEffect(() => {
+    setPageCount(Math.ceil(totalPosts/paginationData.itemsPerPage))
+  }, [totalPosts, setPageCount])
 
   return (
     <BaseLayout siteTitle={siteTitle}>
@@ -195,21 +207,33 @@ export default function (props) {
                         }
                       </div>
                     </div>
-                    <div className="row mt-5">
-                      <div className="col-md-12 text-center">
-                        <nav aria-label="Page navigation" className="text-center">
-                          <ul className="pagination">
-                            <li className="page-item  active"><a className="page-link" href="/">&lt;</a></li>
-                            <li className="page-item"><a className="page-link" href="/">1</a></li>
-                            <li className="page-item"><a className="page-link" href="/">2</a></li>
-                            <li className="page-item"><a className="page-link" href="/">3</a></li>
-                            <li className="page-item"><a className="page-link" href="/">4</a></li>
-                            <li className="page-item"><a className="page-link" href="/">5</a></li>
-                            <li className="page-item"><a className="page-link" href="/">&gt;</a></li>
-                          </ul>
-                        </nav>
+                    {
+                      pageCount > 1 &&
+                      <div className="row mt-5">
+                        <div className="col-md-12 text-center">
+                          <nav aria-label="Page navigation" className="text-center">
+                            <ReactPaginate
+                              containerClassName="pagination"
+                              pageClassName="page-item"
+                              pageLinkClassName="page-link"
+                              previousClassName="page-item"
+                              previousLinkClassName="page-link"
+                              nextClassName="page-item"
+                              nextLinkClassName="page-link"
+                              pageRangeDisplayed={3}
+                              marginPagesDisplayed={3}
+                              activeClassName="active"
+                              initialPage={0}
+                              pageCount={pageCount}
+                              onPageChange={({ selected: index }) => setPaginationData({ ...paginationData, currentPage: index * paginationData.itemsPerPage})}
+                              disableInitialCallback={true}
+                              previousLabel={<span>&lt;</span>}
+                              nextLabel={<span>&gt;</span>}
+                            />
+                          </nav>
+                        </div>
                       </div>
-                    </div>
+                    }
                   </div>
                 </>
                 :

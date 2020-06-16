@@ -48,10 +48,10 @@ function SearchResults({ resource, paginationData, onPageChange }) {
             containerClassName="pagination"
             pageClassName="page-item"
             pageLinkClassName="page-link"
-            previousClassName="pagination__item"
-            previousLinkClassName="pagination__link pagination__link--arrow"
-            nextClassName="pagination__item"
-            nextLinkClassName="pagination__link pagination__link--arrow"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
             pageRangeDisplayed={3}
             marginPagesDisplayed={3}
             activeClassName="active"
@@ -59,8 +59,8 @@ function SearchResults({ resource, paginationData, onPageChange }) {
             pageCount={pageCount}
             onPageChange={({ selected: index }) => onPageChange(index * paginationData.itemsPerPage)}
             disableInitialCallback={true}
-            previousLabel={<li className="page-item"><a className="page-link" href="/">&lt;</a></li>}
-            nextLabel={<li className="page-item"><a className="page-link" href="/">&gt;</a></li>}
+            previousLabel={<span>&lt;</span>}
+            nextLabel={<span>&gt;</span>}
           />
         </div>
       }
