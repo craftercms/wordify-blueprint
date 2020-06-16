@@ -26,6 +26,7 @@ import SidebarBios from '../shared/SidebarBios';
 import DropZone from '../shared/DropZone';
 import { fetchQuery } from '../relayEnvironment';
 import { parseDescriptor } from '@craftercms/content';
+import ReactPaginate from 'react-paginate';
 
 export default function (props) {
   const {
@@ -39,12 +40,18 @@ export default function (props) {
   const [related, setRelated] = useState();
   const categoriesKeys = model.categories_o?.map(category => `{matches: "${category.key}"}`);
   const tagsKeys = model.tags_o?.map(tag => `{matches: "${tag.key}"}`);
+  const [totalRelatedPosts, setTotalRelatedPosts] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+  const [paginationData, setPaginationData] = useState({
+    itemsPerPage: 10,
+    currentPage: 0
+  });
 
   useEffect(() => {
     fetchQuery({
       text: `
           query Posts {
-            page_post(limit: 2) {
+            page_post(limit: ${paginationData.itemsPerPage}, offset: ${(paginationData.currentPage * paginationData.itemsPerPage)}) {
               total
               items {
                 guid: objectId
@@ -162,9 +169,14 @@ export default function (props) {
           }
         `
     }).then(({ data }) => {
+      setTotalRelatedPosts(data.page_post.total);
       setRelated(parseDescriptor(data.page_post.items))
     });
-  }, [model, categoriesKeys, tagsKeys]);
+  }, [model, categoriesKeys, tagsKeys, paginationData]);
+
+  useEffect(() => {
+    setPageCount(Math.ceil(totalRelatedPosts/paginationData.itemsPerPage))
+  }, [totalRelatedPosts, setPageCount, paginationData.itemsPerPage])
 
   return (
     <BaseLayout siteTitle={siteTitle}>
@@ -265,6 +277,32 @@ export default function (props) {
                   )
                 }
               </div>
+              {
+                pageCount > 1 &&
+                <nav aria-label="Posts navigation" className="text-center">
+                  <ReactPaginate
+                    containerClassName="pagination"
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    nextLinkClassName="page-link"
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={3}
+                    activeClassName="active"
+                    initialPage={0}
+                    pageCount={pageCount}
+                    onPageChange={({ selected: index }) => setPaginationData({
+                      ...paginationData,
+                      currentPage: index * paginationData.itemsPerPage
+                    })}
+                    disableInitialCallback={true}
+                    previousLabel={<span>&lt;</span>}
+                    nextLabel={<span>&gt;</span>}
+                  />
+                </nav>
+              }
             </>
           }
         </div>

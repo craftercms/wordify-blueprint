@@ -179,7 +179,7 @@ export default function (props) {
         setPosts(parseDescriptor(data.page_post.items))
       });
     }
-  }, [category, paginationData.currentPage, paginationData.itemsPerPage]);
+  }, [category, paginationData]);
 
   useEffect(() => {
     setPageCount(Math.ceil(totalPosts/paginationData.itemsPerPage))
@@ -211,7 +211,7 @@ export default function (props) {
                       pageCount > 1 &&
                       <div className="row mt-5">
                         <div className="col-md-12 text-center">
-                          <nav aria-label="Page navigation" className="text-center">
+                          <nav aria-label="Categories navigation" className="text-center">
                             <ReactPaginate
                               containerClassName="pagination"
                               pageClassName="page-item"
