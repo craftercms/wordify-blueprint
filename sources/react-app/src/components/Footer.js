@@ -53,15 +53,14 @@ export default function Footer() {
               <div className="col-md-5">
                 <div className="mb-5">
                   <h3>Social</h3>
-                  {/* TODO: not getting social media types taxonomy value */}
                   <ul className="list-unstyled footer-social">
                     {
                       footer?.socialLinks_o.item.map((link) =>
                         <li key={link.socialNetwork_s}>
-                          <Link to="/">
+                          <a href={link.url_s} target="_blank">
                             <span className={'fa fa-' + link.socialNetwork_s}></span>
-                            {link.socialNetwork_s}
-                          </Link>
+                            {link.label_s}
+                          </a>
                         </li>
                       )
                     }
