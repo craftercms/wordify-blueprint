@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
   <content-type>/component/footer</content-type>
-  <display-template />
+  <display-template/>
   <no-template-required>true</no-template-required>
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>891f</objectGroupId>
@@ -13,35 +13,41 @@
   </about_t>
   <socialLinks_o item-list="true">
     <item>
-      <url_s>/</url_s>
+      <url_s>https://twitter.com</url_s>
       <socialNetwork_s>twitter</socialNetwork_s>
+      <label_s>Twitter</label_s>
     </item>
     <item>
-      <url_s>/</url_s>
+      <url_s>https://www.facebook.com</url_s>
       <socialNetwork_s>facebook</socialNetwork_s>
+      <label_s>Facebook</label_s>
     </item>
     <item>
-      <url_s>/</url_s>
+      <url_s>https://instagram.com</url_s>
       <socialNetwork_s>instagram</socialNetwork_s>
+      <label_s>Instagram</label_s>
     </item>
     <item>
-      <url_s>/</url_s>
+      <url_s>https://vimeo.com/</url_s>
       <socialNetwork_s>vimeo</socialNetwork_s>
+      <label_s>Vimeo</label_s>
     </item>
     <item>
-      <url_s>/</url_s>
+      <url_s>https://youtube.com</url_s>
       <socialNetwork_s>youtube-play</socialNetwork_s>
+      <label_s>YouTube</label_s>
     </item>
     <item>
-      <url_s>/</url_s>
+      <url_s>https://www.snapchat.com/</url_s>
       <socialNetwork_s>snapchat</socialNetwork_s>
+      <label_s>Snapchat</label_s>
     </item>
   </socialLinks_o>
   <createdDate>2020-06-09T18:18:18.055Z</createdDate>
   <createdDate_dt>2020-06-09T18:18:18.055Z</createdDate_dt>
-  <lastModifiedDate>2020-06-11T14:25:50.308Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-06-11T14:25:50.308Z</lastModifiedDate_dt>
-  <folder-name />
+  <lastModifiedDate>2020-06-17T16:18:08.139Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-17T16:18:08.139Z</lastModifiedDate_dt>
+  <folder-name/>
   <quickLinks_o item-list="true">
     <item>
       <label_s>About Us</label_s>
@@ -64,9 +70,8 @@
       <url_s>/</url_s>
     </item>
   </quickLinks_o>
-  <copyright_html>&lt;p class="small"&gt;Copyright &amp;copy;2020 All Rights
-    Reserved | This template is made with by &lt;a href="https://colorlib.com" target="_blank"
-    rel="noopener
+  <copyright_html>&lt;p class="small"&gt;Copyright &amp;copy;2020 All Rights Reserved | This
+    template is made with by &lt;a href="https://colorlib.com" target="_blank" rel="noopener
     noreferrer"&gt;Colorlib&lt;/a&gt;&lt;/p&gt;
   </copyright_html>
 </component>
