@@ -248,6 +248,7 @@ export default `
       items {
         siteTitle_s
         file__name
+        websiteShortname_s
       }
     }
     posts: page_post(

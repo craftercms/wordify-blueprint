@@ -94,6 +94,7 @@ export function useFooter() {
                 socialLinks_o {
                   item {
                     socialNetwork_s
+                    label_s
                     url_s
                   }
                 }

@@ -34,7 +34,10 @@ export default function (props) {
     model,
     posts,
     meta: {
-      siteTitle
+      siteTitle,
+      disqus: {
+        websiteShortname
+      }
     }
   } = props;
   const modelPath = model.craftercms.path;
@@ -237,7 +240,7 @@ export default function (props) {
                 </div>
               </div>
 
-              <Comments id={model.headline_s}/>
+              <Comments id={model.headline_s} websiteShortname={websiteShortname}/>
 
             </div>
 
