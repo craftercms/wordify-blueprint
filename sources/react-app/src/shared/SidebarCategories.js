@@ -35,7 +35,7 @@ export default function () {
       <ul className="categories" {...ice}>
         {
           categories?.items.item.map((category) =>
-            <li key={category.key}><a href="/">{category.value}</a></li>
+            <li key={category.key}><a href={`/category/${category.key}`}>{category.value}</a></li>
           )
         }
       </ul>

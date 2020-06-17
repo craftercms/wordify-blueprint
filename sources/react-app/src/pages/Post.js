@@ -27,6 +27,7 @@ import DropZone from '../shared/DropZone';
 import { fetchQuery } from '../relayEnvironment';
 import { parseDescriptor } from '@craftercms/content';
 import ReactPaginate from 'react-paginate';
+import Comments from '../shared/Comments';
 
 export default function (props) {
   const {
@@ -196,7 +197,7 @@ export default function (props) {
               <h1 className="mb-4">{model.headline_s}</h1>
               {
                 model.categories_o?.map(category =>
-                  <a className="category mb-5" href="/" key={category.key}>{category.value_smv}</a>
+                  <a className="category mb-5" href={`/category/${category.key}`} key={category.key}>{category.value_smv}</a>
                 )
               }
 
@@ -222,7 +223,7 @@ export default function (props) {
                   Categories:
                   {
                     model.categories_o?.map((category, i) =>
-                      <a href="/" key={category.key}>{category.value_smv}{model.categories_o.length === i+1 ? '' : ','}</a>
+                      <a href={`/category/${category.key}`} key={category.key}>{category.value_smv}{model.categories_o.length === i+1 ? '' : ','}</a>
                     )
                   }
                 </div>
@@ -236,8 +237,7 @@ export default function (props) {
                 </div>
               </div>
 
-              {/* TODO: Disquss Integration
-              <Comments /> */}
+              <Comments id={model.headline_s}/>
 
             </div>
 
