@@ -18,7 +18,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useFooter } from '../shared/hooks';
 
-export default function Footer() {
+export default function Footer({ socialLinks }) {
   const footer = useFooter();
 
   return (
@@ -55,7 +55,7 @@ export default function Footer() {
                   <h3>Social</h3>
                   <ul className="list-unstyled footer-social">
                     {
-                      footer?.socialLinks_o.item.map((link) =>
+                      socialLinks?.map((link) =>
                         <li key={link.socialNetwork_s}>
                           <a href={link.url_s} target="_blank">
                             <span className={'fa fa-' + link.socialNetwork_s}></span>

@@ -33,7 +33,8 @@ export default function (props) {
     bios_o,
     match,
     meta: {
-      siteTitle
+      siteTitle,
+      socialLinks
     }
 
   } = props;
@@ -186,7 +187,7 @@ export default function (props) {
   }, [totalPosts, setPageCount, paginationData.itemsPerPage])
 
   return (
-    <BaseLayout siteTitle={siteTitle}>
+    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
       <section className="site-section pt-5">
         <div className="container">
           <div className="row blog-entries">

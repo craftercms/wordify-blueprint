@@ -35,6 +35,7 @@ export default function (props) {
     posts,
     meta: {
       siteTitle,
+      socialLinks,
       disqus: {
         websiteShortname
       }
@@ -183,7 +184,7 @@ export default function (props) {
   }, [totalRelatedPosts, setPageCount, paginationData.itemsPerPage])
 
   return (
-    <BaseLayout siteTitle={siteTitle}>
+    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
       <section className="site-section py-lg">
         <div className="container">
           <div className="row blog-entries element-animate-disabled">

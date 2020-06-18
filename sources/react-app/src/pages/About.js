@@ -38,14 +38,15 @@ export default function (props) {
       content_o
     },
     meta: {
-      siteTitle
+      siteTitle,
+      socialLinks
     }
   } = props;
   const posts = useRecentPosts();
 
   const modelPath = model.craftercms.path;
   return (
-    <BaseLayout siteTitle={siteTitle}>
+    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
       <section className="site-section pt-5">
         <div className="container">
           <div className="row blog-entries">

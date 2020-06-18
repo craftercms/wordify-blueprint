@@ -71,7 +71,8 @@ function SearchResults({ resource, paginationData, onPageChange }) {
 export default function (props) {
   const {
     meta: {
-      siteTitle
+      siteTitle,
+      socialLinks
     }
   } = props;
   const [paginationData, setPaginationData] = useState({
@@ -92,7 +93,7 @@ export default function (props) {
   }
 
   return (
-    <BaseLayout siteTitle={siteTitle}>
+    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
       <section className="site-section pt-5 py-sm">
         <div className="container">
           <div className="row">

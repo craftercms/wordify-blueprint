@@ -39,6 +39,7 @@ export default function (props) {
     },
     meta: {
       siteTitle,
+      socialLinks,
       posts: {
         total,
         limit
@@ -51,7 +52,7 @@ export default function (props) {
   const posts = useRecentPosts();
 
   return (
-    <BaseLayout siteTitle={siteTitle}>
+    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
       <section className="site-section pt-5 pb-5">
         <div className="container">
           <div className="row">

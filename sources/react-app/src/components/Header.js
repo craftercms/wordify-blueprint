@@ -20,7 +20,7 @@ import { useNavigation } from '../shared/hooks';
 import SearchForm from '../shared/SearchForm';
 import { useGlobalContext } from '../shared/context';
 
-export default function Header({ siteTitle }) {
+export default function Header({ siteTitle, socialLinks }) {
   const nav = useNavigation();
 
   const [{ $ }] = useGlobalContext();
@@ -35,10 +35,13 @@ export default function Header({ siteTitle }) {
         <div className="container">
           <div className="row">
             <div className="col-9 social">
-              <a href="/"><span className="fa fa-twitter" /></a>
-              <a href="/"><span className="fa fa-facebook" /></a>
-              <a href="/"><span className="fa fa-instagram" /></a>
-              <a href="/"><span className="fa fa-youtube-play" /></a>
+              {
+                socialLinks?.map((link) =>
+                  <a key={link.socialNetwork_s} href="/" href={link.url_s} target="_blank">
+                    <span className={'fa fa-' + link.socialNetwork_s} />
+                  </a>
+                )
+              }
             </div>
             <div className="col-3 search-top">
               <SearchForm

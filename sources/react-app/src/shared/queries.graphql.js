@@ -249,6 +249,13 @@ export default `
         siteTitle_s
         file__name
         websiteShortname_s
+        socialLinks_o {
+          item {
+            socialNetwork_s
+            label_s
+            url_s
+          }
+        }
       }
     }
     posts: page_post(

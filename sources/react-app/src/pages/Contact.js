@@ -45,7 +45,8 @@ export default function (props) {
       message_t
     },
     meta: {
-      siteTitle
+      siteTitle,
+      socialLinks
     }
   } = props;
 
@@ -91,7 +92,7 @@ export default function (props) {
   }
 
   return (
-    <BaseLayout siteTitle={siteTitle}>
+    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
       <section className="site-section">
         <div className="container">
           <div className="row mb-4">

@@ -19,15 +19,15 @@ import Footer from '../components/Footer';
 import React from 'react';
 import { useGlobalContext } from './context';
 
-export default function BaseLayout({ siteTitle, children }) {
+export default function BaseLayout({ siteTitle, socialLinks, children }) {
   const [{ theme }] = useGlobalContext();
   return (
     <div className={`wrap theme-${theme}`}>
-      <Header siteTitle={siteTitle}/>
+      <Header siteTitle={siteTitle} socialLinks={socialLinks}/>
       <div className="wrap">
         {children}
       </div>
-      <Footer />
+      <Footer socialLinks={socialLinks} />
     </div>
   );
 }

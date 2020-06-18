@@ -58,6 +58,7 @@ export default function DynamicRoute(props) {
           model,
           meta: {
             siteTitle: levelDescriptor.siteTitle_s,
+            socialLinks: levelDescriptor.socialLinks_o.item,
             disqus: {
               websiteShortname: levelDescriptor.websiteShortname_s
             },
