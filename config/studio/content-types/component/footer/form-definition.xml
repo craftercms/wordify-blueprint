@@ -106,6 +106,49 @@
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
+          <type>input</type>
+          <id>aboutTitle_s</id>
+          <iceId />
+          <title>About Title</title>
+          <description />
+          <defaultValue />
+          <help />
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+            <constraint>
+              <name>pattern</name>
+              <value><![CDATA[]]></value>
+              <type>string</type>
+            </constraint>
+          </constraints>
+        </field>
+        <field>
           <type>textarea</type>
           <id>about_t</id>
           <iceId />
@@ -133,6 +176,58 @@
               <name>allowResize</name>
               <value>true</value>
               <type>boolean</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+          </constraints>
+        </field>
+        <field>
+          <type>image-picker</type>
+          <id>aboutImage_s</id>
+          <iceId />
+          <title>AboutImage</title>
+          <description />
+          <defaultValue />
+          <help />
+          <properties>
+            <property>
+              <name>width</name>
+              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
+                }
+              </value>
+              <type>range</type>
+            </property>
+            <property>
+              <name>height</name>
+              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
+                }
+              </value>
+              <type>range</type>
+            </property>
+            <property>
+              <name>thumbnailWidth</name>
+              <value />
+              <type>int</type>
+            </property>
+            <property>
+              <name>thumbnailHeight</name>
+              <value />
+              <type>int</type>
+            </property>
+            <property>
+              <name>imageManager</name>
+              <value>browseImage,uploadImage</value>
+              <type>datasource:image</type>
             </property>
             <property>
               <name>readonly</name>
@@ -218,6 +313,92 @@
               <name>required</name>
               <value><![CDATA[]]></value>
               <type>boolean</type>
+            </constraint>
+          </constraints>
+        </field>
+        <field>
+          <type>input</type>
+          <id>quickLinksTitle_s</id>
+          <iceId />
+          <title>QuickLinksTitle</title>
+          <description />
+          <defaultValue />
+          <help />
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+            <constraint>
+              <name>pattern</name>
+              <value><![CDATA[]]></value>
+              <type>string</type>
+            </constraint>
+          </constraints>
+        </field>
+        <field>
+          <type>input</type>
+          <id>socialLinksTitle_s</id>
+          <iceId />
+          <title>SocialLinksTitle</title>
+          <description />
+          <defaultValue />
+          <help />
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+            <constraint>
+              <name>pattern</name>
+              <value><![CDATA[]]></value>
+              <type>string</type>
             </constraint>
           </constraints>
         </field>
@@ -340,5 +521,37 @@
       </fields>
     </section>
   </sections>
-  <datasources />
+  <datasources>
+    <datasource>
+      <type>img-desktop-upload</type>
+      <id>uploadImage</id>
+      <title>Upload Image</title>
+      <interface>image</interface>
+      <properties>
+        <property>
+          <name>repoPath</name>
+          <value>/static-assets/images</value>
+          <type>undefined</type>
+        </property>
+      </properties>
+    </datasource>
+    <datasource>
+      <type>img-repository-upload</type>
+      <id>browseImage</id>
+      <title>Browse Image</title>
+      <interface>image</interface>
+      <properties>
+        <property>
+          <name>repoPath</name>
+          <value>/static-assets/images</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>useSearch</name>
+          <value>false</value>
+          <type>undefined</type>
+        </property>
+      </properties>
+    </datasource>
+  </datasources>
 </form>

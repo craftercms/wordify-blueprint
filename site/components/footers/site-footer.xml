@@ -13,8 +13,8 @@
   </about_t>
   <createdDate>2020-06-09T18:18:18.055Z</createdDate>
   <createdDate_dt>2020-06-09T18:18:18.055Z</createdDate_dt>
-  <lastModifiedDate>2020-06-18T23:15:33.730Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-06-18T23:15:33.730Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-06-22T21:35:20.042Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-22T21:35:20.042Z</lastModifiedDate_dt>
   <folder-name />
   <quickLinks_o item-list="true">
     <item>
@@ -42,4 +42,8 @@
     template is made with by &lt;a href="https://colorlib.com" target="_blank" rel="noopener
     noreferrer"&gt;Colorlib&lt;/a&gt;&lt;/p&gt;
   </copyright_html>
+  <aboutTitle_s>About Us</aboutTitle_s>
+  <quickLinksTitle_s>Quick Links</quickLinksTitle_s>
+  <socialLinksTitle_s>Social</socialLinksTitle_s>
+  <aboutImage_s>/static-assets/images/img_1.jpg</aboutImage_s>
 </component>
