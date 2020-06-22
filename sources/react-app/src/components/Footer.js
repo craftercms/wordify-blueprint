@@ -26,9 +26,9 @@ export default function Footer({ socialLinks }) {
       <div className="container">
         <div className="row mb-5">
           <div className="col-md-4">
-            <h3>About Us</h3>
+            <h3>{footer?.aboutTitle_s}</h3>
             <p className="mb-4">
-              <img src="/static-assets/images/img_1.jpg" alt="" className="img-fluid" />
+              <img src={footer?.aboutImage_s} alt="" className="img-fluid" />
             </p>
 
             <p>{footer?.about_t}</p>
@@ -36,7 +36,7 @@ export default function Footer({ socialLinks }) {
           <div className="col-md-6 ml-auto">
             <div className="row">
               <div className="col-md-6">
-                <h3>Quick Links</h3>
+                <h3>{footer?.quickLinksTitle_s}</h3>
                 <ul className="list-unstyled">
                   {
                     footer?.quickLinks_o.item.map((link, i) =>
@@ -52,7 +52,7 @@ export default function Footer({ socialLinks }) {
 
               <div className="col-md-5">
                 <div className="mb-5">
-                  <h3>Social</h3>
+                  <h3>{footer?.socialLinksTitle_s}</h3>
                   <ul className="list-unstyled footer-social">
                     {
                       socialLinks?.map((link) =>

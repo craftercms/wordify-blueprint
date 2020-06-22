@@ -87,17 +87,14 @@ export function useFooter() {
           query Footer {
             component_footer {
               items {
+                aboutTitle_s
                 about_t
+                aboutImage_s
+                quickLinksTitle_s
+                socialLinksTitle_s
                 file__name(filter: {matches: "site-footer.xml"})
                 internal__name
                 localId
-                socialLinks_o {
-                  item {
-                    socialNetwork_s
-                    label_s
-                    url_s
-                  }
-                }
                 quickLinks_o {
                   item {
                     label_s
