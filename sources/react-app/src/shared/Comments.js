@@ -40,7 +40,7 @@ const Comments = ({ id, websiteShortname }) => {
         config: disqus_config,
       });
     }
-  }, [id])
+  }, [id, websiteShortname])
   return <div id="disqus_thread" className="mt-5" />;
 }
 

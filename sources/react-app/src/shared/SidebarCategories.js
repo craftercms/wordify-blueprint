@@ -16,10 +16,14 @@
 
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { useCategories, usePencil } from './hooks';
+import { usePencil, useTaxonomies } from './hooks';
+import { createTaxonomyFilter } from './utils';
 
 export default function () {
-  const categories = useCategories();
+  const categories = useTaxonomies({
+    filter: createTaxonomyFilter( 'categories.xml')
+  })?.[0];
+
   const ice =  usePencil({ model: categories });
 
   //TODO: use resource to add suspense state

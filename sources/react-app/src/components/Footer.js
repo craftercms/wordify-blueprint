@@ -57,7 +57,7 @@ export default function Footer({ socialLinks }) {
                     {
                       socialLinks?.map((link) =>
                         <li key={link.socialNetwork_s}>
-                          <a href={link.url_s} target="_blank">
+                          <a href={link.url_s} target="_blank" rel="noopener noreferrer">
                             <span className={'fa fa-' + link.socialNetwork_s}></span>
                             {link.label_s}
                           </a>

@@ -16,10 +16,14 @@
 
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { usePencil, useTags } from './hooks';
+import { usePencil, useTaxonomies } from './hooks';
+import { createTaxonomyFilter } from './utils';
 
 export default function () {
-  const tags = useTags();
+  const tags = useTaxonomies({
+    filter: createTaxonomyFilter( 'tags.xml')
+  })?.[0];
+
   const ice =  usePencil({ model: tags });
 
   //TODO: use resource to add suspense state
@@ -35,7 +39,7 @@ export default function () {
       <ul className="tags" {...ice}>
         {
           tags?.items.item.map((tag) =>
-            <li key={tag.key}><a href="/">{tag.value}</a></li>
+            <li key={tag.key}><a href={`/tag/${tag.key}`}>{tag.value}</a></li>
           )
         }
       </ul>

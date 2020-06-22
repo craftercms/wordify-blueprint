@@ -37,7 +37,7 @@ export default function Header({ siteTitle, socialLinks }) {
             <div className="col-9 social">
               {
                 socialLinks?.map((link) =>
-                  <a key={link.socialNetwork_s} href="/" href={link.url_s} target="_blank">
+                  <a key={link.socialNetwork_s} href={link.url_s} target="_blank" rel="noopener noreferrer">
                     <span className={'fa fa-' + link.socialNetwork_s} />
                   </a>
                 )

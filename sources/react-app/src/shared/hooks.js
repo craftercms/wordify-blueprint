@@ -260,7 +260,7 @@ export function useRecentPosts() {
 }
 
 let useTaxonomiesLoading = false;
-export function useTaxonomies() {
+export function useTaxonomies(config = { filter: taxonomy => taxonomy }) {
   const [{ taxonomies }, update] = useGlobalContext();
   const destroyedRef = useRef(false);
   useEffect(() => {
@@ -299,17 +299,7 @@ export function useTaxonomies() {
       });
     }
   }, [update, taxonomies]);
-  return taxonomies;
-}
-
-export function useCategories() {
-  const taxonomies = useTaxonomies();
-  return taxonomies?.filter(taxonomy => taxonomy.craftercms.path.includes('categories.xml'))[0];
-}
-
-export function useTags() {
-  const taxonomies = useTaxonomies();
-  return taxonomies?.filter(taxonomy => taxonomy.craftercms.path.includes('tags.xml'))[0];
+  return taxonomies?.filter(config.filter);
 }
 
 export function usePencil(props) {

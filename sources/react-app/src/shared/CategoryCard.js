@@ -19,13 +19,15 @@ import { Link } from 'react-router-dom';
 
 export default function (props) {
   const {
-    category
+    category,
+    isTag
   } = props;
 
   const backgroundImage = category.image_s ?? "/static-assets/images/photography.png";
+  const link = isTag ? 'tag' : 'category'
 
   return(
-    <Link to={`/category/${category.key}`} className="blog-entry category-card">
+    <Link to={`/${link}/${category.key}`} className="blog-entry category-card">
       <img className="background" src={backgroundImage} alt={category.value}/>
       <h2 className="title">{category.value}</h2>
     </Link>

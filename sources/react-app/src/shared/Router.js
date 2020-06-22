@@ -24,6 +24,7 @@ export default function Router() {
     <BrowserRouter>
       <Switch>
         <Route path="/category/:id?" component={DynamicRoute} />
+        <Route path="/tag/:id?" component={DynamicRoute} />
         <Route path="/*" component={DynamicRoute} />
       </Switch>
     </BrowserRouter>

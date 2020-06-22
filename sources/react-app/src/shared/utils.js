@@ -76,3 +76,7 @@ export function preParseSearchResults(source) {
   });
   return source;
 }
+
+export function createTaxonomyFilter(name) {
+  return (taxonomy => taxonomy.craftercms.path.includes(name));
+};

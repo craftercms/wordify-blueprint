@@ -235,7 +235,7 @@ export default function (props) {
                   Tags:
                   {
                     model.tags_o?.map((tag, i) =>
-                      <a href="/" key={i}>#{tag.value_smv}{model.tags_o.length === i+1 ? '' : ','}</a>
+                      <a href={`/tag/${tag.key}`} key={tag.key}>#{tag.value_smv}{model.tags_o.length === i+1 ? '' : ','}</a>
                     )
                   }
                 </div>

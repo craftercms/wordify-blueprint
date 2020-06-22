@@ -22,11 +22,12 @@ import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
-import { useCategories } from '../shared/hooks';
+import { useTaxonomies } from '../shared/hooks';
 import CategoryCard from '../shared/CategoryCard';
 import { fetchQuery } from '../relayEnvironment';
 import { parseDescriptor } from '@craftercms/content';
 import ReactPaginate from 'react-paginate';
+import { createTaxonomyFilter } from '../shared/utils';
 
 export default function (props) {
   const {
@@ -38,7 +39,13 @@ export default function (props) {
     }
 
   } = props;
-  const categories = useCategories();
+
+  const isTag = match.path === '/tag/:id?';
+
+  const categories = useTaxonomies({
+    filter: createTaxonomyFilter( isTag ? 'tags.xml' : 'categories.xml')
+  })?.[0];
+
   const categoryId = match.params.id;
   let category;
   const [posts, setPosts] = useState();
@@ -196,7 +203,7 @@ export default function (props) {
                 ?
                 <>
                   <div className="col-md-12">
-                    <h2 className="mb-4">Category: {category?.value}</h2>
+                    <h2 className="mb-4">{ isTag ? 'Tag' : 'Category' }: {category?.value}</h2>
                   </div>
                   <div className="col-md-12 col-lg-8 main-content">
                     <div className="row mb-5 mt-5">
@@ -240,14 +247,14 @@ export default function (props) {
                 :
                 <>
                   <div className="col-md-12">
-                    <h2 className="mb-4">Categories:</h2>
+                    <h2 className="mb-4">{ isTag ? 'Tags' : 'Categories' }:</h2>
                   </div>
                   <div className="col-md-12 col-lg-8">
                     <div className="row">
                       {
                         categories?.items.item.map(category =>
                           <div className="col-md-6 mb-4" key={category.key}>
-                            <CategoryCard category={category} />
+                            <CategoryCard category={category} isTag={isTag}/>
                           </div>
                         )
                       }
