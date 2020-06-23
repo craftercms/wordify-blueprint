@@ -27,7 +27,7 @@ import DropZone from '../shared/DropZone';
 import { fetchQuery } from '../relayEnvironment';
 import { parseDescriptor } from '@craftercms/content';
 import ReactPaginate from 'react-paginate';
-import Comments from '../shared/Comments';
+import Comments, { CommentsCount } from '../shared/Comments';
 
 export default function (props) {
   const {
@@ -196,7 +196,10 @@ export default function (props) {
                   <img src="/static-assets/images/person_1.jpg" alt="" className="mr-2" /> Colorlib
                 </span>
                 {' • '}<span className="mr-2">{model.createdDate_dt}</span>
-                {' • '}<span className="ml-2"><span className="fa fa-comments" /> 3</span>
+                {' • '}<span className="ml-2">
+                <span className="fa fa-comments mr-2"/></span>
+
+                <CommentsCount id={model.craftercms.id} websiteShortname={websiteShortname} />
               </div>
               <h1 className="mb-4">{model.headline_s}</h1>
               {
@@ -241,7 +244,7 @@ export default function (props) {
                 </div>
               </div>
 
-              <Comments id={model.headline_s} websiteShortname={websiteShortname}/>
+              <Comments id={model.craftercms.id} websiteShortname={websiteShortname}/>
 
             </div>
 

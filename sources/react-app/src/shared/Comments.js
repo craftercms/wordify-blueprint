@@ -18,8 +18,8 @@ import React, { useEffect } from 'react'
 
 const Comments = ({ id, websiteShortname }) => {
   useEffect(() => {
-    const DISQUS_SCRIPT = 'disq_script'
-    const sd = document.getElementById(DISQUS_SCRIPT)
+    const DISQUS_SCRIPT = 'disq_script';
+    const sd = document.getElementById(DISQUS_SCRIPT);
     if (!sd) {
       var disqus_config = function() {
         this.page.url = window.location.origin
@@ -42,6 +42,25 @@ const Comments = ({ id, websiteShortname }) => {
     }
   }, [id, websiteShortname])
   return <div id="disqus_thread" className="mt-5" />;
+}
+
+export const CommentsCount = ({ id, websiteShortname }) => {
+  useEffect(() => {
+    const DISQUS_COUNT_SCRIPT = 'dsq-count-scr';
+    const disqusCountEl = document.getElementById(DISQUS_COUNT_SCRIPT);
+
+    if (!disqusCountEl){
+      const d = document;
+      const s = d.createElement('script');
+      s.src = `https://${websiteShortname??'DISQUS'}.disqus.com/count.js`;
+      s.id = DISQUS_COUNT_SCRIPT;
+      s.async = true;
+
+      d.body.appendChild(s);
+    }
+  }, [id, websiteShortname]);
+
+  return <span className="disqus-comment-count" data-disqus-identifier={id} data-disqus-url={window.location.origin} />
 }
 
 export default Comments
