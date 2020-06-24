@@ -160,7 +160,7 @@
     <section>
       <title>Content Fields</title>
       <description />
-      <defaultOpen>false</defaultOpen>
+      <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>node-selector</type>
@@ -456,7 +456,7 @@
         </property>
         <property>
           <name>repoPath</name>
-          <value>/site/components/footer/</value>
+          <value>/site/components/footers/</value>
           <type>undefined</type>
         </property>
         <property>
