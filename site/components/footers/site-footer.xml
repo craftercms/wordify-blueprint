@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
   <content-type>/component/footer</content-type>
-  <display-template />
-  <no-template-required>true</no-template-required>
+  <display-template>/templates/web/fragments/footer.ftl</display-template>
+  <no-template-required>false</no-template-required>
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>891f</objectGroupId>
   <objectId>891f6c2f-c0c2-5af1-52c3-59083d8667bb</objectId>
@@ -13,8 +13,8 @@
   </about_t>
   <createdDate>2020-06-09T18:18:18.055Z</createdDate>
   <createdDate_dt>2020-06-09T18:18:18.055Z</createdDate_dt>
-  <lastModifiedDate>2020-06-22T21:35:20.042Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-06-22T21:35:20.042Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-06-23T23:22:29.753Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-23T23:22:29.753Z</lastModifiedDate_dt>
   <folder-name />
   <quickLinks_o item-list="true">
     <item>

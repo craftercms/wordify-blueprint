@@ -10,13 +10,13 @@
     <property>
       <name>display-template</name>
       <label>Display Template</label>
-      <value />
+      <value>/templates/web/fragments/footer.ftl</value>
       <type>template</type>
     </property>
     <property>
       <name>no-template-required</name>
       <label>No Template Required</label>
-      <value>true</value>
+      <value>false</value>
       <type>boolean</type>
     </property>
     <property>
