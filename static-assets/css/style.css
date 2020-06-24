@@ -54,12 +54,16 @@ header {
         header .navbar .navbar-nav.absolute-right {
           position: relative;
           right: inherit; } }
-    header .navbar .nav-link {
+    header .navbar li.active a {
+      color: rgba(0, 0, 0, 0.9); }
+    header .navbar .nav-link, header .navbar li a {
       padding: 1.7rem 1rem;
       font-size: 16px;
       outline: none !important;
       text-transform: uppercase;
-      letter-spacing: .05em; }
+      letter-spacing: .05em;
+      color: rgba(0, 0, 0, 0.5);
+      display: block; }
       @media (max-width: 991.98px) {
         header .navbar .nav-link {
           padding: 1.7rem 1rem; } }
