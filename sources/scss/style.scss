@@ -69,12 +69,19 @@ header {
 				}
 			}
 		}
-		.nav-link {
+		li.active {
+			a {
+				color: rgba(0, 0, 0, 0.9);
+			}
+		}
+		.nav-link, li a {
 			padding: 1.7rem 1rem;
 			font-size: 16px;
 			outline: none!important;
 			text-transform: uppercase;
 			letter-spacing: .05em;
+			color: rgba(0, 0, 0, 0.5);
+			display: block;
 			@include media-breakpoint-down(md) {
 				padding: 1.7rem 1rem;
 			}

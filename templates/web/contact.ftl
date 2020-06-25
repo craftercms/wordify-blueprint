@@ -15,7 +15,8 @@
     <div class="container">
       <div class="row mb-4">
         <div class="col-md-6">
-          <h1>Contact Me</h1>
+          <h1>${contentModel.headline_s!""}</h1>
+          <p>${contentModel.message_t!""}</p>
         </div>
       </div>
       <div class="row blog-entries">

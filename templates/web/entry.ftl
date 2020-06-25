@@ -1,3 +1,5 @@
+<#import "/templates/web/macros.ftl" as studio>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,7 +10,7 @@
 
 <div class="wrap">
 
-    <#include "/templates/web/fragments/header.ftl"/>
+  <#include "/templates/web/fragments/header.ftl"/>
 
   <section class="site-section pt-5 pb-5">
     <div class="container">
@@ -25,8 +27,6 @@
       </div>
 
     </div>
-
-
   </section>
 
   <section class="site-section py-sm">
@@ -281,7 +281,9 @@
     </div>
   </section>
 
-    <#include "/templates/web/fragments/footer.ftl"/>
+  <!-- Footer -->
+  <@studio.renderComponentCollection $field="footer_o" arguments={ 'socialLinks': contentModel.socialLinks_o }/>
+  <!-- /Footer -->
 
 </div>
 
