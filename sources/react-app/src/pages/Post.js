@@ -28,6 +28,7 @@ import { fetchQuery } from '../relayEnvironment';
 import { parseDescriptor } from '@craftercms/content';
 import ReactPaginate from 'react-paginate';
 import Comments, { CommentsCount } from '../shared/Comments';
+import { postsQuery } from '../shared/queries.graphql';
 
 export default function (props) {
   const {
@@ -43,8 +44,6 @@ export default function (props) {
   } = props;
   const modelPath = model.craftercms.path;
   const [related, setRelated] = useState();
-  const categoriesKeys = model.categories_o?.map(category => `{matches: "${category.key}"}`);
-  const tagsKeys = model.tags_o?.map(tag => `{matches: "${tag.key}"}`);
   const [totalRelatedPosts, setTotalRelatedPosts] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const [paginationData, setPaginationData] = useState({
@@ -53,131 +52,27 @@ export default function (props) {
   });
 
   useEffect(() => {
-    fetchQuery({
-      text: `
-          query Posts {
-            page_post(limit: ${paginationData.itemsPerPage}, offset: ${(paginationData.currentPage * paginationData.itemsPerPage)}) {
-              total
-              items {
-                guid: objectId
-                path: localId(filter: {not: [{equals: "${model.craftercms.path}"}]})
-                contentTypeId: content__type
-                dateCreated: createdDate_dt
-                dateModified: lastModifiedDate_dt
-                label: internal__name
-                slug: localId(transform: "storeUrlToRenderUrl")
-                pageTitle_s
-                pageDescription_s
-                blurb_t
-                headline_s
-                mainImage_s
-                content_o {
-                  item {
-                    key
-                    component {
-                      ... on component_rich_text {
-                        guid: objectId
-                        path: localId
-                        contentTypeId: content__type
-                        dateCreated: createdDate_dt
-                        dateModified: lastModifiedDate_dt
-                        label: internal__name
-                        content_html_raw
-                      }
-                      ... on component_image {
-                        guid: objectId
-                        path: localId
-                        contentTypeId: content__type
-                        dateCreated: createdDate_dt
-                        dateModified: lastModifiedDate_dt
-                        label: internal__name
-                        alternativeText_s
-                        image_s
-                      }
-                      ... on component_responsive_columns {
-                        guid: objectId
-                        path: localId
-                        contentTypeId: content__type
-                        dateCreated: createdDate_dt
-                        dateModified: lastModifiedDate_dt
-                        label: internal__name
-                        columns_o {
-                          item {
-                            columnSize_s
-                            content_o {
-                              item {
-                                key
-                                component {
-                                  ... on component_rich_text {
-                                    guid: objectId
-                                    path: localId
-                                    contentTypeId: content__type
-                                    dateCreated: createdDate_dt
-                                    dateModified: lastModifiedDate_dt
-                                    label: internal__name
-                                    content_html_raw
-                                  }
-                                  ... on component_image {
-                                    guid: objectId
-                                    path: localId
-                                    contentTypeId: content__type
-                                    dateCreated: createdDate_dt
-                                    dateModified: lastModifiedDate_dt
-                                    label: internal__name
-                                    alternativeText_s
-                                    image_s
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-                authorBio_o {
-                  item {
-                    key
-                    component {
-                      guid: objectId
-                      contentTypeId: content__type
-                      label: internal__name
-                      path: localId
-                      bio_t
-                      name_s
-                      profilePic_s
-                      linkButtonText_s
-                      linkButtonUrl_s
-                      showLinkButton_b
-                      facebookLink_s
-                      twitterLink_s
-                      instagramLink_s
-                      youTubeLink_s
-                    }
-                  }
-                }
-                categories_o {
-                  item {
-                    key(filter: {or: [${categoriesKeys.join(',')}]})
-                    value_smv
-                  }
-                }
-                tags_o {
-                  item {
-                    key(filter: {or: [${tagsKeys.join(',')}]})
-                    value_smv
-                  }
-                }
-              }
-            }
-          }
-        `
-    }).then(({ data }) => {
-      setTotalRelatedPosts(data.page_post.total);
-      setRelated(parseDescriptor(data.page_post.items))
+    const categoriesFilter = model.categories_o?.map(category => {
+      return { matches: category.key }
     });
-  }, [model, categoriesKeys, tagsKeys, paginationData]);
+    const tagsFilter = model.tags_o?.map(tag => {
+      return { matches: tag.key }
+    });
+
+    fetchQuery(
+      { text: postsQuery },
+      {
+        limit: paginationData.itemsPerPage,
+        offset: (paginationData.currentPage * paginationData.itemsPerPage),
+        exclude: model.craftercms.path,
+        categoriesFilter,
+        tagsFilter
+      }
+    ).then(({ data }) => {
+      setTotalRelatedPosts(data.posts.total);
+      setRelated(parseDescriptor(data.posts.items));
+    });
+  }, [model, paginationData]);
 
   useEffect(() => {
     setPageCount(Math.ceil(totalRelatedPosts/paginationData.itemsPerPage))

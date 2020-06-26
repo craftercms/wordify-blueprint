@@ -24,6 +24,7 @@ import { crafterConfig, createResource, preParseSearchResults } from './utils';
 import { createQuery, search } from '@craftercms/search';
 import { map } from 'rxjs/operators';
 import { parseDescriptor } from '@craftercms/content';
+import { postsQuery } from './queries.graphql';
 
 export const neverResource = createResource(() => new Promise(() => void 0));
 
@@ -129,127 +130,9 @@ export function useRecentPosts() {
     if (!posts && !useRecentPostsLoading) {
       update({ postsLoading: true });
       fetchQuery({
-        text: `
-          query Posts {
-            page_post(limit: 10, offset: 0, sortBy: "lastModifiedDate_dt", sortOrder: DESC) {
-              total
-              items {
-                guid: objectId
-                path: localId
-                contentTypeId: content__type
-                dateCreated: createdDate_dt
-                dateModified: lastModifiedDate_dt
-                label: internal__name
-                slug: localId(transform: "storeUrlToRenderUrl")
-                pageTitle_s
-                pageDescription_s
-                blurb_t
-                headline_s
-                mainImage_s
-                content_o {
-                  item {
-                    key
-                    component {
-                      ... on component_rich_text {
-                        guid: objectId
-                        path: localId
-                        contentTypeId: content__type
-                        dateCreated: createdDate_dt
-                        dateModified: lastModifiedDate_dt
-                        label: internal__name
-                        content_html_raw
-                      }
-                      ... on component_image {
-                        guid: objectId
-                        path: localId
-                        contentTypeId: content__type
-                        dateCreated: createdDate_dt
-                        dateModified: lastModifiedDate_dt
-                        label: internal__name
-                        alternativeText_s
-                        image_s
-                      }
-                      ... on component_responsive_columns {
-                        guid: objectId
-                        path: localId
-                        contentTypeId: content__type
-                        dateCreated: createdDate_dt
-                        dateModified: lastModifiedDate_dt
-                        label: internal__name
-                        columns_o {
-                          item {
-                            columnSize_s
-                            content_o {
-                              item {
-                                key
-                                component {
-                                  ... on component_rich_text {
-                                    guid: objectId
-                                    path: localId
-                                    contentTypeId: content__type
-                                    dateCreated: createdDate_dt
-                                    dateModified: lastModifiedDate_dt
-                                    label: internal__name
-                                    content_html_raw
-                                  }
-                                  ... on component_image {
-                                    guid: objectId
-                                    path: localId
-                                    contentTypeId: content__type
-                                    dateCreated: createdDate_dt
-                                    dateModified: lastModifiedDate_dt
-                                    label: internal__name
-                                    alternativeText_s
-                                    image_s
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-                authorBio_o {
-                  item {
-                    key
-                    component {
-                      guid: objectId
-                      contentTypeId: content__type
-                      label: internal__name
-                      path: localId
-                      bio_t
-                      name_s
-                      profilePic_s
-                      linkButtonText_s
-                      linkButtonUrl_s
-                      showLinkButton_b
-                      facebookLink_s
-                      twitterLink_s
-                      instagramLink_s
-                      youTubeLink_s
-                    }
-                  }
-                }
-                categories_o {
-                  item {
-                    key
-                    value_smv
-                  }
-                }
-                tags_o {
-                  item {
-                    key
-                    value_smv
-                  }
-                }
-              }
-            }
-          }
-        `
+        text: postsQuery
       }).then(({ data }) => {
-        (!destroyedRef.current) && update({ posts: parseDescriptor(data.page_post.items) });
+        (!destroyedRef.current) && update({ posts: parseDescriptor(data.posts.items) });
       });
     }
   }, [update, posts]);
