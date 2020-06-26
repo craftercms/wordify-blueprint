@@ -22,7 +22,7 @@ import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarCategories from '../shared/SidebarCategories';
 import SidebarTags from '../shared/SidebarTags';
-import { useTaxonomies } from '../shared/hooks';
+import { usePencil, useTaxonomies } from '../shared/hooks';
 import CategoryCard from '../shared/CategoryCard';
 import { fetchQuery } from '../relayEnvironment';
 import { parseDescriptor } from '@craftercms/content';
@@ -49,6 +49,7 @@ export default function (props) {
 
   const categoryId = match.params.id;
   let category;
+  const ice =  usePencil({ model: categories });
   const [posts, setPosts] = useState();
   const [totalPosts, setTotalPosts] = useState(0);
   const [pageCount, setPageCount] = useState(0);
@@ -138,7 +139,7 @@ export default function (props) {
                     <h2 className="mb-4">{ isTag ? 'Tags' : 'Categories' }:</h2>
                   </div>
                   <div className="col-md-12 col-lg-8">
-                    <div className="row">
+                    <div className="row" {...ice}>
                       {
                         categories?.items.item.map(category =>
                           <div className="col-md-6 mb-4" key={category.key}>
