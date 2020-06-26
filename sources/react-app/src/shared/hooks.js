@@ -223,7 +223,7 @@ export function useUrlSearchQueryFetchResource(size = 1) {
             'bool': {
               'filter': [
                 { 'bool': { 'should': contentTypes.map(id => ({ 'match': { 'content-type': id } })) } },
-                { 'multi_match': { 'query': query, 'type': "phrase_prefix"} }
+                { 'multi_match': { 'query': query, 'type': 'phrase_prefix'} }
               ]
             }
           },
