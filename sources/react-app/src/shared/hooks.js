@@ -139,47 +139,39 @@ export function useRecentPosts() {
   return posts;
 }
 
-let useTaxonomiesLoading = false;
-export function useTaxonomies(config = { filter: taxonomy => taxonomy }) {
-  const [{ taxonomies }, update] = useGlobalContext();
-  const destroyedRef = useRef(false);
+export function useTaxonomiesResource() {
+  const [resource, setResource] = useState(neverResource);
+
   useEffect(() => {
-    return () => {
-      destroyedRef.current = true;
-    };
-  }, []);
-  useEffect(() => {
-    if (!taxonomies && !useTaxonomiesLoading) {
-      useTaxonomiesLoading = true;
-      fetchQuery({
+    const resource = createResource(
+      () => fetchQuery({
         text: `
-          query Taxonomies {
-            taxonomy {
-              total
+        query Taxonomies {
+          taxonomy {
+            total
+            items {
+              guid: objectId
+              path: localId
+              contentTypeId: content__type
+              dateCreated: createdDate_dt
+              dateModified: lastModifiedDate_dt
+              label: internal__name
               items {
-                guid: objectId
-                path: localId
-                contentTypeId: content__type
-                dateCreated: createdDate_dt
-                dateModified: lastModifiedDate_dt
-                label: internal__name
-                items {
-                  item {
-                    key
-                    value
-                    image_s
-                  }
+                item {
+                  key
+                  value
+                  image_s
                 }
               }
             }
           }
-        `
-      }).then(({ data }) => {
-        (!destroyedRef.current) && update({ taxonomies: parseDescriptor(data.taxonomy.items) });
-      });
-    }
-  }, [update, taxonomies]);
-  return taxonomies?.filter(config.filter);
+        }
+      `
+      })
+    );
+    setResource(resource);
+  }, []);
+  return resource;
 }
 
 export function usePencil(props) {

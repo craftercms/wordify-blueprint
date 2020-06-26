@@ -14,20 +14,35 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { usePencil, useTaxonomies } from './hooks';
+import {
+  usePencil,
+  useTaxonomiesResource
+} from './hooks';
 import { createTaxonomyFilter } from './utils';
+import CircularProgressSpinner from './CircularProgressSpinner';
+import { parseDescriptor } from '@craftercms/content';
 
-export default function () {
-  const categories = useTaxonomies({
-    filter: createTaxonomyFilter( 'categories.xml')
-  })?.[0];
-
+function SidebarCategoriesContent({ resource }) {
+  const { data } = resource.read();
+  const taxonomies =  parseDescriptor(data.taxonomy.items);
+  const categories = taxonomies.filter(createTaxonomyFilter( 'categories.xml'))[0];
   const ice =  usePencil({ model: categories });
 
-  //TODO: use resource to add suspense state
+  return(
+    <ul className="categories" {...ice}>
+      {
+        categories?.items.item.map((category) =>
+          <li key={category.key}><a href={`/category/${category.key}`}>{category.value}</a></li>
+        )
+      }
+    </ul>
+  )
+}
 
+export default function () {
+  let resource = useTaxonomiesResource();
   return (
     <div className="sidebar-box">
       <h3 className="heading">
@@ -36,13 +51,9 @@ export default function () {
           defaultMessage="Categories"
         />
       </h3>
-      <ul className="categories" {...ice}>
-        {
-          categories?.items.item.map((category) =>
-            <li key={category.key}><a href={`/category/${category.key}`}>{category.value}</a></li>
-          )
-        }
-      </ul>
+      <Suspense fallback={<CircularProgressSpinner screenHeight={false} />}>
+        <SidebarCategoriesContent resource={resource} filter />
+      </Suspense>
     </div>
   );
 }

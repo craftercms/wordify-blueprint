@@ -14,20 +14,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { usePencil, useTaxonomies } from './hooks';
+import { usePencil, useTaxonomiesResource } from './hooks';
 import { createTaxonomyFilter } from './utils';
+import { parseDescriptor } from '@craftercms/content';
+import CircularProgressSpinner from './CircularProgressSpinner';
 
-export default function () {
-  const tags = useTaxonomies({
-    filter: createTaxonomyFilter( 'tags.xml')
-  })?.[0];
-
+function SidebarTagsContent({ resource }) {
+  const { data } = resource.read();
+  const taxonomies =  parseDescriptor(data.taxonomy.items);
+  const tags = taxonomies.filter(createTaxonomyFilter( 'tags.xml'))[0];
   const ice =  usePencil({ model: tags });
 
-  //TODO: use resource to add suspense state
+  return(
+    <ul className="tags" {...ice}>
+      {
+        tags?.items.item.map((tag) =>
+          <li key={tag.key}><a href={`/tag/${tag.key}`}>{tag.value}</a></li>
+        )
+      }
+    </ul>
+  )
+}
 
+export default function () {
+  let resource = useTaxonomiesResource();
   return (
     <div className="sidebar-box">
       <h3 className="heading">
@@ -36,13 +48,9 @@ export default function () {
           defaultMessage="Tags"
         />
       </h3>
-      <ul className="tags" {...ice}>
-        {
-          tags?.items.item.map((tag) =>
-            <li key={tag.key}><a href={`/tag/${tag.key}`}>{tag.value}</a></li>
-          )
-        }
-      </ul>
+      <Suspense fallback={<CircularProgressSpinner screenHeight={false} />}>
+        <SidebarTagsContent resource={resource} filter />
+      </Suspense>
     </div>
   );
 }
