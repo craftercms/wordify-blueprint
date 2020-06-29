@@ -23,8 +23,7 @@ import RecentPostsAside from '../shared/RecentPostsAside';
 import DropZone from '../shared/DropZone';
 import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
-import SidebarTags from '../shared/SidebarTags';
-import SidebarCategories from '../shared/SidebarCategories';
+import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import { useRecentPosts } from '../shared/hooks';
 
 export default function (props) {
