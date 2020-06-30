@@ -279,7 +279,9 @@
     </div>
   </section>
 
-    <#include "/templates/web/fragments/footer.ftl"/>
+  <!-- Footer -->
+  <@renderComponent component=contentModel.footer_o.item additionalModel={ 'socialLinks': contentModel.socialLinks_o } />
+  <!-- /Footer -->
 
 </div>
 

@@ -299,7 +299,7 @@
   </section>
 
   <!-- Footer -->
-    <@studio.renderComponentCollection $field="footer_o"/>
+  <@renderComponent component=contentModel.footer_o.item additionalModel={ 'socialLinks': contentModel.socialLinks_o } />
   <!-- /Footer -->
 
 </div>

@@ -1,12 +1,12 @@
-<#import "/templates/web/macros.ftl" as studio>
+<#import "/templates/system/common/cstudio-support.ftl" as studio />
 
-<footer class="site-footer">
+<footer class="site-footer" <@studio.componentAttr component=contentModel ice=true />>
   <div class="container">
     <div class="row mb-5">
       <div class="col-md-4">
         <h3>${contentModel.aboutTitle_s}</h3>
         <p class="mb-4">
-          <img src="${contentModel.aboutImage_s}" alt="Image placeholder" class="img-fluid">
+          <img src="${contentModel.aboutImage_s}" class="img-fluid">
         </p>
 
         <p>${contentModel.about_t}</p>
@@ -16,21 +16,13 @@
           <div class="col-md-6">
             <div class="mb-5">
               <h3>${contentModel.quickLinksTitle_s!""}</h3>
-              <@studio.renderRepeatCollection
-                $field="quickLinks_o"
-                $containerAttributes={'class': 'list-unstyled'};
-                <#-- Nested content values passed down by the macro: -->
-                item, index
-              >
-                <@studio.a
-                  href="${item.url_s}"
-                  class=""
-                  $field=""
-                  $index=index
-                >
-                  ${item.label_s}
-                </@studio.a>
-              </@studio.renderRepeatCollection>
+              <div class="list-unstyled">
+                <#list contentModel.quickLinks_o.item as link>
+                  <li>
+                    <a href="${link.url_s}"> ${link.label_s} </a>
+                  </li>
+                </#list>
+              </div>
             </div>
 
           </div>
