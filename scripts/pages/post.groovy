@@ -18,5 +18,7 @@ import org.craftercms.sites.wordify.SearchHelper
 
 def searchHelper = new SearchHelper(elasticsearch, urlTransformationService)
 def recentPosts = searchHelper.searchPosts(null, 0, 5)
+def relatedPosts = searchHelper.searchPosts(contentModel.categories_o.item.key.text, 0, 5, contentModel.objectId.text)
 
 templateModel.recentPosts = recentPosts
+templateModel.relatedPosts = relatedPosts

@@ -3,7 +3,7 @@
   <ul>
       <#list recentPosts as post>
         <li>
-          <a href="">
+          <a href="${post.url}">
             <img src="${post.mainImage}" alt="Image placeholder" class="mr-4">
             <div class="text">
               <h4>${post.headline}</h4>

@@ -15,7 +15,7 @@
             <div class="col-md-12 col-lg-8 main-content">
               <img src="${contentModel.mainImage_s}" alt="" class="img-fluid mb-5">
               <div class="post-meta">
-                <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib" class="mr-2"> ${contentModel.authorBio_o.item.component.name_s}</span>&bullet;
+                <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib" class="mr-2"> <#--${contentModel.authorBio_o.item.component.name_s}--></span>&bullet;
                 <span class="mr-2">${contentModel.createdDate_dt?date}</span> &bullet;
                 <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
               </div>
@@ -92,45 +92,23 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6 col-lg-4">
-          <a href="#" class="a-block sm d-flex align-items-center height-md" style="background-image: url('/static-assets/images/img_2.jpg'); ">
-            <div class="text">
-              <div class="post-meta">
-                <span class="category">Lifestyle</span>
-                <span class="mr-2">March 15, 2018 </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+        <#list relatedPosts as post>
+          <div class="col-md-6 col-lg-4">
+            <a href="${post.url}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('${post.mainImage}'); ">
+              <div class="text">
+                <div class="post-meta">
+                  <#list post.categories.item as category>
+                    <span class="category">${category.value_smv}</span>
+                  </#list>
+                  <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
+                </div>
+                <h3>${post.headline}</h3>
               </div>
-              <h3>There’s a Cool New Way for Men to Wear Socks and Sandals</h3>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a href="#" class="a-block sm d-flex align-items-center height-md" style="background-image: url('/static-assets/images/img_3.jpg'); ">
-            <div class="text">
-              <div class="post-meta">
-                <span class="category">Travel</span>
-                <span class="mr-2">March 15, 2018 </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-              </div>
-              <h3>There’s a Cool New Way for Men to Wear Socks and Sandals</h3>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <a href="#" class="a-block sm d-flex align-items-center height-md" style="background-image: url('/static-assets/images/img_4.jpg'); ">
-            <div class="text">
-              <div class="post-meta">
-                <span class="category">Food</span>
-                <span class="mr-2">March 15, 2018 </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-              </div>
-              <h3>There’s a Cool New Way for Men to Wear Socks and Sandals</h3>
-            </div>
-          </a>
-        </div>
+            </a>
+          </div>
+        </#list>
       </div>
     </div>
-
 
   </section>
       <!-- END section -->

@@ -68,11 +68,16 @@ class SearchHelper {
     }
   }
 
-  def searchPosts(categories, start = DEFAULT_START, rows = DEFAULT_ROWS) {
+  def searchPosts(categories, start = DEFAULT_START, rows = DEFAULT_ROWS, exclude) {
     def q = "${POST_CONTENT_TYPE_QUERY}"
 
     if (categories) {
-      def postsQuery = getFieldQueryWithMultipleValues("categories_o.item.key", categories)
+      def categoriesQuery = getFieldQueryWithMultipleValues("categories_o.item.key", categories)
+      q = "${q} AND ${categoriesQuery}"
+    }
+
+    if(exclude) {
+      q = "${q} AND NOT objectId:\"${exclude}\""
     }
 
     def builder = new SearchSourceBuilder()

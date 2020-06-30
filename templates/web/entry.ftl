@@ -41,7 +41,7 @@
           <div class="row">
             <#list recentPosts as post>
               <div class="col-md-6">
-                <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals"
+                <a href="${post.url}"
                    class="blog-entry element-animate" data-animate-effect="fadeIn">
                   <img src="${post.mainImage}" alt="Image placeholder">
                   <div class="blog-content-body">
