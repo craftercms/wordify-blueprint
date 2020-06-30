@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <content-type>/component/sidebar_taxonomies</content-type>
+  <display-template>/templates/web/components/sidebar_taxonomies.ftl</display-template>
+  <no-template-required />
+  <merge-strategy>inherit-levels</merge-strategy>
+  <objectGroupId>33ad</objectGroupId>
+  <objectId>33ad68a4-d555-745b-2884-bc51aa310f85</objectId>
+  <file-name>33ad68a4-d555-745b-2884-bc51aa310f85.xml</file-name>
+  <internal-name>Sidebar Categories</internal-name>
+  <title_s>Categories</title_s>
+  <taxonomy_s>categories</taxonomy_s>
+  <createdDate>2020-06-30T16:55:00.608Z</createdDate>
+  <createdDate_dt>2020-06-30T16:55:00.608Z</createdDate_dt>
+  <lastModifiedDate>2020-06-30T16:55:00.608Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-30T16:55:00.608Z</lastModifiedDate_dt>
+</component>
