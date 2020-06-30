@@ -15,8 +15,13 @@
  */
 
 import org.craftercms.sites.wordify.TaxonomyHelper
+import org.craftercms.sites.wordify.SearchHelper
 
 def taxonomyHelper = new TaxonomyHelper(siteItemService)
 def categories = taxonomyHelper.getTaxonomy("categories")
 
+def searchHelper = new SearchHelper(elasticsearch, urlTransformationService)
+def recentPosts = searchHelper.searchPosts(null, 0, 5)
+
 templateModel.categories = categories
+templateModel.recentPosts = recentPosts
