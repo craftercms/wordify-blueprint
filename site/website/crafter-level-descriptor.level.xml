@@ -10,8 +10,8 @@
   <folder-name />
   <createdDate>2017-10-9T16:52:48.000Z</createdDate>
   <createdDate_dt>2017-10-9T16:52:48.000Z</createdDate_dt>
-  <lastModifiedDate>2020-06-24T15:58:01.169Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-06-24T15:58:01.169Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-06-30T17:07:29.640Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-30T17:07:29.640Z</lastModifiedDate_dt>
   <siteTitle_s>Wordify Crafter CMS</siteTitle_s>
   <pageDescription_s />
   <websiteShortname_s />
@@ -55,4 +55,22 @@
       <disableFlattening>false</disableFlattening>
     </item>
   </footer_o>
+  <sidebarCategories_o item-list="true">
+    <item datasource="sidebarTaxonomies">
+      <key>/site/components/sidebar_taxonomies/33ad68a4-d555-745b-2884-bc51aa310f85.xml</key>
+      <value>Sidebar Categories</value>
+      <include>/site/components/sidebar_taxonomies/33ad68a4-d555-745b-2884-bc51aa310f85.xml
+      </include>
+      <disableFlattening>false</disableFlattening>
+    </item>
+  </sidebarCategories_o>
+  <sidebarTags_o item-list="true">
+    <item datasource="sidebarTaxonomies">
+      <key>/site/components/sidebar_taxonomies/a515952f-99c8-7a5c-e3c3-628f3b512731.xml</key>
+      <value>Sidebar Tags</value>
+      <include>/site/components/sidebar_taxonomies/a515952f-99c8-7a5c-e3c3-628f3b512731.xml
+      </include>
+      <disableFlattening>false</disableFlattening>
+    </item>
+  </sidebarTags_o>
 </component>
