@@ -1,3 +1,4 @@
+<#import "/templates/system/common/cstudio-support.ftl" as studio />
 <!doctype html>
 <html lang="en">
   <head>

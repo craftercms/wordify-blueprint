@@ -68,7 +68,7 @@ class SearchHelper {
     }
   }
 
-  def searchPosts(categories, start = DEFAULT_START, rows = DEFAULT_ROWS, exclude) {
+  def searchPosts(categories, start = DEFAULT_START, rows = DEFAULT_ROWS, exclude = null) {
     def q = "${POST_CONTENT_TYPE_QUERY}"
 
     if (categories) {

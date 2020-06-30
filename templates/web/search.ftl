@@ -1,3 +1,5 @@
+<#import "/templates/system/common/cstudio-support.ftl" as studio />
+
 <#--
 ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
 ~
@@ -16,86 +18,83 @@
 
 <!doctype html>
 <html lang="en">
-<head>
-    <#include "/templates/web/fragments/head_include.ftl"/>
-</head>
-<body>
+  <head>
+      <#include "/templates/web/fragments/head_include.ftl"/>
+  </head>
+  <body>
+    <div class="wrap">
+      <#include "/templates/web/fragments/header.ftl"/>
 
-
-<div class="wrap">
-
-    <#include "/templates/web/fragments/header.ftl"/>
-
-  <section class="site-section pt-5 pb-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h2 class="mb-4">Search Results</h2>
-        </div>
-      </div>
-      <div class="row blog-entries">
-        <div class="col-md-12 col-lg-8 main-content">
+      <section class="site-section pt-5 pb-5">
+        <div class="container">
           <div class="row">
             <div class="col-md-6">
-
+              <h2 class="mb-4">Search Results</h2>
             </div>
           </div>
-        </div>
+          <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 main-content">
+              <div class="row">
+                <div class="col-md-6">
 
-        <!-- END main-content -->
-
-        <div class="col-md-12 col-lg-4 sidebar">
-          <div class="sidebar-box search-form-wrap">
-            <form action="#" class="search-form">
-              <div class="form-group">
-                <span class="icon fa fa-search"></span>
-                <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                </div>
               </div>
-            </form>
-          </div>
+            </div>
 
-            <#if contentModel.bios_o?? && contentModel.bios_o.item??>
-                <#list contentModel.bios_o.item as component>
-                  <div class="sidebar-box">
-                      <@renderComponent component=component />
+            <!-- END main-content -->
+
+            <div class="col-md-12 col-lg-4 sidebar">
+              <div class="sidebar-box search-form-wrap">
+                <form action="#" class="search-form">
+                  <div class="form-group">
+                    <span class="icon fa fa-search"></span>
+                    <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
                   </div>
-                </#list>
-            </#if>
+                </form>
+              </div>
 
-          <div class="sidebar-box">
-            <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
-          </div>
-          <!-- END sidebar-box -->
+                <#if contentModel.bios_o?? && contentModel.bios_o.item??>
+                    <#list contentModel.bios_o.item as component>
+                      <div class="sidebar-box">
+                          <@renderComponent component=component />
+                      </div>
+                    </#list>
+                </#if>
 
-          <div class="sidebar-box">
-            <@renderComponent component=contentModel.sidebarCategories_o.item />
-          </div>
-          <!-- END sidebar-box -->
+              <div class="sidebar-box">
+                <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
+              </div>
+              <!-- END sidebar-box -->
 
-          <div class="sidebar-box">
-            <@renderComponent component=contentModel.sidebarTags_o.item />
+              <div class="sidebar-box">
+                <@renderComponent component=contentModel.sidebarCategories_o.item />
+              </div>
+              <!-- END sidebar-box -->
+
+              <div class="sidebar-box">
+                <@renderComponent component=contentModel.sidebarTags_o.item />
+              </div>
+            </div>
+            <!-- END sidebar -->
+
           </div>
         </div>
-        <!-- END sidebar -->
+      </section>
 
-      </div>
+      <!-- Footer -->
+        <@renderComponent component=contentModel.footer_o.item additionalModel={ 'socialLinks': contentModel.socialLinks_o } />
+      <!-- /Footer -->
+
     </div>
-  </section>
 
-  <!-- Footer -->
-    <@renderComponent component=contentModel.footer_o.item additionalModel={ 'socialLinks': contentModel.socialLinks_o } />
-  <!-- /Footer -->
+    <!-- loader -->
+    <div id="loader" class="show fullscreen">
+      <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214" />
+      </svg>
+    </div>
 
-</div>
-
-<!-- loader -->
-<div id="loader" class="show fullscreen">
-  <svg class="circular" width="48px" height="48px">
-    <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-    <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214" />
-  </svg>
-</div>
-
-<#include "/templates/web/fragments/bottom_include.ftl"/>
-</body>
+    <#include "/templates/web/fragments/bottom_include.ftl"/>
+  </body>
 </html>
