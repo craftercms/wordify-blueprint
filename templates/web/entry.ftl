@@ -39,129 +39,22 @@
       <div class="row blog-entries">
         <div class="col-md-12 col-lg-8 main-content">
           <div class="row">
-            <div class="col-md-6">
-              <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals"
-                 class="blog-entry element-animate" data-animate-effect="fadeIn">
-                <img src="/static-assets/images/img_5.jpg" alt="Image placeholder">
-                <div class="blog-content-body">
-                  <div class="post-meta">
-                    <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib">
-                      Colorlib</span>&bullet;
-                    <span class="mr-2">March 15, 2018 </span> &bullet;
-                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+            <#list recentPosts as post>
+              <div class="col-md-6">
+                <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals"
+                   class="blog-entry element-animate" data-animate-effect="fadeIn">
+                  <img src="${post.mainImage}" alt="Image placeholder">
+                  <div class="blog-content-body">
+                    <div class="post-meta">
+                      <span class="author mr-2"><img src="${post.authorBio.item.component.profilePic_s}" alt="Colorlib">
+                      ${post.authorBio.item.component.name_s}</span>&bullet;
+                      <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span>
+                    </div>
+                    <h2>${post.headline}</h2>
                   </div>
-                  <h2>How to Find the Video Games of Your Youth</h2>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-6">
-              <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals"
-                 class="blog-entry element-animate" data-animate-effect="fadeIn">
-                <img src="/static-assets/images/img_6.jpg" alt="Image placeholder">
-                <div class="blog-content-body">
-                  <div class="post-meta">
-                    <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib">
-                      Colorlib</span>&bullet;
-                    <span class="mr-2">March 15, 2018 </span> &bullet;
-                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                  </div>
-                  <h2>How to Find the Video Games of Your Youth</h2>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-md-6">
-              <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals"
-                 class="blog-entry element-animate" data-animate-effect="fadeIn">
-                <img src="/static-assets/images/img_7.jpg" alt="Image placeholder">
-                <div class="blog-content-body">
-                  <div class="post-meta">
-                    <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib">
-                      Colorlib</span>&bullet;
-                    <span class="mr-2">March 15, 2018 </span> &bullet;
-                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                  </div>
-                  <h2>How to Find the Video Games of Your Youth</h2>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-6">
-              <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals"
-                 class="blog-entry element-animate" data-animate-effect="fadeIn">
-                <img src="/static-assets/images/img_8.jpg" alt="Image placeholder">
-                <div class="blog-content-body">
-                  <div class="post-meta">
-                    <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib">
-                      Colorlib</span>&bullet;
-                    <span class="mr-2">March 15, 2018 </span> &bullet;
-                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                  </div>
-                  <h2>How to Find the Video Games of Your Youth</h2>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-md-6">
-              <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals"
-                 class="blog-entry element-animate" data-animate-effect="fadeIn">
-                <img src="/static-assets/images/img_9.jpg" alt="Image placeholder">
-                <div class="blog-content-body">
-                  <div class="post-meta">
-                    <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib">
-                      Colorlib</span>&bullet;
-                    <span class="mr-2">March 15, 2018 </span> &bullet;
-                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                  </div>
-                  <h2>How to Find the Video Games of Your Youth</h2>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-6">
-              <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals"
-                 class="blog-entry element-animate" data-animate-effect="fadeIn">
-                <img src="/static-assets/images/img_10.jpg" alt="Image placeholder">
-                <div class="blog-content-body">
-                  <div class="post-meta">
-                    <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib">
-                      Colorlib</span>&bullet;
-                    <span class="mr-2">March 15, 2018 </span> &bullet;
-                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                  </div>
-                  <h2>How to Find the Video Games of Your Youth</h2>
-                </div>
-              </a>
-            </div>
-
-            <div class="col-md-6">
-              <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals"
-                 class="blog-entry element-animate" data-animate-effect="fadeIn">
-                <img src="/static-assets/images/img_11.jpg" alt="Image placeholder">
-                <div class="blog-content-body">
-                  <div class="post-meta">
-                    <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib">
-                      Colorlib</span>&bullet;
-                    <span class="mr-2">March 15, 2018 </span> &bullet;
-                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                  </div>
-                  <h2>How to Find the Video Games of Your Youth</h2>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-6">
-              <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals"
-                 class="blog-entry element-animate" data-animate-effect="fadeIn">
-                <img src="/static-assets/images/img_12.jpg" alt="Image placeholder">
-                <div class="blog-content-body">
-                  <div class="post-meta">
-                    <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib">
-                      Colorlib</span>&bullet;
-                    <span class="mr-2">March 15, 2018 </span> &bullet;
-                    <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                  </div>
-                  <h2>How to Find the Video Games of Your Youth</h2>
-                </div>
-              </a>
-            </div>
+                </a>
+              </div>
+            </#list>
           </div>
 
           <div class="row mt-5">
@@ -204,42 +97,22 @@
             </#if>
 
           <div class="sidebar-box">
-            <h3 class="heading">Popular Posts</h3>
+            <h3 class="heading">Recent Posts</h3>
             <div class="post-entry-sidebar">
               <ul>
-                <li>
-                  <a href="">
-                    <img src="/static-assets/images/img_2.jpg" alt="Image placeholder" class="mr-4">
-                    <div class="text">
-                      <h4>How to Find the Video Games of Your Youth</h4>
-                      <div class="post-meta">
-                        <span class="mr-2">March 15, 2018 </span>
+                <#list recentPosts as post>
+                  <li>
+                    <a href="">
+                      <img src="${post.mainImage}" alt="Image placeholder" class="mr-4">
+                      <div class="text">
+                        <h4>${post.headline}</h4>
+                        <div class="post-meta">
+                          <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span>
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <img src="/static-assets/images/img_4.jpg" alt="Image placeholder" class="mr-4">
-                    <div class="text">
-                      <h4>How to Find the Video Games of Your Youth</h4>
-                      <div class="post-meta">
-                        <span class="mr-2">March 15, 2018 </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <img src="/static-assets/images/img_12.jpg" alt="Image placeholder" class="mr-4">
-                    <div class="text">
-                      <h4>How to Find the Video Games of Your Youth</h4>
-                      <div class="post-meta">
-                        <span class="mr-2">March 15, 2018 </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
+                    </a>
+                  </li>
+                </#list>
               </ul>
             </div>
           </div>
