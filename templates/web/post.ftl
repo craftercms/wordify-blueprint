@@ -1,14 +1,11 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <#include "/templates/web/fragments/head_include.ftl"/>
-</head>
-<body>
-
-
-<div class="wrap">
-
-    <#include "/templates/web/fragments/header.ftl"/>
+  <head>
+      <#include "/templates/web/fragments/head_include.ftl"/>
+  </head>
+  <body>
+    <div class="wrap">
+      <#include "/templates/web/fragments/header.ftl"/>
 
   <section class="site-section py-lg">
     <div class="container">
@@ -213,37 +210,16 @@
           </div>
           <!-- END sidebar-box -->
 
-          <div class="sidebar-box">
-            <h3 class="heading">Categories</h3>
-            <ul class="categories">
-              <li><a href="#">Food <span>(12)</span></a></li>
-              <li><a href="#">Travel <span>(22)</span></a></li>
-              <li><a href="#">Lifestyle <span>(37)</span></a></li>
-              <li><a href="#">Business <span>(42)</span></a></li>
-              <li><a href="#">Adventure <span>(14)</span></a></li>
-            </ul>
-          </div>
-          <!-- END sidebar-box -->
+              <div class="sidebar-box">
+                <@renderComponent component=contentModel.sidebarCategories_o.item />
+              </div>
+              <!-- END sidebar-box -->
 
-          <div class="sidebar-box">
-            <h3 class="heading">Tags</h3>
-            <ul class="tags">
-              <li><a href="#">Travel</a></li>
-              <li><a href="#">Adventure</a></li>
-              <li><a href="#">Food</a></li>
-              <li><a href="#">Lifestyle</a></li>
-              <li><a href="#">Business</a></li>
-              <li><a href="#">Freelancing</a></li>
-              <li><a href="#">Travel</a></li>
-              <li><a href="#">Adventure</a></li>
-              <li><a href="#">Food</a></li>
-              <li><a href="#">Lifestyle</a></li>
-              <li><a href="#">Business</a></li>
-              <li><a href="#">Freelancing</a></li>
-            </ul>
-          </div>
-        </div>
-        <!-- END sidebar -->
+              <div class="sidebar-box">
+                <@renderComponent component=contentModel.sidebarTags_o.item />
+              </div>
+            </div>
+            <!-- END sidebar -->
 
       </div>
     </div>
