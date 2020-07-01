@@ -1,4 +1,5 @@
 <#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#assign bio = siteItemService.getSiteItem(contentModel.authorBio_o.item.key) />
 
 <!doctype html>
 <html lang="en">
@@ -17,9 +18,15 @@
             <div class="col-md-12 col-lg-8 main-content">
               <img src="${contentModel.mainImage_s}" alt="" class="img-fluid mb-5">
               <div class="post-meta">
-                <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib" class="mr-2"> <#--${contentModel.authorBio_o.item.component.name_s}--></span>&bullet;
+                <span class="author mr-2">
+                  <img src="${bio.profilePic_s}" alt="${bio.name_s}" class="mr-2">
+                  ${bio.name_s}
+                </span>&bullet;
                 <span class="mr-2">${contentModel.createdDate_dt?date}</span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                <span class="ml-2">
+                  <span class="fa fa-comments"></span>
+                  <span class="disqus-comment-count ml-1" data-disqus-identifier="${contentModel.objectId}"></span>
+                </span>
               </div>
               <h1 class="mb-4">${contentModel.headline_s}</h1>
               <#list contentModel.categories_o.item as category>
@@ -143,6 +150,8 @@
         (d.head || d.body).appendChild(s);
       })();
     </script>
+    <script id="dsq-count-scr" src="//${contentModel.websiteShortname_s}.disqus.com/count.js" async></script>
+
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </body>
 </html>
