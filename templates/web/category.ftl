@@ -12,22 +12,70 @@
       <section class="site-section pt-5">
         <div class="container">
           <div class="row blog-entries">
-            <div class="col-md-12">
-              <h2 class="mb-4">Categories:</h2>
-            </div>
-
-            <div class="col-md-12 col-lg-8">
-              <div class="row">
-                <#list categories as category>
-                <div class="col-md-6 mb-4">
-                  <a class="blog-entry category-card" href="/category/${category.key}">
-                    <img class="background" src="${category.image_s}" alt="Food">
-                    <h2 class="title">${category.value}</h2>
-                  </a>
-                </div>
-                </#list>
+            <#if categoryId??>
+              <div class="col-md-12">
+                <h2 class="mb-4">Category: ${currentCategory.value}</h2>
               </div>
-            </div>
+
+              <div class="col-md-12 col-lg-8 main-content">
+                <div class="row mb-5 mt-5">
+                  <div class="col-md-12">
+                    <#list categoryPosts as post>
+                      <div class="post-entry-horizontal">
+                        <a href="${post.url}">
+                          <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(${post.mainImage});"></div>
+                          <span class="text">
+                            <div class="post-meta">
+                              <span class="author mr-2">
+                                <img src="${post.authorBio.item.component.profilePic_s}" alt="${post.authorBio.item.component.name_s}">
+                                ${post.authorBio.item.component.name_s}</span>&bullet;
+                              <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span> &bullet;
+                              <#list post.categories.item as category>
+                                <span class="mr-2">${category.value_smv}</span>
+                              </#list>
+                            </div>
+                            <h2>${post.headline}</h2>
+                          </span>
+                        </a>
+                      </div>
+                    </#list>
+                  </div>
+                </div>
+
+                <div class="row mt-5">
+                  <div class="col-md-12 text-center">
+                    <nav aria-label="Page navigation" class="text-center">
+                      <ul class="pagination">
+                        <li class="page-item  active"><a class="page-link" href="#">&lt;</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            <#else>
+              <div class="col-md-12">
+                <h2 class="mb-4">Categories:</h2>
+              </div>
+
+              <div class="col-md-12 col-lg-8">
+                <div class="row">
+                  <#list categories as category>
+                    <div class="col-md-6 mb-4">
+                      <a class="blog-entry category-card" href="/category?id=${category.key}">
+                        <img class="background" src="${category.image_s}" alt="Food">
+                        <h2 class="title">${category.value}</h2>
+                      </a>
+                    </div>
+                  </#list>
+                </div>
+              </div>
+            </#if>
 
             <div class="col-md-12 col-lg-4 sidebar">
               <div class="sidebar-box search-form-wrap">
@@ -71,191 +119,6 @@
               </div>
             </div>
           </div>
-    <#--      <div class="row mb-4">-->
-    <#--        <div class="col-md-6">-->
-    <#--          <h2 class="mb-4">Category: Food</h2>-->
-    <#--        </div>-->
-    <#--      </div>-->
-    <#--      <div class="row blog-entries">-->
-    <#--        <div class="col-md-12 col-lg-8 main-content">-->
-    <#--          <div class="row mb-5 mt-5">-->
-
-    <#--            <div class="col-md-12">-->
-
-    <#--              <div class="post-entry-horizontal">-->
-    <#--                <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">-->
-    <#--                  <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(/static-assets/images/img_10.jpg);"></div>-->
-    <#--                  <span class="text">-->
-    <#--                    <div class="post-meta">-->
-    <#--                      <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;-->
-    <#--                      <span class="mr-2">March 15, 2018 </span> &bullet;-->
-    <#--                      <span class="mr-2">Food</span> &bullet;-->
-    <#--                      <span class="ml-2"><span class="fa fa-comments"></span> 3</span>-->
-    <#--                    </div>-->
-    <#--                    <h2>There’s a Cool New Way for Men to Wear Socks and Sandals</h2>-->
-    <#--                  </span>-->
-    <#--                </a>-->
-    <#--              </div>-->
-    <#--              <!-- END post &ndash;&gt;-->
-
-    <#--              <div class="post-entry-horizontal">-->
-    <#--                <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">-->
-    <#--                  <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(/static-assets/images/img_11.jpg);"></div>-->
-    <#--                  <span class="text">-->
-    <#--                    <div class="post-meta">-->
-    <#--                      <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;-->
-    <#--                      <span class="mr-2">March 15, 2018 </span> &bullet;-->
-    <#--                      <span class="mr-2">Food</span> &bullet;-->
-    <#--                      <span class="ml-2"><span class="fa fa-comments"></span> 3</span>-->
-    <#--                    </div>-->
-    <#--                    <h2>There’s a Cool New Way for Men to Wear Socks and Sandals</h2>-->
-    <#--                  </span>-->
-    <#--                </a>-->
-    <#--              </div>-->
-    <#--              <!-- END post &ndash;&gt;-->
-
-    <#--              <div class="post-entry-horizontal">-->
-    <#--                <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">-->
-    <#--                  <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(/static-assets/images/img_12.jpg);"></div>-->
-    <#--                  <span class="text">-->
-    <#--                    <div class="post-meta">-->
-    <#--                      <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;-->
-    <#--                      <span class="mr-2">March 15, 2018 </span> &bullet;-->
-    <#--                      <span class="mr-2">Food</span> &bullet;-->
-    <#--                      <span class="ml-2"><span class="fa fa-comments"></span> 3</span>-->
-    <#--                    </div>-->
-    <#--                    <h2>There’s a Cool New Way for Men to Wear Socks and Sandals</h2>-->
-    <#--                  </span>-->
-    <#--                </a>-->
-    <#--              </div>-->
-    <#--              <!-- END post &ndash;&gt;-->
-
-    <#--              <div class="post-entry-horizontal">-->
-    <#--                <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">-->
-    <#--                  <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(/static-assets/images/img_9.jpg);"></div>-->
-    <#--                  <span class="text">-->
-    <#--                    <div class="post-meta">-->
-    <#--                      <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;-->
-    <#--                      <span class="mr-2">March 15, 2018 </span> &bullet;-->
-    <#--                      <span class="mr-2">Food</span> &bullet;-->
-    <#--                      <span class="ml-2"><span class="fa fa-comments"></span> 3</span>-->
-    <#--                    </div>-->
-    <#--                    <h2>There’s a Cool New Way for Men to Wear Socks and Sandals</h2>-->
-    <#--                  </span>-->
-    <#--                </a>-->
-    <#--              </div>-->
-    <#--              <!-- END post &ndash;&gt;-->
-
-    <#--              <div class="post-entry-horizontal">-->
-    <#--                <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">-->
-    <#--                  <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(/static-assets/images/img_8.jpg);"></div>-->
-    <#--                  <span class="text">-->
-    <#--                    <div class="post-meta">-->
-    <#--                      <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;-->
-    <#--                      <span class="mr-2">March 15, 2018 </span> &bullet;-->
-    <#--                      <span class="mr-2">Food</span> &bullet;-->
-    <#--                      <span class="ml-2"><span class="fa fa-comments"></span> 3</span>-->
-    <#--                    </div>-->
-    <#--                    <h2>There’s a Cool New Way for Men to Wear Socks and Sandals</h2>-->
-    <#--                  </span>-->
-    <#--                </a>-->
-    <#--              </div>-->
-    <#--              <!-- END post &ndash;&gt;-->
-
-    <#--              <div class="post-entry-horizontal">-->
-    <#--                <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">-->
-    <#--                  <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(/static-assets/images/img_7.jpg);"></div>-->
-    <#--                  <span class="text">-->
-    <#--                    <div class="post-meta">-->
-    <#--                      <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;-->
-    <#--                      <span class="mr-2">March 15, 2018 </span> &bullet;-->
-    <#--                      <span class="mr-2">Food</span> &bullet;-->
-    <#--                      <span class="ml-2"><span class="fa fa-comments"></span> 3</span>-->
-    <#--                    </div>-->
-    <#--                    <h2>There’s a Cool New Way for Men to Wear Socks and Sandals</h2>-->
-    <#--                  </span>-->
-    <#--                </a>-->
-    <#--              </div>-->
-    <#--              <!-- END post &ndash;&gt;-->
-
-    <#--              <div class="post-entry-horizontal">-->
-    <#--                <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">-->
-    <#--                  <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(/static-assets/images/img_6.jpg);"></div>-->
-    <#--                  <span class="text">-->
-    <#--                    <div class="post-meta">-->
-    <#--                      <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;-->
-    <#--                      <span class="mr-2">March 15, 2018 </span> &bullet;-->
-    <#--                      <span class="mr-2">Food</span> &bullet;-->
-    <#--                      <span class="ml-2"><span class="fa fa-comments"></span> 3</span>-->
-    <#--                    </div>-->
-    <#--                    <h2>There’s a Cool New Way for Men to Wear Socks and Sandals</h2>-->
-    <#--                  </span>-->
-    <#--                </a>-->
-    <#--              </div>-->
-    <#--              <!-- END post &ndash;&gt;-->
-
-    <#--              <div class="post-entry-horizontal">-->
-    <#--                <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">-->
-    <#--                  <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(/static-assets/images/img_5.jpg);"></div>-->
-    <#--                  <span class="text">-->
-    <#--                    <div class="post-meta">-->
-    <#--                      <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;-->
-    <#--                      <span class="mr-2">March 15, 2018 </span> &bullet;-->
-    <#--                      <span class="mr-2">Food</span> &bullet;-->
-    <#--                      <span class="mr-2">Food</span> &bullet;-->
-    <#--                      <span class="ml-2"><span class="fa fa-comments"></span> 3</span>-->
-    <#--                    </div>-->
-    <#--                    <h2>There’s a Cool New Way for Men to Wear Socks and Sandals</h2>-->
-    <#--                  </span>-->
-    <#--                </a>-->
-    <#--              </div>-->
-    <#--              <!-- END post &ndash;&gt;-->
-
-    <#--              <div class="post-entry-horizontal">-->
-    <#--                <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">-->
-    <#--                  <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(/static-assets/images/img_4.jpg);"></div>-->
-    <#--                  <span class="text">-->
-    <#--                    <div class="post-meta">-->
-    <#--                      <span class="author mr-2"><img src="/static-assets/images/person_1.jpg" alt="Colorlib"> Colorlib</span>&bullet;-->
-    <#--                      <span class="mr-2">March 15, 2018 </span> &bullet;-->
-    <#--                      <span class="mr-2">Food</span> &bullet;-->
-    <#--                      <span class="ml-2"><span class="fa fa-comments"></span> 3</span>-->
-    <#--                    </div>-->
-    <#--                    <h2>There’s a Cool New Way for Men to Wear Socks and Sandals</h2>-->
-    <#--                  </span>-->
-    <#--                </a>-->
-    <#--              </div>-->
-    <#--              <!-- END post &ndash;&gt;-->
-
-    <#--            </div>-->
-    <#--          </div>-->
-
-    <#--          <div class="row mt-5">-->
-    <#--            <div class="col-md-12 text-center">-->
-    <#--              <nav aria-label="Page navigation" class="text-center">-->
-    <#--                <ul class="pagination">-->
-    <#--                  <li class="page-item  active"><a class="page-link" href="#">&lt;</a></li>-->
-    <#--                  <li class="page-item"><a class="page-link" href="#">1</a></li>-->
-    <#--                  <li class="page-item"><a class="page-link" href="#">2</a></li>-->
-    <#--                  <li class="page-item"><a class="page-link" href="#">3</a></li>-->
-    <#--                  <li class="page-item"><a class="page-link" href="#">4</a></li>-->
-    <#--                  <li class="page-item"><a class="page-link" href="#">5</a></li>-->
-    <#--                  <li class="page-item"><a class="page-link" href="#">&gt;</a></li>-->
-    <#--                </ul>-->
-    <#--              </nav>-->
-    <#--            </div>-->
-    <#--          </div>-->
-
-
-
-    <#--        </div>-->
-
-    <#--        <!-- END main-content &ndash;&gt;-->
-
-    <#--        -->
-    <#--        <!-- END sidebar &ndash;&gt;-->
-
-    <#--      </div>-->
         </div>
       </section>
 
