@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
   <content-type>/page/search</content-type>
-  <display-template />
+  <content-type>/page/search</content-type>
+  <display-template>/templates/web/search.ftl</display-template>
   <no-template-required />
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>0374</objectGroupId>
@@ -25,6 +26,6 @@
   </bios_o>
   <createdDate>2020-05-04T13:27:36.526Z</createdDate>
   <createdDate_dt>2020-05-04T13:27:36.526Z</createdDate_dt>
-  <lastModifiedDate>2020-05-04T13:27:36.526Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-05-04T13:27:36.526Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-07-01T20:21:55.745Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-07-01T20:21:55.745Z</lastModifiedDate_dt>
 </page>
