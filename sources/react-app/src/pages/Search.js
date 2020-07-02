@@ -75,7 +75,7 @@ export default function (props) {
     }
   } = props;
   const [paginationData, setPaginationData] = useState({
-    itemsPerPage: 10,
+    itemsPerPage: 1,
     currentPage: 0
   });
   let resource = useUrlSearchQueryFetchResource(paginationData.itemsPerPage);

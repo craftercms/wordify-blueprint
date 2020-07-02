@@ -34,13 +34,26 @@
           </div>
           <div class="row blog-entries">
             <div class="col-md-12 col-lg-8 main-content">
-              <div class="row">
-                <div class="col-md-6">
+              <div class="row" id="searchResults"></div>
 
-                </div>
+              <div class="col-md-12 text-center mt-5">
+                <ul class="pagination">
+                  <li class="page-item disabled"><a
+                            class="page-link" tabindex="0" role="button" aria-disabled="true"
+                    ><span>&lt;</span></a></li>
+                  <li class="page-item active"><a
+                            role="button" class="page-link" tabindex="0"
+                            aria-label="Page 1 is your current page" aria-current="page"
+                    >1</a></li>
+                  <li class="page-item"><a
+                            role="button" class="page-link" tabindex="0" aria-label="Page 2"
+                    >2</a></li>
+                  <li class="page-item"><a
+                            class="page-link" tabindex="0" role="button" aria-disabled="false"
+                    ><span>&gt;</span></a></li>
+                </ul>
               </div>
             </div>
-
             <!-- END main-content -->
 
             <div class="col-md-12 col-lg-4 sidebar">
@@ -95,6 +108,27 @@
       </svg>
     </div>
 
+    <script id="search-results-template" type="text/x-handlebars-template">
+      {{#each results}}
+      <div class="post-entry-horizontal">
+        <a href="{{url}}">
+          <div class="image"  style="background-image: url('{{mainImage}}');"></div>
+          <span class="text">
+            <div class="post-meta">
+              <span class="author mr-2">
+                <img src="{{authorImage}}" alt="">
+                {{authorName}}
+              </span>• <span class="mr-2">{{lastModifiedDate}}</span>
+            </div>
+            <h2>{{headline}}</h2>
+          </span>
+        </a>
+      </div>
+      {{/each}}
+    </script>
+
     <#include "/templates/web/fragments/bottom_include.ftl"/>
+    <script src="/static-assets/js/handlebars.min.js"></script>
+    <script src="/static-assets/js/search.js"></script>
   </body>
 </html>

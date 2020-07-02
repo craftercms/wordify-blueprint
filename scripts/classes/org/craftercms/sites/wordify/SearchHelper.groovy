@@ -45,27 +45,28 @@ class SearchHelper {
       if(!userTerm.contains(" ")) {
         userTerm = "${userTerm}~1 OR *${userTerm}"
       }
-      def userTermQuery = "(pageTitle_s:(${userTerm}) OR pageDescription_s:(${userTerm}))"
+      def userTermQuery = "(headline_s(${userTerm}) OR pageDescription_s:(${userTerm}))"    // TODO: improve search (fields)
 
       q = "${q} AND ${userTermQuery}"
     }
-
-    def highlighter = SearchSourceBuilder.highlight()
-    HIGHLIGHT_FIELDS.each{ field -> highlighter.field(field) }
 
     def builder = new SearchSourceBuilder()
       .query(QueryBuilders.queryStringQuery(q))
       .from(start)
       .size(rows)
-      .highlighter(highlighter)
 
-    def result = elasticsearch.search(new SearchRequest().source(builder))
+    def searchResult = elasticsearch.search(new SearchRequest().source(builder))
 
-    if (result) {
-      return processUserSearchResults(result)
+    def result = [:]
+    result.total = searchResult.hits.getTotalHits()
+
+    if (searchResult) {
+      result.hits = processPostListingResults(searchResult)
     } else {
-      return []
+      result.hits = []
     }
+
+    return result
   }
 
   def searchPosts(categories, start = DEFAULT_START, rows = DEFAULT_ROWS, exclude = null) {
@@ -103,7 +104,7 @@ class SearchHelper {
       hits.each {hit ->
         def doc = hit.getSourceAsMap()
         def post = [:]
-        post.title = doc.title_t
+        post.title = doc.title_s
         post.url = urlTransformationService.transform("storeUrlToRenderUrl", doc.localId)
         post.headline = doc.headline_s
         post.mainImage = doc.mainImage_s
@@ -112,20 +113,7 @@ class SearchHelper {
         post.authorBio = doc.authorBio_o
         post.categories = doc.categories_o
         post.tags = doc.tags_o
-
-        if (hit.highlightFields) {
-          def articleHighlights = hit.highlightFields.values()*.getFragments().flatten()*.string()
-          if (articleHighlights) {
-            def highlightValues = []
-
-            articleHighlights.each { value ->
-              highlightValues << value
-            }
-
-            post.highlight = StringUtils.join(highlightValues, "... ")
-            post.highlight = StringUtils.strip(article.highlight)
-          }
-        }
+        post.lastModifiedDate = doc.lastModifiedDate_dt
 
         posts << post
       }
