@@ -32,40 +32,13 @@
                 <div class="col-md-12 mb-5">
                   <h2>Latest Posts</h2>
                 </div>
-                <div class="col-md-12">
-                  <#list recentPosts as post>
-                    <div class="post-entry-horizontal">
-                      <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">
-                        <div class="image" style="background-image: url(${post.mainImage});"></div>
-                        <span class="text">
-                          <div class="post-meta">
-                            <span class="author mr-2"><img src="${post.authorBio.item.component.profilePic_s}" alt="Colorlib">
-                              ${post.authorBio.item.component.name_s}
-                            </span>&bullet;
-                            <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span> &bullet;
-                            <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                          </div>
-                          <h2>${post.headline}</h2>
-                        </span>
-                      </a>
-                    </div>
-                  </#list>
-
-                </div>
+                <div class="col-md-12" id="latestPosts"></div>
               </div>
 
               <div class="row">
                 <div class="col-md-12 text-center">
                   <nav aria-label="Page navigation" class="text-center">
-                    <ul class="pagination">
-                      <li class="page-item  active"><a class="page-link" href="#">&lt;</a></li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">4</a></li>
-                      <li class="page-item"><a class="page-link" href="#">5</a></li>
-                      <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
-                    </ul>
+                    <div id="postsPagination"></div>
                   </nav>
                 </div>
               </div>
@@ -125,6 +98,25 @@
         <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214" />
       </svg>
     </div>
+
+    <script id="post-results-template" type="text/x-handlebars-template">
+      {{#each results}}
+      <div class="post-entry-horizontal">
+        <a href="{{url}}">
+          <div class="image" style="background-image: url({{mainImage}});"></div>
+          <span class="text">
+            <div class="post-meta">
+              <span class="author mr-2"><img src="{{authorImage}}" alt="{{authorName}}">
+                {{authorName}}
+              </span>&bullet;
+              <span class="mr-2">{{lastModifiedDate}}</span> &bullet;
+            </div>
+            <h2>{{headline}}</h2>
+          </span>
+        </a>
+      </div>
+      {{/each}}
+    </script>
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
   </body>

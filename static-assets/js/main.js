@@ -137,9 +137,6 @@
   	}
 	});
 
-
- 
-
 	var contentWayPoint = function() {
 		var i = 0;
 		$('.element-animate').waypoint( function( direction ) {
@@ -176,6 +173,78 @@
 	};
 	contentWayPoint();
 
+	const $latestPosts = $('#latestPosts');
+	if($latestPosts.length) {
+    const pagination = {
+      initialized: false,
+      totalResults: 0,
+      itemsPerPage: 10,
+      defaultOpts: {
+        totalPages: 1,
+        first: null,
+        last: null,
+        prev: '<',
+        next: '>',
+        prevClass: 'page-item',
+        nextClass: 'page-item',
+        pageClass: 'page-item'
+      }
+    };
+
+    const source = $('#post-results-template').html();
+    const template = Handlebars.compile(source);
+
+    const getPosts = (page = 0) => {
+      $latestPosts.empty();
+      $('#postsPagination').hide();
+
+      const params = {
+        start: page * pagination.itemsPerPage,
+        rows: pagination.itemsPerPage
+      };
+
+      $.get('/api/posts.json', params).done(function(data) {
+        pagination.totalResults = typeof data.total === 'object' ? data.total.value : data.total;
+
+        console.log("POSTS", data);
+
+        if (data.hits === null) {
+          data.hits = [];
+        }
+
+        const results = data.hits.map((result) => {
+          let date = new Date(result.lastModifiedDate).toLocaleDateString("en-US",
+            { month: 'short', day: 'numeric', year: 'numeric' });
+
+          return {
+            url: result.url,
+            headline: result.headline,
+            mainImage: result.mainImage,
+            authorName: result.authorBio.item.component.name_s,
+            authorImage: result.authorBio.item.component.profilePic_s,
+            lastModifiedDate: date
+          }
+        });
+
+        const html = template({ results });
+        $latestPosts.append(html);
+
+        const totalPages = Math.ceil(pagination.totalResults/pagination.itemsPerPage);
+        if (!pagination.initialized && totalPages > 1) {
+          $('#postsPagination').show();
+          $('#postsPagination').twbsPagination({
+            ...pagination.defaultOpts,
+            totalPages: totalPages,
+            onPageClick: function(evt, page) {
+              getPosts(page -1);
+            }
+          })
+        }
+      });
+    }
+
+    getPosts();
+  }
 
 
 })(jQuery);

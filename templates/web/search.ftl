@@ -36,23 +36,7 @@
             <div class="col-md-12 col-lg-8 main-content">
               <div class="row" id="searchResults"></div>
 
-              <div class="col-md-12 text-center mt-5">
-                <ul class="pagination">
-                  <li class="page-item disabled"><a
-                            class="page-link" tabindex="0" role="button" aria-disabled="true"
-                    ><span>&lt;</span></a></li>
-                  <li class="page-item active"><a
-                            role="button" class="page-link" tabindex="0"
-                            aria-label="Page 1 is your current page" aria-current="page"
-                    >1</a></li>
-                  <li class="page-item"><a
-                            role="button" class="page-link" tabindex="0" aria-label="Page 2"
-                    >2</a></li>
-                  <li class="page-item"><a
-                            class="page-link" tabindex="0" role="button" aria-disabled="false"
-                    ><span>&gt;</span></a></li>
-                </ul>
-              </div>
+              <div id="searchPagination"></div>
             </div>
             <!-- END main-content -->
 
@@ -128,7 +112,6 @@
     </script>
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
-    <script src="/static-assets/js/handlebars.min.js"></script>
     <script src="/static-assets/js/search.js"></script>
   </body>
 </html>
