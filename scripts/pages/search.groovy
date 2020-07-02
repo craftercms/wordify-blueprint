@@ -19,4 +19,4 @@ import org.craftercms.sites.wordify.SearchHelper
 def searchHelper = new SearchHelper(elasticsearch, urlTransformationService)
 def recentPosts = searchHelper.searchPosts(null, 0, 5)
 
-templateModel.recentPosts = recentPosts
+templateModel.recentPosts = recentPosts.hits

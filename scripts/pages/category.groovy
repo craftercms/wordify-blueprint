@@ -28,10 +28,10 @@ if (categoryId) {
   def categoryPosts = searchHelper.searchPosts(categoryId, 0, 10)
   def currentCategory = categories.find{ it.key.text == categoryId }
 
-  templateModel.categoryPosts = categoryPosts
+  templateModel.categoryPosts = categoryPosts.hits
   templateModel.categoryId = categoryId
   templateModel.currentCategory = currentCategory
 }
 
 templateModel.categories = categories
-templateModel.recentPosts = recentPosts
+templateModel.recentPosts = recentPosts.hits

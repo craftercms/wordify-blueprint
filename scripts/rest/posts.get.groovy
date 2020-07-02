@@ -16,9 +16,10 @@
 
 import org.craftercms.sites.wordify.SearchHelper
 
+def start = params.start ? params.start as Integer : 0
+def rows = params.rows ? params.rows as Integer: 10
 def searchHelper = new SearchHelper(elasticsearch, urlTransformationService)
-def recentPosts = searchHelper.searchPosts(null, 0, 5)
-def relatedPosts = searchHelper.searchPosts(contentModel.categories_o.item.key.text, 0, 5, contentModel.objectId.text)
+// TODO: include categories as param to filter by category
+def results = searchHelper.searchPosts(null, start, rows)
 
-templateModel.recentPosts = recentPosts.hits
-templateModel.relatedPosts = relatedPosts.hits
+return results

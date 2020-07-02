@@ -87,13 +87,18 @@ class SearchHelper {
       .size(rows)
       .sort(new FieldSortBuilder("lastModifiedDate_dt").order(SortOrder.DESC))
 
-    def result = elasticsearch.search(new SearchRequest().source(builder))
+    def searchResult = elasticsearch.search(new SearchRequest().source(builder))
 
-    if (result) {
-      return processPostListingResults(result)
+    def result = [:]
+    result.total = searchResult.hits.getTotalHits()
+
+    if (searchResult) {
+      result.hits = processPostListingResults(searchResult)
     } else {
-      return []
+      result.hits = []
     }
+
+    return result
   }
 
   private def processUserSearchResults(result) {
