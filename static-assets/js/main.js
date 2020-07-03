@@ -243,7 +243,8 @@
             mainImage: result.mainImage,
             authorName: result.authorBio.item.component.name_s,
             authorImage: result.authorBio.item.component.profilePic_s,
-            lastModifiedDate: date
+            lastModifiedDate: date,
+            categories: result.categories.item
           }
         });
 

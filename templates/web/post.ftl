@@ -30,7 +30,7 @@
               </div>
               <h1 class="mb-4">${contentModel.headline_s}</h1>
               <#list contentModel.categories_o.item as category>
-                <a class="category mb-5" href="/category/${category.key}">
+                <a class="category mb-5" href="/category?id=${category.key}">
                   ${category.value_smv}
                 </a>
               </#list>
@@ -47,7 +47,7 @@
               <div class="pt-5">
                 <p>Categories:
                   <#list contentModel.categories_o.item as category>
-                    <a href="/category/${category.key}">${category.value_smv}</a>
+                    <a href="/category?id=${category.key}">${category.value_smv}</a>
                   </#list>
                 </p>
               </div>
@@ -62,11 +62,13 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
               <!-- END sidebar-box -->
-              <div class="sidebar-box">
-                <#if contentModel.authorBio_o?? && contentModel.authorBio_o.item??>
-                  <@renderComponent component=contentModel.authorBio_o.item />
-                </#if>
-              </div>
+              <#if contentModel.bios_o?? && contentModel.bios_o.item??>
+                <#list contentModel.bios_o.item as component>
+                  <div class="sidebar-box">
+                      <@renderComponent component=component />
+                  </div>
+                </#list>
+              </#if>
               <!-- END sidebar-box -->
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
@@ -127,9 +129,9 @@
         <a href="{{url}}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('{{mainImage}}'); ">
           <div class="text">
             <div class="post-meta">
-<#--                <#list post.categories.item as category>-->
-<#--                  <span class="category">${category.value_smv}</span>-->
-<#--                </#list>-->
+              {{#each categories}}
+              <span class="category">{{value_smv}}</span>
+              {{/each}}
               <span class="mr-2">{{lastModifiedDate}} </span>
             </div>
             <h3>{{headline}}</h3>

@@ -56,22 +56,13 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
               <!-- END sidebar-box -->
-              <div class="sidebar-box">
-                <div class="bio text-center">
-                  <img src="/static-assets/images/person_2.jpg" alt="Image Placeholder" class="img-fluid">
-                  <div class="bio-body">
-                    <h2>Craig David</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.</p>
-                    <p><a href="#" class="btn btn-primary btn-sm rounded">Read my bio</a></p>
-                    <p class="social">
-                      <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
-                      <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
-                      <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
-                      <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
-                    </p>
+              <#if contentModel.bios_o?? && contentModel.bios_o.item??>
+                <#list contentModel.bios_o.item as component>
+                  <div class="sidebar-box">
+                      <@renderComponent component=component />
                   </div>
-                </div>
-              </div>
+                </#list>
+              </#if>
               <!-- END sidebar-box -->
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>

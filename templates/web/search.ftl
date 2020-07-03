@@ -45,13 +45,13 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
 
-                <#if contentModel.bios_o?? && contentModel.bios_o.item??>
-                    <#list contentModel.bios_o.item as component>
-                      <div class="sidebar-box">
-                          <@renderComponent component=component />
-                      </div>
-                    </#list>
-                </#if>
+              <#if contentModel.bios_o?? && contentModel.bios_o.item??>
+                <#list contentModel.bios_o.item as component>
+                  <div class="sidebar-box">
+                      <@renderComponent component=component />
+                  </div>
+                </#list>
+              </#if>
 
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
