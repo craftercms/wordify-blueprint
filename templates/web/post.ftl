@@ -59,12 +59,7 @@
 
             <div class="col-md-12 col-lg-4 sidebar">
               <div class="sidebar-box search-form-wrap">
-                <form action="#" class="search-form">
-                  <div class="form-group">
-                    <span class="icon fa fa-search"></span>
-                    <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
-                  </div>
-                </form>
+                <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
               <!-- END sidebar-box -->
               <div class="sidebar-box">

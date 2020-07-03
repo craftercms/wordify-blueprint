@@ -38,13 +38,14 @@
     if (queryParam) {
       queryParam = decodeURI(queryParam).trim();
     }
-    
+
     const source = $('#search-results-template').html();
     const template = Handlebars.compile(source);
 
     const doSearch = (userTerm, page = 0) => {
       $('#searchResults').empty();
       $('#searchPagination').hide();
+      $('.search-form').find('[name="q"]').val(userTerm);
 
       const params = {
         start: page * pagination.itemsPerPage,
@@ -96,6 +97,13 @@
     }
 
     doSearch(queryParam);
+
+    $(document).on('submit','form.search-form',function(e){
+      e.preventDefault();
+      const query = $(e.currentTarget).find('[name="q"]').val();
+
+      doSearch(query);
+    });
   });
 
 })(jQuery);
