@@ -33,7 +33,7 @@
           </div>
           <div class="row blog-entries">
             <div class="col-md-12 col-lg-8 main-content">
-              <div class="row" id="latestPosts"></div>
+              <div class="row" id="postsList"></div>
               <div class="row mt-5">
                 <div class="col-md-12 text-center">
                   <nav aria-label="Page navigation" class="text-center">

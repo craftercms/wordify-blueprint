@@ -173,12 +173,12 @@
 	};
 	contentWayPoint();
 
-	const $latestPosts = $('#latestPosts');
-	if($latestPosts.length) {
+	const $postsList = $('#postsList');
+	if($postsList.length) {
     const pagination = {
       initialized: false,
       totalResults: 0,
-      itemsPerPage: 10,
+      itemsPerPage: $postsList.attr('data-numItems') ? $postsList.attr('data-numItems') : 10,
       defaultOpts: {
         totalPages: 1,
         first: null,
@@ -191,22 +191,43 @@
       }
     };
 
+    const searchParams = new URLSearchParams(window.location.search);
+    let category = searchParams.get('id');
+
     const source = $('#post-results-template').html();
     const template = Handlebars.compile(source);
 
     const getPosts = (page = 0) => {
-      $latestPosts.empty();
+      $postsList.empty();
       $('#postsPagination').hide();
 
       const params = {
         start: page * pagination.itemsPerPage,
-        rows: pagination.itemsPerPage
+        rows: pagination.itemsPerPage,
       };
+
+      if (category) {
+        params.categories = category;
+      }
+
+      const categories = $postsList.attr('data-categories') ?
+        $postsList.attr('data-categories').split(',') :
+        null;
+
+      if (categories) {
+        params.categories = categories;
+      }
+
+      const exclude = $postsList.attr('data-exclude') ?
+        $postsList.attr('data-exclude') :
+        null;
+
+      if (exclude) {
+        params.exclude = exclude;
+      }
 
       $.get('/api/posts.json', params).done(function(data) {
         pagination.totalResults = typeof data.total === 'object' ? data.total.value : data.total;
-
-        console.log("POSTS", data);
 
         if (data.hits === null) {
           data.hits = [];
@@ -227,7 +248,7 @@
         });
 
         const html = template({ results });
-        $latestPosts.append(html);
+        $postsList.append(html);
 
         const totalPages = Math.ceil(pagination.totalResults/pagination.itemsPerPage);
         if (!pagination.initialized && totalPages > 1) {

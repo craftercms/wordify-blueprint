@@ -18,8 +18,9 @@ import org.craftercms.sites.wordify.SearchHelper
 
 def start = params.start ? params.start as Integer : 0
 def rows = params.rows ? params.rows as Integer: 10
+def categories = params.categories ? params.categories : null
+def exclude = params.exclude ? params.exclude : null
 def searchHelper = new SearchHelper(elasticsearch, urlTransformationService)
-// TODO: include categories as param to filter by category
-def results = searchHelper.searchPosts(null, start, rows)
+def results = searchHelper.searchPosts(categories, start, rows, exclude)
 
 return results

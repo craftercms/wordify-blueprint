@@ -32,7 +32,7 @@
                 <div class="col-md-12 mb-5">
                   <h2>Latest Posts</h2>
                 </div>
-                <div class="col-md-12" id="latestPosts"></div>
+                <div class="col-md-12" id="postsList"></div>
               </div>
 
               <div class="row">

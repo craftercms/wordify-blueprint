@@ -100,22 +100,18 @@
           <h2 class="mb-3 ">Related Post</h2>
         </div>
       </div>
+      <div
+        class="row" id="postsList"
+        data-categories="<#list contentModel.categories_o.item as category>${category.key}<#if category_has_next>,</#if></#list>"
+        data-exclude="${contentModel.objectId}"
+      >
+      </div>
       <div class="row">
-        <#list relatedPosts as post>
-          <div class="col-md-6 col-lg-4">
-            <a href="${post.url}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('${post.mainImage}'); ">
-              <div class="text">
-                <div class="post-meta">
-                  <#list post.categories.item as category>
-                    <span class="category">${category.value_smv}</span>
-                  </#list>
-                  <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
-                </div>
-                <h3>${post.headline}</h3>
-              </div>
-            </a>
-          </div>
-        </#list>
+        <div class="col-md-12 text-center">
+          <nav aria-label="Page navigation" class="text-center">
+            <div id="postsPagination"></div>
+          </nav>
+        </div>
       </div>
     </div>
 
@@ -129,6 +125,24 @@
 
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+
+    <script id="post-results-template" type="text/x-handlebars-template">
+      {{#each results}}
+      <div class="col-md-6 col-lg-4">
+        <a href="{{url}}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('{{mainImage}}'); ">
+          <div class="text">
+            <div class="post-meta">
+<#--                <#list post.categories.item as category>-->
+<#--                  <span class="category">${category.value_smv}</span>-->
+<#--                </#list>-->
+              <span class="mr-2">{{lastModifiedDate}} </span>
+            </div>
+            <h3>{{headline}}</h3>
+          </div>
+        </a>
+      </div>
+      {{/each}}
+    </script>
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
