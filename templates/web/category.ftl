@@ -101,7 +101,7 @@
               <span class="author mr-2"><img src="{{authorImage}}" alt="{{authorName}}">
                 {{authorName}}
               </span>&bullet;
-              <span class="mr-2">{{lastModifiedDate}}</span> &bullet;
+              <span class="mr-2">{{lastModifiedDate}}</span>
             </div>
             <h2>{{headline}}</h2>
           </span>

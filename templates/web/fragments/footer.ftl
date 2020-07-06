@@ -33,7 +33,6 @@
               <h3>${contentModel.socialLinksTitle_s!""}</h3>
 
               <ul class="list-unstyled footer-social">
-                <#-- TODO: renderRepeatCollection gets field from model -->
                 <#list socialLinks.item as socialLink>
                   <li>
                     <a href="${socialLink.url_s}">

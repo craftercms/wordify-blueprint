@@ -52,7 +52,14 @@
                 </p>
               </div>
 
-              <div id="disqus_thread"></div>
+              <div>
+                Tags:
+                <#list contentModel.tags_o.item as tag>
+                  <a href="/tag?id=${tag.key}">${tag.value_smv}<#if tag_has_next>,</#if></a>
+                </#list>
+              </div>
+
+              <div id="disqus_thread" class="mt-5"></div>
             </div>
 
             <!-- END main-content -->
@@ -131,7 +138,7 @@
             <div class="post-meta">
               {{#each categories}}
               <span class="category">{{value_smv}}</span>
-              {{/each}}
+              {{/each}} •
               <span class="mr-2">{{lastModifiedDate}} </span>
             </div>
             <h3>{{headline}}</h3>
