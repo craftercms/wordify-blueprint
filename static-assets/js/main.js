@@ -173,6 +173,16 @@
 	};
 	contentWayPoint();
 
+	const showToast = (text, type) => {
+    const $toast = $(`<div class="alert alert-${type}" role="alert" style="position: fixed; top: 10px; right: 10px;">` +
+        text +
+      '</div>').appendTo('body');
+
+    setTimeout(() => {
+      $toast.remove();
+    }, 3000);
+  };
+
 	const $postsList = $('#postsList');
 	if($postsList.length) {
     const pagination = {
@@ -267,6 +277,23 @@
 
     getPosts();
   }
+
+  $(document).on('submit','#contactForm',function(e) {
+    e.preventDefault();
+    const formData = {
+      name: $(e.currentTarget).find('[name="name"]').val(),
+      phone: $(e.currentTarget).find('[name="phone"]').val(),
+      email: $(e.currentTarget).find('[name="email"]').val(),
+      message: $(e.currentTarget).find('[name="message"]').val()
+    };
+
+    $.post('/api/contactus.json', formData).done(function(data) {
+      showToast('Message successfully sent!', 'success');
+      $('#contactForm').find('input:not("[type=submit]"), textarea').val('');
+    }).fail(function(error) {
+      showToast('There was an error sending the message', 'danger');
+    });
+  });
 
 
 })(jQuery);
