@@ -28,6 +28,7 @@ import { parseDescriptor } from '@craftercms/content';
 import ReactPaginate from 'react-paginate';
 import Comments, { CommentsCount } from '../shared/Comments';
 import { postsQuery } from '../shared/queries.graphql';
+import { useIntl } from 'react-intl';
 
 export default function (props) {
   const {
@@ -41,6 +42,7 @@ export default function (props) {
       }
     }
   } = props;
+  const { formatDate } = useIntl();
   const modelPath = model.craftercms.path;
   const [related, setRelated] = useState();
   const [totalRelatedPosts, setTotalRelatedPosts] = useState(0);
@@ -87,9 +89,9 @@ export default function (props) {
               <img src={model.mainImage_s} alt="" className="img-fluid mb-5" />
               <div className="post-meta">
                 <span className="author mr-2">
-                  <img src="/static-assets/images/person_1.jpg" alt="" className="mr-2" /> Colorlib
+                  <img src={model.authorBio_o[0].profilePic_s} alt="" className="mr-2" /> {model.authorBio_o[0].name_s}
                 </span>
-                {' • '}<span className="mr-2">{model.createdDate_dt}</span>
+                {' • '}<span className="mr-2">{formatDate(model.craftercms.dateCreated)}</span>
                 {' • '}<span className="ml-2">
                 <span className="fa fa-comments mr-2"/></span>
 
