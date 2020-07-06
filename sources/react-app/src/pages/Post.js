@@ -77,7 +77,7 @@ export default function (props) {
 
   useEffect(() => {
     setPageCount(Math.ceil(totalRelatedPosts/paginationData.itemsPerPage))
-  }, [totalRelatedPosts, setPageCount, paginationData.itemsPerPage])
+  }, [totalRelatedPosts, setPageCount, paginationData.itemsPerPage]);
 
   return (
     <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>

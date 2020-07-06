@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import { WrappedContentType } from '../shared/ContentType';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
@@ -25,6 +25,10 @@ import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import { useRecentPosts } from '../shared/hooks';
+import ReactPaginate from 'react-paginate';
+import { fetchQuery } from '../relayEnvironment';
+import { postsQuery } from '../shared/queries.graphql';
+import { parseDescriptor } from '@craftercms/content';
 
 export default function (props) {
   const {
@@ -41,7 +45,30 @@ export default function (props) {
       socialLinks
     }
   } = props;
-  const posts = useRecentPosts();
+  const [posts, setPosts] = useState()
+  const [totalPosts, setTotalPosts] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+  const [paginationData, setPaginationData] = useState({
+    itemsPerPage: 10,
+    currentPage: 0
+  });
+
+  useEffect(() => {
+    fetchQuery(
+      { text: postsQuery },
+      {
+        limit: paginationData.itemsPerPage,
+        offset: (paginationData.currentPage * paginationData.itemsPerPage)
+      }
+    ).then(({ data }) => {
+      setTotalPosts(data.posts.total);
+      setPosts(parseDescriptor(data.posts.items));
+    });
+  }, [model, paginationData]);
+
+  useEffect(() => {
+    setPageCount(Math.ceil(totalPosts/paginationData.itemsPerPage))
+  }, [totalPosts, setPageCount, paginationData.itemsPerPage]);
 
   const modelPath = model.craftercms.path;
   return (
@@ -90,22 +117,32 @@ export default function (props) {
                 </div>
               </div>
 
-              <div className="row">
-                <div className="col-md-12 text-center">
-                  <nav aria-label="Page navigation" className="text-center">
-                    <ul className="pagination">
-                      <li className="page-item active"><a className="page-link" href="/">&lt;</a></li>
-                      <li className="page-item"><a className="page-link" href="/">1</a></li>
-                      <li className="page-item"><a className="page-link" href="/">2</a></li>
-                      <li className="page-item"><a className="page-link" href="/">3</a></li>
-                      <li className="page-item"><a className="page-link" href="/">4</a></li>
-                      <li className="page-item"><a className="page-link" href="/">5</a></li>
-                      <li className="page-item"><a className="page-link" href="/">&gt;</a></li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-
+              {
+                pageCount > 1 &&
+                <nav aria-label="Posts navigation" className="text-center">
+                  <ReactPaginate
+                    containerClassName="pagination"
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    nextLinkClassName="page-link"
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={3}
+                    activeClassName="active"
+                    initialPage={0}
+                    pageCount={pageCount}
+                    onPageChange={({ selected: index }) => setPaginationData({
+                      ...paginationData,
+                      currentPage: index * paginationData.itemsPerPage
+                    })}
+                    disableInitialCallback={true}
+                    previousLabel={<span>&lt;</span>}
+                    nextLabel={<span>&gt;</span>}
+                  />
+                </nav>
+              }
             </div>
             <div className="col-md-12 col-lg-4 sidebar">
 
