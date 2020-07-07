@@ -11,7 +11,7 @@
       <section class="site-section">
         <div class="container">
           <div class="row mb-4">
-            <div class="col-md-6">
+            <div class="col-md-6" <@studio.componentAttr component=contentModel ice=true />>
               <h1>${contentModel.headline_s!""}</h1>
               <p>${contentModel.message_t!""}</p>
             </div>
@@ -93,5 +93,7 @@
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
+
+    <@studio.toolSupport/>
   </body>
 </html>
