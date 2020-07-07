@@ -69,12 +69,17 @@ class SearchHelper {
     return result
   }
 
-  def searchPosts(categories, start = DEFAULT_START, rows = DEFAULT_ROWS, exclude = null) {
+  def searchPosts(categories, start = DEFAULT_START, rows = DEFAULT_ROWS, exclude = null, tags) {
     def q = "${POST_CONTENT_TYPE_QUERY}"
 
     if (categories) {
       def categoriesQuery = getFieldQueryWithMultipleValues("categories_o.item.key", categories)
       q = "${q} AND ${categoriesQuery}"
+    }
+
+    if(tags) {
+      def tagsQuery = getFieldQueryWithMultipleValues("tags_o.item.key", tags)
+      q = "${q} AND ${tagsQuery}"
     }
 
     if(exclude) {

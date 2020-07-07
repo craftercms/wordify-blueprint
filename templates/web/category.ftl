@@ -12,9 +12,16 @@
       <section class="site-section pt-5">
         <div class="container">
           <div class="row blog-entries">
-            <#if categoryId??>
+            <#if itemId??>
               <div class="col-md-12">
-                <h2 class="mb-4">Category: ${currentCategory.value}</h2>
+                <h2 class="mb-4">
+                  <#if requestURI == "/category">
+                    Category:
+                  <#else>
+                    Tag:
+                  </#if>
+                  ${currentItem.value}
+                </h2>
               </div>
 
               <div class="col-md-12 col-lg-8 main-content">
@@ -34,16 +41,22 @@
               </div>
             <#else>
               <div class="col-md-12">
-                <h2 class="mb-4">Categories:</h2>
+                <h2 class="mb-4">
+                  <#if requestURI == "/category">
+                    Categories:
+                  <#else>
+                    Tags:
+                  </#if>
+                </h2>
               </div>
 
               <div class="col-md-12 col-lg-8">
                 <div class="row">
-                  <#list categories as category>
+                  <#list items as item>
                     <div class="col-md-6 mb-4">
-                      <a class="blog-entry category-card" href="/category?id=${category.key}">
-                        <img class="background" src="${category.image_s}" alt="Food">
-                        <h2 class="title">${category.value}</h2>
+                      <a class="blog-entry category-card" href="<#if requestURI == '/category'>/category<#else>/tag</#if>?id=${item.key}">
+                        <img class="background" src="${item.image_s!'/static-assets/images/photography.png'}" alt="${item.value}">
+                        <h2 class="title">${item.value}</h2>
                       </a>
                     </div>
                   </#list>

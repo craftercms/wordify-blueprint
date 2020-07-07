@@ -202,7 +202,6 @@
     };
 
     const searchParams = new URLSearchParams(window.location.search);
-    let category = searchParams.get('id');
 
     const source = $('#post-results-template').html();
     const template = Handlebars.compile(source);
@@ -216,8 +215,10 @@
         rows: pagination.itemsPerPage,
       };
 
-      if (category) {
-        params.categories = category;
+      if (window.location.pathname === '/tag') {
+        params.tags = searchParams.get('id');
+      } else {
+        params.categories = searchParams.get('id');
       }
 
       const categories = $postsList.attr('data-categories') ?

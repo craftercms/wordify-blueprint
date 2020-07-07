@@ -17,17 +17,25 @@
 import org.craftercms.sites.wordify.TaxonomyHelper
 import org.craftercms.sites.wordify.SearchHelper
 
+def requestURI = request.requestURI
 def taxonomyHelper = new TaxonomyHelper(siteItemService)
-def categories = taxonomyHelper.getTaxonomy("categories")
 def searchHelper = new SearchHelper(elasticsearch, urlTransformationService)
 def recentPosts = searchHelper.searchPosts(null, 0, 5)
-def categoryId = params.id
+def itemId = params.id
+def taxonomy
 
-if (categoryId) {
-  def currentCategory = categories.find{ it.key.text == categoryId }
-  templateModel.categoryId = categoryId
-  templateModel.currentCategory = currentCategory
+if (requestURI == '/category') {
+  taxonomy = taxonomyHelper.getTaxonomy("categories")
+} else {
+  taxonomy = taxonomyHelper.getTaxonomy("tags")
 }
 
-templateModel.categories = categories
+if (itemId) {
+  def currentItem = taxonomy.find{ it.key.text == itemId }
+  templateModel.itemId = itemId
+  templateModel.currentItem = currentItem
+}
+
+templateModel.requestURI = requestURI
+templateModel.items = taxonomy
 templateModel.recentPosts = recentPosts.hits
