@@ -108,7 +108,7 @@ export function useFooter() {
           }
         `
       }).then(({ data }) => {
-        (!destroyedRef.current) && update({ footer: data.component_footer.items[0] });
+        (!destroyedRef.current) && update({ footer: parseDescriptor(data.component_footer.items)[0] });
       });
     }
   }, [update, footer, footerLoading]);

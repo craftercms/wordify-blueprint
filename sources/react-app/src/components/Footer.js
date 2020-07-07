@@ -16,13 +16,14 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useFooter } from '../shared/hooks';
+import { useFooter, usePencil } from '../shared/hooks';
 
 export default function Footer({ socialLinks }) {
   const footer = useFooter();
+  const ice =  usePencil({ model: footer });
 
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" {...ice}>
       <div className="container">
         <div className="row mb-5">
           <div className="col-md-4">
@@ -39,7 +40,7 @@ export default function Footer({ socialLinks }) {
                 <h3>{footer?.quickLinksTitle_s}</h3>
                 <ul className="list-unstyled">
                   {
-                    footer?.quickLinks_o.item.map((link, i) =>
+                    footer?.quickLinks_o.map((link, i) =>
                       <li key={i}>
                         <Link to={link.url_s}>{link.label_s}</Link>
                       </li>
