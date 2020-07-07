@@ -18,30 +18,30 @@ package org.craftercms.sites.wordify
 
 class TaxonomyHelper {
 
-    private static String TAXONOMY_PATH = "/site/taxonomy/NAME.xml"
+  private static String TAXONOMY_PATH = "/site/taxonomy/NAME.xml"
 
-    protected def siteItemService
+  protected def siteItemService
 
-    TaxonomyHelper(siteItemService) {
-        this.siteItemService = siteItemService
+  TaxonomyHelper(siteItemService) {
+    this.siteItemService = siteItemService
+  }
+
+  def getValues(String name) {
+    def path = TAXONOMY_PATH.replaceFirst(/NAME/, name)
+    def siteItem = siteItemService.getSiteItem(path)
+    if(siteItem) {
+      return siteItem.items.item.collect { it.key.text }
     }
+    return []
+  }
 
-    def getValues(String name) {
-        def path = TAXONOMY_PATH.replaceFirst(/NAME/, name)
-        def siteItem = siteItemService.getSiteItem(path)
-        if(siteItem) {
-            return siteItem.items.item.collect { it.key.text }
-        }
-        return []
+  def getTaxonomy(String name) {
+    def path = TAXONOMY_PATH.replaceFirst(/NAME/, name)
+    def siteItem = siteItemService.getSiteItem(path)
+    if(siteItem) {
+      return siteItem
     }
-
-    def getTaxonomy(String name) {
-        def path = TAXONOMY_PATH.replaceFirst(/NAME/, name)
-        def siteItem = siteItemService.getSiteItem(path)
-        if(siteItem) {
-            return siteItem.items.item
-        }
-        return []
-    }
+    return []
+  }
 
 }

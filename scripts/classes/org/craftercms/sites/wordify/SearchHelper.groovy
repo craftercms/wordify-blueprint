@@ -69,7 +69,7 @@ class SearchHelper {
     return result
   }
 
-  def searchPosts(categories, start = DEFAULT_START, rows = DEFAULT_ROWS, exclude = null, tags) {
+  def searchPosts(categories, start = DEFAULT_START, rows = DEFAULT_ROWS, exclude = null, tags = null) {
     def q = "${POST_CONTENT_TYPE_QUERY}"
 
     if (categories) {
@@ -115,6 +115,7 @@ class SearchHelper {
         def doc = hit.getSourceAsMap()
         def post = [:]
         post.title = doc.title_s
+        post.localId = doc.localId
         post.url = urlTransformationService.transform("storeUrlToRenderUrl", doc.localId)
         post.headline = doc.headline_s
         post.mainImage = doc.mainImage_s
@@ -146,6 +147,7 @@ class SearchHelper {
         post.authorBio = doc.authorBio_o
         post.categories = doc.categories_o
         post.tags = doc.tags_o
+        post.localId = doc.localId
         post.url = urlTransformationService.transform("storeUrlToRenderUrl", doc.localId)
         post.lastModifiedDate = doc.lastModifiedDate
 

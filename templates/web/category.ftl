@@ -51,8 +51,8 @@
               </div>
 
               <div class="col-md-12 col-lg-8">
-                <div class="row">
-                  <#list items as item>
+                <div class="row" <@studio.componentAttr component=taxonomy ice=true />>
+                  <#list taxonomy.items.item as item>
                     <div class="col-md-6 mb-4">
                       <a class="blog-entry category-card" href="<#if requestURI == '/category'>/category<#else>/tag</#if>?id=${item.key}">
                         <img class="background" src="${item.image_s!'/static-assets/images/photography.png'}" alt="${item.value}">
@@ -124,5 +124,6 @@
     </script>
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
+    <@studio.toolSupport/>
   </body>
 </html>

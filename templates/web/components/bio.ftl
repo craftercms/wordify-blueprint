@@ -1,4 +1,6 @@
-<div class="bio text-center">
+<#import "/templates/system/common/cstudio-support.ftl" as studio />
+
+<div class="bio text-center" <@studio.componentAttr component=contentModel ice=true />>
   <img src="${contentModel.profilePic_s}" alt="" class="img-fluid">
   <div class="bio-body">
     <h2>${contentModel.name_s}</h2>

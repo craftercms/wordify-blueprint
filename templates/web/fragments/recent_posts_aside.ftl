@@ -1,8 +1,11 @@
+<#import "/templates/system/common/cstudio-support.ftl" as studio />
+
 <h3 class="heading">Recent Posts</h3>
 <div class="post-entry-sidebar">
   <ul>
       <#list recentPosts as post>
-        <li>
+        <#assign postItem = siteItemService.getSiteItem(post.localId) />
+        <li <@studio.componentAttr component=postItem ice=true />>
           <a href="${post.url}">
             <img src="${post.mainImage}" alt="Image placeholder" class="mr-4">
             <div class="text">

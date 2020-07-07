@@ -37,5 +37,5 @@ if (itemId) {
 }
 
 templateModel.requestURI = requestURI
-templateModel.items = taxonomy
+templateModel.taxonomy = taxonomy
 templateModel.recentPosts = recentPosts.hits

@@ -1,4 +1,6 @@
-<div class="owl-carousel owl-theme home-slider">
+<#import "/templates/system/common/cstudio-support.ftl" as studio />
+
+<div class="owl-carousel owl-theme home-slider" <@studio.componentAttr component=contentModel ice=true />>
   <#if contentModel.posts_o?? && contentModel.posts_o.item??>
     <#list contentModel.posts_o.item as slide>
       <#assign post = siteItemService.getSiteItem(slide.key) />
@@ -8,7 +10,7 @@
         <a href="${url?replace('.html', '')}"
            class="a-block d-flex align-items-center height-lg"
            style="background-image: url('${post.mainImage_s!""}'); ">
-          <div class="text half-to-full">
+          <div class="text half-to-full" <@studio.componentAttr component=post ice=true />>
             <#list post.categories_o.item as category>
               <span class="category mb-5">${category.value_smv}</span>
             </#list>

@@ -114,5 +114,7 @@
     </script>
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
+
+    <@studio.toolSupport/>
   </body>
 </html>
