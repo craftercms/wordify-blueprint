@@ -24,7 +24,6 @@ import DropZone from '../shared/DropZone';
 import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
-import { useRecentPosts } from '../shared/hooks';
 import ReactPaginate from 'react-paginate';
 import { fetchQuery } from '../relayEnvironment';
 import { postsQuery } from '../shared/queries.graphql';
