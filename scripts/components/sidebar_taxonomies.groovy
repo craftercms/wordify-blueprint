@@ -20,5 +20,5 @@ def taxonomyHelper = new TaxonomyHelper(siteItemService)
 def categories = taxonomyHelper.getTaxonomy("categories")
 def tags = taxonomyHelper.getTaxonomy("tags")
 
-templateModel.categories = categories.items.item
-templateModel.tags = tags.items.item
+templateModel.categories = categories
+templateModel.tags = tags

@@ -8,10 +8,10 @@
   <#assign url="/tag"/>
 </#if>
 
-<div <@studio.iceAttr component=contentModel />>
+<div>
   <h3 class="heading">${contentModel.title_s}</h3>
-  <ul class="${contentModel.taxonomy_s}">
-      <#list taxonomy as item>
+  <ul class="${contentModel.taxonomy_s}" <@studio.iceAttr component=taxonomy />>
+      <#list taxonomy.items.item as item>
         <li><a href="${url}?id=${item.key}">${item.value}</a></li>
       </#list>
   </ul>

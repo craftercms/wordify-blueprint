@@ -31,7 +31,7 @@ if (requestURI == '/category') {
 }
 
 if (itemId) {
-  def currentItem = taxonomy.find{ it.key.text == itemId }
+  def currentItem = taxonomy.items.item.find{ it.key.text == itemId }
   templateModel.itemId = itemId
   templateModel.currentItem = currentItem
 }
