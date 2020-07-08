@@ -128,6 +128,18 @@ graphql`
         }
       }
     }
+    categories_o {
+      item {
+        key(filter: {or: $categoriesFilter})
+        value_smv
+      }
+    }
+    tags_o {
+      item {
+        value_smv
+        key(filter: {or: $tagsFilter})
+      }
+    }
   }
 `;
 
@@ -229,6 +241,9 @@ const byUrlQuery = graphql`
     $includePosts: Boolean = true
     $postsLimit: Int = 8
     $postsOffset: Int = 0
+    $exclude: String = ""
+    $categoriesFilter: [TextFilters!] = []
+    $tagsFilter: [TextFilters!] = []
   ) {
     content: contentItems {
       total
@@ -240,7 +255,7 @@ const byUrlQuery = graphql`
         )
         content__type(
           filter:{
-            regex: ".*(bio|post|entry|category|contact|about|search).*"
+            regex: ".*(bio|post|entry|category|tag|contact|about|search).*"
           }
         ) @skip (if: $skipContentType)
         ...on page_entry {
@@ -260,7 +275,48 @@ const byUrlQuery = graphql`
         }
       }
     }
-    posts: page_post(limit: $postsLimit, offset: $postsOffset) @include(if: $includePosts) {
+    levelDescriptors: component_level__descriptor {
+      items {
+        siteTitle_s
+        file__name
+        websiteShortname_s
+        socialLinks_o {
+          item {
+            socialNetwork_s
+            label_s
+            url_s
+          }
+        }
+      }
+    }
+    posts: page_post(
+      limit: $postsLimit,
+      offset: $postsOffset,
+      sortOrder: DESC,
+      sortBy: "lastModifiedDate_dt"
+    ) @include(if: $includePosts) {
+      total
+      items {
+        ...byUrlQueryPostPage
+      }
+    }
+  }
+`;
+
+export const postsQuery = graphql`
+  query postsQuery(
+    $limit: Int = 10
+    $offset: Int = 0
+    $exclude: String = ""
+    $categoriesFilter: [TextFilters!] = []
+    $tagsFilter: [TextFilters!] = []
+  ) {
+    posts: page_post(
+      limit: $limit,
+      offset: $offset,
+      sortOrder: DESC,
+      sortBy: "lastModifiedDate_dt"
+    ) {
       total
       items {
         ...byUrlQueryPostPage
