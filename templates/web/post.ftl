@@ -13,7 +13,7 @@
       <section class="site-section py-lg">
         <div class="container">
 
-          <div class="row blog-entries <#--element-animate-->">
+          <div class="row blog-entries element-animate">
             <div class="col-md-12 col-lg-8 main-content">
               <img src="${contentModel.mainImage_s}" alt="" class="img-fluid mb-5">
               <div class="post-meta">

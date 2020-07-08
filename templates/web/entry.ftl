@@ -38,7 +38,7 @@
                   <#assign postItem = siteItemService.getSiteItem(post.localId) />
                   <div class="col-md-6" <@studio.componentAttr component=postItem ice=true />>
                     <a href="${post.url}"
-                       class="blog-entry <#-- element-animate -->" data-animate-effect="fadeIn">
+                       class="blog-entry element-animate" data-animate-effect="fadeIn">
                       <img src="${post.mainImage}" alt="Image placeholder">
                       <div class="blog-content-body">
                         <div class="post-meta">

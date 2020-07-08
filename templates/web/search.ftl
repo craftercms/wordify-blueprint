@@ -41,7 +41,7 @@
                   <#assign postItem = siteItemService.getSiteItem(post.localId) />
                   <div class="post-entry-horizontal" <@studio.componentAttr component=postItem ice=true />>
                     <a href="${post.url}">
-                      <div class="image <#-- element-animate -->" data-animate-effect="fadeIn" style="background-image: url(${post.mainImage});"></div>
+                      <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(${post.mainImage});"></div>
                       <span class="text">
                         <div class="post-meta">
                           <span class="author mr-2">
