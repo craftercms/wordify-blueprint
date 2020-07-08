@@ -19,4 +19,18 @@ import org.craftercms.sites.wordify.SearchHelper
 def searchHelper = new SearchHelper(elasticsearch, urlTransformationService)
 def recentPosts = searchHelper.searchPosts(null, 0, 5)
 
+def userTerm = params.q ? params.q : ''
+def page = (params.page && Integer.parseInt(params.page) > 0) ? (Integer.parseInt(params.page) - 1) : 0
+
+def postsPerPage = 8
+def results = searchHelper.search(userTerm, page * postsPerPage, postsPerPage)
+
+def pagination = [:]
+
+pagination.totalResults = results.total instanceof String ? results.total : results.total.value
+pagination.pages = Math.ceil(pagination.totalResults/postsPerPage)
+pagination.currentPage = page + 1
+
+templateModel.pagination = pagination
 templateModel.recentPosts = recentPosts.hits
+templateModel.searchResults = results.hits

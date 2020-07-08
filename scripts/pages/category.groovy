@@ -32,8 +32,22 @@ if (requestURI == '/category') {
 
 if (itemId) {
   def currentItem = taxonomy.items.item.find{ it.key.text == itemId }
+  def page = (params.page && Integer.parseInt(params.page) > 0) ? (Integer.parseInt(params.page) - 1) : 0
+  def postsPerPage = 8
+  def categoryFilter = requestURI == '/category' ? itemId : null
+  def tagFilter = requestURI == '/tag' ? itemId : null
+
+  def paginatedPosts = searchHelper.searchPosts(categoryFilter, page * postsPerPage, postsPerPage, null, tagFilter)
+  def pagination = [:]
+
+  pagination.totalPosts = paginatedPosts.total instanceof String ? paginatedPosts.total : paginatedPosts.total.value
+  pagination.pages = Math.ceil(pagination.totalPosts/postsPerPage)
+  pagination.currentPage = page + 1
+
   templateModel.itemId = itemId
   templateModel.currentItem = currentItem
+  templateModel.pagination = pagination
+  templateModel.paginatedPosts = paginatedPosts.hits
 }
 
 templateModel.requestURI = requestURI

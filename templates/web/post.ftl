@@ -13,8 +13,7 @@
       <section class="site-section py-lg">
         <div class="container">
 
-          <div class="row blog-entries element-animate">
-
+          <div class="row blog-entries <#--element-animate-->">
             <div class="col-md-12 col-lg-8 main-content">
               <img src="${contentModel.mainImage_s}" alt="" class="img-fluid mb-5">
               <div class="post-meta">
@@ -101,20 +100,30 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2 class="mb-3 ">Related Post</h2>
+          <h2 class="mb-3 ">Related Posts</h2>
         </div>
       </div>
-      <div
-        class="row" id="postsList"
-        data-categories="<#list contentModel.categories_o.item as category>${category.key}<#if category_has_next>,</#if></#list>"
-        data-exclude="${contentModel.objectId}"
-      >
+      <div class="row">
+        <#list relatedPosts as post>
+          <#assign postItem = siteItemService.getSiteItem(post.localId) />
+          <div class="col-md-6 col-lg-4" <@studio.componentAttr component=postItem ice=true />>
+            <a href="${post.url}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('${post.mainImage}'); ">
+              <div class="text">
+                <div class="post-meta">
+                    <#list post.categories.item as category>
+                      <span class="category">${category.value_smv}</span>
+                    </#list>
+                  <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
+                </div>
+                <h3>${post.headline}</h3>
+              </div>
+            </a>
+          </div>
+        </#list>
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-          <nav aria-label="Page navigation" class="text-center">
-            <div id="postsPagination"></div>
-          </nav>
+          <#include "/templates/web/fragments/pagination.ftl" />
         </div>
       </div>
     </div>
@@ -129,24 +138,6 @@
 
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
-
-    <script id="post-results-template" type="text/x-handlebars-template">
-      {{#each results}}
-      <div class="col-md-6 col-lg-4">
-        <a href="{{url}}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('{{mainImage}}'); ">
-          <div class="text">
-            <div class="post-meta">
-              {{#each categories}}
-              <span class="category">{{value_smv}}</span>
-              {{/each}} •
-              <span class="mr-2">{{lastModifiedDate}} </span>
-            </div>
-            <h3>{{headline}}</h3>
-          </div>
-        </a>
-      </div>
-      {{/each}}
-    </script>
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
@@ -171,5 +162,7 @@
     <script id="dsq-count-scr" src="//${contentModel.websiteShortname_s}.disqus.com/count.js" async></script>
 
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    <@studio.toolSupport/>
   </body>
 </html>

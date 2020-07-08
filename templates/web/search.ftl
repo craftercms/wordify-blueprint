@@ -34,9 +34,32 @@
           </div>
           <div class="row blog-entries">
             <div class="col-md-12 col-lg-8 main-content">
-              <div class="row" id="searchResults"></div>
+              <div class="row">
+                <p>${pagination.totalResults} result<#if pagination.totalResults gt 1>s</#if> found</p>
 
-              <div id="searchPagination"></div>
+                <#list searchResults as post>
+                  <#assign postItem = siteItemService.getSiteItem(post.localId) />
+                  <div class="post-entry-horizontal" <@studio.componentAttr component=postItem ice=true />>
+                    <a href="${post.url}">
+                      <div class="image <#-- element-animate -->" data-animate-effect="fadeIn" style="background-image: url(${post.mainImage});"></div>
+                      <span class="text">
+                        <div class="post-meta">
+                          <span class="author mr-2">
+                            <img src="${post.authorBio.item.component.profilePic_s}" alt="${post.authorBio.item.component.name_s}">
+                              ${post.authorBio.item.component.name_s}</span>&bullet;
+                          <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span> &bullet;
+                            <#list post.categories.item as category>
+                              <span class="mr-2">${category.value_smv}</span>
+                            </#list>
+                        </div>
+                        <h2>${post.headline}</h2>
+                      </span>
+                    </a>
+                  </div>
+                </#list>
+              </div>
+
+              <#include "/templates/web/fragments/pagination.ftl" />
             </div>
             <!-- END main-content -->
 
@@ -87,26 +110,8 @@
       </svg>
     </div>
 
-    <script id="search-results-template" type="text/x-handlebars-template">
-      {{#each results}}
-      <div class="post-entry-horizontal">
-        <a href="{{url}}">
-          <div class="image"  style="background-image: url('{{mainImage}}');"></div>
-          <span class="text">
-            <div class="post-meta">
-              <span class="author mr-2">
-                <img src="{{authorImage}}" alt="">
-                {{authorName}}
-              </span>• <span class="mr-2">{{lastModifiedDate}}</span>
-            </div>
-            <h2>{{headline}}</h2>
-          </span>
-        </a>
-      </div>
-      {{/each}}
-    </script>
-
     <#include "/templates/web/fragments/bottom_include.ftl"/>
-    <script src="/static-assets/js/search.js"></script>
+
+    <@studio.toolSupport/>
   </body>
 </html>

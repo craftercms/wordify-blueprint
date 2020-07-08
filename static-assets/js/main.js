@@ -183,102 +183,6 @@
     }, 3000);
   };
 
-	const $postsList = $('#postsList');
-	if($postsList.length) {
-    const pagination = {
-      initialized: false,
-      totalResults: 0,
-      itemsPerPage: $postsList.attr('data-numItems') ? $postsList.attr('data-numItems') : 10,
-      defaultOpts: {
-        totalPages: 1,
-        first: null,
-        last: null,
-        prev: '<',
-        next: '>',
-        prevClass: 'page-item',
-        nextClass: 'page-item',
-        pageClass: 'page-item'
-      }
-    };
-
-    const searchParams = new URLSearchParams(window.location.search);
-
-    const source = $('#post-results-template').html();
-    const template = Handlebars.compile(source);
-
-    const getPosts = (page = 0) => {
-      $postsList.empty();
-      $('#postsPagination').hide();
-
-      const params = {
-        start: page * pagination.itemsPerPage,
-        rows: pagination.itemsPerPage,
-      };
-
-      if (window.location.pathname === '/tag') {
-        params.tags = searchParams.get('id');
-      } else {
-        params.categories = searchParams.get('id');
-      }
-
-      const categories = $postsList.attr('data-categories') ?
-        $postsList.attr('data-categories').split(',') :
-        null;
-
-      if (categories) {
-        params.categories = categories;
-      }
-
-      const exclude = $postsList.attr('data-exclude') ?
-        $postsList.attr('data-exclude') :
-        null;
-
-      if (exclude) {
-        params.exclude = exclude;
-      }
-
-      $.get('/api/posts.json', params).done(function(data) {
-        pagination.totalResults = typeof data.total === 'object' ? data.total.value : data.total;
-
-        if (data.hits === null) {
-          data.hits = [];
-        }
-
-        const results = data.hits.map((result) => {
-          let date = new Date(result.lastModifiedDate).toLocaleDateString("en-US",
-            { month: 'short', day: 'numeric', year: 'numeric' });
-
-          return {
-            url: result.url,
-            headline: result.headline,
-            mainImage: result.mainImage,
-            authorName: result.authorBio.item.component.name_s,
-            authorImage: result.authorBio.item.component.profilePic_s,
-            lastModifiedDate: date,
-            categories: result.categories.item
-          }
-        });
-
-        const html = template({ results });
-        $postsList.append(html);
-
-        const totalPages = Math.ceil(pagination.totalResults/pagination.itemsPerPage);
-        if (!pagination.initialized && totalPages > 1) {
-          $('#postsPagination').show();
-          $('#postsPagination').twbsPagination({
-            ...pagination.defaultOpts,
-            totalPages: totalPages,
-            onPageClick: function(evt, page) {
-              getPosts(page -1);
-            }
-          })
-        }
-      });
-    }
-
-    getPosts();
-  }
-
   $(document).on('submit','#contactForm',function(e) {
     e.preventDefault();
     const formData = {
@@ -295,6 +199,12 @@
       showToast('There was an error sending the message', 'danger');
     });
   });
+
+	window.appendParam = function(name, value) {
+	  const url = new URL(window.location.href);
+	  url.searchParams.set(name, value);
+    window.location.href = url.toString();
+  }
 
 
 })(jQuery);

@@ -33,15 +33,31 @@
           </div>
           <div class="row blog-entries">
             <div class="col-md-12 col-lg-8 main-content">
-              <div class="row" id="postsList"></div>
-              <div class="row mt-5">
-                <div class="col-md-12 text-center">
-                  <nav aria-label="Page navigation" class="text-center">
-                    <div id="postsPagination"></div>
-                  </nav>
-                </div>
+              <div class="row">
+                <#list paginatedPosts as post>
+                  <#assign postItem = siteItemService.getSiteItem(post.localId) />
+                  <div class="col-md-6" <@studio.componentAttr component=postItem ice=true />>
+                    <a href="${post.url}"
+                       class="blog-entry <#-- element-animate -->" data-animate-effect="fadeIn">
+                      <img src="${post.mainImage}" alt="Image placeholder">
+                      <div class="blog-content-body">
+                        <div class="post-meta">
+                          <span class="author mr-2"><img src="${post.authorBio.item.component.profilePic_s}" alt="Colorlib">
+                              ${post.authorBio.item.component.name_s}</span>&bullet;
+                          <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span>
+                        </div>
+                        <h2>${post.headline}</h2>
+                      </div>
+                    </a>
+                  </div>
+                </#list>
               </div>
 
+              <div class="row mt-5">
+                <div class="col-md-12 text-center">
+                  <#include "/templates/web/fragments/pagination.ftl" />
+                </div>
+              </div>
 
             </div>
 
@@ -93,25 +109,6 @@
         <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214" />
       </svg>
     </div>
-
-    <script id="post-results-template" type="text/x-handlebars-template">
-      {{#each results}}
-      <div class="col-md-6">
-        <a href="{{url}}"
-           class="blog-entry">
-          <img src="{{mainImage}}" alt="Image placeholder">
-          <div class="blog-content-body">
-            <div class="post-meta">
-              <span class="author mr-2"><img src="{{authorImage}}" alt="Colorlib">
-                {{authorName}}</span>&bullet;
-              <span class="mr-2">{{lastModifiedDate}}</span>
-            </div>
-            <h2>{{headline}}</h2>
-          </div>
-        </a>
-      </div>
-      {{/each}}
-    </script>
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
