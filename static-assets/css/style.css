@@ -511,7 +511,9 @@ header {
 .blog-entries .category-card {
   display: block;
   position: relative;
-  margin: 0; }
+  margin: 0;
+  height: 350px;
+  background-color: #969696; }
   .blog-entries .category-card .background {
     max-width: 100%;
     filter: brightness(0.6); }

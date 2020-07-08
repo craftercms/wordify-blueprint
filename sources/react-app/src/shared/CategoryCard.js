@@ -23,12 +23,14 @@ export default function (props) {
     isTag
   } = props;
 
-  const backgroundImage = category.image_s ?? "/static-assets/images/photography.png";
   const link = isTag ? 'tag' : 'category'
 
   return(
     <Link to={`/${link}/${category.key}`} className="blog-entry category-card">
-      <img className="background" src={backgroundImage} alt={category.value}/>
+      {
+        category.image_s &&
+        <img className="background" src={category.image_s} alt={category.value}/>
+      }
       <h2 className="title">{category.value}</h2>
     </Link>
   )

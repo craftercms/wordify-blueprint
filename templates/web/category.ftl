@@ -23,7 +23,7 @@
                   ${currentItem.value}
                 </h2>
               </div>
-                
+
               <div class="col-md-12 col-lg-8 main-content">
                 <div class="row mb-5 mt-5">
                   <div class="col-md-12">
@@ -72,7 +72,9 @@
                   <#list taxonomy.items.item as item>
                     <div class="col-md-6 mb-4">
                       <a class="blog-entry category-card" href="<#if requestURI == '/category'>/category<#else>/tag</#if>?id=${item.key}">
-                        <img class="background" src="${item.image_s!'/static-assets/images/photography.png'}" alt="${item.value}">
+                        <#if item.image_s??>
+                          <img class="background" src="${item.image_s!''}" alt="${item.value}">
+                        </#if>
                         <h2 class="title">${item.value}</h2>
                       </a>
                     </div>
