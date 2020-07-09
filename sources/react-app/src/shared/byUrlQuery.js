@@ -147,7 +147,7 @@ graphql`
 graphql`
   fragment byUrlQueryContentItemFields on ContentItem {
     guid: objectId
-    path: localId
+    path: localId(filter: {not: [{equals: $exclude}]})
     contentTypeId: content__type
     dateCreated: createdDate_dt
     dateModified: lastModifiedDate_dt
@@ -295,28 +295,6 @@ const byUrlQuery = graphql`
       sortOrder: DESC,
       sortBy: "lastModifiedDate_dt"
     ) @include(if: $includePosts) {
-      total
-      items {
-        ...byUrlQueryPostPage
-      }
-    }
-  }
-`;
-
-export const postsQuery = graphql`
-  query postsQuery(
-    $limit: Int = 10
-    $offset: Int = 0
-    $exclude: String = ""
-    $categoriesFilter: [TextFilters!] = []
-    $tagsFilter: [TextFilters!] = []
-  ) {
-    posts: page_post(
-      limit: $limit,
-      offset: $offset,
-      sortOrder: DESC,
-      sortBy: "lastModifiedDate_dt"
-    ) {
       total
       items {
         ...byUrlQueryPostPage
