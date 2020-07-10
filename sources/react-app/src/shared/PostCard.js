@@ -57,6 +57,7 @@ export default function (props) {
   } = props;
   const slug = model.craftercms.path
     .replace(/(\/site\/components)|(index\.xml)/g, '')
+    .replace(/(\/site\/website)|(index\.xml)/g, '')
     .replace(/(\/\/)/g, '/')
     .replace('post/', 'articles/')
     .replace('.xml', '/');
