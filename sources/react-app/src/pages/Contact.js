@@ -22,6 +22,14 @@ import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import { ajax } from 'rxjs/ajax';
 import { catchError } from 'rxjs/operators';
 import Toast from '../components/Toast';
+import { defineMessages, useIntl } from 'react-intl';
+
+const translations = defineMessages({
+  contactSuccess: {
+    id: 'contact.contactSuccess',
+    defaultMessage: 'Message successfully sent!'
+  }
+});
 
 const initialFormData = {
   name: '',
@@ -49,6 +57,7 @@ export default function (props) {
     }
   } = props;
 
+  const { formatMessage } = useIntl();
   const [formData, setFormData] = useState(initialFormData);
   const [toastData, setToastData] = useState(initialToastData);
   const showToast = (text, type) => {
@@ -85,7 +94,7 @@ export default function (props) {
         showToast('There was an error sending the message', 'danger');
       } else {
         setFormData(initialFormData);
-        showToast('Message successfully sent!', 'success');
+        showToast(formatMessage(translations[response.response.messageKey]), 'success');
       }
     });
   }
