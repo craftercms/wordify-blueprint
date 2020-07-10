@@ -28,7 +28,6 @@ import ReactPaginate from 'react-paginate';
 import { fetchQuery } from '../relayEnvironment';
 import { postsQuery } from '../shared/queries.graphql';
 import { parseDescriptor } from '@craftercms/content';
-import { usePencil } from '../shared/hooks';
 
 export default function (props) {
   const {
@@ -52,7 +51,6 @@ export default function (props) {
     itemsPerPage: 10,
     currentPage: 0
   });
-  const ice =  usePencil({ model });
 
   useEffect(() => {
     fetchQuery(
@@ -74,7 +72,7 @@ export default function (props) {
   const modelPath = model.craftercms.path;
   return (
     <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
-      <section className="site-section pt-5" {...ice}>
+      <section className="site-section pt-5">
         <div className="container">
           <div className="row blog-entries">
             <div className="col-md-12 col-lg-8 main-content">
