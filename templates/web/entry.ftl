@@ -34,7 +34,7 @@
           <div class="row blog-entries">
             <div class="col-md-12 col-lg-8 main-content">
               <div class="row">
-                <#list paginatedPosts as post>
+                <#list postsInfo.paginatedPosts as post>
                   <#assign postItem = siteItemService.getSiteItem(post.localId) />
                   <div class="col-md-6" <@studio.componentAttr component=postItem ice=true />>
                     <a href="${post.url}"
@@ -55,6 +55,7 @@
 
               <div class="row mt-5">
                 <div class="col-md-12 text-center">
+                  <#assign pagination = postsInfo.pagination/>
                   <#include "/templates/web/fragments/pagination.ftl" />
                 </div>
               </div>

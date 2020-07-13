@@ -3,7 +3,7 @@
 <h3 class="heading">Recent Posts</h3>
 <div class="post-entry-sidebar">
   <ul>
-      <#list recentPosts as post>
+      <#list postsInfo.recentPosts as post>
         <#assign postItem = siteItemService.getSiteItem(post.localId) />
         <li <@studio.componentAttr component=postItem ice=true />>
           <a href="${post.url}">

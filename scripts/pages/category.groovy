@@ -20,7 +20,6 @@ import org.craftercms.sites.wordify.SearchHelper
 def requestURI = request.requestURI
 def taxonomyHelper = new TaxonomyHelper(siteItemService)
 def searchHelper = new SearchHelper(elasticsearch, urlTransformationService)
-def recentPosts = searchHelper.searchPosts(null, 0, 5)
 def itemId = params.id
 def taxonomy
 
@@ -37,19 +36,12 @@ if (itemId) {
   def categoryFilter = requestURI == '/category' ? itemId : null
   def tagFilter = requestURI == '/tag' ? itemId : null
 
-  def paginatedPosts = searchHelper.searchPosts(categoryFilter, page * postsPerPage, postsPerPage, null, tagFilter)
-  def pagination = [:]
-
-  pagination.totalPosts = paginatedPosts.total instanceof String ? paginatedPosts.total : paginatedPosts.total.value
-  pagination.pages = Math.ceil(pagination.totalPosts/postsPerPage)
-  pagination.currentPage = page + 1
-
   templateModel.itemId = itemId
   templateModel.currentItem = currentItem
-  templateModel.pagination = pagination
-  templateModel.paginatedPosts = paginatedPosts.hits
+  templateModel.postsInfo = searchHelper.getPostsInfo(page, postsPerPage, categoryFilter, tagFilter)
+} else {
+  templateModel.postsInfo = searchHelper.getPostsInfo()
 }
 
 templateModel.requestURI = requestURI
 templateModel.taxonomy = taxonomy
-templateModel.recentPosts = recentPosts.hits

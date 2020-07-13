@@ -69,7 +69,7 @@ class SearchHelper {
     return result
   }
 
-  def searchPosts(categories, start = DEFAULT_START, rows = DEFAULT_ROWS, exclude = null, tags = null) {
+  def searchPosts(categories = null, start = DEFAULT_START, rows = DEFAULT_ROWS, exclude = null, tags = null) {
     def q = "${POST_CONTENT_TYPE_QUERY}"
 
     if (categories) {
@@ -104,6 +104,27 @@ class SearchHelper {
     }
 
     return result
+  }
+
+  def getPostsInfo(page = null, postsPerPage = null, categories = null, tags = null, exclude = null) {
+    def postsInfo = [:]
+    def recentPosts = searchPosts(null, 0, 5)
+
+    if (page != null) {
+      def pagination = [:]
+      def posts = searchPosts(categories, page * postsPerPage, postsPerPage, exclude, tags)
+
+      pagination.totalPosts = posts.total instanceof String ? posts.total : posts.total.value
+      pagination.pages = Math.ceil(pagination.totalPosts/postsPerPage)
+      pagination.currentPage = page + 1
+
+      postsInfo.paginatedPosts = posts.hits
+      postsInfo.pagination = pagination
+    }
+
+    postsInfo.recentPosts = recentPosts.hits
+
+    return postsInfo
   }
 
   private def processUserSearchResults(result) {

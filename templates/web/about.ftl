@@ -33,7 +33,7 @@
                   <h2>Latest Posts</h2>
                 </div>
                 <div class="col-md-12">
-                  <#list paginatedPosts as post>
+                  <#list postsInfo.paginatedPosts as post>
                     <#assign postItem = siteItemService.getSiteItem(post.localId) />
                     <div class="post-entry-horizontal" <@studio.componentAttr component=postItem ice=true />>
                       <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">
@@ -55,6 +55,7 @@
 
               <div class="row">
                 <div class="col-md-12 text-center">
+                  <#assign pagination = postsInfo.pagination/>
                   <#include "/templates/web/fragments/pagination.ftl" />
                 </div>
               </div>

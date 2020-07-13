@@ -104,7 +104,7 @@
         </div>
       </div>
       <div class="row">
-        <#list relatedPosts as post>
+        <#list postsInfo.paginatedPosts as post>
           <#assign postItem = siteItemService.getSiteItem(post.localId) />
           <div class="col-md-6 col-lg-4" <@studio.componentAttr component=postItem ice=true />>
             <a href="${post.url}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('${post.mainImage}'); ">
@@ -123,6 +123,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
+          <#assign pagination = postsInfo.pagination/>
           <#include "/templates/web/fragments/pagination.ftl" />
         </div>
       </div>
