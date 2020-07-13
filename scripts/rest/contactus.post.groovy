@@ -25,7 +25,7 @@ try {
     logger.info ("---CONTACT FORM DATA---")
     logger.info (data)
 
-    result = [success: true, messageKey: 'contactSuccess', message: "Thank you!"]
+    result = [success: true, messageKey: 'contactSuccess']
 } catch(e) {
     throw new HttpStatusCodeException(500, "Internal Server Error", e)
 }
