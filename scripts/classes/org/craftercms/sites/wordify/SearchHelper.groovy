@@ -114,7 +114,7 @@ class SearchHelper {
       def pagination = [:]
       def posts = searchPosts(categories, page * postsPerPage, postsPerPage, exclude, tags)
 
-      pagination.totalPosts = posts.total instanceof String ? posts.total : posts.total.value
+      pagination.totalPosts = posts.total instanceof String ? posts.total : posts.total.value.toDouble()
       pagination.pages = Math.ceil(pagination.totalPosts/postsPerPage)
       pagination.currentPage = page + 1
 

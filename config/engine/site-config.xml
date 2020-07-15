@@ -23,7 +23,7 @@
   <version>2</version>
   <!-- SPA Config: -->
   <spa>
-    <enabled>true</enabled>
+    <enabled>false</enabled>
     <viewName>/templates/web/app.ftl</viewName>
   </spa>
   <!-- CORS Properties -->
