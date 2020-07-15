@@ -2,7 +2,7 @@
 <page>
   <content-type>/page/post</content-type>
   <display-template>/templates/web/post.ftl</display-template>
-  <no-template-required/>
+  <no-template-required />
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>2db5</objectGroupId>
   <objectId>2db50dee-81f1-e1df-d6a9-45bfc076acef</objectId>
@@ -11,7 +11,7 @@
   <internal-name>Video Games of Your Youth</internal-name>
   <navLabel>How to Find the Video Games of Your Youth</navLabel>
   <pageTitle_s>How to Find the Video Games of Your Youth</pageTitle_s>
-  <headline_s>How to Find the Video Games of Your Youth</headline_s>
+  <headline_s tokenized="true">How to Find the Video Games of Your Youth</headline_s>
   <placeInNav>false</placeInNav>
   <orderDefault_f>-1</orderDefault_f>
   <mainImage_s>/static-assets/images/img_1.jpg</mainImage_s>
@@ -26,7 +26,7 @@
       <component id="543ab594-1eb0-4d66-6536-8fb3c0b90b62">
         <content-type>/component/rich_text</content-type>
         <display-template>/templates/web/components/rich_text.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>543a</objectGroupId>
         <objectId>543ab594-1eb0-4d66-6536-8fb3c0b90b62</objectId>
@@ -48,7 +48,7 @@
       <component id="efd7b2b1-5c7c-d5b4-c909-f4024f5c5825">
         <content-type>/component/responsive_columns</content-type>
         <display-template>/templates/web/components/responsive_columns.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>efd7</objectGroupId>
         <objectId>efd7b2b1-5c7c-d5b4-c909-f4024f5c5825</objectId>
@@ -62,7 +62,7 @@
                 <component id="fa35dbbf-78ac-60e5-7b86-646937f59c96">
                   <content-type>/component/rich_text</content-type>
                   <display-template>/templates/web/components/rich_text.ftl</display-template>
-                  <no-template-required/>
+                  <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
                   <objectGroupId>543a</objectGroupId>
                   <objectId>fa35dbbf-78ac-60e5-7b86-646937f59c96</objectId>
@@ -91,7 +91,7 @@
                 <component id="fa35dbbf-78ac-60e5-7b86-646937f59c97">
                   <content-type>/component/rich_text</content-type>
                   <display-template>/templates/web/components/rich_text.ftl</display-template>
-                  <no-template-required/>
+                  <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
                   <objectGroupId>543a</objectGroupId>
                   <objectId>fa35dbbf-78ac-60e5-7b86-646937f59c97</objectId>
@@ -121,14 +121,34 @@
       </component>
     </item>
   </content_o>
-  <pageDescription_s/>
-  <blurb_t/>
+  <pageDescription_s />
+  <blurb_t />
   <authorBio_o item-list="true">
     <item datasource="bios">
       <key>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
-      <value>David Craig Bio</value>
+      <value>John Doe's Bio</value>
       <include>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
   </authorBio_o>
+  <categories_o item-list="true">
+    <item>
+      <key>lifestyle</key>
+      <value_smv>Lifestyle</value_smv>
+    </item>
+    <item>
+      <key>adventure</key>
+      <value_smv>Adventure</value_smv>
+    </item>
+  </categories_o>
+  <tags_o item-list="true">
+    <item>
+      <key>adventure</key>
+      <value_smv>Adventure</value_smv>
+    </item>
+    <item>
+      <key>lifestyle</key>
+      <value_smv>Lifestyle</value_smv>
+    </item>
+  </tags_o>
 </page>

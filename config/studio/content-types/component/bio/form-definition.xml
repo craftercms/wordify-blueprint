@@ -1,11 +1,11 @@
 <form>
   <title>Bio</title>
-  <description/>
+  <description />
   <objectType>component</objectType>
   <content-type>/component/bio</content-type>
   <imageThumbnail>bio.png</imageThumbnail>
   <quickCreate>false</quickCreate>
-  <quickCreatePath/>
+  <quickCreatePath />
   <properties>
     <property>
       <name>display-template</name>
@@ -16,7 +16,7 @@
     <property>
       <name>no-template-required</name>
       <label>No Template Required</label>
-      <value/>
+      <value />
       <type>boolean</type>
     </property>
     <property>
@@ -29,17 +29,17 @@
   <sections>
     <section>
       <title>Bio Properties</title>
-      <description/>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>auto-filename</type>
           <id>file-name</id>
-          <iceId/>
+          <iceId />
           <title>Component ID</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -53,7 +53,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -63,11 +63,11 @@
         <field>
           <type>input</type>
           <id>internal-name</id>
-          <iceId/>
+          <iceId />
           <title>Internal Name</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -92,17 +92,17 @@
     </section>
     <section>
       <title>Content Fields</title>
-      <description/>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>input</type>
           <id>name_s</id>
-          <iceId/>
+          <iceId />
           <title>Name</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -116,7 +116,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -141,11 +141,11 @@
         <field>
           <type>textarea</type>
           <id>bio_t</id>
-          <iceId/>
+          <iceId />
           <title>Bio</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>cols</name>
@@ -169,7 +169,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -184,15 +184,15 @@
         <field>
           <type>checkbox</type>
           <id>showLinkButton_b</id>
-          <iceId/>
+          <iceId />
           <title>Show Link Button</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -207,11 +207,11 @@
         <field>
           <type>input</type>
           <id>linkButtonText_s</id>
-          <iceId/>
+          <iceId />
           <title>Link Button Text</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -225,7 +225,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -250,11 +250,11 @@
         <field>
           <type>input</type>
           <id>linkButtonUrl_s</id>
-          <iceId/>
+          <iceId />
           <title>Link Button Url</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -268,7 +268,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -293,11 +293,11 @@
         <field>
           <type>image-picker</type>
           <id>profilePic_s</id>
-          <iceId/>
+          <iceId />
           <title>Profile Pic</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>width</name>
@@ -315,12 +315,12 @@
             </property>
             <property>
               <name>thumbnailWidth</name>
-              <value/>
+              <value />
               <type>int</type>
             </property>
             <property>
               <name>thumbnailHeight</name>
-              <value/>
+              <value />
               <type>int</type>
             </property>
             <property>
@@ -330,7 +330,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -346,17 +346,17 @@
     </section>
     <section>
       <title>Social Media Links</title>
-      <description/>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>input</type>
           <id>facebookLink_s</id>
-          <iceId/>
+          <iceId />
           <title>Facebook Link</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -370,7 +370,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -395,11 +395,11 @@
         <field>
           <type>input</type>
           <id>twitterLink_s</id>
-          <iceId/>
+          <iceId />
           <title>Twitter Link</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -413,7 +413,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -438,11 +438,11 @@
         <field>
           <type>input</type>
           <id>instagramLink_s</id>
-          <iceId/>
+          <iceId />
           <title>Instagram Link</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -456,7 +456,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -481,11 +481,11 @@
         <field>
           <type>input</type>
           <id>youTubeLink_s</id>
-          <iceId/>
+          <iceId />
           <title>YouTube Link</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -499,7 +499,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>

@@ -13,6 +13,65 @@
 	<lastModifiedDate>2020-03-22T08:45:19.119Z</lastModifiedDate>
 	<lastModifiedDate_dt>2020-03-22T08:45:19.119Z</lastModifiedDate_dt>
 	<siteName_s>Wordify</siteName_s>
-	<pageTitle_s>Wordify Crafter CMS</pageTitle_s>
+	<siteTitle_s>Wordify Crafter CMS</siteTitle_s>
 	<pageDescription_s/>
+	<websiteShortname_s />
+	<socialLinks_o item-list="true">
+		<item>
+			<url_s>https://twitter.com</url_s>
+			<label_s>Twitter</label_s>
+			<socialNetwork_s>twitter</socialNetwork_s>
+		</item>
+		<item>
+			<url_s>https://www.facebook.com</url_s>
+			<label_s>Facebook</label_s>
+			<socialNetwork_s>facebook</socialNetwork_s>
+		</item>
+		<item>
+			<url_s>https://instagram.com</url_s>
+			<label_s>Instagram</label_s>
+			<socialNetwork_s>instagram</socialNetwork_s>
+		</item>
+		<item>
+			<url_s>https://vimeo.com/</url_s>
+			<label_s>Vimeo</label_s>
+			<socialNetwork_s>vimeo</socialNetwork_s>
+		</item>
+		<item>
+			<url_s>https://youtube.com</url_s>
+			<label_s>Youtube</label_s>
+			<socialNetwork_s>youtube-play</socialNetwork_s>
+		</item>
+		<item>
+			<url_s>https://www.snapchat.com/</url_s>
+			<label_s>Snapchat</label_s>
+			<socialNetwork_s>snapchat</socialNetwork_s>
+		</item>
+	</socialLinks_o>
+	<footer_o item-list="true">
+		<item datasource="componentsFooter">
+			<key>/site/components/footers/site-footer.xml</key>
+			<value>Site Footer</value>
+			<include>/site/components/footers/site-footer.xml</include>
+			<disableFlattening>false</disableFlattening>
+		</item>
+	</footer_o>
+	<sidebarCategories_o item-list="true">
+		<item datasource="sidebarTaxonomies">
+			<key>/site/components/sidebar_taxonomies/33ad68a4-d555-745b-2884-bc51aa310f85.xml</key>
+			<value>Sidebar Categories</value>
+			<include>/site/components/sidebar_taxonomies/33ad68a4-d555-745b-2884-bc51aa310f85.xml
+			</include>
+			<disableFlattening>false</disableFlattening>
+		</item>
+	</sidebarCategories_o>
+	<sidebarTags_o item-list="true">
+		<item datasource="sidebarTaxonomies">
+			<key>/site/components/sidebar_taxonomies/a515952f-99c8-7a5c-e3c3-628f3b512731.xml</key>
+			<value>Sidebar Tags</value>
+			<include>/site/components/sidebar_taxonomies/a515952f-99c8-7a5c-e3c3-628f3b512731.xml
+			</include>
+			<disableFlattening>false</disableFlattening>
+		</item>
+	</sidebarTags_o>
 </component>
