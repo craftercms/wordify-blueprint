@@ -31,7 +31,9 @@ const limit = 3;
 export default function DynamicRoute(props) {
   const { match, location } = props;
   const [state, setState] = useState(null);
-  const url = match.url;
+  const url = match.path.includes(':')
+    ? match.path.substring(0, match.path.indexOf(':') -1)
+    : match.url;
 
   useEffect(() => {
     let destroyed = false;
@@ -49,11 +51,20 @@ export default function DynamicRoute(props) {
     ).then(({ data }) => {
       if (!destroyed) {
         const model = parseDescriptor(data.content.items?.[0]);
-        const posts = parseDescriptor(data.posts.items);
+        const posts = parseDescriptor(data.posts.items);    // TODO: remove
+        const levelDescriptor = data.levelDescriptors.items
+          .filter(levelDescriptor => levelDescriptor.file__name === 'crafter-level-descriptor.level.xml')
+          .map(levelDescriptor => levelDescriptor)[0];
+
         setState({
           model,
-          posts,
+          posts,    // TODO: remove
           meta: {
+            siteTitle: levelDescriptor.siteTitle_s,
+            socialLinks: levelDescriptor.socialLinks_o.item,
+            disqus: {
+              websiteShortname: levelDescriptor.websiteShortname_s
+            },
             posts: {
               total: data.posts.total,
               ...pagination

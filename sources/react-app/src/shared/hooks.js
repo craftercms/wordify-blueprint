@@ -120,3 +120,48 @@ export function useUrlSearchQueryFetchResource() {
   }, [query]);
   return resource;
 }
+
+export function useFooter() {
+  const [{ footer, footerLoading }, update] = useGlobalContext();
+  const destroyedRef = useRef(false);
+
+  useEffect(() => {
+    return () => {
+      destroyedRef.current = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!footer && !footerLoading) {
+      update({ footerLoading: true });
+      fetchQuery({
+        text: `
+          query Footer {
+            component_footer {
+              items {
+                aboutTitle_s
+                about_t
+                aboutImage_s
+                quickLinksTitle_s
+                socialLinksTitle_s
+                file__name(filter: {matches: "site-footer.xml"})
+                internal__name
+                localId
+                quickLinks_o {
+                  item {
+                    label_s
+                    url_s
+                  }
+                }
+                copyright_html_raw
+              }
+            }
+          }
+        `
+      }).then(({ data }) => {
+        (!destroyedRef.current) && update({ footer: parseDescriptor(data.component_footer.items)[0] });
+      });
+    }
+  }, [update, footer, footerLoading]);
+  return footer;
+}
