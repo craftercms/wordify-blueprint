@@ -54,12 +54,16 @@ header {
         header .navbar .navbar-nav.absolute-right {
           position: relative;
           right: inherit; } }
-    header .navbar .nav-link {
+    header .navbar li.active a {
+      color: rgba(0, 0, 0, 0.9); }
+    header .navbar .nav-link, header .navbar li a {
       padding: 1.7rem 1rem;
       font-size: 16px;
       outline: none !important;
       text-transform: uppercase;
-      letter-spacing: .05em; }
+      letter-spacing: .05em;
+      color: rgba(0, 0, 0, 0.5);
+      display: block; }
       @media (max-width: 991.98px) {
         header .navbar .nav-link {
           padding: 1.7rem 1rem; } }
@@ -503,6 +507,26 @@ header {
     width: 30px;
     border-radius: 50%;
     display: inline-block; }
+
+.blog-entries .category-card {
+  display: block;
+  position: relative;
+  margin: 0;
+  height: 350px;
+  background-color: #969696; }
+.blog-entries .category-card .background {
+  max-width: 100%;
+  filter: brightness(0.6); }
+.blog-entries .category-card .title {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 28px;
+  padding: 0 10px; }
 
 .instructor-meta {
   margin-bottom: 10px;

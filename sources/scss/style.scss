@@ -69,12 +69,19 @@ header {
 				}
 			}
 		}
-		.nav-link {
+		li.active {
+			a {
+				color: rgba(0, 0, 0, 0.9);
+			}
+		}
+		.nav-link, li a {
 			padding: 1.7rem 1rem;
 			font-size: 16px;
 			outline: none!important;
 			text-transform: uppercase;
 			letter-spacing: .05em;
+			color: rgba(0, 0, 0, 0.5);
+			display: block;
 			@include media-breakpoint-down(md) {
 				padding: 1.7rem 1rem;
 			}
@@ -610,6 +617,29 @@ header {
 					display: inline-block;
 				}
 			}
+	}
+	.category-card {
+		display: block;
+		position: relative;
+		margin: 0;
+		height: 350px;
+		background-color: #969696;
+
+		.background {
+			max-width: 100%;
+			filter: brightness(0.6);
+		}
+		.title {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+			width: 100%;
+			text-align: center;
+			color: white;
+			font-size: 28px;
+			padding: 0 10px;
+		}
 	}
 }
 
