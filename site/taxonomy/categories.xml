@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <content-type>/taxonomy</content-type>
+  <display-template />
+  <no-template-required>true</no-template-required>
+  <merge-strategy>inherit-levels</merge-strategy>
+  <objectGroupId>6527</objectGroupId>
+  <objectId>6527de48-d49b-d75c-0ecc-dd39cd83c903</objectId>
+  <items item-list="true">
+    <item>
+      <key>food</key>
+      <value>Food</value>
+      <image_s>/static-assets/images/food.jpeg</image_s>
+    </item>
+    <item>
+      <key>travel</key>
+      <value>Travel</value>
+      <image_s>/static-assets/images/travel.jpeg</image_s>
+    </item>
+    <item>
+      <key>lifestyle</key>
+      <value>Lifestyle</value>
+      <image_s>/static-assets/images/lifestyle.jpeg</image_s>
+    </item>
+    <item>
+      <key>business</key>
+      <value>Business</value>
+      <image_s>/static-assets/images/business.jpeg</image_s>
+    </item>
+    <item>
+      <key>adventure</key>
+      <value>Adventure</value>
+      <image_s>/static-assets/images/adventure.jpeg</image_s>
+    </item>
+  </items>
+  <file-name>categories.xml</file-name>
+  <folder-name />
+  <internal-name>Categories</internal-name>
+  <createdDate>2020-06-01T18:50:58.959Z</createdDate>
+  <createdDate_dt>2020-06-01T18:50:58.959Z</createdDate_dt>
+  <lastModifiedDate>2020-06-12T20:53:40.816Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-12T20:53:40.816Z</lastModifiedDate_dt>
+</component>

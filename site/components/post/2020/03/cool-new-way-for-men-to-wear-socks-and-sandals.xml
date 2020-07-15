@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <content-type>/component/post</content-type>
+  <display-template>/templates/web/components/post.ftl</display-template>
+  <no-template-required />
+  <merge-strategy>inherit-levels</merge-strategy>
+  <objectGroupId>ea10</objectGroupId>
+  <objectId>ea10fd6e-1927-2cd1-1434-683942ba9ac8</objectId>
+  <file-name>index.xml</file-name>
+  <folder-name>cool-new-way-for-men-to-wear-socks-and-sandals</folder-name>
+  <internal-name>Men Socks and Sandals</internal-name>
+  <navLabel>There’s a Cool New Way for Men to Wear Socks and Sandals</navLabel>
+  <placeInNav>false</placeInNav>
+  <orderDefault_f />
+  <createdDate>2020-03-21T11:29:30.420Z</createdDate>
+  <createdDate_dt>2020-03-21T11:29:30.420Z</createdDate_dt>
+  <lastModifiedDate>2020-03-24T17:48:13.890Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-03-24T17:48:13.890Z</lastModifiedDate_dt>
+  <pageTitle_s>Cool New Way for Men to Wear Socks and Sandals</pageTitle_s>
+  <pageDescription_s />
+  <slug_s>cool-new-way-for-men-to-wear-socks-and-sandals</slug_s>
+  <mainImage_s>/static-assets/images/img_12.jpg</mainImage_s>
+  <headline_s>There’s a Cool New Way for Men to Wear Socks and Sandals</headline_s>
+  <content_o item-list="true">
+    <item datasource="richTextSections" inline="true">
+      <key>22b69bdb-eb3f-a9bd-693a-fda3537eab48</key>
+      <value>Lorem ipsum</value>
+      <component id="22b69bdb-eb3f-a9bd-693a-fda3537eab48">
+        <content-type>/component/rich_text</content-type>
+        <display-template>/templates/web/components/rich_text.ftl</display-template>
+        <no-template-required />
+        <merge-strategy>inherit-levels</merge-strategy>
+        <objectGroupId>22b6</objectGroupId>
+        <objectId>22b69bdb-eb3f-a9bd-693a-fda3537eab48</objectId>
+        <file-name>22b69bdb-eb3f-a9bd-693a-fda3537eab48.xml</file-name>
+        <internal-name>Lorem ipsum</internal-name>
+        <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore,
+          ut iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius. Nam eius, non
+          unde ut aut sunt eveniet rerum repellendus porro.&lt;/p&gt;
+          &lt;p&gt;Sint ab voluptates itaque, ipsum porro qui obcaecati cumque quas sit vel. Voluptatum provident id
+          quis quo. Eveniet maiores perferendis officia veniam est laborum, expedita fuga doloribus natus repellendus
+          dolorem ab similique sint eius cupiditate necessitatibus, magni nesciunt ex eos.&lt;/p&gt;
+          &lt;p&gt;Quis eius aspernatur, eaque culpa cumque reiciendis, nobis at earum assumenda similique ut? Aperiam
+          vel aut, ex exercitationem eos consequuntur eaque culpa totam, deserunt, aspernatur quae eveniet hic provident
+          ullam tempora error repudiandae sapiente illum rerum itaque voluptatem. Commodi, sequi.&lt;/p&gt;
+        </content_html>
+        <createdDate>2020-03-21T16:09:52.050Z</createdDate>
+        <createdDate_dt>2020-03-21T16:09:52.050Z</createdDate_dt>
+        <lastModifiedDate>2020-03-21T16:09:52.050Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-03-21T16:09:52.050Z</lastModifiedDate_dt>
+      </component>
+    </item>
+    <item datasource="responsiveColumns" inline="true">
+      <key>14397648-d047-fcea-7497-314af89d1a3e</key>
+      <value>Side by side images</value>
+      <component id="14397648-d047-fcea-7497-314af89d1a3e">
+        <content-type>/component/responsive_columns</content-type>
+        <display-template>/templates/web/components/responsive_columns.ftl</display-template>
+        <no-template-required />
+        <merge-strategy>inherit-levels</merge-strategy>
+        <objectGroupId>1439</objectGroupId>
+        <objectId>14397648-d047-fcea-7497-314af89d1a3e</objectId>
+        <columns_o item-list="true">
+          <item>
+            <columnSize_s>12</columnSize_s>
+            <content_o item-list="true">
+              <item datasource="images" inline="true">
+                <key>180d6aa8-47f9-fe27-94c3-637657c789db</key>
+                <value>Shore</value>
+                <component id="180d6aa8-47f9-fe27-94c3-637657c789db">
+                  <content-type>/component/image</content-type>
+                  <display-template>/templates/web/components/image.ftl</display-template>
+                  <no-template-required />
+                  <merge-strategy>inherit-levels</merge-strategy>
+                  <objectGroupId>280d</objectGroupId>
+                  <objectId>180d6aa8-47f9-fe27-94c3-637657c789db</objectId>
+                  <file-name>180d6aa8-47f9-fe27-94c3-637657c789db.xml</file-name>
+                  <internal-name>Shore</internal-name>
+                  <alternativeText_s>Shore</alternativeText_s>
+                  <image_s>/static-assets/images/img_7.jpg</image_s>
+                  <createdDate>2020-03-21T17:12:39.870Z</createdDate>
+                  <createdDate_dt>2020-03-21T17:12:39.870Z</createdDate_dt>
+                  <lastModifiedDate>2020-03-24T17:48:48.573Z</lastModifiedDate>
+                  <lastModifiedDate_dt>2020-03-24T17:48:48.573Z</lastModifiedDate_dt>
+                </component>
+              </item>
+            </content_o>
+          </item>
+          <item>
+            <columnSize_s>6</columnSize_s>
+            <content_o item-list="true">
+              <item datasource="images" inline="true">
+                <key>280d6aa8-47f9-fe27-94c3-637657c789db</key>
+                <value>Rocks</value>
+                <component id="280d6aa8-47f9-fe27-94c3-637657c789db">
+                  <content-type>/component/image</content-type>
+                  <display-template>/templates/web/components/image.ftl</display-template>
+                  <no-template-required />
+                  <merge-strategy>inherit-levels</merge-strategy>
+                  <objectGroupId>280d</objectGroupId>
+                  <objectId>280d6aa8-47f9-fe27-94c3-637657c789db</objectId>
+                  <file-name>280d6aa8-47f9-fe27-94c3-637657c789db.xml</file-name>
+                  <internal-name>Rocks</internal-name>
+                  <alternativeText_s>Shore</alternativeText_s>
+                  <image_s>/static-assets/images/img_9.jpg</image_s>
+                  <createdDate>2020-03-21T17:12:39.870Z</createdDate>
+                  <createdDate_dt>2020-03-21T17:12:39.870Z</createdDate_dt>
+                  <lastModifiedDate>2020-03-24T17:48:53.295Z</lastModifiedDate>
+                  <lastModifiedDate_dt>2020-03-24T17:48:53.295Z</lastModifiedDate_dt>
+                </component>
+              </item>
+            </content_o>
+          </item>
+          <item>
+            <columnSize_s>6</columnSize_s>
+            <content_o item-list="true">
+              <item datasource="images" inline="true">
+                <key>380d6aa8-47f9-fe27-94c3-637657c789db</key>
+                <value>Ocean</value>
+                <component id="380d6aa8-47f9-fe27-94c3-637657c789db">
+                  <content-type>/component/image</content-type>
+                  <display-template>/templates/web/components/image.ftl</display-template>
+                  <no-template-required />
+                  <merge-strategy>inherit-levels</merge-strategy>
+                  <objectGroupId>280d</objectGroupId>
+                  <objectId>380d6aa8-47f9-fe27-94c3-637657c789db</objectId>
+                  <file-name>380d6aa8-47f9-fe27-94c3-637657c789db.xml</file-name>
+                  <internal-name>Ocean</internal-name>
+                  <alternativeText_s>Shore</alternativeText_s>
+                  <image_s>/static-assets/images/img_11.jpg</image_s>
+                  <createdDate>2020-03-21T17:12:39.870Z</createdDate>
+                  <createdDate_dt>2020-03-21T17:12:39.870Z</createdDate_dt>
+                  <lastModifiedDate>2020-03-24T17:48:59.067Z</lastModifiedDate>
+                  <lastModifiedDate_dt>2020-03-24T17:48:59.067Z</lastModifiedDate_dt>
+                </component>
+              </item>
+            </content_o>
+          </item>
+        </columns_o>
+        <file-name>14397648-d047-fcea-7497-314af89d1a3e.xml</file-name>
+        <internal-name>Side by side images</internal-name>
+        <createdDate>2020-03-21T16:12:28.213Z</createdDate>
+        <createdDate_dt>2020-03-21T16:12:28.213Z</createdDate_dt>
+        <lastModifiedDate>2020-03-24T17:48:44.794Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-03-24T17:48:44.794Z</lastModifiedDate_dt>
+      </component>
+    </item>
+    <item datasource="richTextSections" inline="true">
+      <key>0aa38516-44c6-c092-8a89-97ed01f25041</key>
+      <value>Quibusdam autem</value>
+      <component id="0aa38516-44c6-c092-8a89-97ed01f25041">
+        <content-type>/component/rich_text</content-type>
+        <display-template>/templates/web/components/rich_text.ftl</display-template>
+        <no-template-required />
+        <merge-strategy>inherit-levels</merge-strategy>
+        <objectGroupId>0aa3</objectGroupId>
+        <objectId>0aa38516-44c6-c092-8a89-97ed01f25041</objectId>
+        <file-name>0aa38516-44c6-c092-8a89-97ed01f25041.xml</file-name>
+        <internal-name>Quibusdam autem</internal-name>
+        <content_html>&lt;p&gt;Quibusdam autem, quas molestias recusandae aperiam molestiae modi qui ipsam vel. Placeat
+          tenetur veritatis tempore quos impedit dicta, error autem, quae sint inventore ipsa quidem. Quo voluptate
+          quisquam reiciendis, minus, animi minima eum officia doloremque repellat eos, odio doloribus cum.&lt;/p&gt;
+          &lt;p&gt;Temporibus quo dolore veritatis doloribus delectus dolores perspiciatis recusandae ducimus, nisi
+          quod, incidunt ut quaerat, magnam cupiditate. Aut, laboriosam magnam, nobis dolore fugiat impedit
+          necessitatibus nisi cupiditate, quas repellat itaque molestias sit libero voluptas eveniet omnis illo ullam
+          dolorem minima.&lt;/p&gt;
+          &lt;p&gt;Porro amet accusantium libero fugit totam, deserunt ipsa, dolorem, vero expedita illo similique saepe
+          nisi deleniti. Cumque, laboriosam, porro! Facilis voluptatem sequi nulla quidem, provident eius quos pariatur
+          maxime sapiente illo nostrum quibusdam aliquid fugiat! Earum quod fuga id officia.&lt;/p&gt;
+          &lt;p&gt;Illo magnam at dolore ad enim fugiat ut maxime facilis autem, nulla cumque quis commodi eos nisi unde
+          soluta, ipsa eius aspernatur sint atque! Nihil, eveniet illo ea, mollitia fuga accusamus dolor dolorem
+          perspiciatis rerum hic, consectetur error rem aspernatur!&lt;/p&gt;
+          &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus magni explicabo id molestiae,
+          minima quas assumenda consectetur, nobis neque rem, incidunt quam tempore perferendis provident obcaecati
+          sapiente, animi vel expedita omnis quae ipsa! Obcaecati eligendi sed odio labore vero reiciendis facere
+          accusamus molestias eaque impedit, consequuntur quae fuga vitae fugit?&lt;/p&gt;
+        </content_html>
+        <createdDate>2020-03-21T16:14:15.352Z</createdDate>
+        <createdDate_dt>2020-03-21T16:14:15.352Z</createdDate_dt>
+        <lastModifiedDate>2020-03-21T16:14:15.352Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-03-21T16:14:15.352Z</lastModifiedDate_dt>
+      </component>
+    </item>
+  </content_o>
+  <blurb_t>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt</blurb_t>
+  <authorBio_o item-list="true">
+    <item datasource="bios">
+      <key>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
+      <value>Megan Smith's Bio</value>
+      <include>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
+      <disableFlattening>false</disableFlattening>
+    </item>
+  </authorBio_o>
+  <categories_o item-list="true">
+    <item>
+      <key>lifestyle</key>
+      <value_smv>Lifestyle</value_smv>
+    </item>
+    <item>
+      <key>travel</key>
+      <value_smv>Travel</value_smv>
+    </item>
+  </categories_o>
+  <tags_o item-list="true">
+    <item>
+      <key>lifestyle</key>
+      <value_smv>Lifestyle</value_smv>
+    </item>
+    <item>
+      <key>travel</key>
+      <value_smv>Travel</value_smv>
+    </item>
+  </tags_o>
+</component>
