@@ -14,19 +14,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import org.craftercms.engine.exception.HttpStatusCodeException
+import java.util.logging.Logger
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import DynamicRoute from './DynamicRoute';
+Logger logger = Logger.getLogger("")
 
-export default function Router() {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/category/:id?" component={DynamicRoute} />
-        <Route path="/tag/:id?" component={DynamicRoute} />
-        <Route path="/*" component={DynamicRoute} />
-      </Switch>
-    </BrowserRouter>
-  );
+try {
+  def data = request.reader.text
+
+  logger.info ("---CONTACT FORM DATA---")
+  logger.info (data)
+
+  result = [success: true, messageKey: 'contactSuccess']
+} catch(e) {
+  throw new HttpStatusCodeException(500, "Internal Server Error", e)
 }

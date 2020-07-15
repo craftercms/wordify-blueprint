@@ -23,6 +23,7 @@ import { crafterConfig, createResource } from './utils';
 import { map } from 'rxjs/operators';
 import { createQuery, search } from '@craftercms/search';
 import { parseDescriptor, preParseSearchResults } from '@craftercms/content';
+import { postsQuery } from './queries.graphql';
 
 export const neverResource = createResource(() => new Promise(() => void 0));
 
@@ -71,17 +72,19 @@ export function useNavigation() {
 export function useSearchQuery() {
   const { search } = useLocation();
   const [query, setQuery] = useState(() => parse(search).q ?? '');
+  const [page, setPage] = useState(() => parse(search).p ?? 0);
   const onChange = useCallback((e) => setQuery(e.target.value), []);
   useEffect(() => {
     setQuery(parse(search).q ?? '');
+    setPage(parse(search).p ?? 0);
   }, [search]);
-  return [query, onChange, setQuery];
+
+  return [query, onChange, setQuery, page];
 }
 
-const fields = ['headline_s', 'blurb_t'];
-const contentTypes = ['/page/post', '/component/post'];
-export function useUrlSearchQueryFetchResource() {
-  const [query] = useSearchQuery();
+const contentTypes = ['/page/post'];
+export function useUrlSearchQueryFetchResource(size = 1) {
+  const [query, , , page] = useSearchQuery();
   const [resource, setResource] = useState(neverResource);
   // https://github.com/facebook/react/issues/14413
   useEffect(() => {
@@ -93,10 +96,12 @@ export function useUrlSearchQueryFetchResource() {
             'bool': {
               'filter': [
                 { 'bool': { 'should': contentTypes.map(id => ({ 'match': { 'content-type': id } })) } },
-                { 'multi_match': { 'query': query, 'fields': fields } }
+                { 'multi_match': { 'query': query, 'type': 'phrase_prefix'} }
               ]
             }
-          }
+          },
+          size,
+          from: page
         }),
         crafterConfig
       ).pipe(
@@ -117,7 +122,7 @@ export function useUrlSearchQueryFetchResource() {
         })
       ).toPromise()
     ));
-  }, [query]);
+  }, [query, page, size]);
   return resource;
 }
 
@@ -164,4 +169,63 @@ export function useFooter() {
     }
   }, [update, footer, footerLoading]);
   return footer;
+}
+
+let useRecentPostsLoading = false;
+export function useRecentPosts() {
+  const [{ posts }, update] = useGlobalContext();
+  const destroyedRef = useRef(false);
+
+  useEffect(() => {
+    return () => {
+      destroyedRef.current = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!posts && !useRecentPostsLoading) {
+      update({ postsLoading: true });
+      fetchQuery({
+        text: postsQuery
+      }).then(({ data }) => {
+        (!destroyedRef.current) && update({ posts: parseDescriptor(data.posts.items) });
+      });
+    }
+  }, [update, posts]);
+  return posts;
+}
+
+export function useTaxonomiesResource() {
+  const [resource, setResource] = useState(neverResource);
+
+  useEffect(() => {
+    const resource = createResource(
+      () => fetchQuery({
+        text: `
+        query Taxonomies {
+          taxonomy {
+            total
+            items {
+              guid: objectId
+              path: localId
+              contentTypeId: content__type
+              dateCreated: createdDate_dt
+              dateModified: lastModifiedDate_dt
+              label: internal__name
+              items {
+                item {
+                  key
+                  value
+                  image_s
+                }
+              }
+            }
+          }
+        }
+      `
+      })
+    );
+    setResource(resource);
+  }, []);
+  return resource;
 }

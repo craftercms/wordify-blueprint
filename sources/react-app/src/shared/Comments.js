@@ -14,131 +14,53 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useEffect } from 'react'
 
-export default function () {
-  return (
-    <div className="pt-5">
-      <h3 className="mb-5">6 Comments</h3>
-      <ul className="comment-list">
-        <li className="comment">
-          <div className="vcard">
-            <img src="/static-assets/images/person_1.jpg" alt="" />
-          </div>
-          <div className="comment-body">
-            <h3>Jean Doe</h3>
-            <div className="meta">January 9, 2018 at 2:21pm</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum
-              necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure!
-              Quam voluptas earum impedit necessitatibus, nihil?</p>
-            <p><a href="/" className="reply rounded">Reply</a></p>
-          </div>
-        </li>
+const Comments = ({ id, websiteShortname }) => {
+  useEffect(() => {
+    const DISQUS_SCRIPT = 'disq_script';
+    const sd = document.getElementById(DISQUS_SCRIPT);
+    if (!sd) {
+      var disqus_config = function() {
+        this.page.url = window.location.origin
+        this.page.identifier = id
+      }
 
-        <li className="comment">
-          <div className="vcard">
-            <img src="/static-assets/images/person_1.jpg" alt="" />
-          </div>
-          <div className="comment-body">
-            <h3>Jean Doe</h3>
-            <div className="meta">January 9, 2018 at 2:21pm</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum
-              necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure!
-              Quam voluptas earum impedit necessitatibus, nihil?</p>
-            <p><a href="/" className="reply rounded">Reply</a></p>
-          </div>
+      const d = document;
+      const s = d.createElement('script');
+      s.src = `https://${websiteShortname??'DISQUS'}.disqus.com/embed.js`;
+      s.id = DISQUS_SCRIPT;
+      s.async = true;
+      s.setAttribute('data-timestamp', + new Date());
 
-          <ul className="children">
-            <li className="comment">
-              <div className="vcard">
-                <img src="/static-assets/images/person_1.jpg" alt="" />
-              </div>
-              <div className="comment-body">
-                <h3>Jean Doe</h3>
-                <div className="meta">January 9, 2018 at 2:21pm</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum
-                  necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste
-                  iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                <p><a href="/" className="reply rounded">Reply</a></p>
-              </div>
-
-
-              <ul className="children">
-                <li className="comment">
-                  <div className="vcard">
-                    <img src="/static-assets/images/person_1.jpg" alt="" />
-                  </div>
-                  <div className="comment-body">
-                    <h3>Jean Doe</h3>
-                    <div className="meta">January 9, 2018 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum
-                      necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste
-                      iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="/" className="reply rounded">Reply</a></p>
-                  </div>
-
-                  <ul className="children">
-                    <li className="comment">
-                      <div className="vcard">
-                        <img src="/static-assets/images/person_1.jpg" alt="" />
-                      </div>
-                      <div className="comment-body">
-                        <h3>Jean Doe</h3>
-                        <div className="meta">January 9, 2018 at 2:21pm</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum
-                          necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente
-                          iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                        <p><a href="/" className="reply rounded">Reply</a></p>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-
-        <li className="comment">
-          <div className="vcard">
-            <img src="/static-assets/images/person_1.jpg" alt="" />
-          </div>
-          <div className="comment-body">
-            <h3>Jean Doe</h3>
-            <div className="meta">January 9, 2018 at 2:21pm</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum
-              necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure!
-              Quam voluptas earum impedit necessitatibus, nihil?</p>
-            <p><a href="/" className="reply rounded">Reply</a></p>
-          </div>
-        </li>
-      </ul>
-
-      <div className="comment-form-wrap pt-5">
-        <h3 className="mb-5">Leave a comment</h3>
-        <form action="#" className="p-5 bg-light">
-          <div className="form-group">
-            <label htmlFor="name">Name *</label>
-            <input type="text" className="form-control" id="name" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email *</label>
-            <input type="email" className="form-control" id="email" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="website">Website</label>
-            <input type="url" className="form-control" id="website" />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea name="" id="message" cols="30" rows="10" className="form-control"></textarea>
-          </div>
-          <div className="form-group">
-            <input type="submit" value="Post Comment" className="btn btn-primary" />
-          </div>
-
-        </form>
-      </div>
-    </div>
-  )
+      d.body.appendChild(s);
+    } else {
+      window.DISQUS.reset({
+        reload: true,
+        config: disqus_config,
+      });
+    }
+  }, [id, websiteShortname])
+  return <div id="disqus_thread" className="mt-5" />;
 }
+
+export const CommentsCount = ({ id, websiteShortname }) => {
+  useEffect(() => {
+    const DISQUS_COUNT_SCRIPT = 'dsq-count-scr';
+    const disqusCountEl = document.getElementById(DISQUS_COUNT_SCRIPT);
+
+    if (!disqusCountEl){
+      const d = document;
+      const s = d.createElement('script');
+      s.src = `https://${websiteShortname??'DISQUS'}.disqus.com/count.js`;
+      s.id = DISQUS_COUNT_SCRIPT;
+      s.async = true;
+
+      d.body.appendChild(s);
+    }
+  }, [id, websiteShortname]);
+
+  return <span className="disqus-comment-count" data-disqus-identifier={id} data-disqus-url={window.location.origin} />
+}
+
+export default Comments

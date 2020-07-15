@@ -183,13 +183,13 @@ export default `
   fragment byUrlQueryContactPage on page_contact {
     pageTitle_s
     pageDescription_s
-
+    message_t
+    headline_s
   }
 
   fragment byUrlQueryCategoryPage on page_category {
     pageTitle_s
     pageDescription_s
-
   }
 
   fragment byUrlQueryPost on component_post {

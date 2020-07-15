@@ -14,26 +14,71 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import BaseLayout from '../shared/BaseLayout';
-import PopularPostsAside from '../shared/PopularPostsAside';
+import RecentPostsAside from '../shared/RecentPostsAside';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
 import SidebarSearch from '../shared/SidebarSearch';
-import SidebarCategories from '../shared/SidebarCategories';
-import SidebarTags from '../shared/SidebarTags';
+import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
+import { useTaxonomiesResource } from '../shared/hooks';
+import CategoryCard from '../shared/CategoryCard';
+import { fetchQuery } from '../relayEnvironment';
+import { parseDescriptor } from '@craftercms/content';
+import ReactPaginate from 'react-paginate';
+import { createTaxonomyFilter } from '../shared/utils';
+import { postsQuery } from '../shared/queries.graphql';
+import CircularProgressSpinner from '../shared/CircularProgressSpinner';
+// import { SidebarBiosWithICE } from '../shared/SidebarBios';
 
-export default function (props) {
-  const { posts } = props;
+function CategoryContent({ resource, isTag, categoryId }) {
+  const { data } = resource.read();
+  const taxonomies = parseDescriptor(data.taxonomy.items);
+  const categories = taxonomies.filter(
+    createTaxonomyFilter(isTag ? 'tags.xml' : 'categories.xml')
+  )[0];
+
+  let category;
+  const [posts, setPosts] = useState();
+  const [totalPosts, setTotalPosts] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+  const [paginationData, setPaginationData] = useState({
+    itemsPerPage: 10,
+    currentPage: 0
+  });
+
+  if (categoryId) {
+    category = categories?.items.item.filter(category => category.key === categoryId)[0];
+  }
+
+  useEffect(() => {
+    if (category) {
+      fetchQuery(
+        { text: postsQuery },
+        {
+          limit: paginationData.itemsPerPage,
+          offset: (paginationData.currentPage * paginationData.itemsPerPage),
+          categoriesFilter: [{ matches: category.key }]
+        }
+      ).then(({ data }) => {
+        setTotalPosts(data.posts.total);
+        setPosts(parseDescriptor(data.posts.items));
+      });
+    }
+  }, [category, paginationData]);
+
+  useEffect(() => {
+    setPageCount(Math.ceil(totalPosts / paginationData.itemsPerPage));
+  }, [totalPosts, setPageCount, paginationData.itemsPerPage]);
+
   return (
-    <BaseLayout>
-      <section className="site-section pt-5">
-        <div className="container">
-          <div className="row mb-4">
-            <div className="col-md-6">
-              <h2 className="mb-4">Category: Food</h2>
+    <>
+      {
+        categoryId
+          ?
+          <>
+            <div className="col-md-12">
+              <h2 className="mb-4">{isTag ? 'Tag' : 'Category'}: {category?.value}</h2>
             </div>
-          </div>
-          <div className="row blog-entries">
             <div className="col-md-12 col-lg-8 main-content">
               <div className="row mb-5 mt-5">
                 <div className="col-md-12">
@@ -44,34 +89,92 @@ export default function (props) {
                   }
                 </div>
               </div>
-              <div className="row mt-5">
-                <div className="col-md-12 text-center">
-                  <nav aria-label="Page navigation" className="text-center">
-                    <ul className="pagination">
-                      <li className="page-item  active"><a className="page-link" href="/">&lt;</a></li>
-                      <li className="page-item"><a className="page-link" href="/">1</a></li>
-                      <li className="page-item"><a className="page-link" href="/">2</a></li>
-                      <li className="page-item"><a className="page-link" href="/">3</a></li>
-                      <li className="page-item"><a className="page-link" href="/">4</a></li>
-                      <li className="page-item"><a className="page-link" href="/">5</a></li>
-                      <li className="page-item"><a className="page-link" href="/">&gt;</a></li>
-                    </ul>
-                  </nav>
+              {
+                pageCount > 1 &&
+                <div className="row mt-5">
+                  <div className="col-md-12 text-center">
+                    <nav aria-label="Categories navigation" className="text-center">
+                      <ReactPaginate
+                        containerClassName="pagination"
+                        pageClassName="page-item"
+                        pageLinkClassName="page-link"
+                        previousClassName="page-item"
+                        previousLinkClassName="page-link"
+                        nextClassName="page-item"
+                        nextLinkClassName="page-link"
+                        pageRangeDisplayed={3}
+                        marginPagesDisplayed={3}
+                        activeClassName="active"
+                        initialPage={0}
+                        pageCount={pageCount}
+                        onPageChange={({ selected: index }) => setPaginationData({
+                          ...paginationData,
+                          currentPage: index * paginationData.itemsPerPage
+                        })}
+                        disableInitialCallback={true}
+                        previousLabel={<span>&lt;</span>}
+                        nextLabel={<span>&gt;</span>}
+                      />
+                    </nav>
+                  </div>
                 </div>
+              }
+            </div>
+          </>
+          :
+          <>
+            <div className="col-md-12">
+              <h2 className="mb-4">{isTag ? 'Tags' : 'Categories'}:</h2>
+            </div>
+            <div className="col-md-12 col-lg-8">
+              <div className="row">
+                {
+                  categories?.items.item.map(category =>
+                    <div className="col-md-6 mb-4" key={category.key}>
+                      <CategoryCard category={category} isTag={isTag} />
+                    </div>
+                  )
+                }
               </div>
             </div>
+          </>
+      }
+    </>
+  );
+}
 
+export default function (props) {
+  const {
+    match,
+    meta: {
+      siteTitle,
+      socialLinks
+    }
+  } = props;
+
+  const isTag = match.path === '/tag/:id?';
+  const categoryId = match.params.id;
+  let resource = useTaxonomiesResource();
+
+  return (
+    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
+      <section className="site-section pt-5">
+        <div className="container">
+          <div className="row blog-entries">
+            <Suspense fallback={<CircularProgressSpinner screenHeight={false} />}>
+              <CategoryContent resource={resource} categoryId={categoryId} isTag={isTag} />
+            </Suspense>
             <div className="col-md-12 col-lg-4 sidebar">
 
               <SidebarSearch />
 
               {/*<SidebarBiosWithICE model={model} fieldId="bios_o" />*/}
 
-              <PopularPostsAside posts={posts} />
+              <RecentPostsAside />
 
-              <SidebarCategories/>
+              <SidebarCategories />
 
-              <SidebarTags/>
+              <SidebarTags />
 
             </div>
           </div>

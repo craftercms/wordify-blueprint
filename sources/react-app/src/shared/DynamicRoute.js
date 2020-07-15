@@ -51,14 +51,12 @@ export default function DynamicRoute(props) {
     ).then(({ data }) => {
       if (!destroyed) {
         const model = parseDescriptor(data.content.items?.[0]);
-        const posts = parseDescriptor(data.posts.items);    // TODO: remove
         const levelDescriptor = data.levelDescriptors.items
           .filter(levelDescriptor => levelDescriptor.file__name === 'crafter-level-descriptor.level.xml')
           .map(levelDescriptor => levelDescriptor)[0];
 
         setState({
           model,
-          posts,    // TODO: remove
           meta: {
             siteTitle: levelDescriptor.siteTitle_s,
             socialLinks: levelDescriptor.socialLinks_o.item,
