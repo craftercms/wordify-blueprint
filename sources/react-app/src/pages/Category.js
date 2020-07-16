@@ -28,7 +28,8 @@ import ReactPaginate from 'react-paginate';
 import { createTaxonomyFilter } from '../shared/utils';
 import { postsQuery } from '../shared/queries.graphql';
 import CircularProgressSpinner from '../shared/CircularProgressSpinner';
-// import { SidebarBiosWithICE } from '../shared/SidebarBios';
+import { SidebarBiosWithICE } from '../shared/SidebarBios';
+import { Field } from '@craftercms/studio-guest';
 
 function CategoryContent({ resource, isTag, categoryId }) {
   const { data } = resource.read();
@@ -127,15 +128,18 @@ function CategoryContent({ resource, isTag, categoryId }) {
               <h2 className="mb-4">{isTag ? 'Tags' : 'Categories'}:</h2>
             </div>
             <div className="col-md-12 col-lg-8">
-              <div className="row">
+              <Field
+                model={categories}
+                className='row'
+              >
                 {
                   categories?.items.item.map(category =>
                     <div className="col-md-6 mb-4" key={category.key}>
-                      <CategoryCard category={category} isTag={isTag} />
+                      <CategoryCard model={categories} category={category} isTag={isTag} />
                     </div>
                   )
                 }
-              </div>
+              </Field>
             </div>
           </>
       }
@@ -146,6 +150,7 @@ function CategoryContent({ resource, isTag, categoryId }) {
 export default function (props) {
   const {
     match,
+    model,
     meta: {
       siteTitle,
       socialLinks
@@ -168,7 +173,7 @@ export default function (props) {
 
               <SidebarSearch />
 
-              {/*<SidebarBiosWithICE model={model} fieldId="bios_o" />*/}
+              <SidebarBiosWithICE model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 

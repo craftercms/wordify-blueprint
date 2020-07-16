@@ -22,6 +22,7 @@ import {
 import { createTaxonomyFilter } from './utils';
 import CircularProgressSpinner from './CircularProgressSpinner';
 import { parseDescriptor } from '@craftercms/content';
+import { Field } from '@craftercms/studio-guest';
 
 function SidebarListContent(props) {
   const {
@@ -35,13 +36,17 @@ function SidebarListContent(props) {
   const filteredTaxonomies = taxonomies.filter(filter)[0];
 
   return(
-    <ul className={listClass}>
+    <Field
+      component="ul"
+      model={filteredTaxonomies}
+      className={`${listClass} clearfix`}
+    >
       {
         filteredTaxonomies?.items.item.map((taxonomy) =>
           <li key={taxonomy.key}><a href={`${baseUrl}/${taxonomy.key}`}>{taxonomy.value}</a></li>
         )
       }
-    </ul>
+    </Field>
   )
 }
 

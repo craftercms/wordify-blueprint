@@ -22,6 +22,8 @@ import { ajax } from 'rxjs/ajax';
 import { catchError } from 'rxjs/operators';
 import Toast from '../components/Toast';
 import { defineMessages, useIntl } from 'react-intl';
+import { RenderField } from '@craftercms/studio-guest';
+import { SidebarBiosWithICE } from '../shared/SidebarBios';
 
 const translations = defineMessages({
   contactSuccess: {
@@ -45,10 +47,7 @@ const initialToastData = {
 
 export default function (props) {
   const {
-    model: {
-      headline_s,
-      message_t
-    },
+    model,
     meta: {
       siteTitle,
       socialLinks
@@ -103,8 +102,8 @@ export default function (props) {
         <div className="container">
           <div className="row mb-4">
             <div className="col-md-6">
-              <h1>{headline_s}</h1>
-              <p>{message_t}</p>
+              <RenderField component="h1" model={model} fieldId="headline_s" />
+              <RenderField component="p" model={model} fieldId="message_t" />
             </div>
           </div>
           <div className="row blog-entries">
@@ -183,7 +182,7 @@ export default function (props) {
                 </form>
               </div>
 
-              {/*<SidebarBiosWithICE model={model} fieldId="bios_o" />*/}
+              <SidebarBiosWithICE model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 

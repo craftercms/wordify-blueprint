@@ -144,6 +144,12 @@ export function useFooter() {
           query Footer {
             component_footer {
               items {
+                guid: objectId
+                path: localId
+                contentTypeId: content__type
+                dateCreated: createdDate_dt
+                dateModified: lastModifiedDate_dt
+                label: internal__name              
                 aboutTitle_s
                 about_t
                 aboutImage_s
