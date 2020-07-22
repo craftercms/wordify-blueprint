@@ -1,4 +1,4 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/ice.ftl" as studio />
 
 <#--
 ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
@@ -39,7 +39,7 @@
 
                 <#list searchResults as post>
                   <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                  <div class="post-entry-horizontal" <@studio.componentAttr component=postItem ice=true />>
+                  <@studio.tag $model=postItem class="post-entry-horizontal">
                     <a href="${post.url}">
                       <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(${post.mainImage});"></div>
                       <span class="text">
@@ -52,10 +52,12 @@
                             <span class="mr-2">${category.value_smv}</span>
                           </#list>
                         </div>
-                        <h2>${post.headline}</h2>
+                        <@studio.h2 $model=postItem $field="headline_s">
+                          ${post.headline}
+                        </@studio.h2>
                       </span>
                     </a>
-                  </div>
+                  </@studio.tag>
                 </#list>
               </div>
 
@@ -112,6 +114,6 @@
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
-    <@studio.toolSupport/>
+    <@studio.initPageBuilder/>
   </body>
 </html>

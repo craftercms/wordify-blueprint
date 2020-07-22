@@ -1,17 +1,17 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/ice.ftl" as studio />
 
-<div class="owl-carousel owl-theme home-slider" <@studio.componentAttr component=contentModel ice=true />>
+<div class="owl-carousel owl-theme home-slider">
     <#if contentModel.posts_o?? && contentModel.posts_o.item??>
       <#list contentModel.posts_o.item as slide>
         <#assign post = siteItemService.getSiteItem(slide.key) />
         <#assign url = urlTransformationService.transform('storeUrlToRenderUrl', slide.key)?replace('/site/components/post', '/articles') />
         <#assign bio = siteItemService.getSiteItem(post.authorBio_o.item.key) />
 
-        <div>
+        <@studio.tag $model=contentModel>
           <a href="${url?replace('.html', '')}"
              class="a-block d-flex align-items-center height-lg"
              style="background-image: url('${post.mainImage_s!""}'); ">
-            <div class="text half-to-full" <@studio.componentAttr component=post ice=true />>
+            <@studio.tag $model=post class="text half-to-full">
               <#list post.categories_o.item as category>
                 <span class="category mb-5">${category.value_smv}</span>
               </#list>
@@ -23,9 +23,9 @@
               </div>
               <h3>${post.headline_s!""}</h3>
               <p>${post.blurb_t!""}</p>
-            </div>
+            </@studio.tag>
           </a>
-        </div>
+        </@studio.tag>
       </#list>
     </#if>
 </div>

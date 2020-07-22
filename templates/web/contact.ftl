@@ -1,4 +1,5 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/ice.ftl" as studio />
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,9 +12,14 @@
       <section class="site-section">
         <div class="container">
           <div class="row mb-4">
-            <div class="col-md-6" <@studio.componentAttr component=contentModel ice=true />>
-              <h1>${contentModel.headline_s!""}</h1>
-              <p>${contentModel.message_t!""}</p>
+            <div class="col-md-6">
+              <@studio.h1 $model=contentModel $field="headline_s">
+                ${contentModel.headline_s!""}
+              </@studio.h1>
+
+              <@studio.p $model=contentModel $field="message_t">
+                ${contentModel.message_t!""}
+              </@studio.p>
             </div>
           </div>
           <div class="row blog-entries">
@@ -94,6 +100,6 @@
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
-    <@studio.toolSupport/>
+    <@studio.initPageBuilder/>
   </body>
 </html>

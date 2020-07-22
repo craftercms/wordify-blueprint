@@ -1,4 +1,4 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/ice.ftl" as studio />
 
 <!doctype html>
 <html lang="en">
@@ -18,14 +18,16 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <h2 class="mb-4">${contentModel.headline_s}</h2>
-                    <#if contentModel.content_o?? && contentModel.content_o.item??>
-                        <#list contentModel.content_o.item as component>
-                          <div class="mb-5">
-                              <@renderComponent component=component />
-                          </div>
-                        </#list>
-                    </#if>
+                  <@studio.h2 $model=contentModel $field="headline_s" class="mb-4">
+                    ${contentModel.headline_s}
+                  </@studio.h2>
+                  <#if contentModel.content_o?? && contentModel.content_o.item??>
+                    <#list contentModel.content_o.item as component>
+                      <div class="mb-5">
+                          <@renderComponent component=component />
+                      </div>
+                    </#list>
+                  </#if>
                 </div>
               </div>
 
@@ -36,8 +38,8 @@
                 <div class="col-md-12">
                     <#list postsInfo.paginatedPosts as post>
                       <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                      <div class="post-entry-horizontal" <@studio.componentAttr component=postItem ice=true />>
-                        <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">
+                      <@studio.tag $model=postItem class="post-entry-horizontal">
+                        <a href="${post.url}">
                           <div class="image" style="background-image: url(${post.mainImage});"></div>
                           <span class="text">
                             <div class="post-meta">
@@ -47,12 +49,12 @@
                               </span>&bullet;
                               <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
                             </div>
-                            <h2>${post.headline}</h2>
+                            <@studio.h2 $model=postItem $field="headline_s">
+                              ${post.headline}
+                            </@studio.h2>
                           </span>
                         </a>
-                      </div>
-                      <!-- END post -->
-
+                      </@studio.tag>
                     </#list>
                 </div>
               </div>
@@ -117,6 +119,6 @@
     </div>
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
-    <@studio.toolSupport/>
+    <@studio.initPageBuilder/>
   </body>
 </html>

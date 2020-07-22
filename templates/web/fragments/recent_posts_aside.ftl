@@ -1,20 +1,29 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/ice.ftl" as studio />
 
 <h3 class="heading">Recent Posts</h3>
 <div class="post-entry-sidebar">
   <ul>
       <#list postsInfo.recentPosts as post>
-          <#assign postItem = siteItemService.getSiteItem(post.localId) />
-        <li <@studio.componentAttr component=postItem ice=true />>
-          <a href="${post.url}">
-            <img src="${post.mainImage}" alt="Image placeholder" class="mr-4">
+        <#assign postItem = siteItemService.getSiteItem(post.localId) />
+        <li>
+          <@studio.a $model=postItem href="${post.url}">
+            <@studio.img
+              $model=postItem
+              $field="mainImage_s"
+              src=postItem.mainImage_s
+              alt=""
+              class="mr-4"
+            />
+
             <div class="text">
-              <h4>${post.headline}</h4>
+              <@studio.h4 $model=postItem $field="headline_s">
+                ${post.headline}
+              </@studio.h4>
               <div class="post-meta">
                 <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span>
               </div>
             </div>
-          </a>
+          </@studio.a>
         </li>
       </#list>
   </ul>

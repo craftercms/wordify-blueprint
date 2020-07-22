@@ -1,5 +1,5 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/ice.ftl" as studio />
 
-<div <@studio.componentAttr component=contentModel ice=true />>
-    ${contentModel.content_html!""}
-</div>
+<@studio.tag $model=contentModel $field="content_html">
+  ${contentModel.content_html!""}
+</@studio.tag>

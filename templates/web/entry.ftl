@@ -1,4 +1,4 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/ice.ftl" as studio />
 
 <!doctype html>
 <html lang="en">
@@ -36,20 +36,27 @@
               <div class="row">
                 <#list postsInfo.paginatedPosts as post>
                   <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                  <div class="col-md-6" <@studio.componentAttr component=postItem ice=true />>
+                  <@studio.tag $model=postItem class="col-md-6">
                     <a href="${post.url}"
                        class="blog-entry element-animate" data-animate-effect="fadeIn">
-                      <img src="${post.mainImage}" alt="Image placeholder">
+                      <@studio.img
+                        $model=postItem
+                        $field="mainImage_s"
+                        src=postItem.mainImage_s
+                        alt=""
+                      />
                       <div class="blog-content-body">
                         <div class="post-meta">
                           <span class="author mr-2"><img src="${post.authorBio.item.component.profilePic_s}" alt="Colorlib">
                               ${post.authorBio.item.component.name_s}</span>&bullet;
                           <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span>
                         </div>
-                        <h2>${post.headline}</h2>
+                        <@studio.h2 $model=postItem $field="headline_s">
+                          ${post.headline}
+                        </@studio.h2>
                       </div>
                     </a>
-                  </div>
+                  </@studio.tag>
                 </#list>
               </div>
 
@@ -113,6 +120,6 @@
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
-    <@studio.toolSupport/>
+    <@studio.initPageBuilder/>
   </body>
 </html>

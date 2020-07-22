@@ -1,4 +1,4 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/ice.ftl" as studio />
 
 <!doctype html>
 <html lang="en">
@@ -27,26 +27,28 @@
               <div class="col-md-12 col-lg-8 main-content">
                 <div class="row mb-5 mt-5">
                   <div class="col-md-12">
-                      <#list postsInfo.paginatedPosts as post>
-                          <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                        <div class="post-entry-horizontal" <@studio.componentAttr component=postItem ice=true />>
-                          <a href="${post.url}">
-                            <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(${post.mainImage});"></div>
-                            <span class="text">
-                              <div class="post-meta">
-                                <span class="author mr-2">
-                                  <img src="${post.authorBio.item.component.profilePic_s}" alt="${post.authorBio.item.component.name_s}">
-                                    ${post.authorBio.item.component.name_s}</span>&bullet;
-                                <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span> &bullet;
-                                  <#list post.categories.item as category>
-                                    <span class="mr-2">${category.value_smv}</span>
-                                  </#list>
-                              </div>
-                              <h2>${post.headline}</h2>
-                            </span>
-                          </a>
-                        </div>
-                      </#list>
+                    <#list postsInfo.paginatedPosts as post>
+                      <#assign postItem = siteItemService.getSiteItem(post.localId) />
+                      <@studio.tag $model=postItem class="post-entry-horizontal">
+                        <a href="${post.url}">
+                          <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(${post.mainImage});"></div>
+                          <span class="text">
+                            <div class="post-meta">
+                              <span class="author mr-2">
+                                <img src="${post.authorBio.item.component.profilePic_s}" alt="${post.authorBio.item.component.name_s}">
+                                  ${post.authorBio.item.component.name_s}</span>&bullet;
+                              <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span> &bullet;
+                                <#list post.categories.item as category>
+                                  <span class="mr-2">${category.value_smv}</span>
+                                </#list>
+                            </div>
+                            <@studio.h2 $model=postItem $field="headline_s">
+                              ${post.headline}
+                            </@studio.h2>
+                          </span>
+                        </a>
+                      </@studio.tag>
+                    </#list>
                   </div>
                 </div>
 
@@ -69,18 +71,18 @@
               </div>
 
               <div class="col-md-12 col-lg-8">
-                <div class="row" <@studio.componentAttr component=taxonomy ice=true />>
-                    <#list taxonomy.items.item as item>
-                      <div class="col-md-6 mb-4">
-                        <a class="blog-entry category-card" href="<#if requestURI == '/category'>/category<#else>/tag</#if>?id=${item.key}">
-                            <#if item.image_s??>
-                              <img class="background" src="${item.image_s!''}" alt="${item.value}">
-                            </#if>
-                          <h2 class="title">${item.value}</h2>
-                        </a>
-                      </div>
-                    </#list>
-                </div>
+                <@studio.tag $model=taxonomy class="row">
+                  <#list taxonomy.items.item as item>
+                    <div class="col-md-6 mb-4">
+                      <a class="blog-entry category-card" href="<#if requestURI == '/category'>/category<#else>/tag</#if>?id=${item.key}">
+                          <#if item.image_s??>
+                            <img class="background" src="${item.image_s!''}" alt="${item.value}">
+                          </#if>
+                        <h2 class="title">${item.value}</h2>
+                      </a>
+                    </div>
+                  </#list>
+                </@studio.tag>
               </div>
             </#if>
 
@@ -125,6 +127,6 @@
   <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
   <#include "/templates/web/fragments/bottom_include.ftl"/>
-  <@studio.toolSupport/>
+  <@studio.initPageBuilder/>
   </body>
 </html>

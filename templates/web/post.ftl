@@ -1,25 +1,32 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/ice.ftl" as studio />
+
 <#assign bio = siteItemService.getSiteItem(contentModel.authorBio_o.item.key) />
 
 <!doctype html>
 <html lang="en">
   <head>
-      <#include "/templates/web/fragments/head_include.ftl"/>
+    <#include "/templates/web/fragments/head_include.ftl"/>
   </head>
   <body>
     <div class="wrap">
-        <#include "/templates/web/fragments/header.ftl"/>
+      <#include "/templates/web/fragments/header.ftl"/>
 
       <section class="site-section py-lg">
         <div class="container">
 
           <div class="row blog-entries element-animate">
             <div class="col-md-12 col-lg-8 main-content">
-              <img src="${contentModel.mainImage_s}" alt="" class="img-fluid mb-5">
+              <@studio.img
+                $model=contentModel
+                $field="mainImage_s"
+                src=contentModel.mainImage_s
+                alt=""
+                class="img-fluid mb-5"
+              />
               <div class="post-meta">
                 <span class="author mr-2">
                   <img src="${bio.profilePic_s}" alt="${bio.name_s}" class="mr-2">
-                    ${bio.name_s}
+                  ${bio.name_s}
                 </span>&bullet;
                 <span class="mr-2">${contentModel.createdDate_dt?date}</span> &bullet;
                 <span class="ml-2">
@@ -27,35 +34,37 @@
                   <span class="disqus-comment-count ml-1" data-disqus-identifier="${contentModel.objectId}"></span>
                 </span>
               </div>
-              <h1 class="mb-4">${contentModel.headline_s}</h1>
-                <#list contentModel.categories_o.item as category>
-                  <a class="category mb-5" href="/category?id=${category.key}">
-                      ${category.value_smv}
-                  </a>
-                </#list>
+              <@studio.h1 $model=contentModel $field="headline_s" class="mb-4">
+                ${contentModel.headline_s}
+              </@studio.h1>
+              <#list contentModel.categories_o.item as category>
+                <a class="category mb-5" href="/category?id=${category.key}">
+                  ${category.value_smv}
+                </a>
+              </#list>
 
               <div class="post-content-body">
-                  <#if contentModel.content_o?? && contentModel.content_o.item??>
-                      <#list contentModel.content_o.item as component>
-                          <@renderComponent component=component />
-                      </#list>
-                  </#if>
+                <#if contentModel.content_o?? && contentModel.content_o.item??>
+                  <#list contentModel.content_o.item as component>
+                    <@renderComponent component=component />
+                  </#list>
+                </#if>
               </div>
 
 
               <div class="pt-5">
                 <p>Categories:
-                    <#list contentModel.categories_o.item as category>
-                      <a href="/category?id=${category.key}">${category.value_smv}</a>
-                    </#list>
+                  <#list contentModel.categories_o.item as category>
+                    <a href="/category?id=${category.key}">${category.value_smv}</a>
+                  </#list>
                 </p>
               </div>
 
               <div>
                 Tags:
-                  <#list contentModel.tags_o.item as tag>
-                    <a href="/tag?id=${tag.key}">${tag.value_smv}<#if tag_has_next>,</#if></a>
-                  </#list>
+                <#list contentModel.tags_o.item as tag>
+                  <a href="/tag?id=${tag.key}">${tag.value_smv}<#if tag_has_next>,</#if></a>
+                </#list>
               </div>
 
               <div id="disqus_thread" class="mt-5"></div>
@@ -65,29 +74,29 @@
 
             <div class="col-md-12 col-lg-4 sidebar">
               <div class="sidebar-box search-form-wrap">
-                  <#include "/templates/web/fragments/sidebar_search.ftl" />
+                <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
               <!-- END sidebar-box -->
-                <#if contentModel.bios_o?? && contentModel.bios_o.item??>
-                    <#list contentModel.bios_o.item as component>
-                      <div class="sidebar-box">
-                          <@renderComponent component=component />
-                      </div>
-                    </#list>
-                </#if>
+              <#if contentModel.bios_o?? && contentModel.bios_o.item??>
+                <#list contentModel.bios_o.item as component>
+                  <div class="sidebar-box">
+                      <@renderComponent component=component />
+                  </div>
+                </#list>
+              </#if>
               <!-- END sidebar-box -->
               <div class="sidebar-box">
-                  <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
-              </div>
-              <!-- END sidebar-box -->
-
-              <div class="sidebar-box">
-                  <@renderComponent component=contentModel.sidebarCategories_o.item />
+                <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
               </div>
               <!-- END sidebar-box -->
 
               <div class="sidebar-box">
-                  <@renderComponent component=contentModel.sidebarTags_o.item />
+                <@renderComponent component=contentModel.sidebarCategories_o.item />
+              </div>
+              <!-- END sidebar-box -->
+
+              <div class="sidebar-box">
+                <@renderComponent component=contentModel.sidebarTags_o.item />
               </div>
             </div>
             <!-- END sidebar -->
@@ -104,27 +113,27 @@
             </div>
           </div>
           <div class="row">
-              <#list postsInfo.paginatedPosts as post>
-                  <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                <div class="col-md-6 col-lg-4" <@studio.componentAttr component=postItem ice=true />>
-                  <a href="${post.url}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('${post.mainImage}'); ">
-                    <div class="text">
-                      <div class="post-meta">
-                          <#list post.categories.item as category>
-                            <span class="category">${category.value_smv}</span>
-                          </#list>
-                        <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
-                      </div>
-                      <h3>${post.headline}</h3>
+            <#list postsInfo.paginatedPosts as post>
+              <#assign postItem = siteItemService.getSiteItem(post.localId) />
+              <div class="col-md-6 col-lg-4" <@studio.componentAttr component=postItem ice=true />>
+                <a href="${post.url}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('${post.mainImage}'); ">
+                  <div class="text">
+                    <div class="post-meta">
+                      <#list post.categories.item as category>
+                        <span class="category">${category.value_smv}</span>
+                      </#list>
+                      <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
                     </div>
-                  </a>
-                </div>
-              </#list>
+                    <h3>${post.headline}</h3>
+                  </div>
+                </a>
+              </div>
+            </#list>
           </div>
           <div class="row">
             <div class="col-md-12 text-center">
-                <#assign pagination = postsInfo.pagination/>
-                <#include "/templates/web/fragments/pagination.ftl" />
+              <#assign pagination = postsInfo.pagination/>
+              <#include "/templates/web/fragments/pagination.ftl" />
             </div>
           </div>
         </div>
@@ -161,6 +170,6 @@
 
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-    <@studio.toolSupport/>
+    <@studio.initPageBuilder/>
   </body>
 </html>
