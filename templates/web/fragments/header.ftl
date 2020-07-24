@@ -14,7 +14,7 @@
         <div class="col-3 search-top">
           <form action="/search" class="search-top-form search-form">
             <span class="icon fa fa-search"></span>
-            <input type="text" name="q" placeholder="Type keyword to search...">
+            <input type="text" name="q" placeholder="Type keyword to search..." value="${searchTerm!''}">
           </form>
         </div>
       </div>
