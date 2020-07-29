@@ -25,10 +25,10 @@ import SidebarBios from '../shared/SidebarBios';
 import DropZone from '../shared/DropZone';
 import { fetchQuery } from '../relayEnvironment';
 import { parseDescriptor } from '@craftercms/content';
-import ReactPaginate from 'react-paginate';
 import Comments, { CommentsCount } from '../shared/Comments';
 import { postsQuery } from '../shared/queries.graphql';
 import { useIntl } from 'react-intl';
+import Paginate from '../shared/Paginate';
 
 export default function (props) {
   const {
@@ -183,26 +183,14 @@ export default function (props) {
               {
                 pageCount > 1 &&
                 <nav aria-label="Posts navigation" className="text-center">
-                  <ReactPaginate
-                    containerClassName="pagination"
-                    pageClassName="page-item"
-                    pageLinkClassName="page-link"
-                    previousClassName="page-item"
-                    previousLinkClassName="page-link"
-                    nextClassName="page-item"
-                    nextLinkClassName="page-link"
-                    pageRangeDisplayed={3}
-                    marginPagesDisplayed={3}
-                    activeClassName="active"
-                    initialPage={0}
+                  <Paginate
                     pageCount={pageCount}
-                    onPageChange={({ selected: index }) => setPaginationData({
-                      ...paginationData,
-                      currentPage: index * paginationData.itemsPerPage
-                    })}
-                    disableInitialCallback={true}
-                    previousLabel={<span>&lt;</span>}
-                    nextLabel={<span>&gt;</span>}
+                    onPageChange={(index) => setPaginationData(
+                      {
+                        ...paginationData,
+                        currentPage: index * paginationData.itemsPerPage
+                      })
+                    }
                   />
                 </nav>
               }

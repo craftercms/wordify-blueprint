@@ -115,6 +115,7 @@ export function useFooter() {
   return footer;
 }
 
+// stores posts in globalContext to avoid multiple calls
 let useRecentPostsLoading = false;
 export function useRecentPosts() {
   const [{ posts }, update] = useGlobalContext();
@@ -136,6 +137,29 @@ export function useRecentPosts() {
       });
     }
   }, [update, posts]);
+  return posts;
+}
+
+export function usePosts(paginationData, category) {
+  const [posts, setPosts] = useState();
+
+  useEffect(() => {
+    fetchQuery(
+      { text: postsQuery },
+      {
+        limit: paginationData.itemsPerPage,
+        offset: (paginationData.currentPage * paginationData.itemsPerPage),
+        categoriesFilter: category ? [{ matches: category.key }] : []
+      }
+    ).then(({ data }) => {
+      setPosts({
+        items: parseDescriptor(data.posts.items),
+        total: data.posts.total,
+        pageCount: Math.ceil(data.posts.total/paginationData.itemsPerPage)
+      });
+    });
+  }, [paginationData, category]);
+
   return posts;
 }
 

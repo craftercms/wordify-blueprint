@@ -23,8 +23,8 @@ import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import { useSearchQuery, useUrlSearchQueryFetchResource } from '../shared/hooks';
 import CircularProgressSpinner from '../shared/CircularProgressSpinner';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
-import ReactPaginate from 'react-paginate';
 import { useHistory } from 'react-router-dom';
+import Paginate from '../shared/Paginate';
 
 function SearchResults({ resource, paginationData, onPageChange }) {
   const { hits, total } = resource.read();
@@ -43,23 +43,9 @@ function SearchResults({ resource, paginationData, onPageChange }) {
       {
         pageCount > 1 &&
         <div className="col-md-12 text-center mt-5">
-          <ReactPaginate
-            containerClassName="pagination"
-            pageClassName="page-item"
-            pageLinkClassName="page-link"
-            previousClassName="page-item"
-            previousLinkClassName="page-link"
-            nextClassName="page-item"
-            nextLinkClassName="page-link"
-            pageRangeDisplayed={3}
-            marginPagesDisplayed={3}
-            activeClassName="active"
-            initialPage={0}
+          <Paginate
             pageCount={pageCount}
-            onPageChange={({ selected: index }) => onPageChange(index * paginationData.itemsPerPage)}
-            disableInitialCallback={true}
-            previousLabel={<span>&lt;</span>}
-            nextLabel={<span>&gt;</span>}
+            onPageChange={(index) => onPageChange(index * paginationData.itemsPerPage)}
           />
         </div>
       }
