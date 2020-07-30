@@ -1,0 +1,1 @@
+sass --sourcemap=none style.scss ../../static-assets/css/style.css --style compressed
