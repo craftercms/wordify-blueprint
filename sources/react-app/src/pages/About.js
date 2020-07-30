@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
 import { FormattedMessage } from 'react-intl';
@@ -24,10 +24,8 @@ import SidebarSearch from '../shared/SidebarSearch';
 import { ContentType, Field, RenderField } from '@craftercms/studio-guest';
 import contentTypeMap from '../shared/contentTypeMap';
 import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
-import ReactPaginate from 'react-paginate';
-import { fetchQuery } from '../relayEnvironment';
-import { postsQuery } from '../shared/queries.graphql';
-import { parseDescriptor } from '@craftercms/content';
+import Paginate from '../shared/Paginate';
+import { usePosts } from '../shared/hooks';
 
 export default function (props) {
   const {
@@ -37,30 +35,12 @@ export default function (props) {
       socialLinks
     }
   } = props;
-  const [posts, setPosts] = useState()
-  const [totalPosts, setTotalPosts] = useState(0);
-  const [pageCount, setPageCount] = useState(0);
   const [paginationData, setPaginationData] = useState({
     itemsPerPage: 10,
     currentPage: 0
   });
 
-  useEffect(() => {
-    fetchQuery(
-      { text: postsQuery },
-      {
-        limit: paginationData.itemsPerPage,
-        offset: (paginationData.currentPage * paginationData.itemsPerPage)
-      }
-    ).then(({ data }) => {
-      setTotalPosts(data.posts.total);
-      setPosts(parseDescriptor(data.posts.items));
-    });
-  }, [model, paginationData]);
-
-  useEffect(() => {
-    setPageCount(Math.ceil(totalPosts/paginationData.itemsPerPage))
-  }, [totalPosts, setPageCount, paginationData.itemsPerPage]);
+  const posts = usePosts(paginationData);
 
   return (
     <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
@@ -107,7 +87,7 @@ export default function (props) {
                 </div>
                 <div className="col-md-12">
                   {
-                    posts?.map((post) =>
+                    posts?.items.map((post) =>
                       <PostCard model={post} format={LANDSCAPE} key={post.craftercms.id} />
                     )
                   }
@@ -115,28 +95,16 @@ export default function (props) {
               </div>
 
               {
-                pageCount > 1 &&
+                posts?.pageCount > 1 &&
                 <nav aria-label="Posts navigation" className="text-center">
-                  <ReactPaginate
-                    containerClassName="pagination"
-                    pageClassName="page-item"
-                    pageLinkClassName="page-link"
-                    previousClassName="page-item"
-                    previousLinkClassName="page-link"
-                    nextClassName="page-item"
-                    nextLinkClassName="page-link"
-                    pageRangeDisplayed={3}
-                    marginPagesDisplayed={3}
-                    activeClassName="active"
-                    initialPage={0}
-                    pageCount={pageCount}
-                    onPageChange={({ selected: index }) => setPaginationData({
-                      ...paginationData,
-                      currentPage: index * paginationData.itemsPerPage
-                    })}
-                    disableInitialCallback={true}
-                    previousLabel={<span>&lt;</span>}
-                    nextLabel={<span>&gt;</span>}
+                  <Paginate
+                    pageCount={posts.pageCount}
+                    onPageChange={(index) => setPaginationData(
+                      {
+                        ...paginationData,
+                        currentPage: index * paginationData.itemsPerPage
+                      })
+                    }
                   />
                 </nav>
               }
