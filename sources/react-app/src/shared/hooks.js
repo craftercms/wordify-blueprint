@@ -202,16 +202,29 @@ export function useRecentPosts() {
   return posts;
 }
 
-export function usePosts(paginationData, category) {
+export function usePosts(paginationData, categories, tags, exclude) {
   const [posts, setPosts] = useState();
 
   useEffect(() => {
+    let categoriesFilter = categories
+      ? Array.isArray(categories)
+        ? categories.map(category => ({ matches: category.key }))
+        : [{ matches: categories.key }]
+      : [];
+    let tagsFilter = tags
+      ? Array.isArray(tags)
+        ? tags.map(tag => ({ matches: tag.key }))
+        : [{ matches: tags.key }]
+      : [];
+
     fetchQuery(
       { text: postsQuery },
       {
         limit: paginationData.itemsPerPage,
         offset: (paginationData.currentPage * paginationData.itemsPerPage),
-        categoriesFilter: category ? [{ matches: category.key }] : []
+        categoriesFilter,
+        tagsFilter,
+        exclude: exclude??""
       }
     ).then(({ data }) => {
       setPosts({
@@ -220,7 +233,7 @@ export function usePosts(paginationData, category) {
         pageCount: Math.ceil(data.posts.total/paginationData.itemsPerPage)
       });
     });
-  }, [paginationData, category]);
+  }, [paginationData, categories, tags, exclude]);
 
   return posts;
 }
