@@ -1,17 +1,12 @@
 <form>
   <title>Search</title>
   <description />
-  <content-type>/page/search</content-type>
   <objectType>page</objectType>
+  <content-type>/page/search</content-type>
+  <imageThumbnail>undefined</imageThumbnail>
   <quickCreate>false</quickCreate>
   <quickCreatePath />
   <properties>
-    <property>
-      <name>content-type</name>
-      <label>Content Type</label>
-      <value>/page/search</value>
-      <type>string</type>
-    </property>
     <property>
       <name>display-template</name>
       <label>Display Template</label>
@@ -88,7 +83,7 @@
           <constraints>
             <constraint>
               <name>required</name>
-              <value>true</value>
+              <value><![CDATA[true]]></value>
               <type>boolean</type>
             </constraint>
           </constraints>
@@ -104,7 +99,7 @@
           <properties>
             <property>
               <name>readonly</name>
-              <value>[]</value>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -162,7 +157,7 @@
           <constraints>
             <constraint>
               <name>required</name>
-              <value>true</value>
+              <value><![CDATA[true]]></value>
               <type>boolean</type>
             </constraint>
           </constraints>
