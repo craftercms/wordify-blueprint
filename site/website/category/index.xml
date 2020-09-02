@@ -2,7 +2,7 @@
 <page>
 	<content-type>/page/category</content-type>
 	<display-template>/templates/web/category.ftl</display-template>
-	<no-template-required/>
+	<no-template-required />
 	<merge-strategy>inherit-levels</merge-strategy>
 	<objectGroupId>fd1d</objectGroupId>
 	<objectId>fd1dc02b-15cb-a6d6-125d-f5692abdb1fd</objectId>

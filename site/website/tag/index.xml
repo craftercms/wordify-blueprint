@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+  <content-type>/page/category</content-type>
+  <display-template>/templates/web/category.ftl</display-template>
+  <no-template-required />
+  <merge-strategy>inherit-levels</merge-strategy>
+  <objectGroupId>8520</objectGroupId>
+  <objectId>85206fbb-ccca-4783-3e56-11a2d2ea552a</objectId>
+  <file-name>index.xml</file-name>
+  <folder-name>tag</folder-name>
+  <internal-name>Tag</internal-name>
+  <navLabel>Tag</navLabel>
+  <pageTitle_s>Tag Listing</pageTitle_s>
+  <pageDescription_s />
+  <placeInNav>false</placeInNav>
+  <orderDefault_f>-1</orderDefault_f>
+  <createdDate>2020-06-19T18:12:24.279Z</createdDate>
+  <createdDate_dt>2020-06-19T18:12:24.279Z</createdDate_dt>
+  <lastModifiedDate>2020-06-19T18:12:24.279Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-19T18:12:24.279Z</lastModifiedDate_dt>
+</page>

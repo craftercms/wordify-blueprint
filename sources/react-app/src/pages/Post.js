@@ -14,22 +14,42 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import ContentType from '../shared/ContentType';
-import PopularPostsAside from '../shared/PopularPostsAside';
+import RecentPostsAside from '../shared/RecentPostsAside';
 import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
-import SidebarCategories from '../shared/SidebarCategories';
-import SidebarTags from '../shared/SidebarTags';
+import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import SidebarSearch from '../shared/SidebarSearch';
 import SidebarBios from '../shared/SidebarBios';
 import DropZone from '../shared/DropZone';
+import Comments, { CommentsCount } from '../shared/Comments';
+import { useIntl } from 'react-intl';
+import Paginate from '../shared/Paginate';
+import { usePosts } from '../shared/hooks';
 
 export default function (props) {
-  const { model, posts } = props;
+  const {
+    model,
+    posts,
+    meta: {
+      siteTitle,
+      socialLinks,
+      disqus: {
+        websiteShortname
+      }
+    }
+  } = props;
+  const { formatDate } = useIntl();
   const modelPath = model.craftercms.path;
+  const [paginationData, setPaginationData] = useState({
+    itemsPerPage: 10,
+    currentPage: 0
+  });
+  const related = usePosts(paginationData, model.categories_o, model.tags_o, model.craftercms.path);
+
   return (
-    <BaseLayout>
+    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
       <section className="site-section py-lg">
         <div className="container">
           <div className="row blog-entries element-animate-disabled">
@@ -38,13 +58,20 @@ export default function (props) {
               <img src={model.mainImage_s} alt="" className="img-fluid mb-5" />
               <div className="post-meta">
                 <span className="author mr-2">
-                  <img src="/static-assets/images/person_1.jpg" alt="" className="mr-2" /> Colorlib
+                  <img src={model.authorBio_o[0].profilePic_s} alt="" className="mr-2" /> {model.authorBio_o[0].name_s}
                 </span>
-                {' • '}<span className="mr-2">{model.createdDate_dt}</span>
-                {' • '}<span className="ml-2"><span className="fa fa-comments" /> 3</span>
+                {' • '}<span className="mr-2">{formatDate(model.craftercms.dateCreated)}</span>
+                {' • '}<span className="ml-2">
+                <span className="fa fa-comments mr-2"/></span>
+
+                <CommentsCount id={model.craftercms.id} websiteShortname={websiteShortname} />
               </div>
               <h1 className="mb-4">{model.headline_s}</h1>
-              <a className="category mb-5" href="/">Food</a> <a className="category mb-5" href="/">Travel</a>
+              {
+                model.categories_o?.map(category =>
+                  <a className="category mb-5" href={`/category/${category.key}`} key={category.key}>{category.value_smv}</a>
+                )
+              }
 
               <DropZone
                 model={model}
@@ -65,15 +92,24 @@ export default function (props) {
 
               <div className="pt-5">
                 <div>
-                  Categories: <a href="/">Food</a>, <a href="/">Travel</a>
+                  Categories:
+                  {
+                    model.categories_o?.map((category, i) =>
+                      <a href={`/category/${category.key}`} key={category.key}>{category.value_smv}{model.categories_o.length === i+1 ? '' : ','}</a>
+                    )
+                  }
                 </div>
                 <div>
-                  Tags: <a href="/">#manila</a>, <a href="/">#asia</a>
+                  Tags:
+                  {
+                    model.tags_o?.map((tag, i) =>
+                      <a href={`/tag/${tag.key}`} key={tag.key}>#{tag.value_smv}{model.tags_o.length === i+1 ? '' : ','}</a>
+                    )
+                  }
                 </div>
               </div>
 
-              {/* TODO: Disquss Integration
-              <Comments /> */}
+              <Comments id={model.craftercms.id} websiteShortname={websiteShortname}/>
 
             </div>
 
@@ -83,11 +119,11 @@ export default function (props) {
 
               <SidebarBios bios={model.authorBio_o}/>
 
-              <PopularPostsAside posts={posts} />
+              <RecentPostsAside posts={posts} />
 
-              <SidebarCategories/>
+              <SidebarCategories />
 
-              <SidebarTags/>
+              <SidebarTags />
 
             </div>
 
@@ -96,20 +132,39 @@ export default function (props) {
       </section>
       <section className="py-5">
         <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <h2 className="mb-3 ">Related Post</h2>
-            </div>
-          </div>
-          <div className="row">
-            {
-              posts?.map((post) =>
-                <div key={post.craftercms.id} className="col-md-6 col-lg-4">
-                  <PostCard model={post} format={IMAGE_BACKGROUND} classes={{ root: 'sm height-md' }} />
+          {
+            related &&
+            <>
+              <div className="row">
+                <div className="col-md-12">
+                  <h2 className="mb-3 ">Related Posts</h2>
                 </div>
-              )
-            }
-          </div>
+              </div>
+              <div className="row">
+                {
+                  related?.items.map((post) =>
+                    <div key={post.craftercms.id} className="col-md-6 col-lg-4">
+                      <PostCard model={post} format={IMAGE_BACKGROUND} classes={{ root: 'sm height-md' }} />
+                    </div>
+                  )
+                }
+              </div>
+              {
+                related?.pageCount > 1 &&
+                <nav aria-label="Posts navigation" className="text-center">
+                  <Paginate
+                    pageCount={related.pageCount}
+                    onPageChange={(index) => setPaginationData(
+                      {
+                        ...paginationData,
+                        currentPage: index * paginationData.itemsPerPage
+                      })
+                    }
+                  />
+                </nav>
+              }
+            </>
+          }
         </div>
       </section>
     </BaseLayout>

@@ -16,90 +16,55 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useFooter, usePencil } from '../shared/hooks';
 
-export default function Footer() {
+export default function Footer({ socialLinks }) {
+  const footer = useFooter();
+  const ice =  usePencil({ model: footer });
+
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" {...ice}>
       <div className="container">
         <div className="row mb-5">
           <div className="col-md-4">
-            <h3>About Us</h3>
+            <h3>{footer?.aboutTitle_s}</h3>
             <p className="mb-4">
-              <img src="/static-assets/images/img_1.jpg" alt="" className="img-fluid" />
+              <img src={footer?.aboutImage_s} alt="" className="img-fluid" />
             </p>
 
-            <p>Lorem ipsum dolor sit amet sa ksal sk sa, consectetur adipisicing elit. Ipsa harum inventore
-              reiciendis. <Link to="/">Read More</Link></p>
+            <p>{footer?.about_t}</p>
           </div>
           <div className="col-md-6 ml-auto">
             <div className="row">
-              <div className="col-md-7">
-                <h3>Latest Post</h3>
-                <div className="post-entry-sidebar">
-                  <ul>
-                    <li>
-                      <Link to="/">
-                        <img src="/static-assets/images/img_6.jpg" alt="" className="mr-4" />
-                        <div className="text">
-                          <h4>How to Find the Video Games of Your Youth</h4>
-                          <div className="post-meta">
-                            <span className="mr-2">March 15, 2018 </span> &bullet;
-                            <span className="ml-2"><span className="fa fa-comments"></span> 3</span>
-                          </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <img src="/static-assets/images/img_3.jpg" alt="" className="mr-4" />
-                        <div className="text">
-                          <h4>How to Find the Video Games of Your Youth</h4>
-                          <div className="post-meta">
-                            <span className="mr-2">March 15, 2018 </span> &bullet;
-                            <span className="ml-2"><span className="fa fa-comments"></span> 3</span>
-                          </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">
-                        <img src="/static-assets/images/img_4.jpg" alt="" className="mr-4" />
-                        <div className="text">
-                          <h4>How to Find the Video Games of Your Youth</h4>
-                          <div className="post-meta">
-                            <span className="mr-2">March 15, 2018 </span> &bullet;
-                            <span className="ml-2"><span className="fa fa-comments"></span> 3</span>
-                          </div>
-                        </div>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+              <div className="col-md-6">
+                <h3>{footer?.quickLinksTitle_s}</h3>
+                <ul className="list-unstyled">
+                  {
+                    footer?.quickLinks_o.map((link, i) =>
+                      <li key={i}>
+                        <Link to={link.url_s}>{link.label_s}</Link>
+                      </li>
+                    )
+                  }
+                </ul>
               </div>
+
               <div className="col-md-1"></div>
 
-              <div className="col-md-4">
-
+              <div className="col-md-5">
                 <div className="mb-5">
-                  <h3>Quick Links</h3>
-                  <ul className="list-unstyled">
-                    <li><Link to="/">About Us</Link></li>
-                    <li><Link to="/">Travel</Link></li>
-                    <li><Link to="/">Adventure</Link></li>
-                    <li><Link to="/">Courses</Link></li>
-                    <li><Link to="/">Categories</Link></li>
-                  </ul>
-                </div>
-
-                <div className="mb-5">
-                  <h3>Social</h3>
+                  <h3>{footer?.socialLinksTitle_s}</h3>
                   <ul className="list-unstyled footer-social">
-                    <li><Link to="/"><span className="fa fa-twitter"></span> Twitter</Link></li>
-                    <li><Link to="/"><span className="fa fa-facebook"></span> Facebook</Link></li>
-                    <li><Link to="/"><span className="fa fa-instagram"></span> Instagram</Link></li>
-                    <li><Link to="/"><span className="fa fa-vimeo"></span> Vimeo</Link></li>
-                    <li><Link to="/"><span className="fa fa-youtube-play"></span> Youtube</Link></li>
-                    <li><Link to="/"><span className="fa fa-snapchat"></span> Snapshot</Link></li>
+                    {
+                      socialLinks?.map((link) =>
+                        <li key={link.socialNetwork_s}>
+                          <a href={link.url_s} target="_blank" rel="noopener noreferrer">
+                            <span className={'fa fa-' + link.socialNetwork_s}></span>
+                            {link.label_s}
+                          </a>
+                        </li>
+                      )
+                    }
                   </ul>
                 </div>
               </div>
@@ -107,15 +72,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-12 text-center">
-            <p className="small">
-
-              Copyright &copy; {new Date().getFullYear()} All Rights Reserved |
-              This template is made with <i className="fa fa-heart text-danger" aria-hidden="true" /> by
-              <a href="https://colorlib.com" target="_blank" rel="noopener noreferrer">Colorlib</a>
-
-            </p>
-          </div>
+          {
+            footer &&
+            <div className="col-md-12 text-center" dangerouslySetInnerHTML={{ __html: footer.copyright_html_raw }}/>
+          }
         </div>
       </div>
     </footer>

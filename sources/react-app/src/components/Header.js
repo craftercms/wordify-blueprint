@@ -18,19 +18,30 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useNavigation } from '../shared/hooks';
 import SearchForm from '../shared/SearchForm';
+import { useGlobalContext } from '../shared/context';
 
-export default function Header() {
+export default function Header({ siteTitle, socialLinks }) {
   const nav = useNavigation();
+
+  const [{ $ }] = useGlobalContext();
+  const toggleNavBar = (e) => {
+    e.preventDefault();
+    $('#navbarMenu').toggleClass('show');
+  };
+
   return (
     <header role="banner">
       <div className="top-bar">
         <div className="container">
           <div className="row">
             <div className="col-9 social">
-              <a href="/"><span className="fa fa-twitter" /></a>
-              <a href="/"><span className="fa fa-facebook" /></a>
-              <a href="/"><span className="fa fa-instagram" /></a>
-              <a href="/"><span className="fa fa-youtube-play" /></a>
+              {
+                socialLinks?.map((link) =>
+                  <a key={link.socialNetwork_s} href={link.url_s} target="_blank" rel="noopener noreferrer">
+                    <span className={'fa fa-' + link.socialNetwork_s} />
+                  </a>
+                )
+              }
             </div>
             <div className="col-3 search-top">
               <SearchForm
@@ -47,9 +58,10 @@ export default function Header() {
             <a
               className="absolute-toggle d-block d-md-none" data-toggle="collapse"
               href="#navbarMenu" role="button"
+              onClick={toggleNavBar}
               aria-expanded="false" aria-controls="navbarMenu"
             ><span className="burger-lines"></span></a>
-            <h1 className="site-logo"><Link to="/">Wordify</Link></h1>
+            <h1 className="site-logo"><Link to="/">{ siteTitle }</Link></h1>
           </div>
         </div>
       </div>

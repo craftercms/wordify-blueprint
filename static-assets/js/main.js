@@ -137,9 +137,6 @@
   	}
 	});
 
-
- 
-
 	var contentWayPoint = function() {
 		var i = 0;
 		$('.element-animate').waypoint( function( direction ) {
@@ -176,6 +173,38 @@
 	};
 	contentWayPoint();
 
+	const showToast = (text, type) => {
+    const $toast = $(`<div class="alert alert-${type}" role="alert" style="position: fixed; top: 10px; right: 10px;">` +
+        text +
+      '</div>').appendTo('body');
+
+    setTimeout(() => {
+      $toast.remove();
+    }, 3000);
+  };
+
+  $(document).on('submit','#contactForm',function(e) {
+    e.preventDefault();
+    const formData = {
+      name: $(e.currentTarget).find('[name="name"]').val(),
+      phone: $(e.currentTarget).find('[name="phone"]').val(),
+      email: $(e.currentTarget).find('[name="email"]').val(),
+      message: $(e.currentTarget).find('[name="message"]').val()
+    };
+
+    $.post('/api/contactus.json', formData).done(function(data) {
+      showToast('Message successfully sent!', 'success');
+      $('#contactForm').find('input:not("[type=submit]"), textarea').val('');
+    }).fail(function(error) {
+      showToast('There was an error sending the message', 'danger');
+    });
+  });
+
+	window.appendParam = function(name, value) {
+	  const url = new URL(window.location.href);
+	  url.searchParams.set(name, value);
+    window.location.href = url.toString();
+  }
 
 
 })(jQuery);

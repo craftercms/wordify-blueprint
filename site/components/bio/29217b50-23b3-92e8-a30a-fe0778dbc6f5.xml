@@ -2,7 +2,7 @@
 <component>
 	<content-type>/component/bio</content-type>
 	<display-template>/templates/web/components/bio.ftl</display-template>
-	<no-template-required/>
+	<no-template-required />
 	<merge-strategy>inherit-levels</merge-strategy>
 	<objectGroupId>2921</objectGroupId>
 	<objectId>29217b50-23b3-92e8-a30a-fe0778dbc6f5</objectId>
@@ -12,8 +12,8 @@
 	<file-name>29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</file-name>
 	<internal-name>Jane Doe's Bio</internal-name>
 	<name_s>Jane Doe</name_s>
-	<linkButtonText_s/>
-	<linkButtonUrl_s/>
+	<linkButtonText_s />
+	<linkButtonUrl_s />
 	<facebookLink_s>https://facebook.com</facebookLink_s>
 	<twitterLink_s>https://twitter.com</twitterLink_s>
 	<instagramLink_s>https://instagram.com</instagramLink_s>

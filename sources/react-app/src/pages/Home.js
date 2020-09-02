@@ -21,11 +21,11 @@ import { FormattedMessage } from 'react-intl';
 import PostCard from '../shared/PostCard';
 import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
-import PopularPostsAside from '../shared/PopularPostsAside';
-import SidebarCategories from '../shared/SidebarCategories';
-import SidebarTags from '../shared/SidebarTags';
+import RecentPostsAside from '../shared/RecentPostsAside';
+import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import { Link } from 'react-router-dom';
 import { parse } from 'query-string';
+import { useRecentPosts } from '../shared/hooks';
 
 export default function (props) {
   const {
@@ -36,8 +36,9 @@ export default function (props) {
       bios_o,
       slider_o
     },
-    posts,
     meta: {
+      siteTitle,
+      socialLinks,
       posts: {
         total,
         limit
@@ -47,8 +48,10 @@ export default function (props) {
   const pageNumber = parseInt(parse(window.location.search).page ?? 1);
   const pageIndex = pageNumber - 1;
   const numOfPages = Math.ceil(total / limit);
+  const posts = useRecentPosts();
+
   return (
-    <BaseLayout>
+    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
       <section className="site-section pt-5 pb-5">
         <div className="container">
           <div className="row">
@@ -131,7 +134,7 @@ export default function (props) {
 
               <SidebarBios bios={bios_o} />
 
-              <PopularPostsAside posts={posts} />
+              <RecentPostsAside />
 
               <SidebarCategories />
 

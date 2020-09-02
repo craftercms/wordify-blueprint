@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <content-type>/component/sidebar_taxonomies</content-type>
+  <display-template>/templates/web/components/sidebar_taxonomies.ftl</display-template>
+  <no-template-required />
+  <merge-strategy>inherit-levels</merge-strategy>
+  <objectGroupId>a515</objectGroupId>
+  <objectId>a515952f-99c8-7a5c-e3c3-628f3b512731</objectId>
+  <file-name>a515952f-99c8-7a5c-e3c3-628f3b512731.xml</file-name>
+  <internal-name>Sidebar Tags</internal-name>
+  <title_s>Tags</title_s>
+  <taxonomy_s>tags</taxonomy_s>
+  <createdDate>2020-06-30T16:58:26.178Z</createdDate>
+  <createdDate_dt>2020-06-30T16:58:26.178Z</createdDate_dt>
+  <lastModifiedDate>2020-06-30T16:58:26.178Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-30T16:58:26.178Z</lastModifiedDate_dt>
+</component>
