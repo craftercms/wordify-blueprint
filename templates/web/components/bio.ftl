@@ -1,8 +1,14 @@
-<div class="bio text-center">
+<#import "/templates/system/common/ice.ftl" as studio />
+
+<@studio.tag $model=contentModel class="bio text-center">
   <img src="${contentModel.profilePic_s}" alt="" class="img-fluid">
   <div class="bio-body">
-    <h2>${contentModel.name_s}</h2>
-    <p>${contentModel.bio_t}</p>
+    <@studio.h2 $model=contentModel $field="name_s">
+      ${contentModel.name_s}
+    </@studio.h2>
+    <@studio.p $model=contentModel $field="bio_t">
+      ${contentModel.bio_t}
+    </@studio.p>
     <#if contentModel.showLinkButton_b>
     <p><a href="contentModel.linkButtonUrl_s" class="btn btn-primary btn-sm rounded">${contentModel.linkButtonText_s}</a></p>
     </#if>
@@ -13,4 +19,4 @@
       <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
     </p>
   </div>
-</div>
+</@studio.tag>

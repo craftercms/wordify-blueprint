@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <content-type>/component/footer</content-type>
+  <display-template>/templates/web/fragments/footer.ftl</display-template>
+  <no-template-required>false</no-template-required>
+  <merge-strategy>inherit-levels</merge-strategy>
+  <objectGroupId>891f</objectGroupId>
+  <objectId>891f6c2f-c0c2-5af1-52c3-59083d8667bb</objectId>
+  <file-name>site-footer.xml</file-name>
+  <internal-name>Site Footer</internal-name>
+  <about_t>Lorem ipsum dolor sit amet sa ksal sk sa, consectetur adipisicing elit. Ipsa harum
+    inventore reiciendis.
+  </about_t>
+  <createdDate>2020-06-09T18:18:18.055Z</createdDate>
+  <createdDate_dt>2020-06-09T18:18:18.055Z</createdDate_dt>
+  <lastModifiedDate>2020-06-23T23:22:29.753Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-06-23T23:22:29.753Z</lastModifiedDate_dt>
+  <folder-name />
+  <quickLinks_o item-list="true">
+    <item>
+      <label_s>About Us</label_s>
+      <url_s>/</url_s>
+    </item>
+    <item>
+      <label_s>Travel</label_s>
+      <url_s>/</url_s>
+    </item>
+    <item>
+      <label_s>Adventure</label_s>
+      <url_s>/</url_s>
+    </item>
+    <item>
+      <label_s>Courses</label_s>
+      <url_s>/</url_s>
+    </item>
+    <item>
+      <label_s>Categories</label_s>
+      <url_s>/</url_s>
+    </item>
+  </quickLinks_o>
+  <copyright_html>&lt;p class="small"&gt;Copyright &amp;copy;2020 All Rights Reserved | This
+    template is made with by &lt;a href="https://colorlib.com" target="_blank" rel="noopener
+    noreferrer"&gt;Colorlib&lt;/a&gt;&lt;/p&gt;
+  </copyright_html>
+  <aboutTitle_s>About Us</aboutTitle_s>
+  <quickLinksTitle_s>Quick Links</quickLinksTitle_s>
+  <socialLinksTitle_s>Social</socialLinksTitle_s>
+  <aboutImage_s>/static-assets/images/img_1.jpg</aboutImage_s>
+</component>

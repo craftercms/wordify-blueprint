@@ -12,7 +12,7 @@
   ~ GNU General Public License for more details.
   ~
   ~ You should have received a copy of the GNU General Public License
-  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses />.
   -->
 
 <!--
@@ -380,13 +380,13 @@
             <property>
               <name>display-template</name>
               <label>Display Template</label>
-              <value/>
+              <value />
               <type>template</type>
             </property>
             <property>
               <name>no-template-required</name>
               <label>No Template Required</label>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -404,13 +404,13 @@
             <property>
               <name>display-template</name>
               <label>Display Template</label>
-              <value/>
+              <value />
               <type>template</type>
             </property>
             <property>
               <name>no-template-required</name>
               <label>No Template Required</label>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
             <property>

@@ -31,7 +31,6 @@ export default function (props) {
     classes,
     format = PORTRAIT,
     showBlurb = false,
-    tags = '',
     numOfComments,
     model,
     model: {
@@ -41,6 +40,8 @@ export default function (props) {
       }],
       headline_s,
       mainImage_s,
+      mainImageAlt_s = '',
+      categories_o,
       craftercms: {
         dateModified
       }
@@ -56,7 +57,7 @@ export default function (props) {
           to={slug}
           className={`blog-entry ${classes?.root ?? ''}`}
         >
-          <RenderField component="img" model={model} target="src" fieldId="mainImage_s" alt="" />
+          <RenderField component="img" model={model} target="src" fieldId="mainImage_s" alt={mainImageAlt_s} />
           <div className="blog-content-body">
             <div className="post-meta">
               <Field
@@ -97,7 +98,7 @@ export default function (props) {
             <span className="text">
               <div className="post-meta">
                 <Field className="author mr-2" model={model} fieldId="authorBio_o" index={0}>
-                  <img src={authorAvatarUrl} alt="" /> {authorName}
+                  <img src={authorAvatarUrl} alt={mainImageAlt_s} /> {authorName}
                 </Field>
                 • <span className="mr-2">{formatDate(dateModified)}</span>
                 {
@@ -147,9 +148,14 @@ export default function (props) {
           >
             <div className="post-meta">
               {
-                tags &&
+                categories_o &&
                 <>
-                  <span className="category">{tags}</span>
+                  {
+                    categories_o?.map(category =>
+                      <span className="category" key={category.key}>{category.value_smv}</span>
+                    )
+                  }
+
                   {' • '}
                 </>
               }
@@ -184,5 +190,6 @@ function computeSlug(path) {
     .replace(/(\/site\/components)|(index\.xml)/g, '')
     .replace(/(\/site\/website)|(index\.xml)/g, '')
     .replace(/(\/\/)/g, '/')
-    .replace('post/', 'articles/');
+    .replace('post/', 'articles/')
+    .replace('.xml', '/');;
 }

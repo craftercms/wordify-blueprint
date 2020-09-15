@@ -1,83 +1,61 @@
-<footer class="site-footer">
+<#import "/templates/system/common/ice.ftl" as studio />
+
+<@studio.tag $tag="footer" $model=contentModel class="site-footer">
   <div class="container">
     <div class="row mb-5">
       <div class="col-md-4">
-        <h3>About Us</h3>
+        <@studio.h3 $model=contentModel $field="aboutTitle_s">
+          ${contentModel.aboutTitle_s}
+        </@studio.h3>
         <p class="mb-4">
-          <img src="/static-assets/images/img_1.jpg" alt="Image placeholder" class="img-fluid">
+          <@studio.img
+            $model=contentModel
+            $field="aboutImage_s"
+            src=contentModel.aboutImage_s
+            alt=""
+            class="img-fluid"
+          />
         </p>
 
-        <p>Lorem ipsum dolor sit amet sa ksal sk sa, consectetur adipisicing elit. Ipsa harum inventore reiciendis. <a href="#">Read More</a></p>
+        <@studio.p $model=contentModel $field="about_t">
+          ${contentModel.about_t}
+        </@studio.p>
       </div>
       <div class="col-md-6 ml-auto">
         <div class="row">
-          <div class="col-md-7">
-            <h3>Latest Post</h3>
-            <div class="post-entry-sidebar">
-              <ul>
-                <li>
-                  <a href="">
-                    <img src="/static-assets/images/img_6.jpg" alt="Image placeholder" class="mr-4">
-                    <div class="text">
-                      <h4>How to Find the Video Games of Your Youth</h4>
-                      <div class="post-meta">
-                        <span class="mr-2">March 15, 2018 </span> &bullet;
-                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <img src="/static-assets/images/img_3.jpg" alt="Image placeholder" class="mr-4">
-                    <div class="text">
-                      <h4>How to Find the Video Games of Your Youth</h4>
-                      <div class="post-meta">
-                        <span class="mr-2">March 15, 2018 </span> &bullet;
-                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <img src="/static-assets/images/img_4.jpg" alt="Image placeholder" class="mr-4">
-                    <div class="text">
-                      <h4>How to Find the Video Games of Your Youth</h4>
-                      <div class="post-meta">
-                        <span class="mr-2">March 15, 2018 </span> &bullet;
-                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
+          <div class="col-md-6">
+            <div class="mb-5">
+              <@studio.h3 $model=contentModel $field="quickLinksTitle_s">
+                ${contentModel.quickLinksTitle_s!""}
+              </@studio.h3>
+
+              <@studio.tag $model=contentModel $field="quickLinks_o" class="list-unstyled">
+                <#list contentModel.quickLinks_o.item as link>
+                  <li>
+                    <a href="${link.url_s}"> ${link.label_s} </a>
+                  </li>
+                </#list>
+              </@studio.tag>
             </div>
+
           </div>
           <div class="col-md-1"></div>
 
-          <div class="col-md-4">
-
+          <div class="col-md-5">
             <div class="mb-5">
-              <h3>Quick Links</h3>
-              <ul class="list-unstyled">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Travel</a></li>
-                <li><a href="#">Adventure</a></li>
-                <li><a href="#">Courses</a></li>
-                <li><a href="#">Categories</a></li>
-              </ul>
-            </div>
+              <@studio.h3 $model=contentModel $field="socialLinksTitle_s">
+                ${contentModel.socialLinksTitle_s!""}
+              </@studio.h3>
 
-            <div class="mb-5">
-              <h3>Social</h3>
               <ul class="list-unstyled footer-social">
-                <li><a href="#"><span class="fa fa-twitter"></span> Twitter</a></li>
-                <li><a href="#"><span class="fa fa-facebook"></span> Facebook</a></li>
-                <li><a href="#"><span class="fa fa-instagram"></span> Instagram</a></li>
-                <li><a href="#"><span class="fa fa-vimeo"></span> Vimeo</a></li>
-                <li><a href="#"><span class="fa fa-youtube-play"></span> Youtube</a></li>
-                <li><a href="#"><span class="fa fa-snapchat"></span> Snapshot</a></li>
+                <#list socialLinks.item as socialLink>
+                  <li>
+                    <a href="${socialLink.url_s}">
+                      <span class="fa fa-${socialLink.socialNetwork_s}"></span>
+                        ${socialLink.label_s}
+                    </a>
+                  </li>
+                </#list>
               </ul>
             </div>
           </div>
@@ -85,13 +63,9 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12 text-center">
-        <p class="small">
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          Copyright &copy; <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made with <i class="fa fa-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        </p>
-      </div>
+      <@studio.tag $model=contentModel $field="copyright_html" class="col-md-12 text-center">
+        ${contentModel.copyright_html!""}
+      </@studio.tag>
     </div>
   </div>
-</footer>
+</@studio.tag>

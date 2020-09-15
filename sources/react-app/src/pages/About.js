@@ -14,25 +14,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
 import { FormattedMessage } from 'react-intl';
-import PopularPostsAside from '../shared/PopularPostsAside';
+import RecentPostsAside from '../shared/RecentPostsAside';
 import { SidebarBiosWithICE } from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
-import SidebarTags from '../shared/SidebarTags';
-import SidebarCategories from '../shared/SidebarCategories';
 import { ContentType, Field, RenderField } from '@craftercms/studio-guest';
 import contentTypeMap from '../shared/contentTypeMap';
+import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
+import Paginate from '../shared/Paginate';
+import { usePosts } from '../shared/hooks';
 
 export default function (props) {
   const {
     model,
-    posts
+    meta: {
+      siteTitle,
+      socialLinks
+    }
   } = props;
+  const [paginationData, setPaginationData] = useState({
+    itemsPerPage: 10,
+    currentPage: 0
+  });
+
+  const posts = usePosts(paginationData);
+
   return (
-    <BaseLayout>
+    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
       <section className="site-section pt-5">
         <div className="container">
           <div className="row blog-entries">
@@ -76,28 +87,27 @@ export default function (props) {
                 </div>
                 <div className="col-md-12">
                   {
-                    posts?.map((post) =>
+                    posts?.items.map((post) =>
                       <PostCard model={post} format={LANDSCAPE} key={post.craftercms.id} />
                     )
                   }
                 </div>
               </div>
 
-              <div className="row">
-                <div className="col-md-12 text-center">
-                  <nav aria-label="Page navigation" className="text-center">
-                    <ul className="pagination">
-                      <li className="page-item active"><a className="page-link" href="/">&lt;</a></li>
-                      <li className="page-item"><a className="page-link" href="/">1</a></li>
-                      <li className="page-item"><a className="page-link" href="/">2</a></li>
-                      <li className="page-item"><a className="page-link" href="/">3</a></li>
-                      <li className="page-item"><a className="page-link" href="/">4</a></li>
-                      <li className="page-item"><a className="page-link" href="/">5</a></li>
-                      <li className="page-item"><a className="page-link" href="/">&gt;</a></li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
+              {
+                posts?.pageCount > 1 &&
+                <nav aria-label="Posts navigation" className="text-center">
+                  <Paginate
+                    pageCount={posts.pageCount}
+                    onPageChange={(index) => setPaginationData(
+                      {
+                        ...paginationData,
+                        currentPage: index * paginationData.itemsPerPage
+                      })
+                    }
+                  />
+                </nav>
+              }
 
             </div>
             <div className="col-md-12 col-lg-4 sidebar">
@@ -106,7 +116,7 @@ export default function (props) {
 
               <SidebarBiosWithICE model={model} fieldId="bios_o" />
 
-              <PopularPostsAside posts={posts} />
+              <RecentPostsAside />
 
               <SidebarCategories/>
 

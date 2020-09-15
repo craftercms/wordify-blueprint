@@ -14,45 +14,152 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
-import PopularPostsAside from '../shared/PopularPostsAside';
-import SidebarCategories from '../shared/SidebarCategories';
-import SidebarTags from '../shared/SidebarTags';
+import RecentPostsAside from '../shared/RecentPostsAside';
+import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
+import { ajax } from 'rxjs/ajax';
+import { catchError } from 'rxjs/operators';
+import Toast from '../components/Toast';
+import { defineMessages, useIntl } from 'react-intl';
+import { RenderField } from '@craftercms/studio-guest';
+import { SidebarBiosWithICE } from '../shared/SidebarBios';
+
+const translations = defineMessages({
+  contactSuccess: {
+    id: 'contact.contactSuccess',
+    defaultMessage: 'Message successfully sent!'
+  }
+});
+
+const initialFormData = {
+  name: '',
+  phone: '',
+  email: '',
+  message: ''
+}
+
+const initialToastData = {
+  display: false,
+  type: '',
+  text: ''
+}
 
 export default function (props) {
-  const { posts } = props;
+  const {
+    model,
+    meta: {
+      siteTitle,
+      socialLinks
+    }
+  } = props;
+
+  const { formatMessage } = useIntl();
+  const [formData, setFormData] = useState(initialFormData);
+  const [toastData, setToastData] = useState(initialToastData);
+  const showToast = (text, type) => {
+    setToastData({
+      display: true,
+      text,
+      type
+    });
+    setTimeout(() => {
+      setToastData(initialToastData);
+    }, 3000);
+  }
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value.trim()
+    });
+  };
+
+  const handleSubmit = function(e) {
+    e.preventDefault();
+
+    ajax.post(
+      '/api/contactus.json',
+      formData,
+      {
+        'Content-Type': 'application/json'
+      }
+    ).pipe(
+      catchError(error => [error])
+    ).subscribe(response => {
+      if (response.name === 'AjaxError') {
+        showToast('There was an error sending the message', 'danger');
+      } else {
+        setFormData(initialFormData);
+        showToast(formatMessage(translations[response.response.messageKey]), 'success');
+      }
+    });
+  }
+
   return (
-    <BaseLayout>
+    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
       <section className="site-section">
         <div className="container">
           <div className="row mb-4">
             <div className="col-md-6">
-              <h1>Contact Me</h1>
+              <RenderField component="h1" model={model} fieldId="headline_s" />
+              <RenderField component="p" model={model} fieldId="message_t" />
             </div>
           </div>
           <div className="row blog-entries">
             <div className="col-md-12 col-lg-8 main-content">
 
-              <form action="#" method="post">
+              <form onSubmit={handleSubmit}>
                 <div className="row">
                   <div className="col-md-12 form-group">
                     <label htmlFor="name">Name</label>
-                    <input type="text" id="name" className="form-control "/>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      className="form-control"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   <div className="col-md-12 form-group">
                     <label htmlFor="phone">Phone</label>
-                    <input type="text" id="phone" className="form-control "/>
+                    <input
+                      type="text"
+                      id="phone"
+                      name="phone"
+                      className="form-control"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
                   </div>
                   <div className="col-md-12 form-group">
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" className="form-control "/>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="form-control"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-md-12 form-group">
                     <label htmlFor="message">Write Message</label>
-                    <textarea name="message" id="message" className="form-control " cols="30" rows="8"/>
+                    <textarea
+                      name="message"
+                      id="message"
+                      className="form-control"
+                      cols="30"
+                      rows="8"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                 </div>
                 <div className="row">
@@ -75,9 +182,9 @@ export default function (props) {
                 </form>
               </div>
 
-              {/*<SidebarBiosWithICE model={model} fieldId="bios_o" />*/}
+              <SidebarBiosWithICE model={model} fieldId="bios_o" />
 
-              <PopularPostsAside posts={posts} />
+              <RecentPostsAside />
 
               <SidebarCategories/>
 
@@ -88,6 +195,12 @@ export default function (props) {
           </div>
         </div>
       </section>
+
+      <Toast
+        display={toastData.display}
+        type={toastData.type}
+        text={toastData.text}
+      />
     </BaseLayout>
   );
 }

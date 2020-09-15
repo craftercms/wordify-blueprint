@@ -64,3 +64,7 @@ export const crafterConfig = {
 };
 
 crafterConf.configure(crafterConfig);
+
+export function createTaxonomyFilter(name) {
+  return (taxonomy => taxonomy.craftercms.path.includes(name));
+};

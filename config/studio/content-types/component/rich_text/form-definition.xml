@@ -1,11 +1,11 @@
 <form>
   <title>Rich Text</title>
-  <description/>
+  <description />
   <objectType>component</objectType>
   <content-type>/component/rich_text</content-type>
   <imageThumbnail>photography.png</imageThumbnail>
   <quickCreate>false</quickCreate>
-  <quickCreatePath/>
+  <quickCreatePath />
   <properties>
     <property>
       <name>display-template</name>
@@ -16,7 +16,7 @@
     <property>
       <name>no-template-required</name>
       <label>No Template Required</label>
-      <value/>
+      <value />
       <type>boolean</type>
     </property>
     <property>
@@ -29,17 +29,17 @@
   <sections>
     <section>
       <title>System Fields</title>
-      <description/>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>auto-filename</type>
           <id>file-name</id>
-          <iceId/>
+          <iceId />
           <title>Component ID</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -53,7 +53,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value/>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -63,11 +63,11 @@
         <field>
           <type>input</type>
           <id>internal-name</id>
-          <iceId/>
+          <iceId />
           <title>Internal Name</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -92,26 +92,26 @@
     </section>
     <section>
       <title>Content Fields</title>
-      <description/>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>rte-tinymce5</type>
           <id>content_html</id>
-          <iceId/>
+          <iceId />
           <title>Content</title>
-          <description/>
-          <defaultValue/>
-          <help/>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>width</name>
-              <value/>
+              <value />
               <type>int</type>
             </property>
             <property>
               <name>height</name>
-              <value/>
+              <value />
               <type>int</type>
             </property>
             <property>
@@ -136,7 +136,7 @@
             </property>
             <property>
               <name>supportedChannels</name>
-              <value/>
+              <value />
               <type>supportedChannels</type>
             </property>
             <property>
@@ -156,12 +156,12 @@
             </property>
             <property>
               <name>videoManager</name>
-              <value/>
+              <value />
               <type>datasource:video</type>
             </property>
             <property>
               <name>fileManager</name>
-              <value/>
+              <value />
               <type>datasource:item</type>
             </property>
           </properties>
