@@ -1,11 +1,11 @@
 <form>
   <title>About</title>
-  <description></description>
+  <description />
   <objectType>page</objectType>
   <content-type>/page/about</content-type>
   <imageThumbnail>about.png</imageThumbnail>
   <quickCreate>false</quickCreate>
-  <quickCreatePath></quickCreatePath>
+  <quickCreatePath />
   <properties>
     <property>
       <name>display-template</name>
@@ -16,7 +16,7 @@
     <property>
       <name>no-template-required</name>
       <label>No Template Required</label>
-      <value></value>
+      <value />
       <type>boolean</type>
     </property>
     <property>
@@ -29,17 +29,17 @@
   <sections>
     <section>
       <title>About Properties</title>
-      <description></description>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>file-name</type>
           <id>file-name</id>
-          <iceId></iceId>
+          <iceId />
           <title>Page URL</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -53,7 +53,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -63,11 +63,11 @@
         <field>
           <type>input</type>
           <id>internal-name</id>
-          <iceId></iceId>
+          <iceId />
           <title>Internal Name</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -91,15 +91,15 @@
         <field>
           <type>page-nav-order</type>
           <id>placeInNav</id>
-          <iceId></iceId>
+          <iceId />
           <title>Place in Nav</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -114,11 +114,11 @@
         <field>
           <type>input</type>
           <id>navLabel</id>
-          <iceId></iceId>
+          <iceId />
           <title>Nav Label</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -143,17 +143,17 @@
     </section>
     <section>
       <title>SEO</title>
-      <description></description>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>input</type>
           <id>pageTitle_s</id>
-          <iceId></iceId>
+          <iceId />
           <title>Page Title</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -167,7 +167,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -192,11 +192,11 @@
         <field>
           <type>input</type>
           <id>pageDescription_s</id>
-          <iceId></iceId>
+          <iceId />
           <title>Page Description</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -210,7 +210,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -236,17 +236,17 @@
     </section>
     <section>
       <title>Content Fields</title>
-      <description></description>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>input</type>
           <id>headline_s</id>
-          <iceId></iceId>
+          <iceId />
           <title>Headline</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -260,7 +260,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -285,11 +285,11 @@
         <field>
           <type>node-selector</type>
           <id>content_o</id>
-          <iceId></iceId>
+          <iceId />
           <title>Content</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>minSize</name>
@@ -298,7 +298,7 @@
             </property>
             <property>
               <name>maxSize</name>
-              <value></value>
+              <value />
               <type>int</type>
             </property>
             <property>
@@ -308,17 +308,17 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
               <name>disableFlattening</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
               <name>useSingleValueFilename</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -328,7 +328,7 @@
             </property>
             <property>
               <name>tags</name>
-              <value></value>
+              <value />
               <type>string</type>
             </property>
           </properties>
@@ -343,11 +343,11 @@
         <field>
           <type>node-selector</type>
           <id>bios_o</id>
-          <iceId></iceId>
+          <iceId />
           <title>Bios</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>minSize</name>
@@ -356,7 +356,7 @@
             </property>
             <property>
               <name>maxSize</name>
-              <value></value>
+              <value />
               <type>int</type>
             </property>
             <property>
@@ -366,27 +366,22 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
               <name>disableFlattening</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
               <name>useSingleValueFilename</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
-              <name>contentTypes</name>
-              <value>,/component/bio</value>
-              <type>contentTypes</type>
-            </property>
-            <property>
               <name>tags</name>
-              <value></value>
+              <value />
               <type>string</type>
             </property>
           </properties>

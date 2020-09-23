@@ -14,33 +14,42 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import { WrappedContentType } from '../shared/ContentType';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
 import { FormattedMessage } from 'react-intl';
-import PopularPostsAside from '../shared/PopularPostsAside';
+import RecentPostsAside from '../shared/RecentPostsAside';
 import DropZone from '../shared/DropZone';
 import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
-import SidebarTags from '../shared/SidebarTags';
-import SidebarCategories from '../shared/SidebarCategories';
+import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
+import { usePosts } from '../shared/hooks';
+import Paginate from '../shared/Paginate';
 
 export default function (props) {
   const {
     model,
-    posts,
     model: {
       headline_s,
-      // pageTitle_s,
-      // pageDescription_s,
       bios_o,
       content_o
+    },
+    meta: {
+      siteTitle,
+      socialLinks
     }
   } = props;
+  const [paginationData, setPaginationData] = useState({
+    itemsPerPage: 10,
+    currentPage: 0
+  });
+
+  const posts = usePosts(paginationData);
+
   const modelPath = model.craftercms.path;
   return (
-    <BaseLayout>
+    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
       <section className="site-section pt-5">
         <div className="container">
           <div className="row blog-entries">
@@ -78,29 +87,27 @@ export default function (props) {
                 </div>
                 <div className="col-md-12">
                   {
-                    posts?.map((post) =>
+                    posts?.items.map((post) =>
                       <PostCard model={post} format={LANDSCAPE} key={post.craftercms.id} />
                     )
                   }
                 </div>
               </div>
 
-              <div className="row">
-                <div className="col-md-12 text-center">
-                  <nav aria-label="Page navigation" className="text-center">
-                    <ul className="pagination">
-                      <li className="page-item active"><a className="page-link" href="/">&lt;</a></li>
-                      <li className="page-item"><a className="page-link" href="/">1</a></li>
-                      <li className="page-item"><a className="page-link" href="/">2</a></li>
-                      <li className="page-item"><a className="page-link" href="/">3</a></li>
-                      <li className="page-item"><a className="page-link" href="/">4</a></li>
-                      <li className="page-item"><a className="page-link" href="/">5</a></li>
-                      <li className="page-item"><a className="page-link" href="/">&gt;</a></li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-
+              {
+                posts?.pageCount > 1 &&
+                <nav aria-label="Posts navigation" className="text-center">
+                  <Paginate
+                    pageCount={posts.pageCount}
+                    onPageChange={(index) => setPaginationData(
+                      {
+                        ...paginationData,
+                        currentPage: index * paginationData.itemsPerPage
+                      })
+                    }
+                  />
+                </nav>
+              }
             </div>
             <div className="col-md-12 col-lg-4 sidebar">
 
@@ -108,11 +115,11 @@ export default function (props) {
 
               <SidebarBios bios={bios_o} />
 
-              <PopularPostsAside posts={posts} />
+              <RecentPostsAside />
 
-              <SidebarCategories/>
+              <SidebarCategories />
 
-              <SidebarTags/>
+              <SidebarTags />
 
             </div>
           </div>

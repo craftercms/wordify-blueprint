@@ -17,13 +17,14 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import { fetchQuery } from '../relayEnvironment';
 import { useGlobalContext } from './context';
-import { useDropZone, useICE } from '@craftercms/ice/esm2015/react';
+import { useDropZone, useICE } from '@craftercms/ice/react';
 import { parse } from 'query-string';
 import { useLocation } from 'react-router-dom';
 import { crafterConfig, createResource, preParseSearchResults } from './utils';
 import { createQuery, search } from '@craftercms/search';
 import { map } from 'rxjs/operators';
 import { parseDescriptor } from '@craftercms/content';
+import { postsQuery } from './queries.graphql';
 
 export const neverResource = createResource(() => new Promise(() => void 0));
 
@@ -69,6 +70,147 @@ export function useNavigation() {
   return pages;
 }
 
+export function useFooter() {
+  const [{ footer, footerLoading }, update] = useGlobalContext();
+  const destroyedRef = useRef(false);
+
+  useEffect(() => {
+    return () => {
+      destroyedRef.current = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!footer && !footerLoading) {
+      update({ footerLoading: true });
+      fetchQuery({
+        text: `
+          query Footer {
+            component_footer {
+              items {
+                aboutTitle_s
+                about_t
+                aboutImage_s
+                quickLinksTitle_s
+                socialLinksTitle_s
+                file__name(filter: {matches: "site-footer.xml"})
+                internal__name
+                localId
+                quickLinks_o {
+                  item {
+                    label_s
+                    url_s
+                  }
+                }
+                copyright_html_raw
+              }
+            }
+          }
+        `
+      }).then(({ data }) => {
+        (!destroyedRef.current) && update({ footer: parseDescriptor(data.component_footer.items)[0] });
+      });
+    }
+  }, [update, footer, footerLoading]);
+  return footer;
+}
+
+// stores posts in globalContext to avoid multiple calls
+let useRecentPostsLoading = false;
+export function useRecentPosts() {
+  const [{ posts }, update] = useGlobalContext();
+  const destroyedRef = useRef(false);
+
+  useEffect(() => {
+    return () => {
+      destroyedRef.current = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!posts && !useRecentPostsLoading) {
+      update({ postsLoading: true });
+      fetchQuery({
+        text: postsQuery
+      }).then(({ data }) => {
+        (!destroyedRef.current) && update({ posts: parseDescriptor(data.posts.items) });
+      });
+    }
+  }, [update, posts]);
+  return posts;
+}
+
+export function usePosts(paginationData, categories, tags, exclude) {
+  const [posts, setPosts] = useState();
+
+  useEffect(() => {
+    let categoriesFilter = categories
+      ? Array.isArray(categories)
+        ? categories.map(category => ({ matches: category.key }))
+        : [{ matches: categories.key }]
+      : [];
+    let tagsFilter = tags
+      ? Array.isArray(tags)
+        ? tags.map(tag => ({ matches: tag.key }))
+        : [{ matches: tags.key }]
+      : [];
+
+    fetchQuery(
+      { text: postsQuery },
+      {
+        limit: paginationData.itemsPerPage,
+        offset: (paginationData.currentPage * paginationData.itemsPerPage),
+        categoriesFilter,
+        tagsFilter,
+        exclude: exclude??""
+      }
+    ).then(({ data }) => {
+      setPosts({
+        items: parseDescriptor(data.posts.items),
+        total: data.posts.total,
+        pageCount: Math.ceil(data.posts.total/paginationData.itemsPerPage)
+      });
+    });
+  }, [paginationData, categories, tags, exclude]);
+
+  return posts;
+}
+
+export function useTaxonomiesResource() {
+  const [resource, setResource] = useState(neverResource);
+
+  useEffect(() => {
+    const resource = createResource(
+      () => fetchQuery({
+        text: `
+        query Taxonomies {
+          taxonomy {
+            total
+            items {
+              guid: objectId
+              path: localId
+              contentTypeId: content__type
+              dateCreated: createdDate_dt
+              dateModified: lastModifiedDate_dt
+              label: internal__name
+              items {
+                item {
+                  key
+                  value
+                  image_s
+                }
+              }
+            }
+          }
+        }
+      `
+      })
+    );
+    setResource(resource);
+  }, []);
+  return resource;
+}
+
 export function usePencil(props) {
   const { model, parentModelId } = props;
   const [{ isAuthoring }] = useGlobalContext();
@@ -85,18 +227,21 @@ export function useDnD(props) {
 export function useSearchQuery() {
   const { search } = useLocation();
   const [query, setQuery] = useState(() => parse(search).q ?? '');
+  const [page, setPage] = useState(() => parse(search).p ?? 0);
   const onChange = useCallback((e) => setQuery(e.target.value), []);
   useEffect(() => {
     setQuery(parse(search).q ?? '');
+    setPage(parse(search).p ?? 0);
   }, [search]);
-  return [query, onChange, setQuery];
+
+  return [query, onChange, setQuery, page];
 }
 
-const fields = ['headline_s', 'blurb_t'];
-const contentTypes = ['/page/post', '/component/post'];
-export function useUrlSearchQueryFetchResource() {
-  const [query] = useSearchQuery();
+const contentTypes = ['/page/post'];
+export function useUrlSearchQueryFetchResource(size = 1) {
+  const [query, , , page] = useSearchQuery();
   const [resource, setResource] = useState(neverResource);
+
   // https://github.com/facebook/react/issues/14413
   useEffect(() => {
     // FYI: A GraphQL query could also be used instead of a direct Elasticsearch
@@ -107,10 +252,12 @@ export function useUrlSearchQueryFetchResource() {
             'bool': {
               'filter': [
                 { 'bool': { 'should': contentTypes.map(id => ({ 'match': { 'content-type': id } })) } },
-                { 'multi_match': { 'query': query, 'fields': fields } }
+                { 'multi_match': { 'query': query, 'type': 'phrase_prefix'} }
               ]
             }
-          }
+          },
+          size,
+          from: page
         }),
         crafterConfig
       ).pipe(
@@ -131,7 +278,7 @@ export function useUrlSearchQueryFetchResource() {
         })
       ).toPromise()
     ));
-  }, [query]);
+  }, [query, page, size]);
   return resource;
 }
 

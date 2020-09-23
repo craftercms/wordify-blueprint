@@ -15,74 +15,7 @@
  */
 
 // language=GraphQL
-export default `
-
-  fragment byUrlQueryHomepage on page_entry  {
-    pageTitle_s
-    pageDescription_s
-    bios_o {
-      item {
-        key
-        component {
-          ...byUrlQueryBioFragment
-        }
-      }
-    }
-    slider_o {
-      item {
-        key
-        component {
-          ...byUrlQueryContentItemFields
-          ...on component_slider {
-            ...byUrlQuerySlider
-          }
-        }
-      }
-    }
-  }
-  
-  fragment byUrlQueryAboutPage on page_about {
-    pageTitle_s
-    pageDescription_s
-    headline_s
-    bios_o {
-      item {
-        key
-        component {
-          ...byUrlQueryBioFragment
-        }
-      }
-    }
-    content_o {
-      item {
-        key
-        component {
-          ...on component_rich_text {
-            ...byUrlQueryRichText
-          }
-          ...on component_image {
-            ...byUrlQueryImage
-          }
-          ...on component_responsive_columns {
-            ...byUrlQueryResponsiveColumns
-          }
-        }
-      }
-    }
-  }
-
-  fragment byUrlQueryContactPage on page_contact {
-    pageTitle_s
-    pageDescription_s
-
-  }
-
-  fragment byUrlQueryCategoryPage on page_category {
-    pageTitle_s
-    pageDescription_s
-
-  }
-
+const commonFragments = `
   fragment byUrlQueryPostPage on page_post {
     ...byUrlQueryContentItemFields
     slug: localId(transform: "storeUrlToRenderUrl")
@@ -115,11 +48,23 @@ export default `
         }
       }
     }
+    categories_o {
+      item {
+        key(filter: {or: $categoriesFilter})
+        value_smv
+      }
+    }
+    tags_o {
+      item {
+        value_smv
+        key(filter: {or: $tagsFilter})
+      }
+    }
   }
 
   fragment byUrlQueryContentItemFields on ContentItem {
     guid: objectId
-    path: localId
+    path: localId(filter: {not: [{equals: $exclude}]})
     contentTypeId: content__type
     dateCreated: createdDate_dt
     dateModified: lastModifiedDate_dt
@@ -175,6 +120,78 @@ export default `
       }
     }
   }
+`
+
+// language=GraphQL
+export default `
+  ${commonFragments}
+
+  fragment byUrlQueryHomepage on page_entry  {
+    pageTitle_s
+    pageDescription_s
+    bios_o {
+      item {
+        key
+        component {
+          ...byUrlQueryBioFragment
+        }
+      }
+    }
+    slider_o {
+      item {
+        key
+        component {
+          ...byUrlQueryContentItemFields
+          ...on component_slider {
+            ...byUrlQuerySlider
+          }
+        }
+      }
+    }
+  }
+
+  fragment byUrlQueryAboutPage on page_about {
+    pageTitle_s
+    pageDescription_s
+    headline_s
+    bios_o {
+      item {
+        key
+        component {
+          ...byUrlQueryBioFragment
+        }
+      }
+    }
+    content_o {
+      item {
+        key
+        component {
+          ...on component_rich_text {
+            ...byUrlQueryRichText
+          }
+          ...on component_image {
+            ...byUrlQueryImage
+          }
+          ...on component_responsive_columns {
+            ...byUrlQueryResponsiveColumns
+          }
+        }
+      }
+    }
+  }
+
+  fragment byUrlQueryContactPage on page_contact {
+    pageTitle_s
+    pageDescription_s
+    message_t
+    headline_s
+  }
+
+  fragment byUrlQueryCategoryPage on page_category {
+    pageTitle_s
+    pageDescription_s
+
+  }
 
   fragment byUrlQuerySlider on component_slider {
     ...byUrlQueryContentItemFields
@@ -200,6 +217,9 @@ export default `
     $includePosts: Boolean = true
     $postsLimit: Int = 8
     $postsOffset: Int = 0
+    $exclude: String = ""
+    $categoriesFilter: [TextFilters!] = []
+    $tagsFilter: [TextFilters!] = []
   ) {
     content: contentItems {
       total
@@ -211,7 +231,7 @@ export default `
         )
         content__type(
           filter:{
-            regex: ".*(bio|post|entry|category|contact|about|search).*"
+            regex: ".*(bio|post|entry|category|tag|contact|about|search).*"
           }
         ) @skip (if: $skipContentType)
         ...on page_entry {
@@ -231,12 +251,55 @@ export default `
         }
       }
     }
-    posts: page_post(limit: $postsLimit, offset: $postsOffset) @include(if: $includePosts) {
+    levelDescriptors: component_level__descriptor {
+      items {
+        siteTitle_s
+        file__name
+        websiteShortname_s
+        socialLinks_o {
+          item {
+            socialNetwork_s
+            label_s
+            url_s
+          }
+        }
+      }
+    }
+    posts: page_post(
+      limit: $postsLimit,
+      offset: $postsOffset,
+      sortOrder: DESC,
+      sortBy: "lastModifiedDate_dt"
+    ) @include(if: $includePosts) {
       total
       items {
         ...byUrlQueryPostPage
       }
     }
   }
-  
+`;
+
+//language=GraphQL
+export const postsQuery = `
+  ${commonFragments}
+
+  query postsQuery(
+    $limit: Int = 10
+    $offset: Int = 0
+    $exclude: String = ""
+    $categoriesFilter: [TextFilters!] = []
+    $tagsFilter: [TextFilters!] = []
+  ) {
+    posts: page_post(
+      limit: $limit,
+      offset: $offset,
+      sortOrder: DESC,
+      sortBy: "lastModifiedDate_dt"
+    ) {
+      total
+      items {
+        ...byUrlQueryPostPage
+      }
+    }
+  }
 `;

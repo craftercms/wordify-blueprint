@@ -127,9 +127,6 @@
                     <name>image-picker</name>
                     <icon>
                         <class>fa-picture-o</class>
-                        <styles>
-                            <color>#7e9dbb</color>
-                        </styles>
                     </icon>
                 </control>
                 <control>
@@ -371,13 +368,13 @@
                         <property>
                             <name>display-template</name>
                             <label>Display Template</label>
-                            <value></value>
+                            <value />
                             <type>template</type>
                         </property>
                         <property>
                             <name>no-template-required</name>
                             <label>No Template Required</label>
-                            <value></value>
+                            <value />
                             <type>boolean</type>
                         </property>
                         <property>
@@ -395,13 +392,13 @@
                         <property>
                             <name>display-template</name>
                             <label>Display Template</label>
-                            <value></value>
+                            <value />
                             <type>template</type>
                         </property>
                         <property>
                             <name>no-template-required</name>
                             <label>No Template Required</label>
-                            <value></value>
+                            <value />
                             <type>boolean</type>
                         </property>
                         <property>

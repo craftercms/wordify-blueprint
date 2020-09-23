@@ -1,11 +1,11 @@
 <form>
   <title>Post</title>
-  <description/>
+  <description />
   <objectType>component</objectType>
   <content-type>/component/post</content-type>
   <imageThumbnail>post.png</imageThumbnail>
   <quickCreate>false</quickCreate>
-  <quickCreatePath/>
+  <quickCreatePath />
   <properties>
     <property>
       <name>display-template</name>
@@ -29,17 +29,17 @@
   <sections>
     <section>
       <title>System Fields</title>
-      <description></description>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>auto-filename</type>
           <id>file-name</id>
-          <iceId></iceId>
+          <iceId />
           <title>Component ID</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -53,7 +53,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -63,11 +63,11 @@
         <field>
           <type>input</type>
           <id>internal-name</id>
-          <iceId></iceId>
+          <iceId />
           <title>Internal Name</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -91,15 +91,15 @@
         <field>
           <type>page-nav-order</type>
           <id>placeInNav</id>
-          <iceId></iceId>
+          <iceId />
           <title>Place in Nav</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -114,11 +114,11 @@
         <field>
           <type>input</type>
           <id>navLabel</id>
-          <iceId></iceId>
+          <iceId />
           <title>Nav Label</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -132,7 +132,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -153,17 +153,17 @@
     </section>
     <section>
       <title>SEO</title>
-      <description></description>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>input</type>
           <id>pageTitle_s</id>
-          <iceId></iceId>
+          <iceId />
           <title>Page Title</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -177,7 +177,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -202,11 +202,11 @@
         <field>
           <type>input</type>
           <id>pageDescription_s</id>
-          <iceId></iceId>
+          <iceId />
           <title>Page Description</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -220,7 +220,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -245,11 +245,11 @@
         <field>
           <type>input</type>
           <id>slug_s</id>
-          <iceId></iceId>
+          <iceId />
           <title>Slug</title>
           <description>The friendly URL for this post</description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -263,7 +263,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -288,39 +288,124 @@
       </fields>
     </section>
     <section>
+      <title>Metadata</title>
+      <description />
+      <defaultOpen>true</defaultOpen>
+      <fields>
+        <field>
+          <type>checkbox-group</type>
+          <id>categories_o</id>
+          <iceId />
+          <title>Categories</title>
+          <description />
+          <defaultValue />
+          <help />
+          <properties>
+            <property>
+              <name>datasource</name>
+              <value>categories</value>
+              <type>datasource:item</type>
+            </property>
+            <property>
+              <name>selectAll</name>
+              <value>true</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>listDirection</name>
+              <value>[{&quot;value&quot;:&quot;horizontal&quot;,&quot;label&quot;:&quot;Horizonal&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;vertical&quot;,&quot;label&quot;:&quot;Vertical&quot;,&quot;selected&quot;:false}]</value>
+              <type>dropdown</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>minSize</name>
+              <value><![CDATA[1]]></value>
+              <type>int</type>
+            </constraint>
+          </constraints>
+        </field>
+        <field>
+          <type>checkbox-group</type>
+          <id>tags_o</id>
+          <iceId />
+          <title>Tags</title>
+          <description />
+          <defaultValue />
+          <help />
+          <properties>
+            <property>
+              <name>datasource</name>
+              <value>tags</value>
+              <type>datasource:item</type>
+            </property>
+            <property>
+              <name>selectAll</name>
+              <value>true</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>listDirection</name>
+              <value>[{&quot;value&quot;:&quot;horizontal&quot;,&quot;label&quot;:&quot;Horizonal&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;vertical&quot;,&quot;label&quot;:&quot;Vertical&quot;,&quot;selected&quot;:false}]</value>
+              <type>dropdown</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>minSize</name>
+              <value><![CDATA[]]></value>
+              <type>int</type>
+            </constraint>
+          </constraints>
+        </field>
+      </fields>
+    </section>
+    <section>
       <title>Content Fields</title>
-      <description></description>
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
           <type>image-picker</type>
           <id>mainImage_s</id>
-          <iceId></iceId>
+          <iceId />
           <title>Main Image</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>width</name>
-              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot; }
+              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
+                }
               </value>
               <type>range</type>
             </property>
             <property>
               <name>height</name>
-              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot; }
+              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
+                }
               </value>
               <type>range</type>
             </property>
             <property>
               <name>thumbnailWidth</name>
-              <value></value>
+              <value />
               <type>int</type>
             </property>
             <property>
               <name>thumbnailHeight</name>
-              <value></value>
+              <value />
               <type>int</type>
             </property>
             <property>
@@ -330,7 +415,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -345,11 +430,11 @@
         <field>
           <type>input</type>
           <id>headline_s</id>
-          <iceId></iceId>
+          <iceId />
           <title>Headline</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>size</name>
@@ -363,7 +448,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
@@ -388,11 +473,11 @@
         <field>
           <type>textarea</type>
           <id>blurb_t</id>
-          <iceId></iceId>
+          <iceId />
           <title>Blurb</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>cols</name>
@@ -416,7 +501,7 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
           </properties>
@@ -431,20 +516,20 @@
         <field>
           <type>node-selector</type>
           <id>content_o</id>
-          <iceId></iceId>
+          <iceId />
           <title>Content</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>minSize</name>
-              <value></value>
+              <value />
               <type>int</type>
             </property>
             <property>
               <name>maxSize</name>
-              <value></value>
+              <value />
               <type>int</type>
             </property>
             <property>
@@ -454,27 +539,29 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
               <name>disableFlattening</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
               <name>useSingleValueFilename</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
               <name>contentTypes</name>
-              <value>,/component/image,/component/responsive_columns,/component/rich_text,/component/slider</value>
+              <value>
+                ,/component/image,/component/responsive_columns,/component/rich_text,/component/slider
+              </value>
               <type>contentTypes</type>
             </property>
             <property>
               <name>tags</name>
-              <value></value>
+              <value />
               <type>string</type>
             </property>
           </properties>
@@ -489,11 +576,11 @@
         <field>
           <type>node-selector</type>
           <id>authorBio_o</id>
-          <iceId></iceId>
+          <iceId />
           <title>Author Bio</title>
-          <description></description>
-          <defaultValue></defaultValue>
-          <help></help>
+          <description />
+          <defaultValue />
+          <help />
           <properties>
             <property>
               <name>minSize</name>
@@ -512,27 +599,22 @@
             </property>
             <property>
               <name>readonly</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
               <name>disableFlattening</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
               <name>useSingleValueFilename</name>
-              <value></value>
+              <value />
               <type>boolean</type>
             </property>
             <property>
-              <name>contentTypes</name>
-              <value>,/component/bio</value>
-              <type>contentTypes</type>
-            </property>
-            <property>
               <name>tags</name>
-              <value></value>
+              <value />
               <type>string</type>
             </property>
           </properties>
@@ -652,6 +734,42 @@
         <property>
           <name>type</name>
           <value>/component/bio</value>
+          <type>undefined</type>
+        </property>
+      </properties>
+    </datasource>
+    <datasource>
+      <type>site-component</type>
+      <id>categories</id>
+      <title>Categories</title>
+      <interface>item</interface>
+      <properties>
+        <property>
+          <name>dataType</name>
+          <value>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;DataType&quot;,&quot;selected&quot;:false}]</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>componentPath</name>
+          <value>/site/taxonomy/categories.xml</value>
+          <type>undefined</type>
+        </property>
+      </properties>
+    </datasource>
+    <datasource>
+      <type>site-component</type>
+      <id>tags</id>
+      <title>Tags</title>
+      <interface>item</interface>
+      <properties>
+        <property>
+          <name>dataType</name>
+          <value>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;DataType&quot;,&quot;selected&quot;:false}]</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>componentPath</name>
+          <value>/site/taxonomy/tags.xml</value>
           <type>undefined</type>
         </property>
       </properties>

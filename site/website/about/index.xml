@@ -2,7 +2,7 @@
 <page>
   <content-type>/page/about</content-type>
   <display-template>/templates/web/about.ftl</display-template>
-  <no-template-required/>
+  <no-template-required />
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>1ddb</objectGroupId>
   <objectId>1ddb9b92-5968-bcfd-7ebe-85b54596eb00</objectId>
@@ -31,7 +31,7 @@
     </item>
   </bios_o>
   <pageTitle_s>Wordify - About The Author</pageTitle_s>
-  <pageDescription_s/>
+  <pageDescription_s />
   <headline_s>Hi There! I'm John Doe</headline_s>
   <content_o item-list="true">
     <item datasource="image" inline="true">
@@ -40,12 +40,12 @@
       <component id="8cb817ea-ad49-f1e1-1d3e-743b63a97bd6">
         <content-type>/component/image</content-type>
         <display-template>/templates/web/components/image.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>8cb8</objectGroupId>
         <objectId>8cb817ea-ad49-f1e1-1d3e-743b63a97bd6</objectId>
         <internal-name>About Hero Image</internal-name>
-        <alternativeText_s/>
+        <alternativeText_s />
         <image_s>/static-assets/images/img_6.jpg</image_s>
         <file-name>8cb817ea-ad49-f1e1-1d3e-743b63a97bd6.xml</file-name>
         <createdDate>2020-03-23T08:08:06.244Z</createdDate>
@@ -60,7 +60,7 @@
       <component id="ff3b8109-876f-fbd7-d289-a596f8f28a4e">
         <content-type>/component/rich_text</content-type>
         <display-template>/templates/web/components/rich_text.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>ff3b</objectGroupId>
         <objectId>ff3b8109-876f-fbd7-d289-a596f8f28a4e</objectId>
