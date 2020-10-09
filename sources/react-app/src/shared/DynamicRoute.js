@@ -91,7 +91,10 @@ export default function DynamicRoute(props) {
     return <CircularProgressSpinner />;
   } else {
     return (
-      <Guest modelId={state.model?.craftercms.id} isAuthoring={isAuthoring()}>
+      <Guest
+        modelId={state.model?.craftercms.id} isAuthoring={isAuthoring()}
+        path={state.model?.craftercms.path}
+      >
         <ContentType {...state} {...props} contentTypeMap={contentTypeMap} />
       </Guest>
     );
