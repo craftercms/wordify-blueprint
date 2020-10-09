@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, useEffect } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import RecentPostsAside from '../shared/RecentPostsAside';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
@@ -123,8 +123,15 @@ export default function (props) {
   } = props;
 
   const isTag = match.path === '/tag/:id?';
-  const categoryId = match.params.id;
+  const [categoryId, setCategoryId] = useState();
   let resource = useTaxonomiesResource();
+
+
+  useEffect(() => {
+    if(match.path === '/category/:id?' || match.path === '/tag/:id?') {
+      setCategoryId(match.params.id);
+    }
+  }, [match.params, match.path]);
 
   return (
     <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
