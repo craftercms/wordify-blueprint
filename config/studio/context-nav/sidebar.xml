@@ -74,21 +74,6 @@
                   </params>
                 </modulehook>
 
-                <!-- Sample React Sidebar Widget -->
-                <modulehook>
-                  <plugin>
-                    <type>sidebar</type>
-                    <name>react-sample</name>
-                    <file>main.js</file>
-                  </plugin>
-                  <params>
-                    <label>Static Assets</label>
-                    <path>/static-assets</path>
-                    <showRootItem>true</showRootItem>
-                    <onClick>none</onClick>
-                  </params>
-                </modulehook>
-
                 <!-- Templates -->
                 <modulehook>
                   <name>wcm-assets-folder</name>
