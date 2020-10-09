@@ -127,7 +127,7 @@ export default function (props) {
     if(match.path === '/category/:id?' || match.path === '/tag/:id?') {
       setCategoryId(match.params.id);
     }
-  }, [match.params]);
+  }, [match.params, match.path]);
 
   return (
     <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
