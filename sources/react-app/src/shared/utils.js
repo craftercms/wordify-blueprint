@@ -53,7 +53,9 @@ export function createResource(factory) {
   };
 }
 
-export const siteName = process.env.REACT_APP_CRAFTERCMS_SITE_ID || Cookies.get('crafterSite');
+export const siteName = document.getElementById('studioSiteId').innerHTML ||
+  process.env.REACT_APP_CRAFTERCMS_SITE_ID ||
+  Cookies.get('crafterSite');
 if (!siteName) {
   throw new Error('Site not set.');
 }
