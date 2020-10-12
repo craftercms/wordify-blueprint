@@ -31,74 +31,11 @@
                     <path>/site-dashboard</path>
                   </params>
                 </modulehook>
-
-                <!-- Site IA Pages -->
-                <modulehook>
-                  <name>wcm-root-folder</name>
-                  <params>
-                    <label>Pages</label>
-                    <path>/site/website</path>
-                    <showRootItem>true</showRootItem>
-                    <onClick>preview</onClick>
-                  </params>
-                </modulehook>
-
-                <!-- Components -->
-                <modulehook>
-                  <name>wcm-root-folder</name>
-                  <params>
-                    <label>Components</label>
-                    <path>/site/components</path>
-                    <showRootItem>true</showRootItem>
-                  </params>
-                </modulehook>
-
-                <!-- Taxonomy -->
-                <modulehook>
-                  <name>wcm-root-folder</name>
-                  <params>
-                    <label>Taxonomy</label>
-                    <path>/site/taxonomy</path>
-                    <showRootItem>true</showRootItem>
-                  </params>
-                </modulehook>
-
-                <!-- Static Assets -->
-                <modulehook>
-                  <name>wcm-assets-folder</name>
-                  <params>
-                    <label>Static Assets</label>
-                    <path>/static-assets</path>
-                    <showRootItem>true</showRootItem>
-                    <onClick>none</onClick>
-                  </params>
-                </modulehook>
-
-                <!-- Templates -->
-                <modulehook>
-                  <name>wcm-assets-folder</name>
-                  <params>
-                    <label>Templates</label>
-                    <path>/templates</path>
-                    <showRootItem>true</showRootItem>
-                    <onClick>none</onClick>
-                  </params>
-                </modulehook>
-
-                <!-- Scripts -->
-                <modulehook>
-                  <name>wcm-assets-folder</name>
-                  <params>
-                    <label>Scripts</label>
-                    <path>/scripts</path>
-                    <showRootItem>true</showRootItem>
-                    <onClick>none</onClick>
-                  </params>
-                </modulehook>
-
+                
                 <!-- Site Config -->
                 <modulehook>
                   <name>site-config</name>
+                  <divider>true</divider>
                   <params>
                     <roles>
                       <role>admin</role>
@@ -107,6 +44,108 @@
                     <label>Site Config</label>
                     <path>/site-config</path>
                   </params>
+                </modulehook>
+
+                <!-- Path Navigator: Pages -->
+                <modulehook>
+                  <render>PagesWidget</render>
+                  <props>
+                    <title>Pages</title>
+                    <icon>fa fa-file-text-o</icon>
+                    <path>/site/website</path>
+                    <locale>en</locale>
+                  </props>
+                  <container>
+                    <style>
+                      <padding-left>9px</padding-left>
+                    </style>
+                    <class>next-pages-widget</class>
+                  </container>
+                </modulehook>
+
+                <!-- Path Navigator: Components -->
+                <modulehook>
+                  <render>PagesWidget</render>
+                  <props>
+                    <title>Components</title>
+                    <icon>fa fa-puzzle-piece</icon>
+                    <path>/site/components</path>
+                    <locale>en</locale>
+                  </props>
+                  <container>
+                    <style>
+                      <padding-left>9px</padding-left>
+                    </style>
+                    <class>next-pages-widget</class>
+                  </container>
+                </modulehook>
+
+                <!-- Path Navigator: Taxonomy -->
+                <modulehook>
+                  <render>PagesWidget</render>
+                  <props>
+                    <title>Taxonomy</title>
+                    <icon>fa fa-tags</icon>
+                    <path>/site/taxonomy</path>
+                    <locale>en</locale>
+                  </props>
+                  <container>
+                    <style>
+                      <padding-left>9px</padding-left>
+                    </style>
+                    <class>next-pages-widget</class>
+                  </container>
+                </modulehook>
+
+                <!-- Path Navigator: Static Assets -->
+                <modulehook>
+                  <render>PagesWidget</render>
+                  <props>
+                    <title>Static Assets</title>
+                    <icon>fa fa-image</icon>
+                    <path>/static-assets</path>
+                    <locale>en</locale>
+                  </props>
+                  <container>
+                    <style>
+                      <padding-left>9px</padding-left>
+                    </style>
+                    <class>next-pages-widget</class>
+                  </container>
+                </modulehook>
+
+                <!-- Path Navigator: Templates -->
+                <modulehook>
+                  <render>PagesWidget</render>
+                  <props>
+                    <title>Templates</title>
+                    <icon>fa fa-file-code-o</icon>
+                    <path>/templates</path>
+                    <locale>en</locale>
+                  </props>
+                  <container>
+                    <style>
+                      <padding-left>9px</padding-left>
+                    </style>
+                    <class>next-pages-widget</class>
+                  </container>
+                </modulehook>
+
+                <!-- Path Navigator: Scripts -->
+                <modulehook>
+                  <render>PagesWidget</render>
+                  <props>
+                    <title>Scripts</title>
+                    <icon>fa fa-code</icon>
+                    <path>/scripts</path>
+                    <locale>en</locale>
+                  </props>
+                  <container>
+                    <style>
+                      <padding-left>9px</padding-left>
+                    </style>
+                    <class>next-pages-widget</class>
+                  </container>
                 </modulehook>
               </modulehooks>
 

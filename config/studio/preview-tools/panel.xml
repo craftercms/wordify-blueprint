@@ -55,5 +55,9 @@
         </channels>
       </config>
     </module>
+    <module>
+      <moduleName>craftercms.siteExplorerPanel</moduleName>
+      <title>siteExplorerPanel</title>
+    </module>
   </modules>
 </panel>
