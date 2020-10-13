@@ -14,6 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import Cookies from 'js-cookie';
+
 export function isAuthoring() {
   const html = document.documentElement;
   const attr = html.getAttribute('data-craftercms-preview');
@@ -50,9 +52,15 @@ export function createResource(factory) {
   };
 }
 
+let site = document.getElementById('2fb5164e').innerHTML;
+if (site === 'null') {
+  site = Cookies.get('crafterSite');
+}
+
 export const crafterConfig = {
   baseUrl: process.env.REACT_APP_CRAFTERCMS_BASE_URL,
-  site: process.env.REACT_APP_CRAFTERCMS_SITE_ID
+  site,
+  graphQLServer: process.env.REACT_APP_GRAPHQL_SERVER
 };
 
 // TODO: To be moved to sdk and/or removed

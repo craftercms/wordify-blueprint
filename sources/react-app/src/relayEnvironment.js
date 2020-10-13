@@ -20,12 +20,14 @@ import {
   RecordSource,
   Store
 } from 'relay-runtime';
+import { crafterConfig } from './shared/utils';
 
 export function fetchQuery(
   operation,
   variables
 ) {
-  return fetch(process.env.REACT_APP_GRAPHQL_SERVER, {
+  const graphQLServer = `${crafterConfig.graphQLServer}?crafterSite=${crafterConfig.site}`;
+  return fetch(graphQLServer, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
