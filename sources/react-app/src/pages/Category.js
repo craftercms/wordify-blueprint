@@ -124,7 +124,7 @@ export default function (props) {
   let resource = useTaxonomiesResource();
 
   useEffect(() => {
-    if(match.path === '/category/:id?' || match.path === '/tag/:id?') {
+    if (match.path === '/category/:id?' || match.path === '/tag/:id?') {
       setCategoryId(match.params.id);
     }
   }, [match.params, match.path]);

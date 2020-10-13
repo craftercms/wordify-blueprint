@@ -52,8 +52,8 @@ export function createResource(factory) {
   };
 }
 
-let site = document.getElementById('studioSiteId').innerHTML;
-if(site === 'null') {
+let site = document.getElementById('2fb5164e').innerHTML;
+if (site === 'null') {
   site = Cookies.get('crafterSite');
 }
 
