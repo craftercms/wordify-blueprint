@@ -128,9 +128,7 @@ export default function (props) {
 
 
   useEffect(() => {
-    if (match.path === '/category/:id?' || match.path === '/tag/:id?') {
-      setCategoryId(match.params.id);
-    }
+    setCategoryId(match.params.id);
   }, [match.params, match.path]);
 
   return (

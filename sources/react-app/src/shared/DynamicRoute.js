@@ -92,7 +92,8 @@ export default function DynamicRoute(props) {
   } else {
     return (
       <Guest
-        modelId={state.model?.craftercms.id} isAuthoring={isAuthoring()}
+        modelId={state.model?.craftercms.id}
+        isAuthoring={isAuthoring()}
         path={state.model?.craftercms.path}
       >
         <ContentType {...state} {...props} contentTypeMap={contentTypeMap} />

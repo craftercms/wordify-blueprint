@@ -53,7 +53,8 @@ export function createResource(factory) {
   };
 }
 
-export const siteName = document.getElementById('2fb5164e').innerHTML ||
+export const siteName =
+  document.getElementById('2fb5164e').innerHTML ||
   process.env.REACT_APP_CRAFTERCMS_SITE_ID ||
   Cookies.get('crafterSite');
 if (!siteName) {
