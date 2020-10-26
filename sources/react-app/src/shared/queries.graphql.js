@@ -15,8 +15,8 @@
  */
 
 // language=GraphQL
-const commonFragments = `
-  fragment byUrlQueryPostPage on page_post {
+const commonFragments = `  
+  fragment byUrlQueryPost on component_post {
     ...byUrlQueryContentItemFields
     slug: localId(transform: "storeUrlToRenderUrl")
     pageTitle_s
@@ -192,40 +192,6 @@ export default `
     pageDescription_s
   }
 
-  fragment byUrlQueryPost on component_post {
-    ...byUrlQueryContentItemFields
-    slug: localId(transform: "storeUrlToRenderUrl")
-    pageTitle_s
-    pageDescription_s
-    blurb_t
-    headline_s
-    mainImage_s
-    content_o {
-      item {
-        key
-        component {
-          ...on component_rich_text {
-            ...byUrlQueryRichText
-          }
-          ...on component_image {
-            ...byUrlQueryImage
-          }
-          ...on component_responsive_columns {
-            ...byUrlQueryResponsiveColumns
-          }
-        }
-      }
-    }
-    authorBio_o {
-      item {
-        key
-        component {
-          ...byUrlQueryBioFragment
-        }
-      }
-    }
-  }
-
   fragment byUrlQuerySlider on component_slider {
     ...byUrlQueryContentItemFields
     posts_o {
@@ -287,9 +253,6 @@ export default `
         ...on page_category {
           ...byUrlQueryCategoryPage
         }
-        ...on page_post {
-          ...byUrlQueryPostPage
-        }
         ...on component_post {
           ...byUrlQueryPost
         }
@@ -328,21 +291,21 @@ export const postsQuery = `
   ${commonFragments}
 
   query postsQuery(
-    $limit: Int = 10
-    $offset: Int = 0
+    $postsLimit: Int = 8
+    $postsOffset: Int = 0
     $exclude: String = ""
     $categoriesFilter: [TextFilters!] = []
     $tagsFilter: [TextFilters!] = []
   ) {
-    posts: page_post(
-      limit: $limit,
-      offset: $offset,
+    posts: component_post(
+      limit: $postsLimit,
+      offset: $postsOffset,
       sortOrder: DESC,
       sortBy: "lastModifiedDate_dt"
     ) {
       total
       items {
-        ...byUrlQueryPostPage
+        ...byUrlQueryPost
       }
     }
   }

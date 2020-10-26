@@ -21,7 +21,6 @@ export default {
   '/page/about': lazy(() => import('../pages/About')),
   '/page/contact': lazy(() => import('../pages/Contact')),
   '/page/category': lazy(() => import('../pages/Category')),
-  '/page/post': lazy(() => import('../pages/Post')),
   '/page/search': lazy(() => import('../pages/Search')),
   '/component/header': lazy(() => import('../components/Header')),
   '/component/footer': lazy(() => import('../components/Footer')),
@@ -29,5 +28,6 @@ export default {
   '/component/image': lazy(() => import('../components/Image')),
   '/component/responsive_columns': lazy(() => import('../components/ResponsiveColumns')),
   '/component/rich_text': lazy(() => import('../components/RichText')),
-  '/component/slider': lazy(() => import('../components/Slider'))
+  '/component/slider': lazy(() => import('../components/Slider')),
+  '/component/post': lazy(() => import('../pages/Post'))
 };

@@ -82,7 +82,7 @@ export function useSearchQuery() {
   return [query, onChange, setQuery, page];
 }
 
-const contentTypes = ['/page/post'];
+const contentTypes = ['/component/post'];
 export function useUrlSearchQueryFetchResource(size = 1) {
   const [query, , , page] = useSearchQuery();
   const [resource, setResource] = useState(neverResource);
