@@ -443,12 +443,12 @@
         </property>
         <property>
           <name>repoPath</name>
-          <value>/components</value>
+          <value>/site/bio</value>
           <type>undefined</type>
         </property>
         <property>
           <name>browsePath</name>
-          <value>/site/components/bio</value>
+          <value>/site/bio</value>
           <type>undefined</type>
         </property>
         <property>

@@ -12,7 +12,7 @@
   ~ GNU General Public License for more details.
   ~
   ~ You should have received a copy of the GNU General Public License
-  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses />.
   -->
 
 <contextNav>
@@ -31,7 +31,7 @@
                     <path>/site-dashboard</path>
                   </params>
                 </modulehook>
-                
+
                 <!-- Site Config -->
                 <modulehook>
                   <name>site-config</name>
@@ -70,6 +70,22 @@
                     <title>Components</title>
                     <icon>fa fa-puzzle-piece</icon>
                     <path>/site/components</path>
+                    <locale>en</locale>
+                  </props>
+                  <container>
+                    <style>
+                      <padding-left>9px</padding-left>
+                    </style>
+                    <class>next-pages-widget</class>
+                  </container>
+                </modulehook>
+
+                <modulehook>
+                  <render>PagesWidget</render>
+                  <props>
+                    <title>Bios</title>
+                    <icon>fa fa-user-circle-o</icon>
+                    <path>/site/bio</path>
                     <locale>en</locale>
                   </props>
                   <container>

@@ -1,11 +1,11 @@
 <form>
   <title>Post</title>
-	<description />
+  <description />
   <objectType>component</objectType>
   <content-type>/component/post</content-type>
   <imageThumbnail>post.png</imageThumbnail>
   <quickCreate>false</quickCreate>
-	<quickCreatePath />
+  <quickCreatePath />
   <properties>
     <property>
       <name>display-template</name>
@@ -29,7 +29,7 @@
   <sections>
     <section>
       <title>System Fields</title>
-			<description />
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
@@ -386,16 +386,12 @@
           <properties>
             <property>
               <name>width</name>
-              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
-                }
-              </value>
+              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;}</value>
               <type>range</type>
             </property>
             <property>
               <name>height</name>
-              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
-                }
-              </value>
+              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;}</value>
               <type>range</type>
             </property>
             <property>
@@ -728,12 +724,12 @@
         </property>
         <property>
           <name>repoPath</name>
-          <value>/site/components/bio</value>
+          <value>/site/bio</value>
           <type>undefined</type>
         </property>
         <property>
           <name>browsePath</name>
-					<value>/site/components/bio</value>
+          <value>/site/bio</value>
           <type>undefined</type>
         </property>
         <property>
