@@ -10,4 +10,9 @@
   <quickCreatePath />
   <noThumbnail>false</noThumbnail>
   <image-thumbnail>home.png</image-thumbnail>
+  <paths>
+    <excludes>
+      <pattern>^/site/.*</pattern>
+    </excludes>
+  </paths>
 </content-type>
