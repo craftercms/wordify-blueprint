@@ -227,7 +227,7 @@
             </property>
             <property>
               <name>maxSize</name>
-              <value>0</value>
+              <value />
               <type>int</type>
             </property>
             <property>
@@ -274,39 +274,49 @@
   </sections>
   <datasources>
     <datasource>
-      <type>shared-content</type>
+      <type>receptacles</type>
       <id>bios</id>
       <title>Bios</title>
       <interface>item</interface>
       <properties>
         <property>
-          <name>enableCreateNew</name>
+          <name>allowShared</name>
           <value>true</value>
           <type>undefined</type>
         </property>
         <property>
-          <name>enableBrowseExisting</name>
+          <name>allowEmbedded</name>
           <value>true</value>
           <type>undefined</type>
         </property>
         <property>
-          <name>enableSearchExisting</name>
+          <name>enableBrowse</name>
           <value>true</value>
           <type>undefined</type>
         </property>
         <property>
-          <name>repoPath</name>
+          <name>enableSearch</name>
+          <value>true</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>baseRepositoryPath</name>
           <value>/site/bio</value>
           <type>undefined</type>
         </property>
         <property>
-          <name>browsePath</name>
+          <name>baseBrowsePath</name>
           <value>/site/bio</value>
           <type>undefined</type>
         </property>
         <property>
-          <name>type</name>
+          <name>contentTypes</name>
           <value>/component/bio</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>tags</name>
+          <value />
           <type>undefined</type>
         </property>
       </properties>
