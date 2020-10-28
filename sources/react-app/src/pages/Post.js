@@ -117,7 +117,7 @@ export default function (props) {
 
               <SidebarSearch/>
 
-              <SidebarBios bios={model.authorBio_o}/>
+              <SidebarBios model={model} fieldId="authorBio_o" />
 
               <RecentPostsAside posts={posts} />
 

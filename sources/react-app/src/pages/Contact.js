@@ -46,7 +46,7 @@ const initialToastData = {
 
 export default function (props) {
   const {
-    bios_o,
+    model,
     model: {
       headline_s,
       message_t
@@ -178,7 +178,7 @@ export default function (props) {
                 </form>
               </div>
 
-              <SidebarBios bios={bios_o} />
+              <SidebarBios model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 

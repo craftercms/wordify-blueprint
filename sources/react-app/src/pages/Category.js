@@ -111,7 +111,7 @@ function CategoryContent({ resource, isTag, categoryId }) {
 
 export default function (props) {
   const {
-    bios_o,
+    model,
     match,
     meta: {
       siteTitle,
@@ -141,7 +141,7 @@ export default function (props) {
 
               <SidebarSearch />
 
-              <SidebarBios bios={bios_o} />
+              <SidebarBios model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 

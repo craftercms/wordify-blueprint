@@ -20,12 +20,12 @@ export default function (props) {
   const {
     ice,
     model: {
-      content_html_raw
+      content_html
     }
   } = props;
   return (
     <>
-      <div {...ice} dangerouslySetInnerHTML={{ __html: content_html_raw }} />
+      <div {...ice} dangerouslySetInnerHTML={{ __html: content_html }} />
     </>
   );
 }

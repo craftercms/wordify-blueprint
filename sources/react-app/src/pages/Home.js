@@ -29,11 +29,11 @@ import { useRecentPosts } from '../shared/hooks';
 
 export default function (props) {
   const {
+    model,
     model: {
       craftercms: {
         path
       },
-      bios_o,
       slider_o
     },
     meta: {
@@ -132,7 +132,7 @@ export default function (props) {
 
               <SidebarSearch />
 
-              <SidebarBios bios={bios_o} />
+              <SidebarBios model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 
