@@ -62,6 +62,29 @@
           <constraints>
           </constraints>
         </field>
+        <field>
+          <type>internal-name</type>
+          <id>internal-name</id>
+          <iceId />
+          <title>Internal Name</title>
+          <description />
+          <defaultValue>Section Defaults</defaultValue>
+          <help />
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+          </properties>
+          <constraints>
+          </constraints>
+        </field>
       </fields>
     </section>
     <section>
