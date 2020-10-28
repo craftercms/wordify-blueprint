@@ -9,7 +9,6 @@
   <file-name>index.xml</file-name>
   <folder-name>how-to-find-the-video-games-of-your-youth</folder-name>
   <internal-name>Video Games of Your Youth</internal-name>
-  <navLabel>How to Find the Video Games of Your Youth</navLabel>
   <pageTitle_s>How to Find the Video Games of Your Youth</pageTitle_s>
   <headline_s tokenized="true">How to Find the Video Games of Your Youth</headline_s>
   <placeInNav>false</placeInNav>
@@ -17,8 +16,8 @@
   <mainImage_s>/static-assets/images/img_1.jpg</mainImage_s>
   <createdDate>2020-03-21T15:18:28.488Z</createdDate>
   <createdDate_dt>2020-03-21T15:18:28.488Z</createdDate_dt>
-  <lastModifiedDate>2020-07-10T21:20:22.217Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-07-10T21:20:22.217Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-10-28T19:18:28.116Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-10-28T19:18:28.116Z</lastModifiedDate_dt>
   <content_o item-list="true">
     <item datasource="richTextSections" inline="true">
       <key>543ab594-1eb0-4d66-6536-8fb3c0b90b62</key>
@@ -125,9 +124,9 @@
   <blurb_t />
   <authorBio_o item-list="true">
     <item datasource="bios">
-      <key>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
+      <key>/site/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
       <value>John Doe's Bio</value>
-      <include>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
+      <include>/site/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
   </authorBio_o>

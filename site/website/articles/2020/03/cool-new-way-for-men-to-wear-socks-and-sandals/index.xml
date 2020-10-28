@@ -9,13 +9,12 @@
   <file-name>index.xml</file-name>
   <folder-name>cool-new-way-for-men-to-wear-socks-and-sandals</folder-name>
   <internal-name>Men Socks and Sandals</internal-name>
-  <navLabel>There’s a Cool New Way for Men to Wear Socks and Sandals</navLabel>
   <placeInNav>false</placeInNav>
   <orderDefault_f>-1</orderDefault_f>
   <createdDate>2020-03-21T11:29:30.420Z</createdDate>
   <createdDate_dt>2020-03-21T11:29:30.420Z</createdDate_dt>
-  <lastModifiedDate>2020-07-10T21:20:15.113Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-07-10T21:20:15.113Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-10-28T19:18:15.086Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-10-28T19:18:15.086Z</lastModifiedDate_dt>
   <mainImage_s>/static-assets/images/img_12.jpg</mainImage_s>
   <pageTitle_s>Cool New Way for Men to Wear Socks and Sandals</pageTitle_s>
   <headline_s tokenized="true">There’s a Cool New Way for Men to Wear Socks and Sandals</headline_s>
@@ -183,9 +182,9 @@
   <blurb_t>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt</blurb_t>
   <authorBio_o item-list="true">
     <item datasource="bios">
-      <key>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
+      <key>/site/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
       <value>Jane Doe's Bio</value>
-      <include>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
+      <include>/site/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
   </authorBio_o>

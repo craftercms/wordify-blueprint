@@ -53,6 +53,16 @@
                   </params>
                 </modulehook>
 
+                <modulehook>
+                  <name>wcm-root-folder</name>
+                  <params>
+                    <label>Bios</label>
+                    <path>/site/bio</path>
+                    <showRootItem>true</showRootItem>
+                    <onClick>preview</onClick>
+                  </params>
+                </modulehook>
+
                 <!-- Taxonomy -->
                 <modulehook>
                   <name>wcm-root-folder</name>
