@@ -29,9 +29,13 @@ const limit = 3;
 export default function DynamicRoute(props) {
   const { match, location } = props;
   const [state, setState] = useState(null);
-  const url = match.path.includes(':')
+  let url = match.path.includes(':')
     ? match.path.substring(0, match.path.indexOf(':') -1)
     : match.url;
+
+  if (url.includes('/post')) {
+    url += '.xml';
+  }
 
   useEffect(() => {
     let destroyed = false;

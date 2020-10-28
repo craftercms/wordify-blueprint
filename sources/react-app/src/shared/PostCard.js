@@ -59,8 +59,7 @@ export default function (props) {
     .replace(/(\/site\/components)|(index\.xml)/g, '')
     .replace(/(\/site\/website)|(index\.xml)/g, '')
     .replace(/(\/\/)/g, '/')
-    .replace('post/', 'articles/')
-    .replace('.xml', '/');
+    .replace('.xml', '');
   const { props: ice } = useICE({ model, parentModelId, isAuthoring });
   switch (format) {
     case PORTRAIT:
