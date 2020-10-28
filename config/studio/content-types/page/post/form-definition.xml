@@ -678,7 +678,7 @@
         </property>
         <property>
           <name>browsePath</name>
-          <value>/site/components</value>
+          <value>/site/components/bio</value>
           <type>undefined</type>
         </property>
         <property>
