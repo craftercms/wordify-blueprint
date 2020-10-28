@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+	<content-type>/component/bio</content-type>
+	<display-template>/templates/web/components/bio.ftl</display-template>
+	<no-template-required />
+	<merge-strategy>inherit-levels</merge-strategy>
+	<objectGroupId>2921</objectGroupId>
+	<objectId>29217b50-23b3-92e8-a30a-fe0778dbc6f5</objectId>
+	<bio_t>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt</bio_t>
+	<showLinkButton_b>false</showLinkButton_b>
+	<profilePic_s>/static-assets/images/person_1.jpg</profilePic_s>
+	<file-name>29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</file-name>
+	<internal-name>Jane Doe's Bio</internal-name>
+	<name_s>Jane Doe</name_s>
+	<linkButtonText_s />
+	<linkButtonUrl_s />
+	<facebookLink_s>https://facebook.com</facebookLink_s>
+	<twitterLink_s>https://twitter.com</twitterLink_s>
+	<instagramLink_s>https://instagram.com</instagramLink_s>
+	<youTubeLink_s>https://youtube.com</youTubeLink_s>
+	<createdDate>2020-03-22T07:43:01.359Z</createdDate>
+	<createdDate_dt>2020-03-22T07:43:01.359Z</createdDate_dt>
+	<lastModifiedDate>2020-03-26T08:51:50.712Z</lastModifiedDate>
+	<lastModifiedDate_dt>2020-03-26T08:51:50.712Z</lastModifiedDate_dt>
+</component>
