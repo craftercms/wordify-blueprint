@@ -13,14 +13,14 @@
   <folder-name />
   <createdDate>2017-1-31T16:18:14.000Z</createdDate>
   <createdDate_dt>2017-1-31T16:18:14.000Z</createdDate_dt>
-  <lastModifiedDate>2020-04-29T07:44:51.460Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-04-29T07:44:51.460Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-10-28T20:40:13.892Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-10-28T20:40:13.892Z</lastModifiedDate_dt>
   <disabled>false</disabled>
   <bios_o item-list="true">
     <item datasource="bios">
-      <key>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
+      <key>/site/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
       <value>John Doe's Bio</value>
-      <include>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
+      <include>/site/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
   </bios_o>
@@ -39,15 +39,19 @@
         <internal-name>Home Slider</internal-name>
         <posts_o item-list="true">
           <item datasource="blogPosts">
-            <key>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml</key>
+            <key>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
+            </key>
             <value>Men Socks and Sandals</value>
-            <include>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml</include>
+            <include>
+              /site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
+            </include>
             <disableFlattening>false</disableFlattening>
           </item>
           <item datasource="blogPosts">
             <key>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml</key>
             <value>Video Games of Your Youth</value>
-            <include>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml</include>
+            <include>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml
+            </include>
             <disableFlattening>false</disableFlattening>
           </item>
         </posts_o>
