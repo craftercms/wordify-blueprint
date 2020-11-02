@@ -41,13 +41,7 @@ export default function DynamicRoute(props) {
     let destroyed = false;
     let page = parseInt(parse(location.search).page ?? 1) - 1;
     const pagination = { limit, offset: page ? (page * limit) : 0 };
-
-    if (window.crafterRequire) {
-      window.crafterRequire(['guest'], function (guest) {
-        guest.reportNavigation(location, location.pathname);
-      });
-    }
-
+    reportNavigation(url);
     fetchQuery(
       // { text: byUrlQuery.params.text.replace(/__typename/g, '') },
       { text: byUrlQuery },
