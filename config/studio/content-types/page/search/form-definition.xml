@@ -3,7 +3,7 @@
   <description />
   <objectType>page</objectType>
   <content-type>/page/search</content-type>
-  <imageThumbnail>undefined</imageThumbnail>
+  <imageThumbnail>search.png</imageThumbnail>
   <quickCreate>false</quickCreate>
   <quickCreatePath />
   <properties>
