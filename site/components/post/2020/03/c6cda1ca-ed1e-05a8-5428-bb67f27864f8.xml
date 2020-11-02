@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <content-type>/component/post</content-type>
+  <display-template>/templates/web/components/post.ftl</display-template>
+  <no-template-required>true</no-template-required>
+  <merge-strategy>inherit-levels</merge-strategy>
+  <objectGroupId>c6cd</objectGroupId>
+  <objectId>c6cda1ca-ed1e-05a8-5428-bb67f27864f8</objectId>
+  <file-name>c6cda1ca-ed1e-05a8-5428-bb67f27864f8.xml</file-name>
+  <internal-name>Video Games of Your Youth</internal-name>
+  <navLabel>How to Find the Video Games of Your Youth</navLabel>
+  <pageTitle_s>How to Find the Video Games of Your Youth</pageTitle_s>
+  <pageDescription_s />
+  <slug_s>how-to-find-the-video-games-of-your-youth</slug_s>
+  <headline_s>How to Find the Video Games of Your Youth</headline_s>
+  <placeInNav>false</placeInNav>
+  <orderDefault_f>-1</orderDefault_f>
+  <mainImage_s>/static-assets/images/img_1.jpg</mainImage_s>
+  <categories_o item-list="true">
+    <item>
+      <key>lifestyle</key>
+      <value_smv>Lifestyle</value_smv>
+    </item>
+    <item>
+      <key>adventure</key>
+      <value_smv>Adventure</value_smv>
+    </item>
+  </categories_o>
+  <tags_o item-list="true">
+    <item>
+      <key>lifestyle</key>
+      <value_smv>Lifestyle</value_smv>
+    </item>
+    <item>
+      <key>adventure</key>
+      <value_smv>Adventure</value_smv>
+    </item>
+  </tags_o>
+  <blurb_t />
+  <content_o item-list="true">
+    <item datasource="richTextSections" inline="true">
+      <key>085e96c6-5d36-c09c-419f-99f1215be104</key>
+      <value>Text Piece One</value>
+      <component id="085e96c6-5d36-c09c-419f-99f1215be104">
+        <content-type>/component/rich_text</content-type>
+        <display-template>/templates/web/components/rich_text.ftl</display-template>
+        <no-template-required />
+        <merge-strategy>inherit-levels</merge-strategy>
+        <objectGroupId>085e</objectGroupId>
+        <objectId>085e96c6-5d36-c09c-419f-99f1215be104</objectId>
+        <file-name>085e96c6-5d36-c09c-419f-99f1215be104.xml</file-name>
+        <internal-name>Text Piece One</internal-name>
+        <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
+          nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore earum autem nobis
+          et numquam, minima eius. Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.&lt;/p&gt;
+        </content_html>
+        <createdDate>2020-11-02T23:28:47.482Z</createdDate>
+        <createdDate_dt>2020-11-02T23:28:47.482Z</createdDate_dt>
+        <lastModifiedDate>2020-11-02T23:28:47.482Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-11-02T23:28:47.482Z</lastModifiedDate_dt>
+      </component>
+    </item>
+    <item datasource="responsiveColumns" inline="true">
+      <key>79064692-1871-f0fa-077c-c93ee5f0374d</key>
+      <value>Rich Text Two</value>
+      <component id="79064692-1871-f0fa-077c-c93ee5f0374d">
+        <content-type>/component/responsive_columns</content-type>
+        <display-template>/templates/web/components/responsive_columns.ftl</display-template>
+        <no-template-required />
+        <merge-strategy>inherit-levels</merge-strategy>
+        <objectGroupId>7906</objectGroupId>
+        <objectId>79064692-1871-f0fa-077c-c93ee5f0374d</objectId>
+        <columns_o item-list="true">
+          <item>
+            <columnSize_s>6</columnSize_s>
+            <content_o item-list="true">
+              <item datasource="richTextSection" inline="true">
+                <key>636491aa-81bd-5038-5148-1679b0c332fc</key>
+                <value>Text Piece One</value>
+                <component id="636491aa-81bd-5038-5148-1679b0c332fc">
+                  <content-type>/component/rich_text</content-type>
+                  <display-template>/templates/web/components/rich_text.ftl</display-template>
+                  <no-template-required />
+                  <merge-strategy>inherit-levels</merge-strategy>
+                  <objectGroupId>6364</objectGroupId>
+                  <objectId>636491aa-81bd-5038-5148-1679b0c332fc</objectId>
+                  <file-name>636491aa-81bd-5038-5148-1679b0c332fc.xml</file-name>
+                  <internal-name>Text Piece One</internal-name>
+                  <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Praesentium nam quas inventore, ut iure iste modi eos adipisci ad ea itaque
+                    labore earum autem nobis et numquam, minima eius. Nam eius, non unde ut aut sunt
+                    eveniet rerum repellendus porro.&lt;/p&gt;
+                  </content_html>
+                  <createdDate>2020-11-02T23:29:46.318Z</createdDate>
+                  <createdDate_dt>2020-11-02T23:29:46.318Z</createdDate_dt>
+                  <lastModifiedDate>2020-11-02T23:29:46.318Z</lastModifiedDate>
+                  <lastModifiedDate_dt>2020-11-02T23:29:46.318Z</lastModifiedDate_dt>
+                </component>
+              </item>
+            </content_o>
+          </item>
+          <item>
+            <columnSize_s>6</columnSize_s>
+            <content_o item-list="true">
+              <item datasource="richTextSection" inline="true">
+                <key>bcea271e-9a5c-61d3-dfcc-63d66f0f6a5e</key>
+                <value>Text Piece Two</value>
+                <component id="bcea271e-9a5c-61d3-dfcc-63d66f0f6a5e">
+                  <content-type>/component/rich_text</content-type>
+                  <display-template>/templates/web/components/rich_text.ftl</display-template>
+                  <no-template-required />
+                  <merge-strategy>inherit-levels</merge-strategy>
+                  <objectGroupId>bcea</objectGroupId>
+                  <objectId>bcea271e-9a5c-61d3-dfcc-63d66f0f6a5e</objectId>
+                  <file-name>bcea271e-9a5c-61d3-dfcc-63d66f0f6a5e.xml</file-name>
+                  <internal-name>Text Piece Two</internal-name>
+                  <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Praesentium nam quas inventore, ut iure iste modi eos adipisci ad ea itaque
+                    labore earum autem nobis et numquam, minima eius. Nam eius, non unde ut aut sunt
+                    eveniet rerum repellendus porro.&lt;/p&gt;
+                  </content_html>
+                  <createdDate>2020-11-02T23:30:04.135Z</createdDate>
+                  <createdDate_dt>2020-11-02T23:30:04.135Z</createdDate_dt>
+                  <lastModifiedDate>2020-11-02T23:30:04.135Z</lastModifiedDate>
+                  <lastModifiedDate_dt>2020-11-02T23:30:04.135Z</lastModifiedDate_dt>
+                </component>
+              </item>
+            </content_o>
+          </item>
+        </columns_o>
+        <file-name>79064692-1871-f0fa-077c-c93ee5f0374d.xml</file-name>
+        <internal-name>Rich Text Two</internal-name>
+        <createdDate>2020-11-02T23:29:36.526Z</createdDate>
+        <createdDate_dt>2020-11-02T23:29:36.526Z</createdDate_dt>
+        <lastModifiedDate>2020-11-02T23:29:36.526Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-11-02T23:29:36.526Z</lastModifiedDate_dt>
+      </component>
+    </item>
+  </content_o>
+  <authorBio_o item-list="true">
+    <item>
+      <key>/site/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
+      <value>John Doe's Bio</value>
+      <include>/site/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
+      <disableFlattening>false</disableFlattening>
+    </item>
+  </authorBio_o>
+  <createdDate>2020-11-02T23:27:55.746Z</createdDate>
+  <createdDate_dt>2020-11-02T23:27:55.746Z</createdDate_dt>
+  <lastModifiedDate>2020-11-02T23:27:55.746Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-02T23:27:55.746Z</lastModifiedDate_dt>
+</component>

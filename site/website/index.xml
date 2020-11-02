@@ -13,8 +13,8 @@
   <folder-name />
   <createdDate>2017-1-31T16:18:14.000Z</createdDate>
   <createdDate_dt>2017-1-31T16:18:14.000Z</createdDate_dt>
-  <lastModifiedDate>2020-10-26T17:23:22.535Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-10-26T17:23:22.535Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-11-02T23:30:42.346Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-02T23:30:42.346Z</lastModifiedDate_dt>
   <disabled>false</disabled>
   <bios_o item-list="true">
     <item datasource="bios">
@@ -39,26 +39,24 @@
         <internal-name>Home Slider</internal-name>
         <posts_o item-list="true">
           <item datasource="blogPosts">
-            <key>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
-            </key>
+            <key>/site/components/post/2020/03/a107503a-747a-a7d8-f058-bafbcaa6530e.xml</key>
             <value>Men Socks and Sandals</value>
-            <include>
-              /site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
+            <include>/site/components/post/2020/03/a107503a-747a-a7d8-f058-bafbcaa6530e.xml
             </include>
             <disableFlattening>false</disableFlattening>
           </item>
           <item datasource="blogPosts">
-            <key>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml</key>
+            <key>/site/components/post/2020/03/c6cda1ca-ed1e-05a8-5428-bb67f27864f8.xml</key>
             <value>Video Games of Your Youth</value>
-            <include>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml
+            <include>/site/components/post/2020/03/c6cda1ca-ed1e-05a8-5428-bb67f27864f8.xml
             </include>
             <disableFlattening>false</disableFlattening>
           </item>
         </posts_o>
         <createdDate>2020-03-21T17:47:06.134Z</createdDate>
         <createdDate_dt>2020-03-21T17:47:06.134Z</createdDate_dt>
-        <lastModifiedDate>2020-07-15T23:13:17.477Z</lastModifiedDate>
-        <lastModifiedDate_dt>2020-07-15T23:13:17.477Z</lastModifiedDate_dt>
+        <lastModifiedDate>2020-11-02T23:30:45.588Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-11-02T23:30:45.588Z</lastModifiedDate_dt>
       </component>
     </item>
   </slider_o>
