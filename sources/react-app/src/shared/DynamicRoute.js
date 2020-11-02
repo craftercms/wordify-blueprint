@@ -35,10 +35,6 @@ export default function DynamicRoute(props) {
     ? match.path.substring(0, match.path.indexOf(':') -1)
     : match.url;
 
-  if (url.includes('/post')) {
-    url += '.xml';
-  }
-
   useEffect(() => {
     let destroyed = false;
     let page = parseInt(parse(location.search).page ?? 1) - 1;
