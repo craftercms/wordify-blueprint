@@ -184,7 +184,7 @@
       </authoring-url>
       <staging-url/>
       <live-url>
-         <live-server-url>http://localhost:9080/?crafterSite=wordify</live-server-url>
+         <live-server-url>http://localhost:9080/?crafterSite={siteName}</live-server-url>
       </live-url>
    </site-urls>
    <admin-email-address/>
