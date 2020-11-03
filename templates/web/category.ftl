@@ -93,16 +93,6 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
               <!-- END sidebar-box -->
-              <div class="bios" style="float: left" <@studio.componentContainerAttr target="bios_o" component=contentModel/>>
-                <#if contentModel.bios_o?? && contentModel.bios_o.item??>
-                  <#list contentModel.bios_o.item as component>
-                    <div class="sidebar-box">
-                        <@renderComponent component=component />
-                    </div>
-                  </#list>
-                </#if>
-              </div>
-              <!-- END sidebar-box -->
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
               </div>
