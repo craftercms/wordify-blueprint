@@ -7,4 +7,8 @@
     <from>^/tag/((.*))$</from>
     <to type="forward" last="true">/category?id=$1</to>
   </rule>
+  <rule>
+    <from>^/post/((.*))$</from>
+    <to type="forward" last="true">/post?id=$1</to>
+  </rule>
 </urlrewrite>
