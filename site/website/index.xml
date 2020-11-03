@@ -1,53 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
-	<content-type>/page/entry</content-type>
-	<display-template>/templates/web/entry.ftl</display-template>
-	<no-template-required/>
-	<merge-strategy>inherit-levels</merge-strategy>
-	<placeInNav>true</placeInNav>
-	<file-name>index.xml</file-name>
-	<internal-name>Home</internal-name>
-	<orderDefault_f>1000</orderDefault_f>
-	<objectGroupId>8d7f</objectGroupId>
-	<objectId>8d7f21fa-5e09-00aa-8340-853b7db302da</objectId>
-	<folder-name/>
-	<createdDate>2017-1-31T16:18:14.000Z</createdDate>
-	<createdDate_dt>2017-1-31T16:18:14.000Z</createdDate_dt>
-	<lastModifiedDate>2020-11-02T18:04:03.454Z</lastModifiedDate>
-	<lastModifiedDate_dt>2020-11-02T18:04:03.454Z</lastModifiedDate_dt>
-	<disabled>false</disabled>
-	<bios_o item-list="true">	<item datasource="bios">	<key>/site/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
-	<value>John Doe's Bio</value>
-	<include>/site/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
-	<disableFlattening>false</disableFlattening>
-	</item></bios_o>
-	<slider_o item-list="true">	<item datasource="sliders" inline="true">	<key>31e6f69a-e298-2201-695b-1de7db559352</key>
-	<value>Home Slider</value>
-<component id="31e6f69a-e298-2201-695b-1de7db559352">
-	<content-type>/component/slider</content-type>
-	<display-template>/templates/web/components/slider.ftl</display-template>
-	<no-template-required/>
-	<merge-strategy>inherit-levels</merge-strategy>
-	<objectGroupId>31e6</objectGroupId>
-	<objectId>31e6f69a-e298-2201-695b-1de7db559352</objectId>
-	<file-name>31e6f69a-e298-2201-695b-1de7db559352.xml</file-name>
-	<internal-name>Home Slider</internal-name>
-	<posts_o item-list="true">	<item datasource="blogPosts">	<key>/site/components/post/2020/03/44a8f4e0-db64-3a05-ca93-dfd76dcef223.xml</key>
-	<value>Men Socks and Sandals</value>
-	<include>/site/components/post/2020/03/44a8f4e0-db64-3a05-ca93-dfd76dcef223.xml</include>
-	<disableFlattening>false</disableFlattening>
-	</item>	<item datasource="blogPosts">	<key>/site/components/post/2020/03/ab5bf552-aeae-1bb9-44c7-313b99e1aa70.xml</key>
-	<value>Video Games of Your Youth</value>
-	<include>/site/components/post/2020/03/ab5bf552-aeae-1bb9-44c7-313b99e1aa70.xml</include>
-	<disableFlattening>false</disableFlattening>
-	</item></posts_o>
-	<createdDate>2020-03-21T17:47:06.134Z</createdDate>
-	<createdDate_dt>2020-03-21T17:47:06.134Z</createdDate_dt>
-	<lastModifiedDate>2020-11-02T18:04:09.332Z</lastModifiedDate>
-	<lastModifiedDate_dt>2020-11-02T18:04:09.332Z</lastModifiedDate_dt>
-</component>
-	</item></slider_o>
-	<pageTitle_s>Crafter CMS Wordify</pageTitle_s>
-	<pageDescription_s>Colorlib's Wordify template as a Crafter CMS site</pageDescription_s>
-	<navLabel>Home</navLabel>
+  <content-type>/page/entry</content-type>
+  <display-template>/templates/web/entry.ftl</display-template>
+  <no-template-required />
+  <merge-strategy>inherit-levels</merge-strategy>
+  <placeInNav>true</placeInNav>
+  <file-name>index.xml</file-name>
+  <internal-name>Home</internal-name>
+  <orderDefault_f>1000</orderDefault_f>
+  <objectGroupId>8d7f</objectGroupId>
+  <objectId>8d7f21fa-5e09-00aa-8340-853b7db302da</objectId>
+  <folder-name />
+  <createdDate>2017-1-31T16:18:14.000Z</createdDate>
+  <createdDate_dt>2017-1-31T16:18:14.000Z</createdDate_dt>
+  <lastModifiedDate>2020-11-03T16:13:36.218Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-03T16:13:36.218Z</lastModifiedDate_dt>
+  <disabled>false</disabled>
+  <bios_o item-list="true">
+    <item datasource="bios">
+      <key>/site/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
+      <value>John Doe's Bio</value>
+      <include>/site/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
+      <disableFlattening>false</disableFlattening>
+    </item>
+  </bios_o>
+  <slider_o item-list="true">
+    <item datasource="sliders" inline="true">
+      <key>31e6f69a-e298-2201-695b-1de7db559352</key>
+      <value>Home Slider</value>
+      <component id="31e6f69a-e298-2201-695b-1de7db559352">
+        <content-type>/component/slider</content-type>
+        <display-template>/templates/web/components/slider.ftl</display-template>
+        <no-template-required />
+        <merge-strategy>inherit-levels</merge-strategy>
+        <objectGroupId>31e6</objectGroupId>
+        <objectId>31e6f69a-e298-2201-695b-1de7db559352</objectId>
+        <file-name>31e6f69a-e298-2201-695b-1de7db559352.xml</file-name>
+        <internal-name>Home Slider</internal-name>
+        <posts_o item-list="true">
+          <item datasource="blogPosts">
+            <key>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
+            </key>
+            <value>Men Socks and Sandals</value>
+            <include>
+              /site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
+            </include>
+            <disableFlattening>false</disableFlattening>
+          </item>
+          <item datasource="blogPosts">
+            <key>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml</key>
+            <value>Video Games of Your Youth</value>
+            <include>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml
+            </include>
+            <disableFlattening>false</disableFlattening>
+          </item>
+        </posts_o>
+        <createdDate>2020-03-21T17:47:06.134Z</createdDate>
+        <createdDate_dt>2020-03-21T17:47:06.134Z</createdDate_dt>
+        <lastModifiedDate>2020-11-03T16:13:39.970Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-11-03T16:13:39.970Z</lastModifiedDate_dt>
+      </component>
+    </item>
+  </slider_o>
+  <pageTitle_s>Crafter CMS Wordify</pageTitle_s>
+  <pageDescription_s>Colorlib's Wordify template as a Crafter CMS site</pageDescription_s>
+  <navLabel>Home</navLabel>
 </page>
