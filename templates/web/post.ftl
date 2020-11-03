@@ -68,13 +68,15 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
               <!-- END sidebar-box -->
-              <#if contentModel.bios_o?? && contentModel.bios_o.item??>
-                <#list contentModel.bios_o.item as component>
-                  <div class="sidebar-box">
-                      <@renderComponent component=component />
-                  </div>
-                </#list>
-              </#if>
+              <div class="bios" style="float: left" <@studio.componentContainerAttr target="authorBio_o" component=contentModel/>>
+                <#if contentModel.authorBio_o?? && contentModel.authorBio_o.item??>
+                  <#list contentModel.authorBio_o.item as component>
+                    <div class="sidebar-box">
+                        <@renderComponent component=component />
+                    </div>
+                  </#list>
+                </#if>
+              </div>
               <!-- END sidebar-box -->
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
@@ -82,12 +84,12 @@
               <!-- END sidebar-box -->
 
               <div class="sidebar-box">
-                <@renderComponent component=contentModel.sidebarCategories_o.item />
+                <@renderComponent component=levelDescriptor.sidebarCategories_o.item />
               </div>
               <!-- END sidebar-box -->
 
               <div class="sidebar-box">
-                <@renderComponent component=contentModel.sidebarTags_o.item />
+                <@renderComponent component=levelDescriptor.sidebarTags_o.item />
               </div>
             </div>
             <!-- END sidebar -->
@@ -107,7 +109,11 @@
         <#list postsInfo.paginatedPosts as post>
           <#assign postItem = siteItemService.getSiteItem(post.localId) />
           <div class="col-md-6 col-lg-4" <@studio.componentAttr component=postItem ice=true />>
-            <a href="${post.url}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('${post.mainImage}'); ">
+            <#assign url = postItem.storeUrl
+              ?replace("/site/components/post/", "/post?id=")
+              ?replace(".xml", "")
+            />
+            <a href="${url}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('${post.mainImage}'); ">
               <div class="text">
                 <div class="post-meta">
                     <#list post.categories.item as category>

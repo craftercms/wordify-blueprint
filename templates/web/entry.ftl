@@ -36,8 +36,12 @@
               <div class="row">
                 <#list postsInfo.paginatedPosts as post>
                   <#assign postItem = siteItemService.getSiteItem(post.localId) />
+                  <#assign url = postItem.storeUrl
+                    ?replace("/site/components/post/", "/post?id=")
+                    ?replace(".xml", "")
+                  />
                   <div class="col-md-6" <@studio.componentAttr component=postItem ice=true />>
-                    <a href="${post.url}"
+                    <a href="${url}"
                        class="blog-entry element-animate" data-animate-effect="fadeIn">
                       <img src="${post.mainImage}" alt="Image placeholder">
                       <div class="blog-content-body">

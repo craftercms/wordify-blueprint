@@ -6,7 +6,11 @@
       <#list postsInfo.recentPosts as post>
         <#assign postItem = siteItemService.getSiteItem(post.localId) />
         <li <@studio.componentAttr component=postItem ice=true />>
-          <a href="${post.url}">
+          <#assign url = postItem.storeUrl
+            ?replace("/site/components/post/", "/post?id=")
+            ?replace(".xml", "")
+          />
+          <a href="${url}">
             <img src="${post.mainImage}" alt="Image placeholder" class="mr-4">
             <div class="text">
               <h4>${post.headline}</h4>

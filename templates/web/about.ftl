@@ -36,7 +36,11 @@
                   <#list postsInfo.paginatedPosts as post>
                     <#assign postItem = siteItemService.getSiteItem(post.localId) />
                     <div class="post-entry-horizontal" <@studio.componentAttr component=postItem ice=true />>
-                      <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">
+                      <#assign url = postItem.storeUrl
+                        ?replace("/site/components/post/", "/post?id=")
+                        ?replace(".xml", "")
+                        />
+                      <a href="${url}">
                         <div class="image" style="background-image: url(${post.mainImage});"></div>
                         <span class="text">
                           <div class="post-meta">
