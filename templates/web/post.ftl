@@ -133,7 +133,7 @@
       <!-- END section -->
 
       <!-- Footer -->
-      <@renderComponent component=contentModel.footer_o.item additionalModel={ 'socialLinks': contentModel.socialLinks_o } />
+      <@renderComponent component=levelDescriptor.footer_o.item additionalModel={ 'socialLinks': levelDescriptor.socialLinks_o } />
       <!-- /Footer -->
     </div>
 
@@ -155,12 +155,12 @@
 
       (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
-        s.src = 'https://${contentModel.websiteShortname_s!"DISQUS"}.disqus.com/embed.js';
+        s.src = 'https://${levelDescriptor.websiteShortname_s!"DISQUS"}.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
       })();
     </script>
-    <script id="dsq-count-scr" src="//${contentModel.websiteShortname_s}.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="//${levelDescriptor.websiteShortname_s}.disqus.com/count.js" async></script>
 
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 

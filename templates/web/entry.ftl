@@ -69,6 +69,7 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
 
+              <div class="bios" style="float: left" <@studio.componentContainerAttr target="bios_o" component=contentModel/>>
                 <#if contentModel.bios_o?? && contentModel.bios_o.item??>
                     <#list contentModel.bios_o.item as component>
                       <div class="sidebar-box">
@@ -76,6 +77,7 @@
                       </div>
                     </#list>
                 </#if>
+              </div>
 
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
