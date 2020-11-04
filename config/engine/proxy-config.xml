@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
     ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
     ~
@@ -33,6 +32,13 @@
 <proxy-config>
    <version>1</version>
    <servers>
+      <server>
+         <id>static-assets</id>
+         <url>http://localhost:8080</url>
+         <patterns>
+            <pattern>/static-assets/.*</pattern>
+         </patterns>
+      </server>
       <server>
          <id>graphql</id>
          <url>http://localhost:8080</url>
