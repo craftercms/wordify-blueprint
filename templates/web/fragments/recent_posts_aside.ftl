@@ -7,7 +7,7 @@
         <#assign postItem = siteItemService.getSiteItem(post.localId) />
         <li <@studio.componentAttr component=postItem ice=true />>
           <#assign url = postItem.storeUrl
-            ?replace("/site/components/post/", "/post?id=")
+            ?replace("/site/components", "")
             ?replace(".xml", "")
           />
           <a href="${url}">

@@ -112,8 +112,8 @@
                     <#assign postItem = siteItemService.getSiteItem(post.localId) />
                   <div class="col-md-6 col-lg-4" <@studio.componentAttr component=postItem ice=true />>
                       <#assign url = postItem.storeUrl
-                      ?replace("/site/components/post/", "/post?id=")
-                      ?replace(".xml", "")
+                        ?replace("/site/components", "")
+                        ?replace(".xml", "")
                       />
                     <a
                             href="${url}" class="a-block sm d-flex align-items-center height-md"

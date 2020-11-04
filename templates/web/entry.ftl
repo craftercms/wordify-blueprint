@@ -37,7 +37,7 @@
                 <#list postsInfo.paginatedPosts as post>
                   <#assign postItem = siteItemService.getSiteItem(post.localId) />
                   <#assign url = postItem.storeUrl
-                    ?replace("/site/components/post/", "/post?id=")
+                    ?replace("/site/components", "")
                     ?replace(".xml", "")
                   />
                   <div class="col-md-6" <@studio.componentAttr component=postItem ice=true />>

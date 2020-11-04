@@ -5,7 +5,7 @@
     <#list contentModel.posts_o.item as slide>
       <#assign post = siteItemService.getSiteItem(slide.key) />
       <#assign url = urlTransformationService.transform('storeUrlToRenderUrl', slide.key)
-        ?replace("/site/components/post/", "/post?id=")
+        ?replace("/site/components", "")
         ?replace(".html", "")
       />
       <#assign bio = siteItemService.getSiteItem(post.authorBio_o.item.key) />
