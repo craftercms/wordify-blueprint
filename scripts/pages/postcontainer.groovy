@@ -20,4 +20,10 @@ def searchHelper = new SearchHelper(elasticsearch, urlTransformationService)
 def page = (params.page && Integer.parseInt(params.page) > 0) ? (Integer.parseInt(params.page) - 1) : 0
 def postsPerPage = 8
 
-templateModel.postsInfo = searchHelper.getPostsInfo(page, postsPerPage, contentModel.categories_o.item.key.text, null, contentModel.objectId.text)
+def postId = params.id ? params.id : null
+def postModel = siteItemService.getSiteItem("/site/components/post/" + params.id + ".xml")
+
+if (postModel) {
+  templateModel.postModel = postModel
+  templateModel.postsInfo = searchHelper.getPostsInfo(page, postsPerPage, postModel.categories_o.item.key.text, null, postModel.objectId.text)
+}
