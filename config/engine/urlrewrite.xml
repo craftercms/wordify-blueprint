@@ -15,10 +15,11 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<!-- TODO: remove comment when fixed - https://github.com/craftercms/craftercms/issues/4380 -->
-<!--<!DOCTYPE urlrewrite-->
-<!--  PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"-->
-<!--  "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">-->
+<!-- 
+TODO: Remove comment when fixed - https://github.com/craftercms/craftercms/issues/4380 
+<!DOCTYPE urlrewrite
+  PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+  "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">-->
 <urlrewrite>
   <rule>
     <from>^/tag/((.*))$</from>
