@@ -31,7 +31,6 @@
                     <path>/site-dashboard</path>
                   </params>
                 </modulehook>
-
                 <!-- Site Config -->
                 <modulehook>
                   <name>site-config</name>
@@ -45,14 +44,15 @@
                     <path>/site-config</path>
                   </params>
                 </modulehook>
-
                 <!-- Path Navigator: Pages -->
                 <modulehook>
                   <render>PagesWidget</render>
                   <props>
-                    <title>Pages</title>
-                    <icon>fa fa-file-text-o</icon>
-                    <path>/site/website</path>
+                    <label>Pages</label>
+                    <icon>
+                      <baseClass>fa fa-file-text-o</baseClass>
+                    </icon>
+                    <rootPath>/site/website</rootPath>
                     <locale>en</locale>
                   </props>
                   <container>
@@ -62,14 +62,15 @@
                     <class>next-pages-widget</class>
                   </container>
                 </modulehook>
-
                 <!-- Path Navigator: Components -->
                 <modulehook>
                   <render>PagesWidget</render>
                   <props>
-                    <title>Components</title>
-                    <icon>fa fa-puzzle-piece</icon>
-                    <path>/site/components</path>
+                    <label>Components</label>
+                    <icon>
+                      <baseClass>fa fa-puzzle-piece</baseClass>
+                    </icon>
+                    <rootPath>/site/components</rootPath>
                     <locale>en</locale>
                   </props>
                   <container>
@@ -79,13 +80,15 @@
                     <class>next-pages-widget</class>
                   </container>
                 </modulehook>
-
+                <!-- Path Navigator: Bios -->
                 <modulehook>
                   <render>PagesWidget</render>
                   <props>
-                    <title>Bios</title>
-                    <icon>fa fa-user-circle-o</icon>
-                    <path>/site/bio</path>
+                    <label>Bios</label>
+                    <icon>
+                      <baseClass>fa fa-user-circle-o</baseClass>
+                    </icon>
+                    <rootPath>/site/bio</rootPath>
                     <locale>en</locale>
                   </props>
                   <container>
@@ -95,14 +98,15 @@
                     <class>next-pages-widget</class>
                   </container>
                 </modulehook>
-
                 <!-- Path Navigator: Taxonomy -->
                 <modulehook>
                   <render>PagesWidget</render>
                   <props>
-                    <title>Taxonomy</title>
-                    <icon>fa fa-tags</icon>
-                    <path>/site/taxonomy</path>
+                    <label>Taxonomy</label>
+                    <icon>
+                      <baseClass>fa fa-tags</baseClass>
+                    </icon>
+                    <rootPath>/site/taxonomy</rootPath>
                     <locale>en</locale>
                   </props>
                   <container>
@@ -112,14 +116,15 @@
                     <class>next-pages-widget</class>
                   </container>
                 </modulehook>
-
                 <!-- Path Navigator: Static Assets -->
                 <modulehook>
                   <render>PagesWidget</render>
                   <props>
-                    <title>Static Assets</title>
-                    <icon>fa fa-image</icon>
-                    <path>/static-assets</path>
+                    <label>Static Assets</label>
+                    <icon>
+                      <baseClass>fa fa-image</baseClass>
+                    </icon>
+                    <rootPath>/static-assets</rootPath>
                     <locale>en</locale>
                   </props>
                   <container>
@@ -129,30 +134,43 @@
                     <class>next-pages-widget</class>
                   </container>
                 </modulehook>
-
                 <!-- Path Navigator: Templates -->
                 <modulehook>
                   <render>PagesWidget</render>
                   <props>
-                    <title>Templates</title>
-                    <icon>fa fa-file-code-o</icon>
-                    <path>/templates</path>
+                    <label>Templates</label>
+                    <icon>
+                      <baseClass>fa fa-file-code-o</baseClass>
+                    </icon>
+                    <rootPath>/templates</rootPath>
                     <locale>en</locale>
                   </props>
+                  <container>
+                    <style>
+                      <padding-left>9px</padding-left>
+                    </style>
+                    <class>next-pages-widget</class>
+                  </container>
                 </modulehook>
-
                 <!-- Path Navigator: Scripts -->
                 <modulehook>
                   <render>PagesWidget</render>
                   <props>
-                    <title>Scripts</title>
-                    <icon>fa fa-code</icon>
-                    <path>/scripts</path>
+                    <label>Scripts</label>
+                    <icon>
+                      <baseClass>fa fa-code</baseClass>
+                    </icon>
+                    <rootPath>/scripts</rootPath>
                     <locale>en</locale>
                   </props>
+                  <container>
+                    <style>
+                      <padding-left>9px</padding-left>
+                    </style>
+                    <class>next-pages-widget</class>
+                  </container>
                 </modulehook>
               </modulehooks>
-
             </menuItem>
           </menuItems>
         </group>
