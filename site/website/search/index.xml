@@ -15,15 +15,15 @@
   <orderDefault_f>-1</orderDefault_f>
   <disabled>false</disabled>
   <bios_o item-list="true">
-    <item datasource="bios">
-      <key>/site/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
+    <item>
+      <key>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
       <value>Jane Doe's Bio</value>
-      <include>/site/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
+      <include>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
   </bios_o>
   <createdDate>2020-05-04T13:27:36.526Z</createdDate>
   <createdDate_dt>2020-05-04T13:27:36.526Z</createdDate_dt>
-  <lastModifiedDate>2020-10-26T17:43:51.011Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-10-26T17:43:51.011Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-11-11T18:06:47.747Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-11T18:06:47.747Z</lastModifiedDate_dt>
 </page>

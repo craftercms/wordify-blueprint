@@ -798,7 +798,7 @@
         </property>
         <property>
           <name>allowEmbedded</name>
-          <value>true</value>
+          <value>false</value>
           <type>undefined</type>
         </property>
         <property>
@@ -813,12 +813,12 @@
         </property>
         <property>
           <name>baseRepositoryPath</name>
-          <value>/site/bio</value>
+          <value>/site/components/bios</value>
           <type>undefined</type>
         </property>
         <property>
           <name>baseBrowsePath</name>
-          <value>/site/bio</value>
+          <value>/site/components/bios</value>
           <type>undefined</type>
         </property>
         <property>

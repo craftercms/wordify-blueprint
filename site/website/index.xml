@@ -13,14 +13,14 @@
   <folder-name />
   <createdDate>2017-1-31T16:18:14.000Z</createdDate>
   <createdDate_dt>2017-1-31T16:18:14.000Z</createdDate_dt>
-  <lastModifiedDate>2020-11-11T17:44:24.409Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-11-11T17:44:24.409Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-11-11T17:58:51.764Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-11T17:58:51.764Z</lastModifiedDate_dt>
   <disabled>false</disabled>
   <bios_o item-list="true">
-    <item datasource="bios">
-      <key>/site/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
+    <item>
+      <key>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
       <value>John Doe's Bio</value>
-      <include>/site/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
+      <include>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
   </bios_o>
@@ -28,6 +28,7 @@
     <item inline="true">
       <key>31e6f69a-e298-2201-695b-1de7db559352</key>
       <value>Home Slider</value>
+      <disableFlattening>false</disableFlattening>
       <component id="31e6f69a-e298-2201-695b-1de7db559352">
         <content-type>/component/slider</content-type>
         <display-template>/templates/web/components/slider.ftl</display-template>
@@ -60,7 +61,6 @@
         <lastModifiedDate>2020-11-11T17:44:28.067Z</lastModifiedDate>
         <lastModifiedDate_dt>2020-11-11T17:44:28.067Z</lastModifiedDate_dt>
       </component>
-      <disableFlattening>false</disableFlattening>
     </item>
   </slider_o>
   <pageTitle_s>Crafter CMS Wordify</pageTitle_s>
