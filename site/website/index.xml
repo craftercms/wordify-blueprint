@@ -13,8 +13,8 @@
   <folder-name />
   <createdDate>2017-1-31T16:18:14.000Z</createdDate>
   <createdDate_dt>2017-1-31T16:18:14.000Z</createdDate_dt>
-  <lastModifiedDate>2020-11-02T23:30:42.346Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-11-02T23:30:42.346Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-11-11T17:44:24.409Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-11T17:44:24.409Z</lastModifiedDate_dt>
   <disabled>false</disabled>
   <bios_o item-list="true">
     <item datasource="bios">
@@ -25,7 +25,7 @@
     </item>
   </bios_o>
   <slider_o item-list="true">
-    <item datasource="sliders" inline="true">
+    <item inline="true">
       <key>31e6f69a-e298-2201-695b-1de7db559352</key>
       <value>Home Slider</value>
       <component id="31e6f69a-e298-2201-695b-1de7db559352">
@@ -39,25 +39,28 @@
         <internal-name>Home Slider</internal-name>
         <posts_o item-list="true">
           <item datasource="blogPosts">
-            <key>/site/components/post/2020/03/a107503a-747a-a7d8-f058-bafbcaa6530e.xml</key>
+            <key>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
+            </key>
             <value>Men Socks and Sandals</value>
-            <include>/site/components/post/2020/03/a107503a-747a-a7d8-f058-bafbcaa6530e.xml
+            <include>
+              /site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
             </include>
             <disableFlattening>false</disableFlattening>
           </item>
           <item datasource="blogPosts">
-            <key>/site/components/post/2020/03/c6cda1ca-ed1e-05a8-5428-bb67f27864f8.xml</key>
+            <key>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml</key>
             <value>Video Games of Your Youth</value>
-            <include>/site/components/post/2020/03/c6cda1ca-ed1e-05a8-5428-bb67f27864f8.xml
+            <include>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml
             </include>
             <disableFlattening>false</disableFlattening>
           </item>
         </posts_o>
         <createdDate>2020-03-21T17:47:06.134Z</createdDate>
         <createdDate_dt>2020-03-21T17:47:06.134Z</createdDate_dt>
-        <lastModifiedDate>2020-11-02T23:30:45.588Z</lastModifiedDate>
-        <lastModifiedDate_dt>2020-11-02T23:30:45.588Z</lastModifiedDate_dt>
+        <lastModifiedDate>2020-11-11T17:44:28.067Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-11-11T17:44:28.067Z</lastModifiedDate_dt>
       </component>
+      <disableFlattening>false</disableFlattening>
     </item>
   </slider_o>
   <pageTitle_s>Crafter CMS Wordify</pageTitle_s>
