@@ -88,7 +88,7 @@
                     <icon>
                       <baseClass>fa fa-user-circle-o</baseClass>
                     </icon>
-                    <rootPath>/site/bio</rootPath>
+                    <rootPath>/site/components/bios</rootPath>
                     <locale>en</locale>
                   </props>
                   <container>
