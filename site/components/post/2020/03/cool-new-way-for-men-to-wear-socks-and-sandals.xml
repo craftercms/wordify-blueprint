@@ -1,39 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
-	<content-type>/component/post</content-type>
-	<display-template>/templates/web/components/post.ftl</display-template>
-	<no-template-required>true</no-template-required>
-	<merge-strategy>inherit-levels</merge-strategy>
-	<objectGroupId>44a8</objectGroupId>
-	<objectId>44a8f4e0-db64-3a05-ca93-dfd76dcef223</objectId>
-	<internal-name>Men Socks and Sandals</internal-name>
-	<navLabel>There’s a Cool New Way for Men to Wear Socks and Sandals</navLabel>
-	<pageTitle_s>Cool New Way for Men to Wear Socks and Sandals</pageTitle_s>
-	<pageDescription_s/>
-	<slug_s>cool-new-way-for-men-to-wear-socks-and-sandals</slug_s>
-	<headline_s>There’s a Cool New Way for Men to Wear Socks and Sandals</headline_s>
-	<placeInNav>false</placeInNav>
-	<orderDefault_f>-1</orderDefault_f>
-	<categories_o>	<item>	<key>lifestyle</key>
-	<value_smv>Lifestyle</value_smv>
-	</item>	<item>	<key>travel</key>
-	<value_smv>Travel</value_smv>
-	</item></categories_o>
-	<tags_o>	<item>	<key>travel</key>
-	<value_smv>Travel</value_smv>
-	</item>	<item>	<key>lifestyle</key>
-	<value_smv>Lifestyle</value_smv>
-	</item></tags_o>
-	<mainImage_s>/static-assets/images/img_12.jpg</mainImage_s>
-	<file-name>cool-new-way-for-men-to-wear-socks-and-sandals.xml</file-name>
-	<blurb_t>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt
+  <content-type>/component/post</content-type>
+  <display-template>/templates/web/components/post.ftl</display-template>
+  <no-template-required>true</no-template-required>
+  <merge-strategy>inherit-levels</merge-strategy>
+  <objectGroupId>44a8</objectGroupId>
+  <objectId>44a8f4e0-db64-3a05-ca93-dfd76dcef223</objectId>
+  <internal-name>Men Socks and Sandals</internal-name>
+  <navLabel>There’s a Cool New Way for Men to Wear Socks and Sandals</navLabel>
+  <pageTitle_s>Cool New Way for Men to Wear Socks and Sandals</pageTitle_s>
+  <pageDescription_s />
+  <headline_s>There’s a Cool New Way for Men to Wear Socks and Sandals</headline_s>
+  <placeInNav>false</placeInNav>
+  <orderDefault_f>-1</orderDefault_f>
+  <categories_o>
+    <item>
+      <key>lifestyle</key>
+      <value_smv>Lifestyle</value_smv>
+    </item>
+    <item>
+      <key>travel</key>
+      <value_smv>Travel</value_smv>
+    </item>
+  </categories_o>
+  <tags_o>
+    <item>
+      <key>travel</key>
+      <value_smv>Travel</value_smv>
+    </item>
+    <item>
+      <key>lifestyle</key>
+      <value_smv>Lifestyle</value_smv>
+    </item>
+  </tags_o>
+  <mainImage_s>/static-assets/images/img_12.jpg</mainImage_s>
+  <file-name>cool-new-way-for-men-to-wear-socks-and-sandals.xml</file-name>
+  <blurb_t>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt
   </blurb_t>
-	<content_o item-list="true">	<item datasource="richTextSections" inline="true">	<key>3427beba-248e-c791-2346-4c042331f8e5</key>
-	<value>Lorem Ipsum</value>
-<component id="3427beba-248e-c791-2346-4c042331f8e5">
+  <content_o item-list="true">
+    <item datasource="richTextSections" inline="true">
+      <key>3427beba-248e-c791-2346-4c042331f8e5</key>
+      <value>Lorem Ipsum</value>
+      <component id="3427beba-248e-c791-2346-4c042331f8e5">
         <content-type>/component/rich_text</content-type>
         <display-template>/templates/web/components/rich_text.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>3427</objectGroupId>
         <objectId>3427beba-248e-c791-2346-4c042331f8e5</objectId>
@@ -60,12 +71,14 @@
         <lastModifiedDate>2020-11-02T17:55:51.257Z</lastModifiedDate>
         <lastModifiedDate_dt>2020-11-02T17:55:51.257Z</lastModifiedDate_dt>
       </component>
-	</item>	<item datasource="responsiveColumns" inline="true">	<key>69656869-85f7-9962-6ed0-20d14cffa03e</key>
-	<value>Side by side images</value>
-<component id="69656869-85f7-9962-6ed0-20d14cffa03e">
+    </item>
+    <item datasource="responsiveColumns" inline="true">
+      <key>69656869-85f7-9962-6ed0-20d14cffa03e</key>
+      <value>Side by side images</value>
+      <component id="69656869-85f7-9962-6ed0-20d14cffa03e">
         <content-type>/component/responsive_columns</content-type>
         <display-template>/templates/web/components/responsive_columns.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>6965</objectGroupId>
         <objectId>69656869-85f7-9962-6ed0-20d14cffa03e</objectId>
@@ -79,7 +92,7 @@
                 <component id="e477488c-f05a-8240-af2e-83e2dfe4dbfa">
                   <content-type>/component/image</content-type>
                   <display-template>/templates/web/components/image.ftl</display-template>
-                  <no-template-required/>
+                  <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
                   <objectGroupId>e477</objectGroupId>
                   <objectId>e477488c-f05a-8240-af2e-83e2dfe4dbfa</objectId>
@@ -104,7 +117,7 @@
                 <component id="5de4ebbf-35c6-4dcc-72f8-27bf5a96d1e6">
                   <content-type>/component/image</content-type>
                   <display-template>/templates/web/components/image.ftl</display-template>
-                  <no-template-required/>
+                  <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
                   <objectGroupId>5de4</objectGroupId>
                   <objectId>5de4ebbf-35c6-4dcc-72f8-27bf5a96d1e6</objectId>
@@ -129,7 +142,7 @@
                 <component id="c0dbcbd8-9213-ca3b-86ac-8b5c59ed7e18">
                   <content-type>/component/image</content-type>
                   <display-template>/templates/web/components/image.ftl</display-template>
-                  <no-template-required/>
+                  <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
                   <objectGroupId>c0db</objectGroupId>
                   <objectId>c0dbcbd8-9213-ca3b-86ac-8b5c59ed7e18</objectId>
@@ -153,12 +166,14 @@
         <lastModifiedDate>2020-11-02T17:56:28.175Z</lastModifiedDate>
         <lastModifiedDate_dt>2020-11-02T17:56:28.175Z</lastModifiedDate_dt>
       </component>
-	</item>	<item datasource="richTextSections" inline="true">	<key>fbbcb6f8-d447-824c-a812-425612f0ca61</key>
-	<value>Quibusdam autem</value>
-<component id="fbbcb6f8-d447-824c-a812-425612f0ca61">
+    </item>
+    <item datasource="richTextSections" inline="true">
+      <key>fbbcb6f8-d447-824c-a812-425612f0ca61</key>
+      <value>Quibusdam autem</value>
+      <component id="fbbcb6f8-d447-824c-a812-425612f0ca61">
         <content-type>/component/rich_text</content-type>
         <display-template>/templates/web/components/rich_text.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>fbbc</objectGroupId>
         <objectId>fbbcb6f8-d447-824c-a812-425612f0ca61</objectId>
@@ -191,15 +206,19 @@
         <lastModifiedDate>2020-11-02T17:58:29.764Z</lastModifiedDate>
         <lastModifiedDate_dt>2020-11-02T17:58:29.764Z</lastModifiedDate_dt>
       </component>
-	</item></content_o>
-	<authorBio_o item-list="true">	<item datasource="bios">	<key>/site/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
-	<value>Jane Doe's Bio</value>
-	<include>/site/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
-	<disableFlattening>false</disableFlattening>
-	</item></authorBio_o>
-	<createdDate>2020-11-02T17:55:10.267Z</createdDate>
-	<createdDate_dt>2020-11-02T17:55:10.267Z</createdDate_dt>
-	<lastModifiedDate>2020-11-03T16:12:28.879Z</lastModifiedDate>
-	<lastModifiedDate_dt>2020-11-03T16:12:28.879Z</lastModifiedDate_dt>
-	<folder-name/>
+    </item>
+  </content_o>
+  <authorBio_o item-list="true">
+    <item datasource="bios">
+      <key>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
+      <value>Jane Doe's Bio</value>
+      <include>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
+      <disableFlattening>false</disableFlattening>
+    </item>
+  </authorBio_o>
+  <createdDate>2020-11-02T17:55:10.267Z</createdDate>
+  <createdDate_dt>2020-11-02T17:55:10.267Z</createdDate_dt>
+  <lastModifiedDate>2020-11-11T20:48:45.603Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-11T20:48:45.603Z</lastModifiedDate_dt>
+  <folder-name />
 </component>

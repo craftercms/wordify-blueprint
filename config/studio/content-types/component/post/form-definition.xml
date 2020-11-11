@@ -676,12 +676,12 @@
         </property>
         <property>
           <name>repoPath</name>
-          <value>/site/bio</value>
+          <value>/site/components/bios</value>
           <type>undefined</type>
         </property>
         <property>
           <name>browsePath</name>
-          <value>/site/bio</value>
+          <value>/site/components/bios</value>
           <type>undefined</type>
         </property>
         <property>
