@@ -30,13 +30,17 @@
                     <#list postsInfo.paginatedPosts as post>
                       <#assign postItem = siteItemService.getSiteItem(post.localId) />
                       <@studio.tag $model=postItem class="post-entry-horizontal">
-                        <a href="${post.url}">
+                        <#assign url = postItem.storeUrl
+                          ?replace("/site/components", "")
+                          ?replace(".xml", "")
+                        />
+                        <a href="${url}">
                           <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(${post.mainImage});"></div>
                           <span class="text">
                             <div class="post-meta">
                               <span class="author mr-2">
-                                <img src="${post.authorBio.item.component.profilePic_s}" alt="${post.authorBio.item.component.name_s}">
-                                  ${post.authorBio.item.component.name_s}</span>&bullet;
+                                <img src="${post.authorBio.item[0].component.profilePic_s}" alt="${post.authorBio.item[0].component.name_s}">
+                                  ${post.authorBio.item[0].component.name_s}</span>&bullet;
                               <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span> &bullet;
                                 <#list post.categories.item as category>
                                   <span class="mr-2">${category.value_smv}</span>

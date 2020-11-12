@@ -36,8 +36,12 @@
               <div class="row">
                 <#list postsInfo.paginatedPosts as post>
                   <#assign postItem = siteItemService.getSiteItem(post.localId) />
+                  <#assign url = postItem.storeUrl
+                    ?replace("/site/components", "")
+                    ?replace(".xml", "")
+                  />
                   <@studio.tag $model=postItem class="col-md-6">
-                    <a href="${post.url}"
+                    <a href="${url}"
                        class="blog-entry element-animate" data-animate-effect="fadeIn">
                       <@studio.img
                         $model=postItem
@@ -47,8 +51,8 @@
                       />
                       <div class="blog-content-body">
                         <div class="post-meta">
-                          <span class="author mr-2"><img src="${post.authorBio.item.component.profilePic_s}" alt="Colorlib">
-                              ${post.authorBio.item.component.name_s}</span>&bullet;
+                          <span class="author mr-2"><img src="${post.authorBio.item[0].component.profilePic_s}" alt="Colorlib">
+                              ${post.authorBio.item[0].component.name_s}</span>&bullet;
                           <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span>
                         </div>
                         <@studio.h2 $model=postItem $field="headline_s">

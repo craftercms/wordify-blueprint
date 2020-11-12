@@ -6,7 +6,12 @@
       <#list postsInfo.recentPosts as post>
         <#assign postItem = siteItemService.getSiteItem(post.localId) />
         <li>
-          <@studio.a $model=postItem href="${post.url}">
+          <#assign url = postItem.storeUrl
+            ?replace("/site/components", "")
+            ?replace(".xml", "")
+          />
+
+          <@studio.a $model=postItem href="${url}">
             <@studio.img
               $model=postItem
               $field="mainImage_s"

@@ -25,7 +25,7 @@ import org.elasticsearch.search.sort.FieldSortBuilder
 import org.elasticsearch.search.sort.SortOrder
 
 class SearchHelper {
-  static final String POST_CONTENT_TYPE_QUERY = "content-type:\"/page/post\""
+  static final String POST_CONTENT_TYPE_QUERY = "content-type:\"/component/post\""
   static final String[] HIGHLIGHT_FIELDS = ["pageTitle_s", "pageDescription_s", "authorBio_o"]
   static final int DEFAULT_START = 0
   static final int DEFAULT_ROWS = 10

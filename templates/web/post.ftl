@@ -114,9 +114,13 @@
           </div>
           <div class="row">
               <#list postsInfo.paginatedPosts as post>
-                  <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                <div class="col-md-6 col-lg-4" <@studio.componentAttr component=postItem ice=true />>
-                  <a href="${post.url}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('${post.mainImage}'); ">
+                <#assign postItem = siteItemService.getSiteItem(post.localId) />
+                <@studio.tag $model=postItem class="col-md-6 col-lg-4">
+                  <#assign url = postItem.storeUrl
+                    ?replace("/site/components", "")
+                    ?replace(".xml", "")
+                  />
+                  <a href="${url}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('${post.mainImage}'); ">
                     <div class="text">
                       <div class="post-meta">
                           <#list post.categories.item as category>
@@ -127,6 +131,7 @@
                       <h3>${post.headline}</h3>
                     </div>
                   </a>
+                </@studio.tag>
                 </div>
               </#list>
           </div>
