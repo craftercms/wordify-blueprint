@@ -41,7 +41,7 @@
                     ?replace(".xml", "")
                   />
                   <@studio.tag $model=postItem class="col-md-6">
-                    <a href="/post?id=2020/03/how-to-find-the-video-games-of-your-youth"
+                    <a href="${url}"
                        class="blog-entry element-animate" data-animate-effect="fadeIn">
                       <@studio.img
                         $model=postItem
