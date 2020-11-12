@@ -1,11 +1,11 @@
 <form>
   <title>Post</title>
-	<description />
+  <description />
   <objectType>component</objectType>
   <content-type>/component/post</content-type>
   <imageThumbnail>post.png</imageThumbnail>
   <quickCreate>false</quickCreate>
-	<quickCreatePath />
+  <quickCreatePath />
   <properties>
     <property>
       <name>display-template</name>
@@ -29,7 +29,7 @@
   <sections>
     <section>
       <title>System Fields</title>
-			<description />
+      <description />
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
@@ -386,16 +386,12 @@
           <properties>
             <property>
               <name>width</name>
-              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
-                }
-              </value>
+              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;}</value>
               <type>range</type>
             </property>
             <property>
               <name>height</name>
-              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
-                }
-              </value>
+              <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;}</value>
               <type>range</type>
             </property>
             <property>
@@ -706,44 +702,6 @@
       </properties>
     </datasource>
     <datasource>
-      <type>shared-content</type>
-      <id>bios</id>
-      <title>Bios</title>
-      <interface>item</interface>
-      <properties>
-        <property>
-          <name>enableCreateNew</name>
-          <value>true</value>
-          <type>undefined</type>
-        </property>
-        <property>
-          <name>enableBrowseExisting</name>
-          <value>true</value>
-          <type>undefined</type>
-        </property>
-        <property>
-          <name>enableSearchExisting</name>
-          <value>true</value>
-          <type>undefined</type>
-        </property>
-        <property>
-          <name>repoPath</name>
-          <value>/site/components/bio</value>
-          <type>undefined</type>
-        </property>
-        <property>
-          <name>browsePath</name>
-          <value>/site/components</value>
-          <type>undefined</type>
-        </property>
-        <property>
-          <name>type</name>
-          <value>/component/bio</value>
-          <type>undefined</type>
-        </property>
-      </properties>
-    </datasource>
-    <datasource>
       <type>receptacles</type>
       <id>postContent</id>
       <title>Post Content</title>
@@ -788,6 +746,54 @@
           <name>tags</name>
           <value />
           <type>undefined</type>
+        </property>
+      </properties>
+    </datasource>
+    <datasource>
+      <type>receptacles</type>
+      <id>bios</id>
+      <title>Bios</title>
+      <interface>item</interface>
+      <properties>
+        <property>
+          <name>allowShared</name>
+          <value>true</value>
+          <type>boolean</type>
+        </property>
+        <property>
+          <name>allowEmbedded</name>
+          <value>false</value>
+          <type>boolean</type>
+        </property>
+        <property>
+          <name>enableBrowse</name>
+          <value>true</value>
+          <type>boolean</type>
+        </property>
+        <property>
+          <name>enableSearch</name>
+          <value>true</value>
+          <type>boolean</type>
+        </property>
+        <property>
+          <name>baseRepositoryPath</name>
+          <value>/site/components/bios</value>
+          <type>string</type>
+        </property>
+        <property>
+          <name>baseBrowsePath</name>
+          <value>/site/components/bios</value>
+          <type>string</type>
+        </property>
+        <property>
+          <name>contentTypes</name>
+          <value>/component/bio</value>
+          <type>contentTypes</type>
+        </property>
+        <property>
+          <name>tags</name>
+          <value />
+          <type>string</type>
         </property>
       </properties>
     </datasource>
