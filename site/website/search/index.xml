@@ -2,21 +2,20 @@
 <page>
   <content-type>/page/search</content-type>
   <display-template>/templates/web/search.ftl</display-template>
-  <no-template-required/>
+  <no-template-required />
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>0374</objectGroupId>
   <objectId>037478e0-f19c-3f7f-7dd7-daed416171a2</objectId>
   <file-name>index.xml</file-name>
   <folder-name>search</folder-name>
   <internal-name>Search</internal-name>
-  <navLabel>Search</navLabel>
   <pageTitle_s>Search Results</pageTitle_s>
-  <pageDescription_s/>
+  <pageDescription_s />
   <placeInNav>false</placeInNav>
   <orderDefault_f>-1</orderDefault_f>
   <disabled>false</disabled>
   <bios_o item-list="true">
-    <item datasource="bios">
+    <item>
       <key>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
       <value>Jane Doe's Bio</value>
       <include>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
@@ -25,6 +24,6 @@
   </bios_o>
   <createdDate>2020-05-04T13:27:36.526Z</createdDate>
   <createdDate_dt>2020-05-04T13:27:36.526Z</createdDate_dt>
-  <lastModifiedDate>2020-05-04T13:27:36.526Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-05-04T13:27:36.526Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-11-12T18:41:03.769Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-12T18:41:03.769Z</lastModifiedDate_dt>
 </page>

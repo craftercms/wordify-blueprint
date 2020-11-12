@@ -11,7 +11,9 @@
   <name_s>John Doe</name_s>
   <linkButtonText_s>Read Bio</linkButtonText_s>
   <linkButtonUrl_s>/</linkButtonUrl_s>
-  <bio_t>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.</bio_t>
+  <bio_t>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt
+    repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.
+  </bio_t>
   <showLinkButton_b>true</showLinkButton_b>
   <createdDate>2020-03-21T11:54:40.850Z</createdDate>
   <createdDate_dt>2020-03-21T11:54:40.850Z</createdDate_dt>

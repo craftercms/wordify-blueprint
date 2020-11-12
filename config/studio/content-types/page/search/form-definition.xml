@@ -1,17 +1,12 @@
 <form>
   <title>Search</title>
   <description />
-  <content-type>/page/search</content-type>
   <objectType>page</objectType>
+  <content-type>/page/search</content-type>
+  <imageThumbnail>undefined</imageThumbnail>
   <quickCreate>false</quickCreate>
   <quickCreatePath />
   <properties>
-    <property>
-      <name>content-type</name>
-      <label>Content Type</label>
-      <value>/page/search</value>
-      <type>string</type>
-    </property>
     <property>
       <name>display-template</name>
       <label>Display Template</label>
@@ -88,7 +83,7 @@
           <constraints>
             <constraint>
               <name>required</name>
-              <value>true</value>
+              <value><![CDATA[true]]></value>
               <type>boolean</type>
             </constraint>
           </constraints>
@@ -279,40 +274,50 @@
   </sections>
   <datasources>
     <datasource>
-      <type>shared-content</type>
+      <type>receptacles</type>
       <id>bios</id>
       <title>Bios</title>
       <interface>item</interface>
       <properties>
         <property>
-          <name>enableCreateNew</name>
+          <name>allowShared</name>
           <value>true</value>
-          <type>undefined</type>
+          <type>boolean</type>
         </property>
         <property>
-          <name>enableBrowseExisting</name>
+          <name>allowEmbedded</name>
+          <value>false</value>
+          <type>boolean</type>
+        </property>
+        <property>
+          <name>enableBrowse</name>
           <value>true</value>
-          <type>undefined</type>
+          <type>boolean</type>
         </property>
         <property>
-          <name>enableSearchExisting</name>
+          <name>enableSearch</name>
           <value>true</value>
-          <type>undefined</type>
+          <type>boolean</type>
         </property>
         <property>
-          <name>repoPath</name>
-          <value>/components</value>
-          <type>undefined</type>
+          <name>baseRepositoryPath</name>
+          <value>/site/components/bios</value>
+          <type>string</type>
         </property>
         <property>
-          <name>browsePath</name>
-          <value>/site/components/bio</value>
-          <type>undefined</type>
+          <name>baseBrowsePath</name>
+          <value>/site/components/bios</value>
+          <type>string</type>
         </property>
         <property>
-          <name>type</name>
+          <name>contentTypes</name>
           <value>/component/bio</value>
-          <type>undefined</type>
+          <type>contentTypes</type>
+        </property>
+        <property>
+          <name>tags</name>
+          <value />
+          <type>string</type>
         </property>
       </properties>
     </datasource>

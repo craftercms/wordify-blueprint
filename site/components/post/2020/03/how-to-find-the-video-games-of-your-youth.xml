@@ -2,7 +2,7 @@
 <component>
   <content-type>/component/post</content-type>
   <display-template>/templates/web/components/post.ftl</display-template>
-  <no-template-required />
+  <no-template-required>true</no-template-required>
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>2db5</objectGroupId>
   <objectId>2db50dee-81f1-e1df-d6a9-45bfc076acef</objectId>
@@ -14,8 +14,8 @@
   <orderDefault_f />
   <createdDate>2020-03-21T15:18:28.488Z</createdDate>
   <createdDate_dt>2020-03-21T15:18:28.488Z</createdDate_dt>
-  <lastModifiedDate>2020-03-22T20:01:48.575Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-03-22T20:01:48.575Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-11-12T18:41:47.156Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-12T18:41:47.156Z</lastModifiedDate_dt>
   <pageTitle_s>How to Find the Video Games of Your Youth</pageTitle_s>
   <pageDescription_s />
   <slug_s>how-to-find-the-video-games-of-your-youth</slug_s>
@@ -34,8 +34,10 @@
         <objectId>543ab594-1eb0-4d66-6536-8fb3c0b90b62</objectId>
         <file-name>543ab594-1eb0-4d66-6536-8fb3c0b90b62.xml</file-name>
         <internal-name>Text Piece One</internal-name>
-        <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore,
-          ut iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius. Nam eius, non
+        <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
+          nam quas inventore,
+          ut iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima
+          eius. Nam eius, non
           unde ut aut sunt eveniet rerum repellendus porro.&lt;/p&gt;
         </content_html>
         <createdDate>2020-03-21T17:30:17.303Z</createdDate>
@@ -70,9 +72,11 @@
                   <objectId>fa35dbbf-78ac-60e5-7b86-646937f59c96</objectId>
                   <file-name>fa35dbbf-78ac-60e5-7b86-646937f59c96.xml</file-name>
                   <internal-name>Text Piece One</internal-name>
-                  <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas
+                  <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Praesentium nam quas
                     inventore,
-                    ut iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius. Nam
+                    ut iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam,
+                    minima eius. Nam
                     eius, non
                     unde ut aut sunt eveniet rerum repellendus porro.&lt;/p&gt;
                   </content_html>
@@ -99,9 +103,11 @@
                   <objectId>fa35dbbf-78ac-60e5-7b86-646937f59c97</objectId>
                   <file-name>fa35dbbf-78ac-60e5-7b86-646937f59c97.xml</file-name>
                   <internal-name>Text Piece One</internal-name>
-                  <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas
+                  <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Praesentium nam quas
                     inventore,
-                    ut iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius. Nam
+                    ut iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam,
+                    minima eius. Nam
                     eius, non
                     unde ut aut sunt eveniet rerum repellendus porro.&lt;/p&gt;
                   </content_html>
@@ -127,7 +133,7 @@
   <authorBio_o item-list="true">
     <item datasource="bios">
       <key>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
-      <value>David Craig Bio</value>
+      <value>John Doe's Bio</value>
       <include>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
