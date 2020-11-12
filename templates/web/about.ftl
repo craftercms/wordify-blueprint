@@ -79,6 +79,7 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
 
+              <@studio.tag $model=contentModel $field="bios_o">
                 <#if contentModel.bios_o?? && contentModel.bios_o.item??>
                     <#list contentModel.bios_o.item as component>
                       <div class="sidebar-box">
@@ -86,6 +87,7 @@
                       </div>
                     </#list>
                 </#if>
+              </@studio.tag>
 
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>

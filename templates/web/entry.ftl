@@ -41,7 +41,7 @@
                     ?replace(".xml", "")
                   />
                   <@studio.tag $model=postItem class="col-md-6">
-                    <a href="${url}"
+                    <a href="/post?id=2020/03/how-to-find-the-video-games-of-your-youth"
                        class="blog-entry element-animate" data-animate-effect="fadeIn">
                       <@studio.img
                         $model=postItem
@@ -80,13 +80,15 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
 
-              <#if contentModel.bios_o?? && contentModel.bios_o.item??>
-                <#list contentModel.bios_o.item as component>
-                  <div class="sidebar-box">
-                    <@renderComponent component=component />
-                  </div>
-                </#list>
-              </#if>
+              <@studio.tag $model=contentModel $field="bios_o">
+                <#if contentModel.bios_o?? && contentModel.bios_o.item??>
+                  <#list contentModel.bios_o.item as component>
+                    <div class="sidebar-box">
+                      <@renderComponent component=component />
+                    </div>
+                  </#list>
+                </#if>
+              </@studio.tag>
 
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
