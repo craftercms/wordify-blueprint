@@ -39,19 +39,15 @@
         <internal-name>Home Slider</internal-name>
         <posts_o item-list="true">
           <item datasource="blogPosts">
-            <key>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
-            </key>
+            <key>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml</key>
             <value>Men Socks and Sandals</value>
-            <include>
-              /site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
-            </include>
+            <include>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml</include>
             <disableFlattening>false</disableFlattening>
           </item>
           <item datasource="blogPosts">
             <key>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml</key>
             <value>Video Games of Your Youth</value>
-            <include>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml
-            </include>
+            <include>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml</include>
             <disableFlattening>false</disableFlattening>
           </item>
         </posts_o>
