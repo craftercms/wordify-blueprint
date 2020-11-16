@@ -165,33 +165,29 @@
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
-    <script>
+    <#if (contentModel.websiteShortname_s?hasContent) >
+      <script>
 
-      /**
-       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
-      var disqus_config = function () {
-        this.page.url = window.location.origin;
-        this.page.identifier = '${contentModel.objectId}';
-      };
+        var disqus_config = function () {
+          this.page.url = window.location.origin;
+          this.page.identifier = '${contentModel.objectId}';
+        };
 
-      <#if (contentModel.websiteShortname_s?hasContent) >
-        <#assign disqusID = contentModel.websiteShortname_s />
-      <#else>
-        <#assign disqusID = "DISQUS" />
-      </#if>
+        (function () { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://${contentModel.websiteShortname_s}.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <script id="dsq-count-scr" src="//${disqusID}.disqus.com/count.js" async></script>
 
-      (function () { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://${disqusID}.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-      })();
-    </script>
-    <script id="dsq-count-scr" src="//${disqusID}.disqus.com/count.js" async></script>
-
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </#if>
 
     <@studio.toolSupport/>
   </body>
