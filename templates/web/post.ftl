@@ -55,9 +55,11 @@
 
                 <div>
                   Tags:
-                    <#list postModel.tags_o.item as tag>
-                      <a href="/tag?id=${tag.key}">${tag.value_smv}<#if tag_has_next>,</#if></a>
-                    </#list>
+                    <#if postModel.tags_o.item?hasContent>
+                      <#list postModel.tags_o.item as tag>
+                        <a href="/tag?id=${tag.key}">${tag.value_smv}<#if tag_has_next>,</#if></a>
+                      </#list>
+                    </#if>
                 </div>
 
                 <div id="disqus_thread" class="mt-5"></div>
