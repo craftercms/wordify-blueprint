@@ -3,8 +3,6 @@
 <html lang="en">
   <head>
     <#include "/templates/web/fragments/head_include.ftl"/>
-
-    <script src="https://unpkg.com/@craftercms/ice"></script>
   </head>
   <body>
     <div class="wrap">
@@ -39,10 +37,10 @@
                     </a>
                   </#list>
 
-                <div class="post-content-body">
+                <div class="post-content-body" <@studio.componentContainerAttr target="content_o" component=postModel/>>
                     <#if postModel.content_o?? && postModel.content_o.item??>
                         <#list postModel.content_o.item as component>
-                            <@renderComponent component=component />
+                            <@renderComponent component=component parent=postModel />
                         </#list>
                     </#if>
                 </div>
@@ -174,39 +172,23 @@
         this.page.identifier = '${contentModel.objectId}';
       };
 
+      <#if (contentModel.websiteShortname_s?hasContent) >
+        <#assign disqusID = contentModel.websiteShortname_s />
+      <#else>
+        <#assign disqusID = "DISQUS" />
+      </#if>
+
       (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
-        s.src = 'https://${contentModel.websiteShortname_s!"DISQUS"}.disqus.com/embed.js';
+        s.src = 'https://${disqusID}.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
       })();
     </script>
-    <script id="dsq-count-scr" src="//${contentModel.websiteShortname_s}.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="//${disqusID}.disqus.com/count.js" async></script>
 
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
     <@studio.toolSupport/>
-
-    <script type="text/javascript">
-      (function() {
-        if (window.crafterRequire) {
-          window.crafterRequire(['static-assets/scripts/guest'], function (guest) {
-            // console.log('guest', guest);
-            // guest.reportNavigation(window.location.origin, '/site/components' + window.location.pathname);
-            // console.log(window.location);
-
-            // window.location.origin
-            // '/site/components' + window.location.pathname
-          });
-        }
-      })();
-    </script>
-
-    <script>
-      (function ({ ice }) {
-        console.log('ice', ice);
-        // ice.reportNavigation('/site/components' + window.location.pathname);
-      })(craftercms);
-    </script>
   </body>
 </html>
