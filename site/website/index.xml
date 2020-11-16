@@ -39,8 +39,7 @@
         <internal-name>Home Slider</internal-name>
         <posts_o item-list="true">
           <item datasource="blogPosts">
-            <key>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
-            </key>
+            <key>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml</key>
             <value>Men Socks and Sandals</value>
             <include>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml</include>
             <disableFlattening>false</disableFlattening>
