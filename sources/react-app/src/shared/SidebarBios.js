@@ -27,6 +27,7 @@ export default function (props) {
       component="div"
       fieldId={fieldId}
       style={{'float': 'left'}}
+      className="bio-zone"
     >
       {
         model[fieldId]?.map(bio => <SidebarBio key={bio.craftercms.id} model={bio} />)
