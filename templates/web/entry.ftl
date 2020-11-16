@@ -43,7 +43,9 @@
                   <div class="col-md-6" <@studio.componentAttr component=postItem ice=true />>
                     <a href="${url}"
                        class="blog-entry element-animate" data-animate-effect="fadeIn">
-                      <img src="${post.mainImage}" alt="Image placeholder">
+                      <div class="img-container">
+                        <img src="${post.mainImage}" alt="Image placeholder">
+                      </div>
                       <div class="blog-content-body">
                         <div class="post-meta">
                           <span class="author mr-2"><img src="${post.authorBio.item.component.profilePic_s}" alt="Colorlib">
