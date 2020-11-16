@@ -6,6 +6,12 @@
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>ab5b</objectGroupId>
   <objectId>ab5bf552-aeae-1bb9-44c7-313b99e1aa70</objectId>
+  <file-name>how-to-find-the-video-games-of-your-youth.xml</file-name>
+  <internal-name>Video Games of Your Youth</internal-name>
+  <pageTitle_s>How to Find the Video Games of Your Youth</pageTitle_s>
+  <pageDescription_s />
+  <headline_s tokenized="true">How to Find the Video Games of Your Youth</headline_s>
+  <orderDefault_f>-1</orderDefault_f>
   <content_o item-list="true">
     <item datasource="richTextSections" inline="true">
       <key>8735718d-8633-375f-9271-07840f2bae1c</key>
@@ -114,12 +120,6 @@
       <disableFlattening>false</disableFlattening>
     </item>
   </authorBio_o>
-  <file-name>how-to-find-the-video-games-of-your-youth.xml</file-name>
-  <internal-name>Video Games of Your Youth</internal-name>
-  <pageTitle_s>How to Find the Video Games of Your Youth</pageTitle_s>
-  <pageDescription_s />
-  <headline_s>How to Find the Video Games of Your Youth</headline_s>
-  <orderDefault_f>-1</orderDefault_f>
   <categories_o>
     <item>
       <key>lifestyle</key>
@@ -144,7 +144,7 @@
   <blurb_t />
   <createdDate>2020-11-02T18:01:36.409Z</createdDate>
   <createdDate_dt>2020-11-02T18:01:36.409Z</createdDate_dt>
-  <lastModifiedDate>2020-11-11T20:48:58.854Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-11-11T20:48:58.854Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-11-16T21:57:40.634Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-16T21:57:40.634Z</lastModifiedDate_dt>
   <folder-name />
 </component>
