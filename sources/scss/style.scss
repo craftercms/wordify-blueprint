@@ -675,10 +675,11 @@ header {
       display: flex;
       height: 233px;
 
-      .img {
+      img {
         flex-shrink: 0;
         min-width: 100%;
         min-height: 100%;
+        object-fit: cover;
       }
     }
 
@@ -1701,6 +1702,7 @@ textarea.form-control {
         img {
           width: 90px;
           max-height: 60px;
+          object-fit: cover;
         }
 
         img, .text {
