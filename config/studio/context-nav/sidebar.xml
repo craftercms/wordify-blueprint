@@ -58,7 +58,7 @@
                   <name>wcm-root-folder</name>
                   <params>
                     <label>Bios</label>
-                    <path>/site/components/bios</path>
+                    <path>/site/components/bio</path>
                     <showRootItem>true</showRootItem>
                     <onClick>preview</onClick>
                   </params>
