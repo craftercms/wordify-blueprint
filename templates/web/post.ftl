@@ -70,7 +70,7 @@
                     <#include "/templates/web/fragments/sidebar_search.ftl" />
                 </div>
                 <!-- END sidebar-box -->
-                <div class="bios" style="float: left" <@studio.componentContainerAttr target="authorBio_o" component=postModel/>>
+                <div class="bio-zone" style="float: left" <@studio.componentContainerAttr target="authorBio_o" component=postModel/>>
                     <#if postModel.authorBio_o?? && postModel.authorBio_o.item??>
                         <#list postModel.authorBio_o.item as component>
                           <div class="sidebar-box">
