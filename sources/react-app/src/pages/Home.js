@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import Slider from '../components/Slider';
 import { FormattedMessage } from 'react-intl';
@@ -23,9 +23,8 @@ import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import RecentPostsAside from '../shared/RecentPostsAside';
 import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
-import { Link } from 'react-router-dom';
-import { parse } from 'query-string';
-import { useRecentPosts } from '../shared/hooks';
+import { usePosts } from '../shared/hooks';
+import Paginate from '../shared/Paginate';
 
 export default function (props) {
   const {
@@ -38,17 +37,14 @@ export default function (props) {
     },
     meta: {
       siteTitle,
-      socialLinks,
-      posts: {
-        total,
-        limit
-      }
+      socialLinks
     }
   } = props;
-  const pageNumber = parseInt(parse(window.location.search).page ?? 1);
-  const pageIndex = pageNumber - 1;
-  const numOfPages = Math.ceil(total / limit);
-  const posts = useRecentPosts();
+  const [paginationData, setPaginationData] = useState({
+    itemsPerPage: 8,
+    currentPage: 0
+  });
+  const posts = usePosts(paginationData);
 
   return (
     <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
@@ -81,7 +77,7 @@ export default function (props) {
             <div className="col-md-12 col-lg-8 main-content">
               <div className="row">
                 {
-                  posts?.map((post) =>
+                  posts?.items.map((post) =>
                     <div className="col-md-6" key={post.craftercms.id}>
                       <PostCard model={post} />
                     </div>
@@ -89,43 +85,23 @@ export default function (props) {
                 }
               </div>
               {
-                numOfPages > 1 && (
-                  <div className="row mt-5">
-                    <div className="col-md-12 text-center">
-                      <nav aria-label="Page navigation" className="text-center">
-                        <ul className="pagination">
-                          <li
-                            className="page-item"
-                            style={{ visibility: pageNumber > 1 ? '' : 'hidden' }}
-                          >
-                            <Link
-                              onClick={(e) => e.preventDefault()} className="page-link"
-                              to={`/?page=${pageNumber - 1}`}
-                            >&lt;</Link>
-                          </li>
-                          {
-                            new Array(numOfPages).fill(null).map((naught, index) =>
-                              <li
-                                className={`page-item ${index === pageIndex ? 'active' : ''}`}
-                                key={index}
-                              >
-                                <Link className="page-link" to={`/?page=${index + 1}`}>
-                                  {index + 1}
-                                </Link>
-                              </li>
-                            )
-                          }
-                          <li
-                            className="page-item"
-                            style={{ visibility: pageNumber < numOfPages ? '' : 'hidden' }}
-                          >
-                            <Link className="page-link" to={`/?page=${pageNumber + 1}`}>&gt;</Link>
-                          </li>
-                        </ul>
-                      </nav>
-                    </div>
+                posts?.pageCount > 1 &&
+                <div className="row mt-5">
+                  <div className="col-md-12 text-center">
+                    <nav aria-label="Categories navigation" className="text-center">
+                      <Paginate
+                        pageCount={posts.pageCount}
+                        onPageChange={(index) => {
+                          setPaginationData(
+                            {
+                              ...paginationData,
+                              currentPage: (index)
+                            });
+                        }}
+                      />
+                    </nav>
                   </div>
-                )
+                </div>
               }
             </div>
             <div className="col-md-12 col-lg-4 sidebar">

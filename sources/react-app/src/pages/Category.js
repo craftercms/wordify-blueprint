@@ -38,7 +38,7 @@ function CategoryContent({ resource, isTag, categoryId }) {
   let category;
   const ice = usePencil({ model: categories });
   const [paginationData, setPaginationData] = useState({
-    itemsPerPage: 10,
+    itemsPerPage: 8,
     currentPage: 0
   });
 
@@ -74,12 +74,13 @@ function CategoryContent({ resource, isTag, categoryId }) {
                   <nav aria-label="Categories navigation" className="text-center">
                     <Paginate
                       pageCount={posts.pageCount}
-                      onPageChange={(index) => setPaginationData(
-                        {
-                          ...paginationData,
-                          currentPage: index * paginationData.itemsPerPage
-                        })
-                      }
+                      onPageChange={(index) => {
+                        setPaginationData(
+                          {
+                            ...paginationData,
+                            currentPage: (index)
+                          });
+                      }}
                     />
                   </nav>
                 </div>

@@ -24,7 +24,7 @@ import { parseDescriptor } from '@craftercms/content';
 import { reportNavigation } from '@craftercms/ice';
 import { parse } from 'query-string';
 
-const limit = 3;
+const limit = 8;
 
 export default function DynamicRoute(props) {
   const { match, location } = props;

@@ -25,6 +25,7 @@ import CircularProgressSpinner from '../shared/CircularProgressSpinner';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
 import { useHistory } from 'react-router-dom';
 import Paginate from '../shared/Paginate';
+import SidebarBios from '../shared/SidebarBios';
 
 function SearchResults({ resource, paginationData, onPageChange }) {
   const { hits, total } = resource.read();
@@ -55,6 +56,7 @@ function SearchResults({ resource, paginationData, onPageChange }) {
 
 export default function (props) {
   const {
+    model,
     meta: {
       siteTitle,
       socialLinks
@@ -107,9 +109,7 @@ export default function (props) {
 
               <SidebarSearch />
 
-              {/*
-              <SidebarBios bios={bios_o} />
-              */}
+              <SidebarBios model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 

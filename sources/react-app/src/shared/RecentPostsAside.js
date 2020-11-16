@@ -17,10 +17,13 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import PostCard, { LANDSCAPE_COMPRESSED } from './PostCard';
-import { useRecentPosts } from './hooks';
+import { usePosts } from './hooks';
 
 export default function () {
-  const posts = useRecentPosts();
+  const posts = usePosts({
+    itemsPerPage: 4,
+    currentPage: 0
+  });
 
   return (
     <div className="sidebar-box">
@@ -33,7 +36,7 @@ export default function () {
       <div className="post-entry-sidebar">
         <ul>
           {
-            posts?.map((post) =>
+            posts?.items.map((post) =>
               <li key={post.craftercms.id}>
                 <PostCard model={post} format={LANDSCAPE_COMPRESSED} />
               </li>
