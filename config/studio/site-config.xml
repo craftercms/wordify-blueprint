@@ -16,12 +16,10 @@
   -->
 
 <!-- site-config.xml
-
     This contains the primary site configuration.
-
 -->
 <site-config>
-   <version>7</version>
+   <version>6</version>
    <wem-project>wordify</wem-project>
    <display-name>wordify</display-name>
    <default-timezone>EST5EDT</default-timezone>
@@ -30,7 +28,7 @@
    </published-repository>
    <publishing>
       <comments>
-<!-- Global setting would apply to all -->
+         <!-- Global setting would apply to all -->
          <required>false</required>
          <!-- Additional (also optional) specific overrides -->
 
@@ -67,26 +65,37 @@
      -->
    <plugin-folder-pattern>/config/studio/plugins/${type}/${name}</plugin-folder-pattern>
    <repository rootPrefix="/site">
-<!-- default inheritance file name -->
+      <!-- default inheritance file name -->
       <level-descriptor>crafter-level-descriptor.level.xml</level-descriptor>
       <!-- The section below classifies items into folders for two dashboard widgets:
         - Items Waiting For Approval
         - Approved Scheduled Items
-
         Items that match the paths specified will be grouped together in the dashboard widget
         -->
       <folders>
-         <folder name="Pages" path="/website" read-direct-children="false" attach-root-prefix="true"/>
-         <folder name="Components" path="/components" read-direct-children="false" attach-root-prefix="true"/>
-         <folder name="Assets" path="/static-assets" read-direct-children="false" attach-root-prefix="false"/>
-         <folder name="Templates" path="/templates" read-direct-children="false" attach-root-prefix="false"/>
+         <folder name="Pages"
+                 path="/website"
+                 read-direct-children="false"
+                 attach-root-prefix="true"/>
+         <folder name="Components"
+                 path="/components"
+                 read-direct-children="false"
+                 attach-root-prefix="true"/>
+         <folder name="Assets"
+                 path="/static-assets"
+                 read-direct-children="false"
+                 attach-root-prefix="false"/>
+         <folder name="Templates"
+                 path="/templates"
+                 read-direct-children="false"
+                 attach-root-prefix="false"/>
       </folders>
       <!-- Item Patterns -->
       <patterns>
-<!-- The section below helps determine the type of content based on regex. This shows up in two places:
-            - The activity audit log.
-            - The UI icon used for the item
-            -->
+         <!-- The section below helps determine the type of content based on regex. This shows up in two places:
+                     - The activity audit log.
+                     - The UI icon used for the item
+                     -->
          <pattern-group name="page">
             <pattern>/site/website/([^&lt;]+)\.xml</pattern>
          </pattern-group>

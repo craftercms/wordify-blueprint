@@ -76,7 +76,7 @@
 
 -->
 <permissions>
-   <version>12</version>
+   <version>11</version>
    <role name="author">
       <rule regex="/site/website/.*">
          <allowed-permissions>
@@ -203,7 +203,6 @@
             <permission>site_diff_conflicted_file</permission>
             <permission>commit_resolution</permission>
             <permission>cancel_failed_pull</permission>
-            <permission>encryption_tool</permission>
          </allowed-permissions>
       </rule>
       <rule regex="^/(?!site/website/index\.xml)(.*)">
@@ -229,7 +228,6 @@
             <permission>site_diff_conflicted_file</permission>
             <permission>commit_resolution</permission>
             <permission>cancel_failed_pull</permission>
-            <permission>encryption_tool</permission>
          </allowed-permissions>
       </rule>
       <rule regex=".*">
@@ -268,7 +266,6 @@
             <permission>site_diff_conflicted_file</permission>
             <permission>commit_resolution</permission>
             <permission>cancel_failed_pull</permission>
-            <permission>encryption_tool</permission>
          </allowed-permissions>
       </rule>
       <rule regex="^/(?!site/website/index\.xml)(.*)">
@@ -294,7 +291,6 @@
             <permission>site_diff_conflicted_file</permission>
             <permission>commit_resolution</permission>
             <permission>cancel_failed_pull</permission>
-            <permission>encryption_tool</permission>
          </allowed-permissions>
       </rule>
       <rule regex=".*">
