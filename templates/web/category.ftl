@@ -42,9 +42,13 @@
                                 <img src="${post.authorBio.item.component.profilePic_s}" alt="${post.authorBio.item.component.name_s}">
                                   ${post.authorBio.item.component.name_s}</span>&bullet;
                               <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span> &bullet;
-                                <#list post.categories.item as category>
-                                  <span class="mr-2">${category.value_smv}</span>
-                                </#list>
+                                <#if post.categories.item?is_sequence>
+                                  <#list post.categories.item as category>
+                                    <span class="category">${category.value_smv}</span>
+                                  </#list>
+                                <#else>
+                                  <span class="category">${post.categories.item.value_smv}</span>
+                                </#if>
                             </div>
                             <h2>${post.headline}</h2>
                           </span>

@@ -121,9 +121,13 @@
                     >
                       <div class="text">
                         <div class="post-meta">
-                            <#list post.categories.item as category>
-                              <span class="category">${category.value_smv}</span>
-                            </#list>
+                            <#if post.categories.item?isSequence>
+                                <#list post.categories.item as category>
+                                  <span class="category">${category.value_smv}</span>
+                                </#list>
+                            <#else>
+                              <span class="category">${post.categories.item.value_smv}</span>
+                            </#if>
                           <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
                         </div>
                         <h3>${post.headline}</h3>
