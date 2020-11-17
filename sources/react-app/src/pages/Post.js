@@ -123,7 +123,10 @@ export default function (props) {
                 </div>
               </div>
 
-              <Comments id={model.craftercms.id} websiteShortname={websiteShortname}/>
+              {
+                websiteShortname &&
+                <Comments id={model.craftercms.id} websiteShortname={websiteShortname}/>
+              }
 
             </div>
 
