@@ -26,7 +26,7 @@ import { isAuthoring } from './utils';
 import { Guest, ContentType } from '@craftercms/studio-guest';
 import contentTypeMap from './contentTypeMap';
 
-const limit = 3;
+const limit = 8;
 
 export default function DynamicRoute(props) {
   const { match, location } = props;

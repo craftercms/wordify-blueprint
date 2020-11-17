@@ -220,8 +220,8 @@ export function usePosts(paginationData, categories, tags, exclude) {
     fetchQuery(
       { text: postsQuery },
       {
-        limit: paginationData.itemsPerPage,
-        offset: (paginationData.currentPage * paginationData.itemsPerPage),
+        postsLimit: paginationData.itemsPerPage,
+        postsOffset: (paginationData.currentPage * paginationData.itemsPerPage),
         categoriesFilter,
         tagsFilter,
         exclude: exclude??""

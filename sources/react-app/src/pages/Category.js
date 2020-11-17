@@ -38,7 +38,7 @@ function CategoryContent({ resource, isTag, categoryId }) {
 
   let category;
   const [paginationData, setPaginationData] = useState({
-    itemsPerPage: 10,
+    itemsPerPage: 8,
     currentPage: 0
   });
 
