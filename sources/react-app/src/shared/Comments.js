@@ -41,7 +41,12 @@ const Comments = ({ id, websiteShortname }) => {
       });
     }
   }, [id, websiteShortname])
-  return <div id="disqus_thread" className="mt-5" />;
+  return (
+    <>
+      <div id="disqus_recommendations" />   {/* if disqus recommendations are disabled (default) this won't populate */}
+      <div id="disqus_thread" className="mt-5" />
+    </>
+  );
 }
 
 export const CommentsCount = ({ id, websiteShortname }) => {

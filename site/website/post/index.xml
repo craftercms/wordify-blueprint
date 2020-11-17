@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+  <content-type>/page/postcontainer</content-type>
+  <display-template>/templates/web/post.ftl</display-template>
+  <no-template-required />
+  <merge-strategy>inherit-levels</merge-strategy>
+  <objectGroupId>546d</objectGroupId>
+  <objectId>546de556-b0fe-058a-752b-604d3cc57200</objectId>
+  <internal-name>Post</internal-name>
+  <navLabel>Post</navLabel>
+  <placeInNav>false</placeInNav>
+  <orderDefault_f>-1</orderDefault_f>
+  <file-name>index.xml</file-name>
+  <folder-name>post</folder-name>
+  <createdDate>2020-11-03T22:25:15.717Z</createdDate>
+  <createdDate_dt>2020-11-03T22:25:15.717Z</createdDate_dt>
+  <lastModifiedDate>2020-11-03T22:25:15.717Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-03T22:25:15.717Z</lastModifiedDate_dt>
+</page>

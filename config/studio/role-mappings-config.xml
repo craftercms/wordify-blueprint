@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
   ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
   ~
@@ -14,7 +14,6 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-
 <!-- role-mappings-config.xml
 
     This file maps groups to roles.
@@ -49,22 +48,22 @@
 
 -->
 <role-mappings>
-    <version>2</version>
-    <groups>
-        <group name="site_admin">
-            <role>admin</role>
-        </group>
-        <group name="site_developer">
-            <role>developer</role>
-        </group>
-        <group name="site_author">
-            <role>author</role>
-        </group>
-        <group name="site_publisher">
-            <role>publisher</role>
-        </group>
-        <group name="site_reviewer">
-            <role>reviewer</role>
-        </group>
-    </groups>
+	<version>2</version>
+	<groups>
+		<group name="site_admin">
+			<role>admin</role>
+		</group>
+		<group name="site_developer">
+			<role>developer</role>
+		</group>
+		<group name="site_author">
+			<role>author</role>
+		</group>
+		<group name="site_publisher">
+			<role>publisher</role>
+		</group>
+		<group name="site_reviewer">
+			<role>reviewer</role>
+		</group>
+	</groups>
 </role-mappings>

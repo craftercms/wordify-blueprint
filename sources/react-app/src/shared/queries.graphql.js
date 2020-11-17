@@ -16,7 +16,7 @@
 
 // language=GraphQL
 const commonFragments = `
-  fragment byUrlQueryPostPage on page_post {
+  fragment byUrlQueryPost on component_post {
     ...byUrlQueryContentItemFields
     slug: localId(transform: "storeUrlToRenderUrl")
     pageTitle_s
@@ -90,7 +90,7 @@ const commonFragments = `
 
   fragment byUrlQueryRichText on component_rich_text {
     ...byUrlQueryContentItemFields
-    content_html_raw
+    content_html: content_html_raw
   }
 
   fragment byUrlQueryImage on component_image {
@@ -190,7 +190,6 @@ export default `
   fragment byUrlQueryCategoryPage on page_category {
     pageTitle_s
     pageDescription_s
-
   }
 
   fragment byUrlQuerySlider on component_slider {
@@ -206,6 +205,14 @@ export default `
           blurb_t
           headline_s
           mainImage_s
+          authorBio_o {
+            item {
+              key,
+              component {
+                ...byUrlQueryBioFragment
+              }
+            }
+          }
         }
       }
     }
@@ -231,7 +238,7 @@ export default `
         )
         content__type(
           filter:{
-            regex: ".*(bio|post|entry|category|tag|contact|about|search).*"
+            regex: ".*(bio|post|entry|category|contact|about|search).*"
           }
         ) @skip (if: $skipContentType)
         ...on page_entry {
@@ -246,8 +253,8 @@ export default `
         ...on page_category {
           ...byUrlQueryCategoryPage
         }
-        ...on page_post {
-          ...byUrlQueryPostPage
+        ...on component_post {
+          ...byUrlQueryPost
         }
       }
     }
@@ -265,7 +272,7 @@ export default `
         }
       }
     }
-    posts: page_post(
+    posts: component_post(
       limit: $postsLimit,
       offset: $postsOffset,
       sortOrder: DESC,
@@ -273,7 +280,7 @@ export default `
     ) @include(if: $includePosts) {
       total
       items {
-        ...byUrlQueryPostPage
+        ...byUrlQueryPost
       }
     }
   }
@@ -284,21 +291,21 @@ export const postsQuery = `
   ${commonFragments}
 
   query postsQuery(
-    $limit: Int = 10
-    $offset: Int = 0
+    $postsLimit: Int = 8
+    $postsOffset: Int = 0
     $exclude: String = ""
     $categoriesFilter: [TextFilters!] = []
     $tagsFilter: [TextFilters!] = []
   ) {
-    posts: page_post(
-      limit: $limit,
-      offset: $offset,
+    posts: component_post(
+      limit: $postsLimit,
+      offset: $postsOffset,
       sortOrder: DESC,
       sortBy: "lastModifiedDate_dt"
     ) {
       total
       items {
-        ...byUrlQueryPostPage
+        ...byUrlQueryPost
       }
     }
   }

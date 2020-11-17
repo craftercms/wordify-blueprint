@@ -4,10 +4,13 @@
   <#if contentModel.posts_o?? && contentModel.posts_o.item??>
     <#list contentModel.posts_o.item as slide>
       <#assign post = siteItemService.getSiteItem(slide.key) />
-      <#assign url = urlTransformationService.transform('storeUrlToRenderUrl', slide.key)?replace('/site/components/post', '/articles') />
+      <#assign url = urlTransformationService.transform('storeUrlToRenderUrl', slide.key)
+        ?replace("/site/components", "")
+        ?replace(".html", "")
+      />
       <#assign bio = siteItemService.getSiteItem(post.authorBio_o.item.key) />
       <div>
-        <a href="${url?replace('.html', '')}"
+        <a href="${url}"
            class="a-block d-flex align-items-center height-lg"
            style="background-image: url('${post.mainImage_s!""}'); ">
           <div class="text half-to-full" <@studio.componentAttr component=post ice=true />>

@@ -36,7 +36,11 @@
                   <#list postsInfo.paginatedPosts as post>
                     <#assign postItem = siteItemService.getSiteItem(post.localId) />
                     <div class="post-entry-horizontal" <@studio.componentAttr component=postItem ice=true />>
-                      <a href="/articles/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals">
+                      <#assign url = postItem.storeUrl
+                        ?replace("/site/components", "")
+                        ?replace(".xml", "")
+                        />
+                      <a href="${url}">
                         <div class="image" style="background-image: url(${post.mainImage});"></div>
                         <span class="text">
                           <div class="post-meta">
@@ -69,6 +73,7 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
 
+              <div class="bio-zone" style="float: left" <@studio.componentContainerAttr target="bios_o" component=contentModel/>>
                 <#if contentModel.bios_o?? && contentModel.bios_o.item??>
                     <#list contentModel.bios_o.item as component>
                       <div class="sidebar-box">
@@ -76,6 +81,7 @@
                       </div>
                     </#list>
                 </#if>
+              </div>
 
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>

@@ -24,12 +24,12 @@ import { parseDescriptor } from '@craftercms/content';
 import { reportNavigation } from '@craftercms/ice';
 import { parse } from 'query-string';
 
-const limit = 3;
+const limit = 8;
 
 export default function DynamicRoute(props) {
   const { match, location } = props;
   const [state, setState] = useState(null);
-  const url = match.path.includes(':')
+  let url = match.path.includes(':')
     ? match.path.substring(0, match.path.indexOf(':') -1)
     : match.url;
 

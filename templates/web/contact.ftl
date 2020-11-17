@@ -57,14 +57,6 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
               <!-- END sidebar-box -->
-              <#if contentModel.bios_o?? && contentModel.bios_o.item??>
-                <#list contentModel.bios_o.item as component>
-                  <div class="sidebar-box">
-                      <@renderComponent component=component />
-                  </div>
-                </#list>
-              </#if>
-              <!-- END sidebar-box -->
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
               </div>

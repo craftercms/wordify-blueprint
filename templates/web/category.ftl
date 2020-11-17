@@ -30,7 +30,11 @@
                     <#list postsInfo.paginatedPosts as post>
                       <#assign postItem = siteItemService.getSiteItem(post.localId) />
                       <div class="post-entry-horizontal" <@studio.componentAttr component=postItem ice=true />>
-                        <a href="${post.url}">
+                        <#assign url = postItem.storeUrl
+                          ?replace("/site/components", "")
+                          ?replace(".xml", "")
+                        />
+                        <a href="${url}">
                           <div class="image element-animate" data-animate-effect="fadeIn" style="background-image: url(${post.mainImage});"></div>
                           <span class="text">
                             <div class="post-meta">
@@ -38,9 +42,13 @@
                                 <img src="${post.authorBio.item.component.profilePic_s}" alt="${post.authorBio.item.component.name_s}">
                                   ${post.authorBio.item.component.name_s}</span>&bullet;
                               <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span> &bullet;
-                                <#list post.categories.item as category>
-                                  <span class="mr-2">${category.value_smv}</span>
-                                </#list>
+                                <#if post.categories.item?is_sequence>
+                                  <#list post.categories.item as category>
+                                    <span class="category">${category.value_smv}</span>
+                                  </#list>
+                                <#else>
+                                  <span class="category">${post.categories.item.value_smv}</span>
+                                </#if>
                             </div>
                             <h2>${post.headline}</h2>
                           </span>
@@ -88,14 +96,6 @@
               <div class="sidebar-box search-form-wrap">
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
-              <!-- END sidebar-box -->
-              <#if contentModel.bios_o?? && contentModel.bios_o.item??>
-                <#list contentModel.bios_o.item as component>
-                  <div class="sidebar-box">
-                      <@renderComponent component=component />
-                  </div>
-                </#list>
-              </#if>
               <!-- END sidebar-box -->
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>

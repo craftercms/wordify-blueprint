@@ -17,15 +17,22 @@
 import React from 'react';
 import Bio from '../components/Bio';
 import { usePencil } from './hooks';
+import DropZone from './DropZone';
 
 export default function (props) {
-  const { bios } = props;
+  const { model, fieldId } = props;
   return (
-    <>
+    <DropZone
+      model={model}
+      component="div"
+      fieldId={fieldId}
+      style={{'float': 'left'}}
+      className="bio-zone"
+    >
       {
-        bios?.map(bio => <SidebarBio key={bio.craftercms.id} model={bio} />)
+        model[fieldId]?.map(bio => <SidebarBio key={bio.craftercms.id} model={bio} />)
       }
-    </>
+    </DropZone>
   );
 }
 

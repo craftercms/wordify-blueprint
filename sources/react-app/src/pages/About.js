@@ -32,7 +32,6 @@ export default function (props) {
     model,
     model: {
       headline_s,
-      bios_o,
       content_o
     },
     meta: {
@@ -113,7 +112,7 @@ export default function (props) {
 
               <SidebarSearch />
 
-              <SidebarBios bios={bios_o} />
+              <SidebarBios model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 

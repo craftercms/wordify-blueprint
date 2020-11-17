@@ -36,10 +36,16 @@
               <div class="row">
                 <#list postsInfo.paginatedPosts as post>
                   <#assign postItem = siteItemService.getSiteItem(post.localId) />
+                  <#assign url = postItem.storeUrl
+                    ?replace("/site/components", "")
+                    ?replace(".xml", "")
+                  />
                   <div class="col-md-6" <@studio.componentAttr component=postItem ice=true />>
-                    <a href="${post.url}"
+                    <a href="${url}"
                        class="blog-entry element-animate" data-animate-effect="fadeIn">
-                      <img src="${post.mainImage}" alt="Image placeholder">
+                      <div class="img-container">
+                        <img src="${post.mainImage}" alt="Image placeholder">
+                      </div>
                       <div class="blog-content-body">
                         <div class="post-meta">
                           <span class="author mr-2"><img src="${post.authorBio.item.component.profilePic_s}" alt="Colorlib">
@@ -69,6 +75,7 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
 
+              <div class="bio-zone" style="float: left" <@studio.componentContainerAttr target="bios_o" component=contentModel/>>
                 <#if contentModel.bios_o?? && contentModel.bios_o.item??>
                     <#list contentModel.bios_o.item as component>
                       <div class="sidebar-box">
@@ -76,6 +83,7 @@
                       </div>
                     </#list>
                 </#if>
+              </div>
 
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>

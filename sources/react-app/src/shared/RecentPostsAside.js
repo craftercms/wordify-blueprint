@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React  from 'react';
 import { FormattedMessage } from 'react-intl';
 import PostCard, { LANDSCAPE_COMPRESSED } from './PostCard';
 import { useRecentPosts } from './hooks';
@@ -26,8 +26,8 @@ export default function () {
     <div className="sidebar-box">
       <h3 className="heading">
         <FormattedMessage
-          id="common.popularPostsTitle"
-          defaultMessage="Recent Posts"
+          id="common.latestPostsTitle"
+          defaultMessage="Latest Posts"
         />
       </h3>
       <div className="post-entry-sidebar">

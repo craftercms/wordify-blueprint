@@ -59,14 +59,15 @@ export default function (props) {
     .replace(/(\/site\/components)|(index\.xml)/g, '')
     .replace(/(\/site\/website)|(index\.xml)/g, '')
     .replace(/(\/\/)/g, '/')
-    .replace('post/', 'articles/')
-    .replace('.xml', '/');
+    .replace('.xml', '');
   const { props: ice } = useICE({ model, parentModelId, isAuthoring });
   switch (format) {
     case PORTRAIT:
       return (
         <Link to={slug} className={`blog-entry ${classes?.root ?? ''}`} {...ice}>
-          <img src={mainImage_s} alt={mainImageAlt_s} />
+          <div className="img-container">
+            <img src={mainImage_s} alt={mainImageAlt_s} />
+          </div>
           <div className="blog-content-body">
             <div className="post-meta">
               <span className="author mr-2">
@@ -147,7 +148,7 @@ export default function (props) {
                 </>
               }
             </div>
-            <h3>{headline_s}</h3>
+            <h3>{headline_s.text??headline_s}</h3>
             {
               showBlurb && <p>{blurb_t}</p>
             }
