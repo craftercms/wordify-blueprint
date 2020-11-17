@@ -23,7 +23,6 @@ import { catchError } from 'rxjs/operators';
 import Toast from '../components/Toast';
 import { defineMessages, useIntl } from 'react-intl';
 import { RenderField } from '@craftercms/studio-guest';
-import { SidebarBiosWithICE } from '../shared/SidebarBios';
 
 const translations = defineMessages({
   contactSuccess: {
@@ -181,8 +180,6 @@ export default function (props) {
                   </div>
                 </form>
               </div>
-
-              <SidebarBiosWithICE model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 

@@ -25,7 +25,6 @@ import CategoryCard from '../shared/CategoryCard';
 import { parseDescriptor } from '@craftercms/content';
 import { createTaxonomyFilter } from '../shared/utils';
 import CircularProgressSpinner from '../shared/CircularProgressSpinner';
-import { SidebarBiosWithICE } from '../shared/SidebarBios';
 import { Field } from '@craftercms/studio-guest';
 import Paginate from '../shared/Paginate';
 
@@ -115,7 +114,6 @@ function CategoryContent({ resource, isTag, categoryId }) {
 export default function (props) {
   const {
     match,
-    model,
     meta: {
       siteTitle,
       socialLinks
@@ -142,8 +140,6 @@ export default function (props) {
             <div className="col-md-12 col-lg-4 sidebar">
 
               <SidebarSearch />
-
-              <SidebarBiosWithICE model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 
