@@ -66,7 +66,7 @@
 					<id>internal-name</id>
 					<iceId />
 					<title>Internal Name</title>
-					<description />
+					<description>Display label for this page. Shown only on the CMS.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -79,6 +79,21 @@
 							<name>maxlength</name>
 							<value>50</value>
 							<type>int</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value />
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>tokenize</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>escapeContent</name>
+							<value>false</value>
+							<type>boolean</type>
 						</property>
 					</properties>
 					<constraints>
@@ -101,7 +116,7 @@
 					<id>name_s</id>
 					<iceId />
 					<title>Name</title>
-					<description />
+					<description>Name of the subject of this bio.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -125,6 +140,11 @@
 							<value>false</value>
 							<type>boolean</type>
 						</property>
+						<property>
+							<name>escapeContent</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
 					</properties>
 					<constraints>
 						<constraint>
@@ -144,7 +164,7 @@
 					<id>bio_t</id>
 					<iceId />
 					<title>Bio</title>
-					<description />
+					<description>The body of the bio.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -173,6 +193,11 @@
 							<value />
 							<type>boolean</type>
 						</property>
+						<property>
+							<name>escapeContent</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
 					</properties>
 					<constraints>
 						<constraint>
@@ -187,7 +212,7 @@
 					<id>showLinkButton_b</id>
 					<iceId />
 					<title>Show Link Button</title>
-					<description />
+					<description>Whether or not to show a link button. Use together with link button text and url.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -210,7 +235,7 @@
 					<id>linkButtonText_s</id>
 					<iceId />
 					<title>Link Button Text</title>
-					<description />
+					<description>The label of the link button.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -234,6 +259,11 @@
 							<value>false</value>
 							<type>boolean</type>
 						</property>
+						<property>
+							<name>escapeContent</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
 					</properties>
 					<constraints>
 						<constraint>
@@ -253,7 +283,9 @@
 					<id>linkButtonUrl_s</id>
 					<iceId />
 					<title>Link Button Url</title>
-					<description />
+					<description>
+						The destination website/link that people would be taken upon clicking the link button.
+					</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -277,6 +309,11 @@
 							<value>false</value>
 							<type>boolean</type>
 						</property>
+						<property>
+							<name>escapeContent</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
 					</properties>
 					<constraints>
 						<constraint>
@@ -296,22 +333,20 @@
 					<id>profilePic_s</id>
 					<iceId />
 					<title>Profile Pic</title>
-					<description />
+					<description>The subject's picture/avatar.</description>
 					<defaultValue />
 					<help />
 					<properties>
 						<property>
 							<name>width</name>
-							<value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
-                }
-              </value>
+							<value
+							>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot; }</value>
 							<type>range</type>
 						</property>
 						<property>
 							<name>height</name>
-							<value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
-                }
-              </value>
+							<value
+							>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot; }</value>
 							<type>range</type>
 						</property>
 						<property>
@@ -376,6 +411,11 @@
 						</property>
 						<property>
 							<name>tokenize</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>escapeContent</name>
 							<value>false</value>
 							<type>boolean</type>
 						</property>

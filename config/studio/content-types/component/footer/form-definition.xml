@@ -66,7 +66,7 @@
 					<id>internal-name</id>
 					<iceId />
 					<title>Internal Name</title>
-					<description />
+					<description>Display label for this page. Shown only on the CMS.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -111,7 +111,7 @@
 					<id>aboutTitle_s</id>
 					<iceId />
 					<title>About Title</title>
-					<description />
+					<description>Title for the left rail of the footer.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -135,6 +135,11 @@
 							<value>false</value>
 							<type>boolean</type>
 						</property>
+						<property>
+							<name>escapeContent</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
 					</properties>
 					<constraints>
 						<constraint>
@@ -154,7 +159,7 @@
 					<id>about_t</id>
 					<iceId />
 					<title>About</title>
-					<description />
+					<description>Body copy for the left rail of the footer.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -183,6 +188,11 @@
 							<value />
 							<type>boolean</type>
 						</property>
+						<property>
+							<name>escapeContent</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
 					</properties>
 					<constraints>
 						<constraint>
@@ -197,22 +207,20 @@
 					<id>aboutImage_s</id>
 					<iceId />
 					<title>AboutImage</title>
-					<description />
+					<description>Image for the left-rail of the footer.</description>
 					<defaultValue />
 					<help />
 					<properties>
 						<property>
 							<name>width</name>
-							<value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
-                }
-              </value>
+							<value
+							>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot; }</value>
 							<type>range</type>
 						</property>
 						<property>
 							<name>height</name>
-							<value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
-                }
-              </value>
+							<value
+							>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot; }</value>
 							<type>range</type>
 						</property>
 						<property>
@@ -249,7 +257,7 @@
 					<id>copyright_html</id>
 					<iceId />
 					<title>Copyright</title>
-					<description />
+					<description>Copyright text.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -308,6 +316,11 @@
 							<value />
 							<type>datasource:item</type>
 						</property>
+						<property>
+							<name>enableSpellCheck</name>
+							<value>true</value>
+							<type>boolean</type>
+						</property>
 					</properties>
 					<constraints>
 						<constraint>
@@ -322,7 +335,7 @@
 					<id>quickLinksTitle_s</id>
 					<iceId />
 					<title>QuickLinksTitle</title>
-					<description />
+					<description>Title for the middle rail of the footer.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -346,6 +359,11 @@
 							<value>false</value>
 							<type>boolean</type>
 						</property>
+						<property>
+							<name>escapeContent</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
 					</properties>
 					<constraints>
 						<constraint>
@@ -365,7 +383,7 @@
 					<id>socialLinksTitle_s</id>
 					<iceId />
 					<title>SocialLinksTitle</title>
-					<description />
+					<description>Title for the right rail of the footer.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -386,6 +404,11 @@
 						</property>
 						<property>
 							<name>tokenize</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>escapeContent</name>
 							<value>false</value>
 							<type>boolean</type>
 						</property>
@@ -415,7 +438,7 @@
 					<id>quickLinks_o</id>
 					<iceId />
 					<title>Quick Links</title>
-					<description />
+					<description>List of links shown on the middle rail of the footer.</description>
 					<minOccurs>0</minOccurs>
 					<maxOccurs>*</maxOccurs>
 					<properties>
@@ -436,7 +459,7 @@
 							<id>label_s</id>
 							<iceId />
 							<title>Label</title>
-							<description />
+							<description>Label of this link.</description>
 							<defaultValue />
 							<help />
 							<properties>
@@ -460,6 +483,11 @@
 									<value>false</value>
 									<type>boolean</type>
 								</property>
+								<property>
+									<name>escapeContent</name>
+									<value>false</value>
+									<type>boolean</type>
+								</property>
 							</properties>
 							<constraints>
 								<constraint>
@@ -479,7 +507,7 @@
 							<id>url_s</id>
 							<iceId />
 							<title>Url</title>
-							<description />
+							<description>Destination page for this link.</description>
 							<defaultValue />
 							<help />
 							<properties>
@@ -500,6 +528,11 @@
 								</property>
 								<property>
 									<name>tokenize</name>
+									<value>false</value>
+									<type>boolean</type>
+								</property>
+								<property>
+									<name>escapeContent</name>
 									<value>false</value>
 									<type>boolean</type>
 								</property>

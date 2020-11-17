@@ -1,6 +1,6 @@
 <form>
 	<title>Post Container</title>
-	<description />
+	<description>A wrapper page that displays post components.</description>
 	<objectType>page</objectType>
 	<content-type>/page/postcontainer</content-type>
 	<imageThumbnail>undefined</imageThumbnail>
@@ -66,7 +66,7 @@
 					<id>internal-name</id>
 					<iceId />
 					<title>Internal Name</title>
-					<description />
+					<description>Display label for this page. Shown only on the CMS.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -79,6 +79,21 @@
 							<name>maxlength</name>
 							<value>50</value>
 							<type>int</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value />
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>tokenize</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>escapeContent</name>
+							<value>false</value>
+							<type>boolean</type>
 						</property>
 					</properties>
 					<constraints>
@@ -94,7 +109,7 @@
 					<id>placeInNav</id>
 					<iceId />
 					<title>Place in Nav</title>
-					<description />
+					<description>Whether or not to display this page on the site's navigation.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -117,7 +132,7 @@
 					<id>navLabel</id>
 					<iceId />
 					<title>Nav Label</title>
-					<description />
+					<description>The label for this page on the site's navigation.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -130,6 +145,21 @@
 							<name>maxlength</name>
 							<value>50</value>
 							<type>int</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value />
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>tokenize</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>escapeContent</name>
+							<value>false</value>
+							<type>boolean</type>
 						</property>
 					</properties>
 					<constraints>
