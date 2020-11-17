@@ -45,22 +45,25 @@
                     </#if>
                 </div>
 
+                <#if postModel.categories_o.item?hasContent>
                 <div class="pt-5">
-                  <p>Categories:
-                      <#list postModel.categories_o.item as category>
-                        <a href="/category?id=${category.key}">${category.value_smv}</a>
-                      </#list>
+                  <p>
+                    Categories:
+                    <#list postModel.categories_o.item as category>
+                      <a href="/category?id=${category.key}">${category.value_smv}</a>
+                    </#list>
                   </p>
                 </div>
+                </#if>
 
-                <div>
+                <#if postModel.tags_o.item?hasContent>
+                <div class="pt-5">
                   Tags:
-                    <#if postModel.tags_o.item?hasContent>
-                      <#list postModel.tags_o.item as tag>
-                        <a href="/tag?id=${tag.key}">${tag.value_smv}<#if tag_has_next>,</#if></a>
-                      </#list>
-                    </#if>
+                  <#list postModel.tags_o.item as tag>
+                    <a href="/tag?id=${tag.key}">${tag.value_smv}<#if tag_has_next>,</#if></a>
+                  </#list>
                 </div>
+                </#if>
 
                 <div id="disqus_thread" class="mt-5"></div>
               </div>

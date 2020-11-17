@@ -5,6 +5,5 @@
 <script src="/static-assets/js/owl.carousel.min.js"></script>
 <script src="/static-assets/js/jquery.waypoints.min.js"></script>
 <script src="/static-assets/js/jquery.stellar.min.js"></script>
-<script src="/static-assets/js/handlebars.min.js"></script>
 <script src="/static-assets/js/jquery.twbsPagination.min.js"></script>
 <script src="/static-assets/js/main.js"></script>
