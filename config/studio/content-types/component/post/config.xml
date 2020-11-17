@@ -6,8 +6,8 @@
 	<file-extension>xml</file-extension>
 	<content-as-folder>false</content-as-folder>
 	<previewable>false</previewable>
-	<quickCreate>false</quickCreate>
-	<quickCreatePath></quickCreatePath>
+  <quickCreate>true</quickCreate>
+  <quickCreatePath>/site/components/post/{year}/{month}</quickCreatePath>
 	<noThumbnail>false</noThumbnail>
 	<image-thumbnail>post.png</image-thumbnail>
 </content-type>
