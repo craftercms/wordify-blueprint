@@ -33,34 +33,6 @@
       <defaultOpen>true</defaultOpen>
       <fields>
         <field>
-          <type>file-name</type>
-          <id>file-name</id>
-          <iceId />
-          <title>Component ID</title>
-          <description />
-          <defaultValue />
-          <help />
-          <properties>
-            <property>
-              <name>size</name>
-              <value>50</value>
-              <type>int</type>
-            </property>
-            <property>
-              <name>maxlength</name>
-              <value>50</value>
-              <type>int</type>
-            </property>
-            <property>
-              <name>readonly</name>
-              <value />
-              <type>boolean</type>
-            </property>
-          </properties>
-          <constraints>
-          </constraints>
-        </field>
-        <field>
           <type>input</type>
           <id>internal-name</id>
           <iceId />
@@ -182,8 +154,8 @@
           </constraints>
         </field>
         <field>
-          <type>input</type>
-          <id>slug_s</id>
+          <type>file-name</type>
+          <id>file-name</id>
           <iceId />
           <title>Slug</title>
           <description>The friendly URL for this post</description>
@@ -197,7 +169,7 @@
             </property>
             <property>
               <name>maxlength</name>
-              <value>200</value>
+              <value>150</value>
               <type>int</type>
             </property>
             <property>
@@ -205,23 +177,8 @@
               <value />
               <type>boolean</type>
             </property>
-            <property>
-              <name>tokenize</name>
-              <value>false</value>
-              <type>boolean</type>
-            </property>
           </properties>
           <constraints>
-            <constraint>
-              <name>required</name>
-              <value><![CDATA[true]]></value>
-              <type>boolean</type>
-            </constraint>
-            <constraint>
-              <name>pattern</name>
-              <value><![CDATA[]]></value>
-              <type>string</type>
-            </constraint>
           </constraints>
         </field>
       </fields>
