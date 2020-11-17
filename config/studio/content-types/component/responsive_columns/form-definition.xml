@@ -65,7 +65,7 @@
           <id>internal-name</id>
           <iceId />
           <title>Internal Name</title>
-          <description />
+          <description>Display label for this page. Shown only on the CMS.</description>
           <defaultValue />
           <help />
           <properties>
@@ -78,6 +78,21 @@
               <name>maxlength</name>
               <value>50</value>
               <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
             </property>
           </properties>
           <constraints>
@@ -100,7 +115,10 @@
           <id>columns_o</id>
           <iceId />
           <title>Columns</title>
-          <description />
+          <description>
+            Items of this column set. The sum of column sizes should not surpass 100% for items to display on a single
+            row.
+          </description>
           <minOccurs>1</minOccurs>
           <maxOccurs>*</maxOccurs>
           <properties>
@@ -121,7 +139,7 @@
               <id>columnSize_s</id>
               <iceId />
               <title>Column Size</title>
-              <description />
+              <description>Percentage of a row that this column should take.</description>
               <defaultValue />
               <help />
               <properties>
@@ -154,7 +172,7 @@
               <id>content_o</id>
               <iceId />
               <title>Content</title>
-              <description />
+              <description>Collection of components that comprise the content of the column.</description>
               <defaultValue />
               <help />
               <properties>

@@ -65,7 +65,7 @@
           <id>internal-name</id>
           <iceId />
           <title>Internal Name</title>
-          <description />
+          <description>Display label for this page. Shown only on the CMS.</description>
           <defaultValue />
           <help />
           <properties>
@@ -123,7 +123,7 @@
           <id>pageTitle_s</id>
           <iceId />
           <title>Page Title</title>
-          <description />
+          <description>The tab's title. Important for SEO.</description>
           <defaultValue />
           <help />
           <properties>
@@ -166,7 +166,7 @@
           <id>pageDescription_s</id>
           <iceId />
           <title>Page Description</title>
-          <description />
+          <description>Value of the HTML meta description tag.</description>
           <defaultValue />
           <help />
           <properties>
@@ -216,7 +216,7 @@
           <id>bios_o</id>
           <iceId />
           <title>Bios</title>
-          <description />
+          <description>Reference to the bio components for the author(s).</description>
           <defaultValue />
           <help />
           <properties>
@@ -249,11 +249,6 @@
               <name>useSingleValueFilename</name>
               <value />
               <type>boolean</type>
-            </property>
-            <property>
-              <name>contentTypes</name>
-              <value>,/component/bio</value>
-              <type>contentTypes</type>
             </property>
             <property>
               <name>tags</name>

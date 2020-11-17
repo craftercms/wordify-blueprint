@@ -65,7 +65,7 @@
           <id>internal-name</id>
           <iceId />
           <title>Internal Name</title>
-          <description />
+          <description>Display label for this page. Shown only on the CMS.</description>
           <defaultValue />
           <help />
           <properties>
@@ -78,6 +78,21 @@
               <name>maxlength</name>
               <value>50</value>
               <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
             </property>
           </properties>
           <constraints>
@@ -93,7 +108,7 @@
           <id>placeInNav</id>
           <iceId />
           <title>Place in Nav</title>
-          <description />
+          <description>Whether or not to display this page on the site's navigation.</description>
           <defaultValue />
           <help />
           <properties>
@@ -116,7 +131,7 @@
           <id>navLabel</id>
           <iceId />
           <title>Nav Label</title>
-          <description />
+          <description>The label for this page on the site's navigation.</description>
           <defaultValue />
           <help />
           <properties>
@@ -129,6 +144,21 @@
               <name>maxlength</name>
               <value>50</value>
               <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
             </property>
           </properties>
           <constraints>
@@ -151,7 +181,7 @@
           <id>pageTitle_s</id>
           <iceId />
           <title>Page Title</title>
-          <description />
+          <description>The tab's title. Important for SEO.</description>
           <defaultValue />
           <help />
           <properties>
@@ -194,7 +224,7 @@
           <id>pageDescription_s</id>
           <iceId />
           <title>Page Description</title>
-          <description />
+          <description>Value of the HTML meta description tag.</description>
           <defaultValue />
           <help />
           <properties>
@@ -244,7 +274,7 @@
           <id>headline_s</id>
           <iceId />
           <title>Headline</title>
-          <description />
+          <description>The main headline of the content area of the page.</description>
           <defaultValue />
           <help />
           <properties>
@@ -268,6 +298,11 @@
               <value>false</value>
               <type>boolean</type>
             </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
           </properties>
           <constraints>
             <constraint>
@@ -287,7 +322,7 @@
           <id>message_t</id>
           <iceId />
           <title>Message</title>
-          <description />
+          <description>Body copy of the page shown below the headline.</description>
           <defaultValue />
           <help />
           <properties>
@@ -316,6 +351,11 @@
               <value />
               <type>boolean</type>
             </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
           </properties>
           <constraints>
             <constraint>
@@ -328,5 +368,5 @@
       </fields>
     </section>
   </sections>
-  <datasources></datasources>
+  <datasources />
 </form>

@@ -65,7 +65,7 @@
           <id>internal-name</id>
           <iceId />
           <title>Internal Name</title>
-          <description />
+          <description>Display label for this page. Shown only on the CMS.</description>
           <defaultValue />
           <help />
           <properties>
@@ -78,6 +78,21 @@
               <name>maxlength</name>
               <value>50</value>
               <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
             </property>
           </properties>
           <constraints>
@@ -116,7 +131,7 @@
           <id>navLabel</id>
           <iceId />
           <title>Nav Label</title>
-          <description />
+          <description>The label for this page on the site's navigation.</description>
           <defaultValue />
           <help />
           <properties>
@@ -129,6 +144,21 @@
               <name>maxlength</name>
               <value>50</value>
               <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
             </property>
           </properties>
           <constraints>
@@ -151,7 +181,7 @@
           <id>pageTitle_s</id>
           <iceId />
           <title>Page Title</title>
-          <description />
+          <description>The tab's title. Important for SEO.</description>
           <defaultValue />
           <help />
           <properties>
@@ -175,6 +205,11 @@
               <value>false</value>
               <type>boolean</type>
             </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
           </properties>
           <constraints>
             <constraint>
@@ -194,7 +229,7 @@
           <id>pageDescription_s</id>
           <iceId />
           <title>Page Description</title>
-          <description />
+          <description>Value of the HTML meta description tag.</description>
           <defaultValue />
           <help />
           <properties>
@@ -215,6 +250,11 @@
             </property>
             <property>
               <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>escapeContent</name>
               <value>false</value>
               <type>boolean</type>
             </property>
@@ -244,7 +284,7 @@
           <id>headline_s</id>
           <iceId />
           <title>Headline</title>
-          <description />
+          <description>The headline of the content area of the page.</description>
           <defaultValue />
           <help />
           <properties>
@@ -268,6 +308,11 @@
               <value>false</value>
               <type>boolean</type>
             </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
           </properties>
           <constraints>
             <constraint>
@@ -287,7 +332,7 @@
           <id>content_o</id>
           <iceId />
           <title>Content</title>
-          <description />
+          <description>Collection of components that comprise the content of the page.</description>
           <defaultValue />
           <help />
           <properties>
@@ -345,7 +390,7 @@
           <id>bios_o</id>
           <iceId />
           <title>Bios</title>
-          <description />
+          <description>Reference to the bio components for the author(s)</description>
           <defaultValue />
           <help />
           <properties>
@@ -378,11 +423,6 @@
               <name>useSingleValueFilename</name>
               <value />
               <type>boolean</type>
-            </property>
-            <property>
-              <name>contentTypes</name>
-              <value>,/component/bio</value>
-              <type>contentTypes</type>
             </property>
             <property>
               <name>tags</name>

@@ -64,8 +64,8 @@
           <type>input</type>
           <id>internal-name</id>
           <iceId />
-          <title>File Title</title>
-          <description />
+          <title>Internal Name</title>
+          <description>Display label for this page. Shown only on the CMS.</description>
           <defaultValue />
           <help />
           <properties>
@@ -89,6 +89,11 @@
               <value>false</value>
               <type>boolean</type>
             </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
           </properties>
           <constraints>
             <constraint>
@@ -103,7 +108,7 @@
           <id>placeInNav</id>
           <iceId />
           <title>Place in Nav</title>
-          <description />
+          <description>Whether or not to display this page on the site's navigation.</description>
           <defaultValue />
           <help />
           <properties>
@@ -148,8 +153,8 @@
           <type>input</type>
           <id>navLabel</id>
           <iceId />
-          <title>Navigation Label</title>
-          <description />
+          <title>Nav Label</title>
+          <description>The label for this page on the site's navigation.</description>
           <defaultValue />
           <help />
           <properties>
@@ -170,6 +175,11 @@
             </property>
             <property>
               <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>escapeContent</name>
               <value>false</value>
               <type>boolean</type>
             </property>
@@ -199,7 +209,7 @@
           <id>pageTitle_s</id>
           <iceId />
           <title>Page Title</title>
-          <description />
+          <description>The tab's title. Important for SEO.</description>
           <defaultValue />
           <help />
           <properties>
@@ -223,6 +233,11 @@
               <value>false</value>
               <type>boolean</type>
             </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
           </properties>
           <constraints>
             <constraint>
@@ -242,7 +257,7 @@
           <id>pageDescription_s</id>
           <iceId />
           <title>Page Description</title>
-          <description />
+          <description>Value of the HTML meta description tag.</description>
           <defaultValue />
           <help />
           <properties>
@@ -263,6 +278,11 @@
             </property>
             <property>
               <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>escapeContent</name>
               <value>false</value>
               <type>boolean</type>
             </property>
@@ -292,7 +312,7 @@
           <id>slider_o</id>
           <iceId />
           <title>Slider</title>
-          <description />
+          <description>Reference to the slider component to render on this page.</description>
           <defaultValue />
           <help />
           <properties>
@@ -303,7 +323,7 @@
             </property>
             <property>
               <name>maxSize</name>
-              <value>10</value>
+              <value>1</value>
               <type>int</type>
             </property>
             <property>
@@ -350,7 +370,7 @@
           <id>bios_o</id>
           <iceId />
           <title>Bios</title>
-          <description />
+          <description>Reference to the bio components for the author(s).</description>
           <defaultValue />
           <help />
           <properties>

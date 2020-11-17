@@ -1,6 +1,6 @@
 <form>
   <title>Post</title>
-  <description />
+  <description>Represents a post. Renders on the Post Container page.</description>
   <objectType>component</objectType>
   <content-type>/component/post</content-type>
   <imageThumbnail>post.png</imageThumbnail>
@@ -37,7 +37,7 @@
           <id>internal-name</id>
           <iceId />
           <title>Internal Name</title>
-          <description />
+          <description>Display label for this page. Shown only on the CMS.</description>
           <defaultValue />
           <help />
           <properties>
@@ -50,6 +50,21 @@
               <name>maxlength</name>
               <value>50</value>
               <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
             </property>
           </properties>
           <constraints>
@@ -72,7 +87,7 @@
           <id>pageTitle_s</id>
           <iceId />
           <title>Page Title</title>
-          <description />
+          <description>The tab's title. Important for SEO.</description>
           <defaultValue />
           <help />
           <properties>
@@ -96,6 +111,11 @@
               <value>false</value>
               <type>boolean</type>
             </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
           </properties>
           <constraints>
             <constraint>
@@ -115,7 +135,7 @@
           <id>pageDescription_s</id>
           <iceId />
           <title>Page Description</title>
-          <description />
+          <description>Value of the HTML meta description tag.</description>
           <defaultValue />
           <help />
           <properties>
@@ -139,6 +159,11 @@
               <value>false</value>
               <type>boolean</type>
             </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
           </properties>
           <constraints>
             <constraint>
@@ -158,7 +183,7 @@
           <id>file-name</id>
           <iceId />
           <title>Slug</title>
-          <description>The friendly URL for this post</description>
+          <description>The friendly URL for this post.</description>
           <defaultValue />
           <help />
           <properties>
@@ -193,7 +218,7 @@
           <id>categories_o</id>
           <iceId />
           <title>Categories</title>
-          <description />
+          <description>The categories to apply to this page.</description>
           <defaultValue />
           <help />
           <properties>
@@ -231,7 +256,7 @@
           <id>tags_o</id>
           <iceId />
           <title>Tags</title>
-          <description />
+          <description>The tags to apply to this page.</description>
           <defaultValue />
           <help />
           <properties>
@@ -276,7 +301,7 @@
           <id>mainImage_s</id>
           <iceId />
           <title>Main Image</title>
-          <description />
+          <description>The main image of the post.</description>
           <defaultValue />
           <help />
           <properties>
@@ -324,7 +349,7 @@
           <id>headline_s</id>
           <iceId />
           <title>Headline</title>
-          <description />
+          <description>The main headline of the content area of the page.</description>
           <defaultValue />
           <help />
           <properties>
@@ -345,6 +370,11 @@
             </property>
             <property>
               <name>tokenize</name>
+              <value>true</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>escapeContent</name>
               <value>false</value>
               <type>boolean</type>
             </property>
@@ -367,7 +397,7 @@
           <id>blurb_t</id>
           <iceId />
           <title>Blurb</title>
-          <description />
+          <description>A small summary of the post shown in the post listings on all pages.</description>
           <defaultValue />
           <help />
           <properties>
@@ -396,6 +426,11 @@
               <value />
               <type>boolean</type>
             </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
           </properties>
           <constraints>
             <constraint>
@@ -410,7 +445,7 @@
           <id>content_o</id>
           <iceId />
           <title>Content</title>
-          <description />
+          <description>Collection of components that comprise the content of the page.</description>
           <defaultValue />
           <help />
           <properties>
@@ -470,7 +505,7 @@
           <id>authorBio_o</id>
           <iceId />
           <title>Author Bio</title>
-          <description />
+          <description>Reference to the bio components for the author(s).</description>
           <defaultValue />
           <help />
           <properties>
