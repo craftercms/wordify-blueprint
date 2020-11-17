@@ -26,52 +26,46 @@ import { Field } from '@craftercms/studio-guest';
 
 function SidebarListContent(props) {
   const {
+    title,
     filter,
     baseUrl,
     listClass,
     resource
   } = props;
   const { data } = resource.read();
-  const taxonomies =  parseDescriptor(data.taxonomy.items);
+  const taxonomies = parseDescriptor(data.taxonomy.items);
   const filteredTaxonomies = taxonomies.filter(filter)[0];
 
-  return(
-    <Field
-      component="ul"
-      model={filteredTaxonomies}
-      className={`${listClass} clearfix`}
-    >
-      {
-        filteredTaxonomies?.items.item.map((taxonomy) =>
-          <li key={taxonomy.key}><a href={`${baseUrl}/${taxonomy.key}`}>{taxonomy.value}</a></li>
-        )
-      }
-    </Field>
-  )
-}
-
-export function SidebarTaxonomies (props) {
-  const {
-    title,
-    filter,
-    baseUrl,
-    listClass
-  } = props;
-  let resource = useTaxonomiesResource();
   return (
+    Array.isArray(filteredTaxonomies?.items?.item) && filteredTaxonomies.items.item.length > 0 &&
     <div className="sidebar-box">
       <h3 className="heading">
         {title}
       </h3>
-      <Suspense fallback={<CircularProgressSpinner screenHeight={false} />}>
-        <SidebarListContent
-          resource={resource}
-          filter={filter}
-          baseUrl={baseUrl}
-          listClass={listClass}
-        />
-      </Suspense>
+      <Field
+        component="ul"
+        model={filteredTaxonomies}
+        className={`${listClass} clearfix`}
+      >
+        {
+          filteredTaxonomies?.items.item.map((taxonomy) =>
+            <li key={taxonomy.key}><a href={`${baseUrl}/${taxonomy.key}`}>{taxonomy.value}</a></li>
+          )
+        }
+      </Field>
     </div>
+  );
+}
+
+export function SidebarTaxonomies(props) {
+  let resource = useTaxonomiesResource();
+  return (
+    <Suspense fallback={<CircularProgressSpinner screenHeight={false} />}>
+      <SidebarListContent
+        {...props}
+        resource={resource}
+      />
+    </Suspense>
   );
 }
 
@@ -82,11 +76,11 @@ export function SidebarTags() {
         id="sidebarTags.tagsSectionTitle"
         defaultMessage="Tags"
       />}
-      filter={createTaxonomyFilter( 'tags.xml')}
+      filter={createTaxonomyFilter('tags.xml')}
       baseUrl='/tag'
       listClass='tags'
     />
-  )
+  );
 }
 
 export function SidebarCategories() {
@@ -96,15 +90,15 @@ export function SidebarCategories() {
         id="sidebarCategories.categoriesSectionTitle"
         defaultMessage="Categories"
       />}
-      filter={createTaxonomyFilter( 'categories.xml')}
+      filter={createTaxonomyFilter('categories.xml')}
       baseUrl='/category'
       listClass='categories'
     />
-  )
+  );
 }
 
 export default {
   SidebarTaxonomies,
   SidebarCategories,
   SidebarTags
-}
+};

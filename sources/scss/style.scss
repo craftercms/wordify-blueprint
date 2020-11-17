@@ -11,6 +11,11 @@ body {
   color: gray('600');
 }
 
+b,
+strong {
+  font-weight: 600;
+}
+
 a {
   transition: .3s all ease;
   text-decoration: none;
