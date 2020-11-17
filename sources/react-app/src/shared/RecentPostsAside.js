@@ -14,16 +14,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React  from 'react';
 import { FormattedMessage } from 'react-intl';
 import PostCard, { LANDSCAPE_COMPRESSED } from './PostCard';
-import { usePosts } from './hooks';
+import { useRecentPosts } from './hooks';
 
 export default function () {
-  const posts = usePosts({
-    itemsPerPage: 4,
-    currentPage: 0
-  });
+  const posts = useRecentPosts();
 
   return (
     <div className="sidebar-box">
@@ -36,7 +33,7 @@ export default function () {
       <div className="post-entry-sidebar">
         <ul>
           {
-            posts?.items.map((post) =>
+            posts?.map((post) =>
               <li key={post.craftercms.id}>
                 <PostCard model={post} format={LANDSCAPE_COMPRESSED} />
               </li>
