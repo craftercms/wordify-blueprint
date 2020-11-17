@@ -671,6 +671,18 @@ header {
       border-top: none;
     }
 
+    .img-container {
+      display: flex;
+      height: 233px;
+
+      img {
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+      }
+    }
+
     img {
       max-width: 100%;
     }
@@ -706,6 +718,7 @@ header {
     margin: 0;
     height: 350px;
     background-color: #969696;
+    overflow-y: hidden;
 
     .background {
       max-width: 100%;
@@ -1684,7 +1697,8 @@ textarea.form-control {
 
         img {
           width: 90px;
-
+          max-height: 60px;
+          object-fit: cover;
         }
 
         img, .text {

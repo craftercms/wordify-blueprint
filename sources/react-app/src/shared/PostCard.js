@@ -57,7 +57,9 @@ export default function (props) {
           to={slug}
           className={`blog-entry ${classes?.root ?? ''}`}
         >
-          <RenderField component="img" model={model} target="src" fieldId="mainImage_s" alt={mainImageAlt_s} />
+          <div className="img-container">
+            <RenderField component="img" model={model} target="src" fieldId="mainImage_s" alt={mainImageAlt_s} />
+          </div>
           <div className="blog-content-body">
             <div className="post-meta">
               <Field
