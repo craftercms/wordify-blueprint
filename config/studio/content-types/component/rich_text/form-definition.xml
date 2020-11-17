@@ -1,199 +1,200 @@
 <form>
-  <title>Rich Text</title>
-  <description />
-  <objectType>component</objectType>
-  <content-type>/component/rich_text</content-type>
-  <imageThumbnail>photography.png</imageThumbnail>
-  <quickCreate>false</quickCreate>
-  <quickCreatePath />
-  <properties>
-    <property>
-      <name>display-template</name>
-      <label>Display Template</label>
-      <value>/templates/web/components/rich_text.ftl</value>
-      <type>template</type>
-    </property>
-    <property>
-      <name>no-template-required</name>
-      <label>No Template Required</label>
-      <value />
-      <type>boolean</type>
-    </property>
-    <property>
-      <name>merge-strategy</name>
-      <label>Merge Strategy</label>
-      <value>inherit-levels</value>
-      <type>string</type>
-    </property>
-  </properties>
-  <sections>
-    <section>
-      <title>System Fields</title>
-      <description />
-      <defaultOpen>true</defaultOpen>
-      <fields>
-        <field>
-          <type>auto-filename</type>
-          <id>file-name</id>
-          <iceId />
-          <title>Component ID</title>
-          <description />
-          <defaultValue />
-          <help />
-          <properties>
-            <property>
-              <name>size</name>
-              <value>50</value>
-              <type>int</type>
-            </property>
-            <property>
-              <name>maxlength</name>
-              <value>50</value>
-              <type>int</type>
-            </property>
-            <property>
-              <name>readonly</name>
-              <value />
-              <type>boolean</type>
-            </property>
-          </properties>
-          <constraints>
-          </constraints>
-        </field>
-        <field>
-          <type>input</type>
-          <id>internal-name</id>
-          <iceId />
-          <title>Internal Name</title>
-          <description />
-          <defaultValue />
-          <help />
-          <properties>
-            <property>
-              <name>size</name>
-              <value>50</value>
-              <type>int</type>
-            </property>
-            <property>
-              <name>maxlength</name>
-              <value>50</value>
-              <type>int</type>
-            </property>
-          </properties>
-          <constraints>
-            <constraint>
-              <name>required</name>
-              <value><![CDATA[true]]></value>
-              <type>boolean</type>
-            </constraint>
-          </constraints>
-        </field>
-      </fields>
-    </section>
-    <section>
-      <title>Content Fields</title>
-      <description />
-      <defaultOpen>true</defaultOpen>
-      <fields>
-        <field>
-          <type>rte-tinymce5</type>
-          <id>content_html</id>
-          <iceId />
-          <title>Content</title>
-          <description />
-          <defaultValue />
-          <help />
-          <properties>
-            <property>
-              <name>width</name>
-              <value />
-              <type>int</type>
-            </property>
-            <property>
-              <name>height</name>
-              <value />
-              <type>int</type>
-            </property>
-            <property>
-              <name>autoGrow</name>
-              <value>false</value>
-              <type>boolean</type>
-            </property>
-            <property>
-              <name>forceRootBlockPTag</name>
-              <value>true</value>
-              <type>boolean</type>
-            </property>
-            <property>
-              <name>forcePTags</name>
-              <value>true</value>
-              <type>boolean</type>
-            </property>
-            <property>
-              <name>forceBRTags</name>
-              <value>false</value>
-              <type>boolean</type>
-            </property>
-            <property>
-              <name>supportedChannels</name>
-              <value />
-              <type>supportedChannels</type>
-            </property>
-            <property>
-              <name>rteConfiguration</name>
-              <value>generic</value>
-              <type>string</type>
-            </property>
-            <property>
-              <name>escapeScripts</name>
-              <value>true</value>
-              <type>boolean</type>
-            </property>
-            <property>
-              <name>imageManager</name>
-              <value>imagesFromRepo</value>
-              <type>datasource:image</type>
-            </property>
-            <property>
-              <name>videoManager</name>
-              <value />
-              <type>datasource:video</type>
-            </property>
-            <property>
-              <name>fileManager</name>
-              <value />
-              <type>datasource:item</type>
-            </property>
-          </properties>
-          <constraints>
-            <constraint>
-              <name>required</name>
-              <value><![CDATA[true]]></value>
-              <type>boolean</type>
-            </constraint>
-          </constraints>
-        </field>
-      </fields>
-    </section>
-  </sections>
-  <datasources>
-    <datasource>
-      <type>img-repository-upload</type>
-      <id>imagesFromRepo</id>
-      <title>Images From Repo</title>
-      <interface>image</interface>
-      <properties>
-        <property>
-          <name>repoPath</name>
-          <value>/static-assets/images</value>
-          <type>undefined</type>
-        </property>
-        <property>
-          <name>useSearch</name>
-          <value>true</value>
-          <type>undefined</type>
-        </property>
-      </properties>
-    </datasource>
-  </datasources>
+	<title>Rich Text</title>
+	<description />
+	<objectType>component</objectType>
+	<content-type>/component/rich_text</content-type>
+	<imageThumbnail>photography.png</imageThumbnail>
+	<quickCreate>false</quickCreate>
+	<quickCreatePath />
+	<properties>
+		<property>
+			<name>display-template</name>
+			<label>Display Template</label>
+			<value>/templates/web/components/rich_text.ftl</value>
+			<type>template</type>
+		</property>
+		<property>
+			<name>no-template-required</name>
+			<label>No Template Required</label>
+			<value />
+			<type>boolean</type>
+		</property>
+		<property>
+			<name>merge-strategy</name>
+			<label>Merge Strategy</label>
+			<value>inherit-levels</value>
+			<type>string</type>
+		</property>
+	</properties>
+	<sections>
+		<section>
+			<title>System Fields</title>
+			<description />
+			<defaultOpen>true</defaultOpen>
+			<fields>
+				<field>
+					<type>auto-filename</type>
+					<id>file-name</id>
+					<iceId />
+					<title>Component ID</title>
+					<description />
+					<defaultValue />
+					<help />
+					<properties>
+						<property>
+							<name>size</name>
+							<value>50</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>maxlength</name>
+							<value>50</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value />
+							<type>boolean</type>
+						</property>
+					</properties>
+					<constraints>
+
+					</constraints>
+				</field>
+				<field>
+					<type>input</type>
+					<id>internal-name</id>
+					<iceId />
+					<title>Internal Name</title>
+					<description />
+					<defaultValue />
+					<help />
+					<properties>
+						<property>
+							<name>size</name>
+							<value>50</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>maxlength</name>
+							<value>50</value>
+							<type>int</type>
+						</property>
+					</properties>
+					<constraints>
+						<constraint>
+							<name>required</name>
+							<value><![CDATA[true]]></value>
+							<type>boolean</type>
+						</constraint>
+					</constraints>
+				</field>
+			</fields>
+		</section>
+		<section>
+			<title>Content Fields</title>
+			<description />
+			<defaultOpen>true</defaultOpen>
+			<fields>
+				<field>
+					<type>rte-tinymce5</type>
+					<id>content_html</id>
+					<iceId />
+					<title>Content</title>
+					<description />
+					<defaultValue />
+					<help />
+					<properties>
+						<property>
+							<name>width</name>
+							<value />
+							<type>int</type>
+						</property>
+						<property>
+							<name>height</name>
+							<value />
+							<type>int</type>
+						</property>
+						<property>
+							<name>autoGrow</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>forceRootBlockPTag</name>
+							<value>true</value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>forcePTags</name>
+							<value>true</value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>forceBRTags</name>
+							<value>false</value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>supportedChannels</name>
+							<value />
+							<type>supportedChannels</type>
+						</property>
+						<property>
+							<name>rteConfiguration</name>
+							<value>generic</value>
+							<type>string</type>
+						</property>
+						<property>
+							<name>escapeScripts</name>
+							<value>true</value>
+							<type>boolean</type>
+						</property>
+						<property>
+							<name>imageManager</name>
+							<value>imagesFromRepo</value>
+							<type>datasource:image</type>
+						</property>
+						<property>
+							<name>videoManager</name>
+							<value />
+							<type>datasource:video</type>
+						</property>
+						<property>
+							<name>fileManager</name>
+							<value />
+							<type>datasource:item</type>
+						</property>
+					</properties>
+					<constraints>
+						<constraint>
+							<name>required</name>
+							<value><![CDATA[true]]></value>
+							<type>boolean</type>
+						</constraint>
+					</constraints>
+				</field>
+			</fields>
+		</section>
+	</sections>
+	<datasources>
+		<datasource>
+			<type>img-repository-upload</type>
+			<id>imagesFromRepo</id>
+			<title>Images From Repo</title>
+			<interface>image</interface>
+			<properties>
+				<property>
+					<name>repoPath</name>
+					<value>/static-assets/images</value>
+					<type>undefined</type>
+				</property>
+				<property>
+					<name>useSearch</name>
+					<value>true</value>
+					<type>undefined</type>
+				</property>
+			</properties>
+		</datasource>
+	</datasources>
 </form>
