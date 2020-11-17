@@ -351,6 +351,10 @@ header {
   }
 }
 
+.bio-zone {
+  width: 100%;
+}
+
 .bio {
   padding: 15px;
   background: $white;
@@ -360,7 +364,9 @@ header {
   img {
     border: 4px solid $white;
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, .4);
-    max-width: 100px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
     margin-top: -4em;
     border-radius: 50%;
     position: relative;

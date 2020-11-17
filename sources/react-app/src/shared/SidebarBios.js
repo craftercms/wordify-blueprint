@@ -39,6 +39,7 @@ export function SidebarBiosWithICE(props) {
     <RenderField
       model={model}
       fieldId={fieldId}
+      className="bio-zone"
       format={(bios) => bios?.map((bio, index) =>
         <Field
           key={`${bio.craftercms.id}_${index}`}
