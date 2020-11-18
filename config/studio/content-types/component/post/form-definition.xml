@@ -345,6 +345,11 @@
             </property>
             <property>
               <name>tokenize</name>
+              <value>true</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>escapeContent</name>
               <value>false</value>
               <type>boolean</type>
             </property>

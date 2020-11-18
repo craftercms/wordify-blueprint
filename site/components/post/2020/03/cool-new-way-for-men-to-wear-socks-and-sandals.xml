@@ -16,7 +16,7 @@
       <component id="5387e7fa-29ac-faa7-2436-6f865d123e46">
         <content-type>/component/rich_text</content-type>
         <display-template>/templates/web/components/rich_text.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>5387</objectGroupId>
         <objectId>5387e7fa-29ac-faa7-2436-6f865d123e46</objectId>
@@ -46,7 +46,7 @@
       <component id="76656085-7d89-76b4-5336-dd1236464ae7">
         <content-type>/component/responsive_columns</content-type>
         <display-template>/templates/web/components/responsive_columns.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>7665</objectGroupId>
         <objectId>76656085-7d89-76b4-5336-dd1236464ae7</objectId>
@@ -60,7 +60,7 @@
                 <component id="3cf9f89d-669e-b178-dcf3-71bd28750f19">
                   <content-type>/component/image</content-type>
                   <display-template>/templates/web/components/image.ftl</display-template>
-                  <no-template-required/>
+                  <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
                   <objectGroupId>3cf9</objectGroupId>
                   <objectId>3cf9f89d-669e-b178-dcf3-71bd28750f19</objectId>
@@ -85,7 +85,7 @@
                 <component id="382a5d18-334d-52b5-08e9-11c54be5fb0d">
                   <content-type>/component/image</content-type>
                   <display-template>/templates/web/components/image.ftl</display-template>
-                  <no-template-required/>
+                  <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
                   <objectGroupId>382a</objectGroupId>
                   <objectId>382a5d18-334d-52b5-08e9-11c54be5fb0d</objectId>
@@ -110,7 +110,7 @@
                 <component id="11cdd464-669b-b0b4-f558-e13a33035b81">
                   <content-type>/component/image</content-type>
                   <display-template>/templates/web/components/image.ftl</display-template>
-                  <no-template-required/>
+                  <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
                   <objectGroupId>11cd</objectGroupId>
                   <objectId>11cdd464-669b-b0b4-f558-e13a33035b81</objectId>
@@ -141,7 +141,7 @@
       <component id="c0d1408a-73d2-9d45-4513-a6b01fb7a36a">
         <content-type>/component/rich_text</content-type>
         <display-template>/templates/web/components/rich_text.ftl</display-template>
-        <no-template-required/>
+        <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
         <objectGroupId>c0d1</objectGroupId>
         <objectId>c0d1408a-73d2-9d45-4513-a6b01fb7a36a</objectId>
@@ -187,8 +187,8 @@
   <file-name>cool-new-way-for-men-to-wear-socks-and-sandals.xml</file-name>
   <internal-name>Men Socks and Sandals</internal-name>
   <pageTitle_s>Cool New Way for Men to Wear Socks and Sandals</pageTitle_s>
-  <pageDescription_s/>
-  <headline_s>There’s a Cool New Way for Men to Wear Socks and Sandals</headline_s>
+  <pageDescription_s />
+  <headline_s tokenized="true">There’s a Cool New Way for Men to Wear Socks and Sandals</headline_s>
   <orderDefault_f>-1</orderDefault_f>
   <categories_o>
     <item>
@@ -212,7 +212,7 @@
   </tags_o>
   <createdDate>2020-11-12T20:29:19.548Z</createdDate>
   <createdDate_dt>2020-11-12T20:29:19.548Z</createdDate_dt>
-  <lastModifiedDate>2020-11-12T20:54:34.012Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-11-12T20:54:34.012Z</lastModifiedDate_dt>
-  <folder-name/>
+  <lastModifiedDate>2020-11-18T02:36:40.741Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-18T02:36:40.741Z</lastModifiedDate_dt>
+  <folder-name />
 </component>
