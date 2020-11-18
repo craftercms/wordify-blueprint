@@ -1,6 +1,6 @@
 <#import "/templates/system/common/ice.ftl" as studio />
 
-<h3 class="heading">Recent Posts</h3>
+<h3 class="heading">Latest Posts</h3>
 <div class="post-entry-sidebar">
   <ul>
       <#list postsInfo.recentPosts as post>
