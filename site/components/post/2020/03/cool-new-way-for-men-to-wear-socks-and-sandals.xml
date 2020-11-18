@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
   <content-type>/component/post</content-type>
-  <display-template>/templates/web/components/post.ftl</display-template>
+  <display-template />
   <no-template-required>true</no-template-required>
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>502d</objectGroupId>
