@@ -43,12 +43,14 @@
                   <@studio.tag $model=postItem class="col-md-6">
                     <a href="${url}"
                        class="blog-entry element-animate" data-animate-effect="fadeIn">
-                      <@studio.img
-                        $model=postItem
-                        $field="mainImage_s"
-                        src=postItem.mainImage_s
-                        alt=""
-                      />
+                      <div class="img-container">
+                        <@studio.img
+                          $model=postItem
+                          $field="mainImage_s"
+                          src=postItem.mainImage_s
+                          alt=""
+                        />
+                      </div>
                       <div class="blog-content-body">
                         <div class="post-meta">
                           <span class="author mr-2"><img src="${post.authorBio.item[0].component.profilePic_s}" alt="Colorlib">
