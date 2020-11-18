@@ -4,8 +4,8 @@
   <objectType>component</objectType>
   <content-type>/component/post</content-type>
   <imageThumbnail>post.png</imageThumbnail>
-  <quickCreate>false</quickCreate>
-  <quickCreatePath />
+  <quickCreate>true</quickCreate>
+  <quickCreatePath>/site/components/post/{year}/{month}</quickCreatePath>
   <properties>
     <property>
       <name>display-template</name>
