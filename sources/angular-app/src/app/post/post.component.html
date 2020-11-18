@@ -25,13 +25,13 @@
         </div>
 
         <div class="pt-5">
-          <div>
+          <div *ngIf="categories_o">
             Categories:
             <a *ngFor="let category of categories_o; let i=index" href="/category/{{category.key}}">
               {{category.value_smv}}{{ i < categories_o.length - 1 ? ',' : '' }}
             </a>
           </div>
-          <div>
+          <div *ngIf="tags_o">
             Tags:
             <a *ngFor="let tag of tags_o; let i=index" href="/tag/{{tag.key}}">
               #{{tag.value_smv}}{{ i < tags_o.length - 1 ? ',' : '' }}
