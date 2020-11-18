@@ -65,7 +65,7 @@
           <id>internal-name</id>
           <iceId />
           <title>Internal Name</title>
-          <description />
+          <description>Display label for this page. Shown only on the CMS.</description>
           <defaultValue />
           <help />
           <properties>
@@ -93,7 +93,7 @@
           <id>placeInNav</id>
           <iceId />
           <title>Place in Nav</title>
-          <description />
+          <description>Whether or not to display this page on the site's navigation.</description>
           <defaultValue />
           <help />
           <properties>
@@ -116,7 +116,7 @@
           <id>navLabel</id>
           <iceId />
           <title>Nav Label</title>
-          <description />
+          <description>The label for this page on the site's navigation.</description>
           <defaultValue />
           <help />
           <properties>
@@ -151,7 +151,7 @@
           <id>pageTitle_s</id>
           <iceId />
           <title>Page Title</title>
-          <description />
+          <description>The tab's title. Important for SEO.</description>
           <defaultValue />
           <help />
           <properties>
@@ -194,7 +194,7 @@
           <id>pageDescription_s</id>
           <iceId />
           <title>Page Description</title>
-          <description />
+          <description>Value of the HTML meta description tag.</description>
           <defaultValue />
           <help />
           <properties>
@@ -235,5 +235,5 @@
       </fields>
     </section>
   </sections>
-  <datasources></datasources>
+  <datasources />
 </form>

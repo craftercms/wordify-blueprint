@@ -65,7 +65,7 @@
           <id>internal-name</id>
           <iceId />
           <title>Internal Name</title>
-          <description />
+          <description>Display label for this page. Shown only on the CMS.</description>
           <defaultValue />
           <help />
           <properties>
@@ -78,6 +78,21 @@
               <name>maxlength</name>
               <value>50</value>
               <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>escapeContent</name>
+              <value>false</value>
+              <type>boolean</type>
             </property>
           </properties>
           <constraints>
@@ -100,7 +115,7 @@
           <id>content_html</id>
           <iceId />
           <title>Content</title>
-          <description />
+          <description>The rich content/body of this component.</description>
           <defaultValue />
           <help />
           <properties>
@@ -163,6 +178,11 @@
               <name>fileManager</name>
               <value />
               <type>datasource:item</type>
+            </property>
+            <property>
+              <name>enableSpellCheck</name>
+              <value>true</value>
+              <type>boolean</type>
             </property>
           </properties>
           <constraints>

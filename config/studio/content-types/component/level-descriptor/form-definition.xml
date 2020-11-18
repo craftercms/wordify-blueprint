@@ -1,653 +1,637 @@
-<!--
-  ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
-  ~
-  ~ This program is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License version 3 as published by
-  ~ the Free Software Foundation.
-  ~
-  ~ This program is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
-  ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  -->
-
 <form>
-	<title>Section Defaults</title>
-	<description>Section Defaults provides inherited values to all children and sibling content items.
-		To learn more about content inheritance see docs.craftercms.org topic &quot;Content Inheritance&quot;
-	</description>
-	<objectType>component</objectType>
-	<content-type>/component/level-descriptor</content-type>
-	<imageThumbnail>undefined</imageThumbnail>
-	<quickCreate>false</quickCreate>
-	<quickCreatePath />
-	<properties>
-		<property>
-			<name>display-template</name>
-			<label>Display Template</label>
-			<value />
-			<type>template</type>
-		</property>
-		<property>
-			<name>no-template-required</name>
-			<label>No Template Required</label>
-			<value />
-			<type>boolean</type>
-		</property>
-		<property>
-			<name>merge-strategy</name>
-			<label>Merge Strategy</label>
-			<value>inherit-levels</value>
-			<type>string</type>
-		</property>
-	</properties>
-	<sections>
-		<section>
-			<title>Section Defaults Properties</title>
-			<description />
-			<defaultOpen>true</defaultOpen>
-			<fields>
-				<field>
-					<type>file-name</type>
-					<id>file-name</id>
-					<iceId />
-					<title>File Name</title>
-					<description />
-					<defaultValue>crafter-level-descriptor.level</defaultValue>
-					<help />
-					<properties>
-						<property>
-							<name>size</name>
-							<value>100</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>maxlength</name>
-							<value>50</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>readonly</name>
-							<value>true</value>
-							<type>boolean</type>
-						</property>
-					</properties>
-					<constraints>
-					</constraints>
-				</field>
-				<field>
-					<type>internal-name</type>
-					<id>internal-name</id>
-					<iceId />
-					<title>Internal Name</title>
-					<description />
-					<defaultValue>Section Defaults</defaultValue>
-					<help />
-					<properties>
-						<property>
-							<name>size</name>
-							<value>50</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>maxlength</name>
-							<value>50</value>
-							<type>int</type>
-						</property>
-					</properties>
-					<constraints>
-					</constraints>
-				</field>
-			</fields>
-		</section>
-		<section>
-			<title>SEO</title>
-			<description />
-			<defaultOpen>true</defaultOpen>
-			<fields>
-				<field>
-					<type>input</type>
-					<id>siteTitle_s</id>
-					<iceId />
-					<title>Site Title</title>
-					<description />
-					<defaultValue />
-					<help />
-					<properties>
-						<property>
-							<name>size</name>
-							<value>50</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>maxlength</name>
-							<value>80</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>readonly</name>
-							<value />
-							<type>boolean</type>
-						</property>
-						<property>
-							<name>tokenize</name>
-							<value>false</value>
-							<type>boolean</type>
-						</property>
-					</properties>
-					<constraints>
-						<constraint>
-							<name>required</name>
-							<value><![CDATA[true]]></value>
-							<type>boolean</type>
-						</constraint>
-						<constraint>
-							<name>pattern</name>
-							<value><![CDATA[]]></value>
-							<type>string</type>
-						</constraint>
-					</constraints>
-				</field>
-				<field>
-					<type>input</type>
-					<id>pageDescription_s</id>
-					<iceId />
-					<title>Page Description</title>
-					<description />
-					<defaultValue />
-					<help />
-					<properties>
-						<property>
-							<name>size</name>
-							<value>50</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>maxlength</name>
-							<value>50</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>readonly</name>
-							<value />
-							<type>boolean</type>
-						</property>
-						<property>
-							<name>tokenize</name>
-							<value>false</value>
-							<type>boolean</type>
-						</property>
-					</properties>
-					<constraints>
-						<constraint>
-							<name>required</name>
-							<value><![CDATA[false]]></value>
-							<type>boolean</type>
-						</constraint>
-						<constraint>
-							<name>pattern</name>
-							<value><![CDATA[]]></value>
-							<type>string</type>
-						</constraint>
-					</constraints>
-				</field>
-			</fields>
-		</section>
-		<section>
-			<title>Content Fields</title>
-			<description />
-			<defaultOpen>true</defaultOpen>
-			<fields>
-				<field>
-					<type>node-selector</type>
-					<id>footer_o</id>
-					<iceId />
-					<title>Footer</title>
-					<description />
-					<defaultValue />
-					<help />
-					<properties>
-						<property>
-							<name>minSize</name>
-							<value />
-							<type>int</type>
-						</property>
-						<property>
-							<name>maxSize</name>
-							<value />
-							<type>int</type>
-						</property>
-						<property>
-							<name>itemManager</name>
-							<value>componentsFooter</value>
-							<type>datasource:item</type>
-						</property>
-						<property>
-							<name>readonly</name>
-							<value />
-							<type>boolean</type>
-						</property>
-						<property>
-							<name>disableFlattening</name>
-							<value />
-							<type>boolean</type>
-						</property>
-						<property>
-							<name>useSingleValueFilename</name>
-							<value />
-							<type>boolean</type>
-						</property>
-					</properties>
-					<constraints>
-						<constraint>
-							<name>allowDuplicates</name>
-							<value><![CDATA[]]></value>
-							<type>boolean</type>
-						</constraint>
-					</constraints>
-				</field>
-			</fields>
-		</section>
-		<section>
-			<title>Social Links</title>
-			<description />
-			<defaultOpen>false</defaultOpen>
-			<fields>
-				<field>
-					<type>repeat</type>
-					<id>socialLinks_o</id>
-					<iceId />
-					<title>Social Links</title>
-					<description />
-					<minOccurs>0</minOccurs>
-					<maxOccurs>*</maxOccurs>
-					<properties>
-						<property>
-							<name>minOccurs</name>
-							<value>0</value>
-							<type>string</type>
-						</property>
-						<property>
-							<name>maxOccurs</name>
-							<value>*</value>
-							<type>string</type>
-						</property>
-					</properties>
-					<fields>
-						<field>
-							<type>input</type>
-							<id>url_s</id>
-							<iceId />
-							<title>Url</title>
-							<description />
-							<defaultValue />
-							<help />
-							<properties>
-								<property>
-									<name>size</name>
-									<value>50</value>
-									<type>int</type>
-								</property>
-								<property>
-									<name>maxlength</name>
-									<value>50</value>
-									<type>int</type>
-								</property>
-								<property>
-									<name>readonly</name>
-									<value />
-									<type>boolean</type>
-								</property>
-								<property>
-									<name>tokenize</name>
-									<value>false</value>
-									<type>boolean</type>
-								</property>
-							</properties>
-							<constraints>
-								<constraint>
-									<name>required</name>
-									<value><![CDATA[]]></value>
-									<type>boolean</type>
-								</constraint>
-								<constraint>
-									<name>pattern</name>
-									<value><![CDATA[]]></value>
-									<type>string</type>
-								</constraint>
-							</constraints>
-						</field>
-						<field>
-							<type>input</type>
-							<id>label_s</id>
-							<iceId />
-							<title>Label</title>
-							<description />
-							<defaultValue />
-							<help />
-							<properties>
-								<property>
-									<name>size</name>
-									<value>50</value>
-									<type>int</type>
-								</property>
-								<property>
-									<name>maxlength</name>
-									<value>50</value>
-									<type>int</type>
-								</property>
-								<property>
-									<name>readonly</name>
-									<value />
-									<type>boolean</type>
-								</property>
-								<property>
-									<name>tokenize</name>
-									<value>false</value>
-									<type>boolean</type>
-								</property>
-							</properties>
-							<constraints>
-								<constraint>
-									<name>required</name>
-									<value><![CDATA[]]></value>
-									<type>boolean</type>
-								</constraint>
-								<constraint>
-									<name>pattern</name>
-									<value><![CDATA[]]></value>
-									<type>string</type>
-								</constraint>
-							</constraints>
-						</field>
-						<field>
-							<type>dropdown</type>
-							<id>socialNetwork_s</id>
-							<iceId />
-							<title>Social Network</title>
-							<description />
-							<defaultValue />
-							<help />
-							<properties>
-								<property>
-									<name>datasource</name>
-									<value>socialNetwork</value>
-									<type>datasource:item</type>
-								</property>
-								<property>
-									<name>emptyvalue</name>
-									<value />
-									<type>boolean</type>
-								</property>
-								<property>
-									<name>readonly</name>
-									<value />
-									<type>boolean</type>
-								</property>
-							</properties>
-							<constraints>
-								<constraint>
-									<name>required</name>
-									<value><![CDATA[]]></value>
-									<type>boolean</type>
-								</constraint>
-							</constraints>
-						</field>
-					</fields>
-				</field>
-			</fields>
-		</section>
-		<section>
-			<title>Disqus</title>
-			<description />
-			<defaultOpen>false</defaultOpen>
-			<fields>
-				<field>
-					<type>input</type>
-					<id>websiteShortname_s</id>
-					<iceId />
-					<title>Website Shortname</title>
-					<description />
-					<defaultValue />
-					<help />
-					<properties>
-						<property>
-							<name>size</name>
-							<value>50</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>maxlength</name>
-							<value>50</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>readonly</name>
-							<value />
-							<type>boolean</type>
-						</property>
-						<property>
-							<name>tokenize</name>
-							<value>false</value>
-							<type>boolean</type>
-						</property>
-					</properties>
-					<constraints>
-						<constraint>
-							<name>required</name>
-							<value><![CDATA[]]></value>
-							<type>boolean</type>
-						</constraint>
-						<constraint>
-							<name>pattern</name>
-							<value><![CDATA[]]></value>
-							<type>string</type>
-						</constraint>
-					</constraints>
-				</field>
-			</fields>
-		</section>
-		<section>
-			<title>Sidebar Taxonomies</title>
-			<description />
-			<defaultOpen>false</defaultOpen>
-			<fields>
-				<field>
-					<type>node-selector</type>
-					<id>sidebarCategories_o</id>
-					<iceId />
-					<title>Sidebar Categories</title>
-					<description />
-					<defaultValue />
-					<help />
-					<properties>
-						<property>
-							<name>minSize</name>
-							<value>1</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>maxSize</name>
-							<value>1</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>itemManager</name>
-							<value>sidebarTaxonomies</value>
-							<type>datasource:item</type>
-						</property>
-						<property>
-							<name>readonly</name>
-							<value />
-							<type>boolean</type>
-						</property>
-						<property>
-							<name>disableFlattening</name>
-							<value />
-							<type>boolean</type>
-						</property>
-						<property>
-							<name>useSingleValueFilename</name>
-							<value />
-							<type>boolean</type>
-						</property>
-					</properties>
-					<constraints>
-						<constraint>
-							<name>allowDuplicates</name>
-							<value><![CDATA[]]></value>
-							<type>boolean</type>
-						</constraint>
-					</constraints>
-				</field>
-				<field>
-					<type>node-selector</type>
-					<id>sidebarTags_o</id>
-					<iceId />
-					<title>Sidebar Tags</title>
-					<description />
-					<defaultValue />
-					<help />
-					<properties>
-						<property>
-							<name>minSize</name>
-							<value>1</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>maxSize</name>
-							<value>1</value>
-							<type>int</type>
-						</property>
-						<property>
-							<name>itemManager</name>
-							<value>sidebarTaxonomies</value>
-							<type>datasource:item</type>
-						</property>
-						<property>
-							<name>readonly</name>
-							<value />
-							<type>boolean</type>
-						</property>
-						<property>
-							<name>disableFlattening</name>
-							<value />
-							<type>boolean</type>
-						</property>
-						<property>
-							<name>useSingleValueFilename</name>
-							<value />
-							<type>boolean</type>
-						</property>
-					</properties>
-					<constraints>
-						<constraint>
-							<name>allowDuplicates</name>
-							<value><![CDATA[]]></value>
-							<type>boolean</type>
-						</constraint>
-					</constraints>
-				</field>
-			</fields>
-		</section>
-	</sections>
-	<datasources>
-		<datasource>
-			<type>site-component</type>
-			<id>socialNetwork</id>
-			<title>Social Network</title>
-			<interface>item</interface>
-			<properties>
-				<property>
-					<name>dataType</name>
-					<value>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;DataType&quot;,&quot;selected&quot;:false}]</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>componentPath</name>
-					<value>/site/taxonomy/social-media-types.xml</value>
-					<type>undefined</type>
-				</property>
-			</properties>
-		</datasource>
-		<datasource>
-			<type>shared-content</type>
-			<id>componentsFooter</id>
-			<title>Components Footer</title>
-			<interface>item</interface>
-			<properties>
-				<property>
-					<name>enableCreateNew</name>
-					<value>true</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>enableBrowseExisting</name>
-					<value>true</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>enableSearchExisting</name>
-					<value>false</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>repoPath</name>
-					<value>/site/components/footers/</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>browsePath</name>
-					<value />
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>type</name>
-					<value />
-					<type>undefined</type>
-				</property>
-			</properties>
-		</datasource>
-		<datasource>
-			<type>shared-content</type>
-			<id>sidebarTaxonomies</id>
-			<title>Sidebar Taxonomies</title>
-			<interface>item</interface>
-			<properties>
-				<property>
-					<name>enableCreateNew</name>
-					<value>true</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>enableBrowseExisting</name>
-					<value>true</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>enableSearchExisting</name>
-					<value>false</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>repoPath</name>
-					<value>/site/components/sidebar_taxonomies/</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>browsePath</name>
-					<value />
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>type</name>
-					<value />
-					<type>undefined</type>
-				</property>
-			</properties>
-		</datasource>
-	</datasources>
+  <title>Section Defaults</title>
+  <description>Section Defaults provides inherited values to all children and sibling content items.
+    To learn more about content inheritance see docs.craftercms.org topic &quot;Content Inheritance&quot;
+  </description>
+  <objectType>component</objectType>
+  <content-type>/component/level-descriptor</content-type>
+  <imageThumbnail>undefined</imageThumbnail>
+  <quickCreate>false</quickCreate>
+  <quickCreatePath />
+  <properties>
+    <property>
+      <name>display-template</name>
+      <label>Display Template</label>
+      <value />
+      <type>template</type>
+    </property>
+    <property>
+      <name>no-template-required</name>
+      <label>No Template Required</label>
+      <value />
+      <type>boolean</type>
+    </property>
+    <property>
+      <name>merge-strategy</name>
+      <label>Merge Strategy</label>
+      <value>inherit-levels</value>
+      <type>string</type>
+    </property>
+  </properties>
+  <sections>
+    <section>
+      <title>Section Defaults Properties</title>
+      <description />
+      <defaultOpen>true</defaultOpen>
+      <fields>
+        <field>
+          <type>file-name</type>
+          <id>file-name</id>
+          <iceId />
+          <title>File Name</title>
+          <description />
+          <defaultValue>crafter-level-descriptor.level</defaultValue>
+          <help />
+          <properties>
+            <property>
+              <name>size</name>
+              <value>100</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value>true</value>
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+          </constraints>
+        </field>
+        <field>
+          <type>internal-name</type>
+          <id>internal-name</id>
+          <iceId />
+          <title>Internal Name</title>
+          <description />
+          <defaultValue>Section Defaults</defaultValue>
+          <help />
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+          </properties>
+          <constraints>
+          </constraints>
+        </field>
+      </fields>
+    </section>
+    <section>
+      <title>SEO</title>
+      <description />
+      <defaultOpen>true</defaultOpen>
+      <fields>
+        <field>
+          <type>input</type>
+          <id>siteTitle_s</id>
+          <iceId />
+          <title>Site Title</title>
+          <description />
+          <defaultValue />
+          <help />
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>80</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[true]]></value>
+              <type>boolean</type>
+            </constraint>
+            <constraint>
+              <name>pattern</name>
+              <value><![CDATA[]]></value>
+              <type>string</type>
+            </constraint>
+          </constraints>
+        </field>
+        <field>
+          <type>input</type>
+          <id>pageDescription_s</id>
+          <iceId />
+          <title>Page Description</title>
+          <description>Value of the HTML meta description tag.</description>
+          <defaultValue />
+          <help />
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[false]]></value>
+              <type>boolean</type>
+            </constraint>
+            <constraint>
+              <name>pattern</name>
+              <value><![CDATA[]]></value>
+              <type>string</type>
+            </constraint>
+          </constraints>
+        </field>
+      </fields>
+    </section>
+    <section>
+      <title>Content Fields</title>
+      <description />
+      <defaultOpen>true</defaultOpen>
+      <fields>
+        <field>
+          <type>node-selector</type>
+          <id>footer_o</id>
+          <iceId />
+          <title>Footer</title>
+          <description />
+          <defaultValue />
+          <help />
+          <properties>
+            <property>
+              <name>minSize</name>
+              <value />
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxSize</name>
+              <value />
+              <type>int</type>
+            </property>
+            <property>
+              <name>itemManager</name>
+              <value>componentsFooter</value>
+              <type>datasource:item</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>disableFlattening</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>useSingleValueFilename</name>
+              <value />
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>allowDuplicates</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+          </constraints>
+        </field>
+      </fields>
+    </section>
+    <section>
+      <title>Social Links</title>
+      <description />
+      <defaultOpen>false</defaultOpen>
+      <fields>
+        <field>
+          <type>repeat</type>
+          <id>socialLinks_o</id>
+          <iceId />
+          <title>Social Links</title>
+          <description />
+          <minOccurs>0</minOccurs>
+          <maxOccurs>*</maxOccurs>
+          <properties>
+            <property>
+              <name>minOccurs</name>
+              <value>0</value>
+              <type>string</type>
+            </property>
+            <property>
+              <name>maxOccurs</name>
+              <value>*</value>
+              <type>string</type>
+            </property>
+          </properties>
+          <fields>
+            <field>
+              <type>input</type>
+              <id>url_s</id>
+              <iceId />
+              <title>Url</title>
+              <description />
+              <defaultValue />
+              <help />
+              <properties>
+                <property>
+                  <name>size</name>
+                  <value>50</value>
+                  <type>int</type>
+                </property>
+                <property>
+                  <name>maxlength</name>
+                  <value>50</value>
+                  <type>int</type>
+                </property>
+                <property>
+                  <name>readonly</name>
+                  <value />
+                  <type>boolean</type>
+                </property>
+                <property>
+                  <name>tokenize</name>
+                  <value>false</value>
+                  <type>boolean</type>
+                </property>
+              </properties>
+              <constraints>
+                <constraint>
+                  <name>required</name>
+                  <value><![CDATA[]]></value>
+                  <type>boolean</type>
+                </constraint>
+                <constraint>
+                  <name>pattern</name>
+                  <value><![CDATA[]]></value>
+                  <type>string</type>
+                </constraint>
+              </constraints>
+            </field>
+            <field>
+              <type>input</type>
+              <id>label_s</id>
+              <iceId />
+              <title>Label</title>
+              <description />
+              <defaultValue />
+              <help />
+              <properties>
+                <property>
+                  <name>size</name>
+                  <value>50</value>
+                  <type>int</type>
+                </property>
+                <property>
+                  <name>maxlength</name>
+                  <value>50</value>
+                  <type>int</type>
+                </property>
+                <property>
+                  <name>readonly</name>
+                  <value />
+                  <type>boolean</type>
+                </property>
+                <property>
+                  <name>tokenize</name>
+                  <value>false</value>
+                  <type>boolean</type>
+                </property>
+              </properties>
+              <constraints>
+                <constraint>
+                  <name>required</name>
+                  <value><![CDATA[]]></value>
+                  <type>boolean</type>
+                </constraint>
+                <constraint>
+                  <name>pattern</name>
+                  <value><![CDATA[]]></value>
+                  <type>string</type>
+                </constraint>
+              </constraints>
+            </field>
+            <field>
+              <type>dropdown</type>
+              <id>socialNetwork_s</id>
+              <iceId />
+              <title>Social Network</title>
+              <description />
+              <defaultValue />
+              <help />
+              <properties>
+                <property>
+                  <name>datasource</name>
+                  <value>socialNetwork</value>
+                  <type>datasource:item</type>
+                </property>
+                <property>
+                  <name>emptyvalue</name>
+                  <value />
+                  <type>boolean</type>
+                </property>
+                <property>
+                  <name>readonly</name>
+                  <value />
+                  <type>boolean</type>
+                </property>
+              </properties>
+              <constraints>
+                <constraint>
+                  <name>required</name>
+                  <value><![CDATA[]]></value>
+                  <type>boolean</type>
+                </constraint>
+              </constraints>
+            </field>
+          </fields>
+        </field>
+      </fields>
+    </section>
+    <section>
+      <title>Disqus</title>
+      <description />
+      <defaultOpen>false</defaultOpen>
+      <fields>
+        <field>
+          <type>input</type>
+          <id>websiteShortname_s</id>
+          <iceId />
+          <title>Website Shortname</title>
+          <description />
+          <defaultValue />
+          <help />
+          <properties>
+            <property>
+              <name>size</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxlength</name>
+              <value>50</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>tokenize</name>
+              <value>false</value>
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>required</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+            <constraint>
+              <name>pattern</name>
+              <value><![CDATA[]]></value>
+              <type>string</type>
+            </constraint>
+          </constraints>
+        </field>
+      </fields>
+    </section>
+    <section>
+      <title>Sidebar Taxonomies</title>
+      <description />
+      <defaultOpen>false</defaultOpen>
+      <fields>
+        <field>
+          <type>node-selector</type>
+          <id>sidebarCategories_o</id>
+          <iceId />
+          <title>Sidebar Categories</title>
+          <description />
+          <defaultValue />
+          <help />
+          <properties>
+            <property>
+              <name>minSize</name>
+              <value>1</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxSize</name>
+              <value>1</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>itemManager</name>
+              <value>sidebarTaxonomies</value>
+              <type>datasource:item</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>disableFlattening</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>useSingleValueFilename</name>
+              <value />
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>allowDuplicates</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+          </constraints>
+        </field>
+        <field>
+          <type>node-selector</type>
+          <id>sidebarTags_o</id>
+          <iceId />
+          <title>Sidebar Tags</title>
+          <description />
+          <defaultValue />
+          <help />
+          <properties>
+            <property>
+              <name>minSize</name>
+              <value>1</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>maxSize</name>
+              <value>1</value>
+              <type>int</type>
+            </property>
+            <property>
+              <name>itemManager</name>
+              <value>sidebarTaxonomies</value>
+              <type>datasource:item</type>
+            </property>
+            <property>
+              <name>readonly</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>disableFlattening</name>
+              <value />
+              <type>boolean</type>
+            </property>
+            <property>
+              <name>useSingleValueFilename</name>
+              <value />
+              <type>boolean</type>
+            </property>
+          </properties>
+          <constraints>
+            <constraint>
+              <name>allowDuplicates</name>
+              <value><![CDATA[]]></value>
+              <type>boolean</type>
+            </constraint>
+          </constraints>
+        </field>
+      </fields>
+    </section>
+  </sections>
+  <datasources>
+    <datasource>
+      <type>site-component</type>
+      <id>socialNetwork</id>
+      <title>Social Network</title>
+      <interface>item</interface>
+      <properties>
+        <property>
+          <name>dataType</name>
+          <value>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;DataType&quot;,&quot;selected&quot;:false}]</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>componentPath</name>
+          <value>/site/taxonomy/social-media-types.xml</value>
+          <type>undefined</type>
+        </property>
+      </properties>
+    </datasource>
+    <datasource>
+      <type>shared-content</type>
+      <id>componentsFooter</id>
+      <title>Components Footer</title>
+      <interface>item</interface>
+      <properties>
+        <property>
+          <name>enableCreateNew</name>
+          <value>true</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>enableBrowseExisting</name>
+          <value>true</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>enableSearchExisting</name>
+          <value>false</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>repoPath</name>
+          <value>/site/components/footers/</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>browsePath</name>
+          <value />
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>type</name>
+          <value />
+          <type>undefined</type>
+        </property>
+      </properties>
+    </datasource>
+    <datasource>
+      <type>shared-content</type>
+      <id>sidebarTaxonomies</id>
+      <title>Sidebar Taxonomies</title>
+      <interface>item</interface>
+      <properties>
+        <property>
+          <name>enableCreateNew</name>
+          <value>true</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>enableBrowseExisting</name>
+          <value>true</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>enableSearchExisting</name>
+          <value>false</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>repoPath</name>
+          <value>/site/components/sidebar_taxonomies/</value>
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>browsePath</name>
+          <value />
+          <type>undefined</type>
+        </property>
+        <property>
+          <name>type</name>
+          <value />
+          <type>undefined</type>
+        </property>
+      </properties>
+    </datasource>
+  </datasources>
 </form>
