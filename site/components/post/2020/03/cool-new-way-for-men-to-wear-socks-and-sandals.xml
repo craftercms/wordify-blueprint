@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
   <content-type>/component/post</content-type>
-  <display-template>/templates/web/components/post.ftl</display-template>
+  <display-template />
   <no-template-required>true</no-template-required>
   <merge-strategy>inherit-levels</merge-strategy>
   <objectGroupId>502d</objectGroupId>
@@ -11,16 +11,16 @@
   <mainImage_s>/static-assets/images/img_12.jpg</mainImage_s>
   <authorBio_o item-list="true">
     <item>
-      <key>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
+      <key>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
       <value>Jane Doe's Bio</value>
-      <include>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
+      <include>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
   </authorBio_o>
   <internal-name>Men Socks and Sandals</internal-name>
   <pageTitle_s>Cool New Way for Men to Wear Socks and Sandals</pageTitle_s>
   <pageDescription_s />
-  <headline_s>There’s a Cool New Way for Men to Wear Socks and Sandals</headline_s>
+  <headline_s tokenized="true">There’s a Cool New Way for Men to Wear Socks and Sandals</headline_s>
   <file-name>cool-new-way-for-men-to-wear-socks-and-sandals.xml</file-name>
   <folder-name />
   <content_o item-list="true">
@@ -212,6 +212,6 @@
   </tags_o>
   <createdDate>2020-11-17T22:31:58.153Z</createdDate>
   <createdDate_dt>2020-11-17T22:31:58.153Z</createdDate_dt>
-  <lastModifiedDate>2020-11-17T22:31:58.153Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-11-17T22:31:58.153Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-11-18T03:14:55.673Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-18T03:14:55.673Z</lastModifiedDate_dt>
 </component>
