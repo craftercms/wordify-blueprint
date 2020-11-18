@@ -24,7 +24,7 @@ export class DynamicRouteComponent implements OnInit {
   ngOnInit(): void {
     this.contentService.getPageData(this.url, {
       includePosts: true,
-      postsLimit: 3,
+      postsLimit: 8,
       postsOffset: 0
     })
       .subscribe(({ data }) => {
@@ -48,7 +48,7 @@ export class DynamicRouteComponent implements OnInit {
             },
             posts: {
               total: data.posts.total,
-              limit: 3,
+              limit: 8,
               offset: 0
             }
           }

@@ -117,8 +117,8 @@ export class ContentService {
       exclude: exclude ?? '',
       ...(
         paginationData ? {
-          limit: paginationData.itemsPerPage,
-          offset: (paginationData.currentPage * paginationData.itemsPerPage)
+          postsLimit: paginationData.itemsPerPage,
+          postsOffset: (paginationData.currentPage * paginationData.itemsPerPage)
         } : {}
       )
     };
