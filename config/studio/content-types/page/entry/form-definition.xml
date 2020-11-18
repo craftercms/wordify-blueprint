@@ -449,42 +449,42 @@
         <property>
           <name>allowShared</name>
           <value>true</value>
-          <type>undefined</type>
+          <type>boolean</type>
         </property>
         <property>
           <name>allowEmbedded</name>
           <value>false</value>
-          <type>undefined</type>
+          <type>boolean</type>
         </property>
         <property>
           <name>enableBrowse</name>
           <value>true</value>
-          <type>undefined</type>
+          <type>boolean</type>
         </property>
         <property>
           <name>enableSearch</name>
           <value>true</value>
-          <type>undefined</type>
+          <type>boolean</type>
         </property>
         <property>
           <name>baseRepositoryPath</name>
           <value>/site/components/bios</value>
-          <type>undefined</type>
+          <type>string</type>
         </property>
         <property>
           <name>baseBrowsePath</name>
           <value>/site/components/bios</value>
-          <type>undefined</type>
+          <type>string</type>
         </property>
         <property>
           <name>contentTypes</name>
           <value>/component/bio</value>
-          <type>undefined</type>
+          <type>contentTypes</type>
         </property>
         <property>
           <name>tags</name>
           <value />
-          <type>undefined</type>
+          <type>string</type>
         </property>
       </properties>
     </datasource>
