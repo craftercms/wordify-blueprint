@@ -1,13 +1,13 @@
 <content-type name="/component/sidebar_taxonomies" is-wcm-type="true">
-  <label>Sidebar Taxonomies</label>
-  <form>/component/sidebar_taxonomies</form>
-  <form-path>simple</form-path>
-  <model-instance-path>NOT-USED-BY-SIMPLE-FORM-ENGINE</model-instance-path>
-  <file-extension>xml</file-extension>
-  <content-as-folder>false</content-as-folder>
-  <previewable>false</previewable>
-  <quickCreate>false</quickCreate>
-  <quickCreatePath />
-  <noThumbnail>true</noThumbnail>
-  <image-thumbnail />
+	<label>Sidebar Taxonomies</label>
+	<form>/component/sidebar_taxonomies</form>
+	<form-path>simple</form-path>
+	<model-instance-path>NOT-USED-BY-SIMPLE-FORM-ENGINE</model-instance-path>
+	<file-extension>xml</file-extension>
+	<content-as-folder>false</content-as-folder>
+	<previewable>false</previewable>
+	<quickCreate>false</quickCreate>
+	<quickCreatePath />
+	<noThumbnail>true</noThumbnail>
+	<image-thumbnail />
 </content-type>
