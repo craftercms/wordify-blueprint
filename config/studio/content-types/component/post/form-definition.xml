@@ -744,12 +744,12 @@
         </property>
         <property>
           <name>baseRepositoryPath</name>
-          <value>/site/components/bios</value>
+          <value>/site/components/bio</value>
           <type>string</type>
         </property>
         <property>
           <name>baseBrowsePath</name>
-          <value>/site/components/bios</value>
+          <value>/site/components/bio</value>
           <type>string</type>
         </property>
         <property>
