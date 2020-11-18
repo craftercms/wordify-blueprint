@@ -1,0 +1,5 @@
+<div class="row mb-5">
+  <div class="mb-5" *ngFor="let column of model.columns_o" class="col-md-{{column.columnSize_s}} mb-4">
+    <app-content-type *ngFor="let component of column.content_o" [model]="component"></app-content-type>
+  </div>
+</div>

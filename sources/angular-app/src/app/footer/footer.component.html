@@ -1,0 +1,46 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-4">
+        <h3>{{footer?.aboutTitle_s}}</h3>
+        <p class="mb-4">
+          <img src="{{footer?.aboutImage_s}}" alt="Image placeholder" class="img-fluid">
+        </p>
+
+        <p>{{footer?.about_t}}</p>
+      </div>
+      <div class="col-md-6 ml-auto">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>{{footer?.quickLinksTitle_s}}</h3>
+            <ul class="list-unstyled">
+              <li class="nav-item" *ngFor="let link of footer?.quickLinks_o | sortBy: 'orderDefault_f'">
+                <a href="{{link.url_s}}">{{link.label_s}}</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-1"></div>
+
+          <div class="col-md-5">
+            <div class="mb-5">
+              <h3>Social</h3>
+              <ul class="list-unstyled footer-social">
+                <li class="nav-item" *ngFor="let link of socialLinks">
+                  <a href="{{link.url_s}}">
+                    <span class="fa fa-{{link.socialNetwork_s}}"></span>
+                    {{link.label_s}}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="small" [innerHTML]="footer?.copyright_html_raw"></p>
+      </div>
+    </div>
+  </div>
+</footer>

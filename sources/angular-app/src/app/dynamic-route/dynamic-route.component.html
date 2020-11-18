@@ -1,0 +1,9 @@
+<div [ngSwitch]="contentTypeId">
+  <app-home *ngSwitchCase="'/page/entry'" [state]="state"></app-home>
+  <app-category *ngSwitchCase="'/page/category'" [state]="state"></app-category>
+  <app-contact *ngSwitchCase="'/page/contact'" [state]="state"></app-contact>
+  <app-about *ngSwitchCase="'/page/about'" [state]="state"></app-about>
+  <app-post *ngSwitchCase="'/component/post'" [state]="state"></app-post>
+  <app-search *ngSwitchCase="'/page/search'" [state]="state"></app-search>
+  <div *ngSwitchDefault>no view</div>
+</div>
