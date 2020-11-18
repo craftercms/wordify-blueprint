@@ -8,13 +8,15 @@
     <#assign url="/tag"/>
 </#if>
 
-<div>
-  <@studio.h3 $model=contentModel $field="title_s" class="heading">
-    ${contentModel.title_s}
-  </@studio.h3>
-  <@studio.ul $model=taxonomy class="${contentModel.taxonomy_s} clearfix">
-    <#list taxonomy.items.item as item>
-      <li><a href="${url}?id=${item.key}">${item.value}</a></li>
-    </#list>
-  </@studio.ul>
-</div>
+<#if taxonomy.items.item?has_content>
+  <div>
+    <@studio.h3 $model=contentModel $field="title_s" class="heading">
+      ${contentModel.title_s}
+    </@studio.h3>
+    <@studio.ul $model=taxonomy class="${contentModel.taxonomy_s} clearfix">
+      <#list taxonomy.items.item as item>
+        <li><a href="${url}?id=${item.key}">${item.value}</a></li>
+      </#list>
+    </@studio.ul>
+  </div>
+</#if>
