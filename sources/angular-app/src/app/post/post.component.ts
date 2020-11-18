@@ -67,7 +67,7 @@ export class PostComponent implements OnInit {
 
     this.contentService.getLevelDescriptor()
       .subscribe(levelDescriptor => {
-        this.websiteShortname = levelDescriptor.websiteShortname_s??'DISQUS';
+        this.websiteShortname = levelDescriptor.websiteShortname_s;
       })
   }
 
