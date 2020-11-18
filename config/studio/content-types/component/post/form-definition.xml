@@ -10,7 +10,7 @@
     <property>
       <name>display-template</name>
       <label>Display Template</label>
-      <value>/templates/web/components/post.ftl</value>
+      <value />
       <type>template</type>
     </property>
     <property>
