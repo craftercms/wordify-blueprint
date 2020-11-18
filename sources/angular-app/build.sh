@@ -14,7 +14,7 @@ echo "Restoring .gitkeep"
 touch ../../static-assets/app/.gitkeep
 
 echo "Running angular build"
-ng build
+ng build --base-href ../../static-assets/app/
 
 #echo "Copying app build to static assets"
 #cp -rf ./dist/* ../../static-assets/app/
