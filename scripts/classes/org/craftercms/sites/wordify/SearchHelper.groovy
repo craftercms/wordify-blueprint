@@ -45,7 +45,7 @@ class SearchHelper {
       if(!userTerm.contains(" ")) {
         userTerm = "${userTerm}~1 OR *${userTerm}"
       }
-      def userTermQuery = "(headline_s(${userTerm}) OR pageDescription_s:(${userTerm}))"    // TODO: improve search (fields)
+      def userTermQuery = "(headline_s(${userTerm}) OR headline_t:(${userTerm}) OR pageDescription_s:(${userTerm}))"
 
       q = "${q} AND ${userTermQuery}"
     }
