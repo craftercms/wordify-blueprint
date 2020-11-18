@@ -164,7 +164,7 @@
           <properties>
             <property>
               <name>size</name>
-              <value>50</value>
+              <value>150</value>
               <type>int</type>
             </property>
             <property>
@@ -592,7 +592,7 @@
     <datasource>
       <type>embedded-content</type>
       <id>richTextSections</id>
-      <title>Rich Text Sections</title>
+      <title>Rich Text</title>
       <interface>item</interface>
       <properties>
         <property>
