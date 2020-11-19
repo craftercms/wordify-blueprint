@@ -385,6 +385,10 @@ header {
   }
 
   .bio-body {
+    .bio-link {
+      white-space: normal;
+    }
+
     .social {
       a {
         color: $black;
