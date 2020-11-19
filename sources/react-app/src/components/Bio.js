@@ -50,7 +50,7 @@ export default function (props) {
               model={model}
               fieldId="linkButtonText_s,linkButtonUrl_s"
               target="children,href"
-              className="btn btn-primary btn-sm rounded"
+              className="btn btn-primary btn-sm rounded bio-link"
             />
           </p>
         }
