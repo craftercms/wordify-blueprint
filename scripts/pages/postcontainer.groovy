@@ -21,21 +21,7 @@ def page = (params.page && Integer.parseInt(params.page) > 0) ? (Integer.parseIn
 def postsPerPage = 8
 
 def postId = params.id ? params.id : ''
-
-logger.info("------------------------------------------------------------------------------------")
-logger.info("${postId}")
-logger.info("${postId}")
-logger.info("${postId}")
-logger.info("${postId}")
-logger.info("${postId}")
-logger.info("${postId}")
-logger.info("${postId}")
-logger.info("${postId}")
-logger.info("------------------------------------------------------------------------------------")
-
-
-def postModel = siteItemService.getSiteItem("/site/components/post/${postId}.xml")
-//def postModel = siteItemService.getSiteItem("/site/components/post/" + postId + ".xml")
+def postModel = siteItemService.getSiteItem("/site/components/post/" + postId + ".xml")
 
 if (postModel) {
   templateModel.postModel = postModel
