@@ -13,279 +13,279 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-
 <form>
-  <title>Taxonomy</title>
-  <description />
-  <objectType>component</objectType>
-  <content-type>/taxonomy</content-type>
-  <imageThumbnail>undefined</imageThumbnail>
-  <quickCreate>false</quickCreate>
-  <quickCreatePath />
-  <properties>
-    <property>
-      <name>display-template</name>
-      <label>Display Template</label>
-      <value />
-      <type>template</type>
-    </property>
-    <property>
-      <name>no-template-required</name>
-      <label>No Template Required</label>
-      <value>true</value>
-      <type>boolean</type>
-    </property>
-    <property>
-      <name>merge-strategy</name>
-      <label>Merge Strategy</label>
-      <value>inherit-levels</value>
-      <type>string</type>
-    </property>
-  </properties>
-  <sections>
-    <section>
-      <title>Taxonomy Properties</title>
-      <description />
-      <defaultOpen>true</defaultOpen>
-      <fields>
-        <field>
-          <type>file-name</type>
-          <id>file-name</id>
-          <iceId />
-          <title>Component ID</title>
-          <description />
-          <defaultValue />
-          <help />
-          <properties>
-            <property>
-              <name>size</name>
-              <value>50</value>
-              <type>int</type>
-            </property>
-            <property>
-              <name>maxlength</name>
-              <value>50</value>
-              <type>int</type>
-            </property>
-            <property>
-              <name>readonly</name>
-              <value />
-              <type>boolean</type>
-            </property>
-          </properties>
-          <constraints>
-          </constraints>
-        </field>
-        <field>
-          <type>input</type>
-          <id>internal-name</id>
-          <iceId />
-          <title>Internal Name</title>
-          <description />
-          <defaultValue />
-          <help />
-          <properties>
-            <property>
-              <name>size</name>
-              <value>50</value>
-              <type>int</type>
-            </property>
-            <property>
-              <name>maxlength</name>
-              <value>50</value>
-              <type>int</type>
-            </property>
-          </properties>
-          <constraints>
-            <constraint>
-              <name>required</name>
-              <value><![CDATA[true]]></value>
-              <type>boolean</type>
-            </constraint>
-          </constraints>
-        </field>
-        <field>
-          <type>repeat</type>
-          <id>items</id>
-          <iceId />
-          <title>Items</title>
-          <description />
-          <minOccurs>1</minOccurs>
-          <maxOccurs>*</maxOccurs>
-          <properties>
-            <property>
-              <name>minOccurs</name>
-              <value>1</value>
-              <type>string</type>
-            </property>
-            <property>
-              <name>maxOccurs</name>
-              <value>*</value>
-              <type>string</type>
-            </property>
-          </properties>
-          <fields>
-            <field>
-              <type>input</type>
-              <id>key</id>
-              <iceId />
-              <title>Key</title>
-              <description />
-              <defaultValue />
-              <help />
-              <properties>
-                <property>
-                  <name>size</name>
-                  <value>50</value>
-                  <type>int</type>
-                </property>
-                <property>
-                  <name>maxlength</name>
-                  <value>50</value>
-                  <type>int</type>
-                </property>
-                <property>
-                  <name>readonly</name>
-                  <value />
-                  <type>boolean</type>
-                </property>
-                <property>
-                  <name>tokenize</name>
-                  <value>false</value>
-                  <type>boolean</type>
-                </property>
-              </properties>
-              <constraints>
-                <constraint>
-                  <name>required</name>
-                  <value><![CDATA[true]]></value>
-                  <type>boolean</type>
-                </constraint>
-                <constraint>
-                  <name>pattern</name>
-                  <value><![CDATA[]]></value>
-                  <type>string</type>
-                </constraint>
-              </constraints>
-            </field>
-            <field>
-              <type>input</type>
-              <id>value</id>
-              <iceId />
-              <title>Value</title>
-              <description />
-              <defaultValue />
-              <help />
-              <properties>
-                <property>
-                  <name>size</name>
-                  <value>50</value>
-                  <type>int</type>
-                </property>
-                <property>
-                  <name>maxlength</name>
-                  <value>50</value>
-                  <type>int</type>
-                </property>
-                <property>
-                  <name>readonly</name>
-                  <value />
-                  <type>boolean</type>
-                </property>
-                <property>
-                  <name>tokenize</name>
-                  <value>false</value>
-                  <type>boolean</type>
-                </property>
-              </properties>
-              <constraints>
-                <constraint>
-                  <name>required</name>
-                  <value><![CDATA[true]]></value>
-                  <type>boolean</type>
-                </constraint>
-                <constraint>
-                  <name>pattern</name>
-                  <value><![CDATA[]]></value>
-                  <type>string</type>
-                </constraint>
-              </constraints>
-            </field>
-            <field>
-              <type>image-picker</type>
-              <id>image_s</id>
-              <iceId />
-              <title>Image</title>
-              <description />
-              <defaultValue />
-              <help />
-              <properties>
-                <property>
-                  <name>width</name>
-                  <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
+	<title>Taxonomy</title>
+	<description />
+	<objectType>component</objectType>
+	<content-type>/taxonomy</content-type>
+	<imageThumbnail>undefined</imageThumbnail>
+	<quickCreate>false</quickCreate>
+	<quickCreatePath />
+	<properties>
+		<property>
+			<name>display-template</name>
+			<label>Display Template</label>
+			<value />
+			<type>template</type>
+		</property>
+		<property>
+			<name>no-template-required</name>
+			<label>No Template Required</label>
+			<value>true</value>
+			<type>boolean</type>
+		</property>
+		<property>
+			<name>merge-strategy</name>
+			<label>Merge Strategy</label>
+			<value>inherit-levels</value>
+			<type>string</type>
+		</property>
+	</properties>
+	<sections>
+		<section>
+			<title>Taxonomy Properties</title>
+			<description />
+			<defaultOpen>true</defaultOpen>
+			<fields>
+				<field>
+					<type>file-name</type>
+					<id>file-name</id>
+					<iceId />
+					<title>Component ID</title>
+					<description />
+					<defaultValue />
+					<help />
+					<properties>
+						<property>
+							<name>size</name>
+							<value>50</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>maxlength</name>
+							<value>50</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>readonly</name>
+							<value />
+							<type>boolean</type>
+						</property>
+					</properties>
+					<constraints>
+
+					</constraints>
+				</field>
+				<field>
+					<type>input</type>
+					<id>internal-name</id>
+					<iceId />
+					<title>Internal Name</title>
+					<description>Display label for this page. Shown only on the CMS.</description>
+					<defaultValue />
+					<help />
+					<properties>
+						<property>
+							<name>size</name>
+							<value>50</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>maxlength</name>
+							<value>50</value>
+							<type>int</type>
+						</property>
+					</properties>
+					<constraints>
+						<constraint>
+							<name>required</name>
+							<value><![CDATA[true]]></value>
+							<type>boolean</type>
+						</constraint>
+					</constraints>
+				</field>
+				<field>
+					<type>repeat</type>
+					<id>items</id>
+					<iceId />
+					<title>Items</title>
+					<description />
+					<minOccurs>1</minOccurs>
+					<maxOccurs>*</maxOccurs>
+					<properties>
+						<property>
+							<name>minOccurs</name>
+							<value>1</value>
+							<type>string</type>
+						</property>
+						<property>
+							<name>maxOccurs</name>
+							<value>*</value>
+							<type>string</type>
+						</property>
+					</properties>
+					<fields>
+						<field>
+							<type>input</type>
+							<id>key</id>
+							<iceId />
+							<title>Key</title>
+							<description />
+							<defaultValue />
+							<help />
+							<properties>
+								<property>
+									<name>size</name>
+									<value>50</value>
+									<type>int</type>
+								</property>
+								<property>
+									<name>maxlength</name>
+									<value>50</value>
+									<type>int</type>
+								</property>
+								<property>
+									<name>readonly</name>
+									<value />
+									<type>boolean</type>
+								</property>
+								<property>
+									<name>tokenize</name>
+									<value>false</value>
+									<type>boolean</type>
+								</property>
+							</properties>
+							<constraints>
+								<constraint>
+									<name>required</name>
+									<value><![CDATA[true]]></value>
+									<type>boolean</type>
+								</constraint>
+								<constraint>
+									<name>pattern</name>
+									<value><![CDATA[]]></value>
+									<type>string</type>
+								</constraint>
+							</constraints>
+						</field>
+						<field>
+							<type>input</type>
+							<id>value</id>
+							<iceId />
+							<title>Value</title>
+							<description />
+							<defaultValue />
+							<help />
+							<properties>
+								<property>
+									<name>size</name>
+									<value>50</value>
+									<type>int</type>
+								</property>
+								<property>
+									<name>maxlength</name>
+									<value>50</value>
+									<type>int</type>
+								</property>
+								<property>
+									<name>readonly</name>
+									<value />
+									<type>boolean</type>
+								</property>
+								<property>
+									<name>tokenize</name>
+									<value>false</value>
+									<type>boolean</type>
+								</property>
+							</properties>
+							<constraints>
+								<constraint>
+									<name>required</name>
+									<value><![CDATA[true]]></value>
+									<type>boolean</type>
+								</constraint>
+								<constraint>
+									<name>pattern</name>
+									<value><![CDATA[]]></value>
+									<type>string</type>
+								</constraint>
+							</constraints>
+						</field>
+						<field>
+							<type>image-picker</type>
+							<id>image_s</id>
+							<iceId />
+							<title>Image</title>
+							<description />
+							<defaultValue />
+							<help />
+							<properties>
+								<property>
+									<name>width</name>
+									<value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
                     }
                   </value>
-                  <type>range</type>
-                </property>
-                <property>
-                  <name>height</name>
-                  <value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
+									<type>range</type>
+								</property>
+								<property>
+									<name>height</name>
+									<value>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;
                     }
                   </value>
-                  <type>range</type>
-                </property>
-                <property>
-                  <name>thumbnailWidth</name>
-                  <value />
-                  <type>int</type>
-                </property>
-                <property>
-                  <name>thumbnailHeight</name>
-                  <value />
-                  <type>int</type>
-                </property>
-                <property>
-                  <name>imageManager</name>
-                  <value>images</value>
-                  <type>datasource:image</type>
-                </property>
-                <property>
-                  <name>readonly</name>
-                  <value />
-                  <type>boolean</type>
-                </property>
-              </properties>
-              <constraints>
-                <constraint>
-                  <name>required</name>
-                  <value><![CDATA[]]></value>
-                  <type>boolean</type>
-                </constraint>
-              </constraints>
-            </field>
-          </fields>
-        </field>
-      </fields>
-    </section>
-  </sections>
-  <datasources>
-    <datasource>
-      <type>img-repository-upload</type>
-      <id>images</id>
-      <title>Images</title>
-      <interface>image</interface>
-      <properties>
-        <property>
-          <name>repoPath</name>
-          <value>/static-assets/images/</value>
-          <type>undefined</type>
-        </property>
-        <property>
-          <name>useSearch</name>
-          <value>false</value>
-          <type>undefined</type>
-        </property>
-      </properties>
-    </datasource>
-  </datasources>
+									<type>range</type>
+								</property>
+								<property>
+									<name>thumbnailWidth</name>
+									<value />
+									<type>int</type>
+								</property>
+								<property>
+									<name>thumbnailHeight</name>
+									<value />
+									<type>int</type>
+								</property>
+								<property>
+									<name>imageManager</name>
+									<value>images</value>
+									<type>datasource:image</type>
+								</property>
+								<property>
+									<name>readonly</name>
+									<value />
+									<type>boolean</type>
+								</property>
+							</properties>
+							<constraints>
+								<constraint>
+									<name>required</name>
+									<value><![CDATA[]]></value>
+									<type>boolean</type>
+								</constraint>
+							</constraints>
+						</field>
+					</fields>
+				</field>
+			</fields>
+		</section>
+	</sections>
+	<datasources>
+		<datasource>
+			<type>img-repository-upload</type>
+			<id>images</id>
+			<title>Images</title>
+			<interface>image</interface>
+			<properties>
+				<property>
+					<name>repoPath</name>
+					<value>/static-assets/images/</value>
+					<type>undefined</type>
+				</property>
+				<property>
+					<name>useSearch</name>
+					<value>false</value>
+					<type>undefined</type>
+				</property>
+			</properties>
+		</datasource>
+	</datasources>
 </form>

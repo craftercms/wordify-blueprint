@@ -1,13 +1,18 @@
 <content-type name="/page/entry" is-wcm-type="true">
-  <label>Homepage</label>
-  <form>/page/entry</form>
-  <form-path>simple</form-path>
-  <model-instance-path>NOT-USED-BY-SIMPLE-FORM-ENGINE</model-instance-path>
-  <file-extension>xml</file-extension>
-  <content-as-folder>true</content-as-folder>
-  <previewable>true</previewable>
-  <quickCreate>false</quickCreate>
-  <quickCreatePath />
-  <noThumbnail>false</noThumbnail>
-  <image-thumbnail>home.png</image-thumbnail>
+	<label>Homepage</label>
+	<form>/page/entry</form>
+	<form-path>simple</form-path>
+	<model-instance-path>NOT-USED-BY-SIMPLE-FORM-ENGINE</model-instance-path>
+	<file-extension>xml</file-extension>
+	<content-as-folder>true</content-as-folder>
+	<previewable>true</previewable>
+	<quickCreate>false</quickCreate>
+	<quickCreatePath />
+	<noThumbnail>false</noThumbnail>
+	<image-thumbnail>home.png</image-thumbnail>
+	<paths>
+		<excludes>
+			<pattern>^/site/.*</pattern>
+		</excludes>
+	</paths>
 </content-type>

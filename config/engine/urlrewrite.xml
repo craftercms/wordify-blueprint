@@ -1,5 +1,4 @@
-
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
   ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
   ~
@@ -15,13 +14,14 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-
+<!-- 
+TODO: Remove comment when fixed - https://github.com/craftercms/craftercms/issues/4380 
 <!DOCTYPE urlrewrite
   PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
-  "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+  "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">-->
 <urlrewrite>
-  <rule>
-    <from>^/tag/((.*))$</from>
-    <to type="forward" last="true">/category?id=$1</to>
-  </rule>
+	<rule>
+		<from>^/tag/((.*))$</from>
+		<to type="forward" last="true">/category?id=$1</to>
+	</rule>
 </urlrewrite>

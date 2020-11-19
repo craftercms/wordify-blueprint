@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
   ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
   ~
@@ -14,25 +14,23 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-
 <!--
     This file configures site properties used by Crafter Engine
 -->
-
 <site>
-  <version>2</version>
-  <!-- SPA Config: -->
-  <spa>
-    <enabled>true</enabled>
-    <viewName>/templates/web/app.ftl</viewName>
-  </spa>
-  <!-- CORS Properties -->
-  <cors>
-    <enable>true</enable>
-    <accessControlMaxAge>3600</accessControlMaxAge>
-    <accessControlAllowOrigin>*</accessControlAllowOrigin>
-    <accessControlAllowMethods>GET\, POST\, PUT\, OPTIONS</accessControlAllowMethods>
-    <accessControlAllowHeaders>Content-Type</accessControlAllowHeaders>
-    <accessControlAllowCredentials>true</accessControlAllowCredentials>
-  </cors>
+	<version>2</version>
+	<!-- SPA Config: -->
+	<spa>
+		<enabled>true</enabled>
+		<viewName>/templates/web/app.ftl</viewName>
+	</spa>
+	<!-- CORS Properties -->
+	<cors>
+		<enable>true</enable>
+		<accessControlMaxAge>3600</accessControlMaxAge>
+		<accessControlAllowOrigin>*</accessControlAllowOrigin>
+		<accessControlAllowMethods>GET\, POST\, PUT\, OPTIONS</accessControlAllowMethods>
+		<accessControlAllowHeaders>Content-Type</accessControlAllowHeaders>
+		<accessControlAllowCredentials>true</accessControlAllowCredentials>
+	</cors>
 </site>

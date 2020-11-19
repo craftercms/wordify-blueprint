@@ -26,12 +26,12 @@ import { isAuthoring } from './utils';
 import { Guest, ContentType } from '@craftercms/studio-guest';
 import contentTypeMap from './contentTypeMap';
 
-const limit = 3;
+const limit = 8;
 
 export default function DynamicRoute(props) {
   const { match, location } = props;
   const [state, setState] = useState(null);
-  const url = match.path.includes(':')
+  let url = match.path.includes(':')
     ? match.path.substring(0, match.path.indexOf(':') -1)
     : match.url;
 
@@ -91,7 +91,11 @@ export default function DynamicRoute(props) {
     return <CircularProgressSpinner />;
   } else {
     return (
-      <Guest modelId={state.model?.craftercms.id} isAuthoring={isAuthoring()}>
+      <Guest
+        modelId={state.model?.craftercms.id}
+        isAuthoring={isAuthoring()}
+        path={state.model?.craftercms.path}
+      >
         <ContentType {...state} {...props} contentTypeMap={contentTypeMap} />
       </Guest>
     );

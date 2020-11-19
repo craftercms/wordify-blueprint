@@ -105,25 +105,36 @@ export default function (props) {
               />
 
               <div className="pt-5">
-                <div>
-                  Categories:
-                  {
-                    model.categories_o?.map((category, i) =>
-                      <a href={`/category/${category.key}`} key={category.key}>{category.value_smv}{model.categories_o.length === i+1 ? '' : ','}</a>
-                    )
-                  }
-                </div>
-                <div>
-                  Tags:
-                  {
-                    model.tags_o?.map((tag, i) =>
-                      <a href={`/tag/${tag.key}`} key={tag.key}>#{tag.value_smv}{model.tags_o.length === i+1 ? '' : ','}</a>
-                    )
-                  }
-                </div>
+                {
+                  model.categories_o?.length > 0 &&
+                  <div>
+                    Categories:
+                    {
+                      model.categories_o?.map((category, i) =>
+                        <a href={`/category/${category.key}`} key={category.key}>{category.value_smv}{model.categories_o.length === i+1 ? '' : ','}</a>
+                      )
+                    }
+                  </div>
+                }
+                {
+                  model.tags_o?.length > 0 &&
+                  <div>
+                    Tags:
+                    {
+                      model.tags_o?.map((tag, i) =>
+                        <a
+                          href={`/tag/${tag.key}`} key={tag.key}
+                        >#{tag.value_smv}{model.tags_o.length === i + 1 ? '' : ','}</a>
+                      )
+                    }
+                  </div>
+                }
               </div>
 
-              <Comments id={model.craftercms.id} websiteShortname={websiteShortname}/>
+              {
+                websiteShortname &&
+                <Comments id={model.craftercms.id} websiteShortname={websiteShortname}/>
+              }
 
             </div>
 

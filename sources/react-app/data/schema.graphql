@@ -619,9 +619,9 @@ type component_post_categories_o_item {
     filter: TextFilters
   ): String
   "The value of the item"
-  value(
+  value_smv(
     "Values used to filter the results"
-    filter: TextFilters
+    filter: StringFilters
   ): String
 }
 
@@ -647,9 +647,9 @@ type component_post_tags_o_item {
     filter: TextFilters
   ): String
   "The value of the item"
-  value(
+  value_smv(
     "Values used to filter the results"
-    filter: TextFilters
+    filter: StringFilters
   ): String
 }
 
@@ -1112,17 +1112,6 @@ type craftercms_site {
     "The order to sort items"
     sortOrder: SortOrder
   ): page_entry_query!
-  "Items of content-type /page/post"
-  page_post(
-    "The number of items to return"
-    limit: Int,
-    "The number of items to skip"
-    offset: Int,
-    "The name of the field to sort items"
-    sortBy: String,
-    "The order to sort items"
-    sortOrder: SortOrder
-  ): page_post_query!
   "Items of content-type /page/search"
   page_search(
     "The number of items to return"
@@ -1532,164 +1521,6 @@ type page_entry_query {
   items: [page_entry!]
   "Total number of items found"
   total: Int!
-}
-
-"Post"
-type page_post implements ContentItem & Page {
-  "Author Bio"
-  authorBio_o: page_post_authorBio_o_items
-  "Blurb"
-  blurb_t(
-    "Values used to filter the results"
-    filter: TextFilters
-  ): String
-  "Categories"
-  categories_o: page_post_categories_o_items
-  "The content type of the item"
-  content__type(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String!
-  "Content"
-  content_o: ContentIncludeWrapper
-  "The created date of the item"
-  createdDate_dt(
-    "Values used to filter the results"
-    filter: DateFilters
-  ): DateTime!
-  "Page URL"
-  file__name(
-    "Values used to filter the results"
-    filter: TextFilters
-  ): String
-  "Headline"
-  headline_s(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String
-  "The name/label of the item in Authoring (can also be used as a navigation label in Delivery)"
-  internal__name(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String
-  "The last modified date of the item"
-  lastModifiedDate_dt(
-    "Values used to filter the results"
-    filter: DateFilters
-  ): DateTime!
-  "The path of the item"
-  localId(
-    "Values used to filter the results"
-    filter: StringFilters,
-    "The name of the transformer to apply"
-    transform: String
-  ): String
-  "Main Image"
-  mainImage_s(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String
-  "The label of the page in the navigation"
-  navLabel(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String
-  "The objectGroupId for the item"
-  objectGroupId(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String!
-  "The objectId of the item"
-  objectId(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String!
-  "The order the page has in the navigation"
-  orderDefault_f(
-    "Values used to filter the results"
-    filter: FloatFilters
-  ): Float
-  "Page Description"
-  pageDescription_s(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String
-  "Page Title"
-  pageTitle_s(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String
-  "If the page should be placed in the navigation"
-  placeInNav(
-    "Values used to filter the results"
-    filter: BooleanFilters
-  ): Boolean
-  "Tags"
-  tags_o: page_post_tags_o_items
-}
-
-"Contains the data from another item in the site"
-type page_post_authorBio_o_flattened_item {
-  "The content of the item"
-  component: component_bio
-  "The path of the item"
-  key: String!
-  "The name of the item"
-  value: String!
-}
-
-"Wrapper for flattened items"
-type page_post_authorBio_o_items {
-  "List of flattened items"
-  item: [page_post_authorBio_o_flattened_item!]
-}
-
-"Item for field categories_o"
-type page_post_categories_o_item {
-  "The key of the item"
-  key(
-    "Values used to filter the results"
-    filter: TextFilters
-  ): String
-  "The value of the item"
-  value_smv(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String
-}
-
-"Wrapper for field categories_o"
-type page_post_categories_o_items {
-  "List of items for field categories_o"
-  item: [page_post_categories_o_item]
-}
-
-"Query for content-type /page/post"
-type page_post_query {
-  "List of items"
-  items: [page_post!]
-  "Total number of items found"
-  total: Int!
-}
-
-"Item for field tags_o"
-type page_post_tags_o_item {
-  "The key of the item"
-  key(
-    "Values used to filter the results"
-    filter: TextFilters
-  ): String
-  "The value of the item"
-  value_smv(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String
-}
-
-"Wrapper for field tags_o"
-type page_post_tags_o_items {
-  "List of items for field tags_o"
-  item: [page_post_tags_o_item]
 }
 
 "Search"

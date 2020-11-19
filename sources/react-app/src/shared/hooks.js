@@ -82,7 +82,7 @@ export function useSearchQuery() {
   return [query, onChange, setQuery, page];
 }
 
-const contentTypes = ['/page/post'];
+const contentTypes = ['/component/post'];
 export function useUrlSearchQueryFetchResource(size = 1) {
   const [query, , , page] = useSearchQuery();
   const [resource, setResource] = useState(neverResource);
@@ -220,8 +220,8 @@ export function usePosts(paginationData, categories, tags, exclude) {
     fetchQuery(
       { text: postsQuery },
       {
-        limit: paginationData.itemsPerPage,
-        offset: (paginationData.currentPage * paginationData.itemsPerPage),
+        postsLimit: paginationData.itemsPerPage,
+        postsOffset: (paginationData.currentPage * paginationData.itemsPerPage),
         categoriesFilter,
         tagsFilter,
         exclude: exclude??""

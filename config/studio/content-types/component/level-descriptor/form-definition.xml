@@ -1,24 +1,8 @@
-<!--
-  ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
-  ~
-  ~ This program is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License version 3 as published by
-  ~ the Free Software Foundation.
-  ~
-  ~ This program is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
-  ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  -->
-
 <form>
 	<title>Section Defaults</title>
 	<description>Section Defaults provides inherited values to all children and sibling content items.
-		To learn more about content inheritance see docs.craftercms.org topic &quot;Content Inheritance&quot;
-	</description>
+    To learn more about content inheritance see docs.craftercms.org topic &quot;Content Inheritance&quot;
+  </description>
 	<objectType>component</objectType>
 	<content-type>/component/level-descriptor</content-type>
 	<imageThumbnail>undefined</imageThumbnail>
@@ -76,6 +60,31 @@
 						</property>
 					</properties>
 					<constraints>
+
+					</constraints>
+				</field>
+				<field>
+					<type>internal-name</type>
+					<id>internal-name</id>
+					<iceId />
+					<title>Internal Name</title>
+					<description />
+					<defaultValue>Section Defaults</defaultValue>
+					<help />
+					<properties>
+						<property>
+							<name>size</name>
+							<value>50</value>
+							<type>int</type>
+						</property>
+						<property>
+							<name>maxlength</name>
+							<value>50</value>
+							<type>int</type>
+						</property>
+					</properties>
+					<constraints>
+
 					</constraints>
 				</field>
 			</fields>
@@ -133,7 +142,7 @@
 					<id>pageDescription_s</id>
 					<iceId />
 					<title>Page Description</title>
-					<description />
+					<description>Value of the HTML meta description tag.</description>
 					<defaultValue />
 					<help />
 					<properties>
@@ -540,7 +549,8 @@
 			<properties>
 				<property>
 					<name>dataType</name>
-					<value>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;DataType&quot;,&quot;selected&quot;:false}]</value>
+					<value
+					>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;DataType&quot;,&quot;selected&quot;:false}]</value>
 					<type>undefined</type>
 				</property>
 				<property>

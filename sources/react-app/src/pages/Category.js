@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, useEffect } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import RecentPostsAside from '../shared/RecentPostsAside';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
@@ -25,7 +25,6 @@ import CategoryCard from '../shared/CategoryCard';
 import { parseDescriptor } from '@craftercms/content';
 import { createTaxonomyFilter } from '../shared/utils';
 import CircularProgressSpinner from '../shared/CircularProgressSpinner';
-import { SidebarBiosWithICE } from '../shared/SidebarBios';
 import { Field } from '@craftercms/studio-guest';
 import Paginate from '../shared/Paginate';
 
@@ -38,7 +37,7 @@ function CategoryContent({ resource, isTag, categoryId }) {
 
   let category;
   const [paginationData, setPaginationData] = useState({
-    itemsPerPage: 10,
+    itemsPerPage: 8,
     currentPage: 0
   });
 
@@ -115,7 +114,6 @@ function CategoryContent({ resource, isTag, categoryId }) {
 export default function (props) {
   const {
     match,
-    model,
     meta: {
       siteTitle,
       socialLinks
@@ -123,8 +121,13 @@ export default function (props) {
   } = props;
 
   const isTag = match.path === '/tag/:id?';
-  const categoryId = match.params.id;
+  const [categoryId, setCategoryId] = useState();
   let resource = useTaxonomiesResource();
+
+
+  useEffect(() => {
+    setCategoryId(match.params.id);
+  }, [match.params, match.path]);
 
   return (
     <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
@@ -137,8 +140,6 @@ export default function (props) {
             <div className="col-md-12 col-lg-4 sidebar">
 
               <SidebarSearch />
-
-              <SidebarBiosWithICE model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 
