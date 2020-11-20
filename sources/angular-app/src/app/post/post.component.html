@@ -1,0 +1,91 @@
+<section class="site-section py-lg">
+  <div class="container">
+    <div class="row blog-entries element-animate-disabled">
+
+      <div class="col-md-12 col-lg-8 main-content">
+        <img class="img-fluid mb-5" src="{{mainImage_s}}">
+        <div class="post-meta">
+          <span class="author mr-2">
+            <img class="mr-2" src={{profilePic_s}} />
+            {{name_s}}
+          </span>
+          • <span class="mr-2">{{dateCreated}}</span>
+          • <span class="ml-2">
+              <span class="fa fa-comments"></span>
+                <app-comments-count *ngIf="websiteShortname" [id]="postId" [websiteShortname]="websiteShortname"></app-comments-count>
+              </span>
+        </div>
+        <h1>{{headline_s}}</h1>
+        <a class="category mb-5" *ngFor="let category of categories_o" href="/category/{{category.key}}">
+          {{category.value_smv}}
+        </a>
+
+        <div class="post-content-body">
+          <app-content-type *ngFor="let component of content_o" [model]="component"></app-content-type>
+        </div>
+
+        <div class="pt-5">
+          <div *ngIf="categories_o">
+            Categories:
+            <a *ngFor="let category of categories_o; let i=index" href="/category/{{category.key}}">
+              {{category.value_smv}}{{ i < categories_o.length - 1 ? ',' : '' }}
+            </a>
+          </div>
+          <div *ngIf="tags_o">
+            Tags:
+            <a *ngFor="let tag of tags_o; let i=index" href="/tag/{{tag.key}}">
+              #{{tag.value_smv}}{{ i < tags_o.length - 1 ? ',' : '' }}
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <app-comments *ngIf="websiteShortname" [id]="postId" [websiteShortname]="websiteShortname"></app-comments>
+        </div>
+      </div>
+
+      <div class="col-md-12 col-lg-4 sidebar">
+
+        <app-sidebar-search></app-sidebar-search>
+
+        <app-sidebar-bios [bios]="bios_o"></app-sidebar-bios>
+
+        <app-recent-posts-aside></app-recent-posts-aside>
+
+        <app-sidebar-categories></app-sidebar-categories>
+
+        <app-sidebar-tags></app-sidebar-tags>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="mb-3">Related Post</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let post of posts_o;" class="col-md-6 col-lg-4">
+        <app-post-card
+          [classes]="{ root: 'sm height-md' }" [format]="'imageBackground'" [model]="post"
+        ></app-post-card>
+      </div>
+    </div>
+    <div *ngIf="paginationData.pageCount > 1" class="row mt-5">
+      <div class="col-md-12 text-center">
+        <nav aria-label="Page navigation" class="text-center">
+          <app-pagination
+            [currentPage]="paginationData.currentPage"
+            [itemsPerPage]="paginationData.itemsPerPage"
+            [pageCount]="paginationData.pageCount"
+            [onPageChange]="onPageChange.bind(this)"
+          ></app-pagination>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>

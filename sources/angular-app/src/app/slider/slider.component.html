@@ -1,0 +1,11 @@
+<div class="owl-carousel owl-theme home-slider">
+  <app-post-card
+    *ngFor="let post of posts_o;"
+    [tags]="'food'"
+    [model]="post"
+    [showBlurb]="true"
+    [format]="format"
+    [classes]="{root: 'height-lg', innerWrapper: 'half-to-full' }"
+  >
+  </app-post-card>
+</div>

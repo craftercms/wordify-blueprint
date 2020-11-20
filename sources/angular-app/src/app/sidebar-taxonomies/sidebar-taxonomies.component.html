@@ -1,0 +1,10 @@
+<div *ngIf="filteredTaxonomies" class="sidebar-box">
+  <h3 class="heading">
+    {{title}}
+  </h3>
+  <ul class="{{listClass}} clearfix">
+    <li *ngFor="let taxonomy of filteredTaxonomies">
+      <a routerLink="{{baseUrl}}/{{taxonomy.key}}">{{taxonomy.value}}</a>
+    </li>
+  </ul>
+</div>

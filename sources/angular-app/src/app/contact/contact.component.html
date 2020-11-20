@@ -1,0 +1,93 @@
+<section class="site-section">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <h1>Contact Me</h1>
+      </div>
+    </div>
+    <div class="row blog-entries">
+      <div class="col-md-12 col-lg-8 main-content">
+
+        <form (ngSubmit)="handleSubmit()">
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <label htmlFor="name">Name</label>
+              <input
+                class="form-control "
+                id="name"
+                name="name"
+                type="text"
+                [(ngModel)]="formData.name"/>
+            </div>
+            <div class="col-md-12 form-group">
+              <label htmlFor="phone">Phone</label>
+              <input
+                class="form-control "
+                id="phone"
+                name="phone"
+                type="text"
+                [(ngModel)]="formData.phone"
+              />
+            </div>
+            <div class="col-md-12 form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                class="form-control "
+                id="email"
+                name="email"
+                type="email"
+                [(ngModel)]="formData.email"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <label htmlFor="message">Write Message</label>
+              <textarea
+                class="form-control "
+                cols="30"
+                id="message"
+                name="message"
+                rows="8"
+                [(ngModel)]="formData.message"
+              ></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input class="btn btn-primary" type="submit" value="Send Message" />
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="col-md-12 col-lg-4 sidebar">
+        <div class="sidebar-box search-form-wrap">
+          <form action="#" class="search-form">
+            <div class="form-group">
+              <span class="icon fa fa-search"></span>
+              <input
+                class="form-control" id="s" placeholder="Type a keyword and hit enter" type="text"
+              />
+            </div>
+          </form>
+        </div>
+
+        <app-recent-posts-aside></app-recent-posts-aside>
+
+        <app-sidebar-categories></app-sidebar-categories>
+
+        <app-sidebar-tags></app-sidebar-tags>
+
+      </div>
+
+    </div>
+  </div>
+
+  <app-toast
+    [display]="toastData.display"
+    [type]="toastData.type"
+    [text]="toastData.text"
+  ></app-toast>
+</section>
