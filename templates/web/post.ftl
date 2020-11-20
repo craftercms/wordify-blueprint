@@ -82,15 +82,8 @@
               </div>
               <!-- END sidebar-box -->
 
-              <@studio.tag $model=postModel $field="authorBio_o">
-                <#if postModel.authorBio_o?? && postModel.authorBio_o.item??>
-                    <#list postModel.authorBio_o.item as component>
-                      <div class="sidebar-box">
-                          <@renderComponent component=component />
-                      </div>
-                    </#list>
-                </#if>
-              </@studio.tag>
+              <@studio.renderComponentCollection $field="authorBio_o" $model=postModel />
+
               <!-- END sidebar-box -->
               <div class="sidebar-box">
                   <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
