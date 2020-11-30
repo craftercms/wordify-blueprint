@@ -1,2 +1,0 @@
-(this["webpackJsonpwordify-craftercms-react-app"]=this["webpackJsonpwordify-craftercms-react-app"]||[]).push([[13],{209:function(e,t,a){"use strict";a.r(t);var r=a(0),c=a.n(r),s=a(94);t.default=function(e){var t=e.model;return c.a.createElement(s.d,{model:t},c.a.createElement(s.e,{component:"img",model:t,fieldId:"image_s,alternativeText_s",target:"src,alt",className:"img-fluid"}))}}}]);
-//# sourceMappingURL=13.70e6fe5d.chunk.js.map
