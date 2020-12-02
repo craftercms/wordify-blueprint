@@ -19,8 +19,9 @@ import { Link, NavLink } from 'react-router-dom';
 import { useNavigation } from '../shared/hooks';
 import SearchForm from '../shared/SearchForm';
 import { useGlobalContext } from '../shared/context';
+import { RenderField } from '@craftercms/studio-guest';
 
-export default function Header({ siteTitle, socialLinks }) {
+export default function Header({ model }) {
   const nav = useNavigation();
 
   const [{ $ }] = useGlobalContext();
@@ -33,15 +34,24 @@ export default function Header({ siteTitle, socialLinks }) {
       <div className="top-bar">
         <div className="container">
           <div className="row">
-            <div className="col-9 social">
-              {
-                socialLinks?.map((link) =>
-                  <a key={link.socialNetwork_s} href={link.url_s} target="_blank" rel="noopener noreferrer">
-                    <span className={'fa fa-' + link.socialNetwork_s} />
-                  </a>
-                )
-              }
-            </div>
+            <RenderField
+              className="col-9 social"
+              model={model}
+              fieldId="socialLinks_o"
+              format={(socialLinks) => socialLinks?.map((link, index) =>
+                <RenderField
+                  model={model}
+                  fieldId="socialLinks_o"
+                  index={index}
+                  component="a"
+                  key={link.socialNetwork_s}
+                  href={link.url_s}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  format={(item) => <span className={`fa fa-${item.socialNetwork_s}`} />}
+                />
+              )}
+            />
             <div className="col-3 search-top">
               <SearchForm
                 classes={{ form: 'search-top-form' }}
@@ -62,8 +72,10 @@ export default function Header({ siteTitle, socialLinks }) {
               role="button"
               aria-expanded="false"
               aria-controls="navbarMenu"
-            ><span className="burger-lines"></span></a>
-            <h1 className="site-logo"><Link to="/">{ siteTitle }</Link></h1>
+            ><span className="burger-lines"/></a>
+            <h1 className="site-logo">
+              <RenderField model={model} fieldId="siteTitle_s" component={Link} to="/" />
+            </h1>
           </div>
         </div>
       </div>

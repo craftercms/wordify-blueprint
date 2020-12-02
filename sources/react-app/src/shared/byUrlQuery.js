@@ -90,7 +90,6 @@ graphql`
   fragment byUrlQueryCategoryPage on page_category {
     pageTitle_s
     pageDescription_s
-
   }
 `;
 
@@ -277,6 +276,7 @@ const byUrlQuery = graphql`
     }
     levelDescriptors: component_level__descriptor {
       items {
+        ...byUrlQueryContentItemFields
         siteTitle_s
         file__name
         websiteShortname_s

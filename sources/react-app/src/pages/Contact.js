@@ -48,8 +48,7 @@ export default function (props) {
   const {
     model,
     meta: {
-      siteTitle,
-      socialLinks
+      levelDescriptor
     }
   } = props;
 
@@ -96,7 +95,7 @@ export default function (props) {
   }
 
   return (
-    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
+    <BaseLayout model={levelDescriptor}>
       <section className="site-section">
         <div className="container">
           <div className="row mb-4">
@@ -168,7 +167,6 @@ export default function (props) {
                 </div>
               </form>
 
-
             </div>
 
             <div className="col-md-12 col-lg-4 sidebar">
@@ -192,7 +190,6 @@ export default function (props) {
           </div>
         </div>
       </section>
-
       <Toast
         display={toastData.display}
         type={toastData.type}

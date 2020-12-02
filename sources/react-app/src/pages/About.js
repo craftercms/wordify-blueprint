@@ -31,19 +31,16 @@ export default function (props) {
   const {
     model,
     meta: {
-      siteTitle,
-      socialLinks
+      levelDescriptor
     }
   } = props;
   const [paginationData, setPaginationData] = useState({
     itemsPerPage: 10,
     currentPage: 0
   });
-
   const posts = usePosts(paginationData);
-
   return (
-    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
+    <BaseLayout model={levelDescriptor}>
       <section className="site-section pt-5">
         <div className="container">
           <div className="row blog-entries">

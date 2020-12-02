@@ -23,8 +23,9 @@ import { parseDescriptor } from '@craftercms/content';
 import { reportNavigation } from '@craftercms/ice';
 import { parse } from 'query-string';
 import { isAuthoring } from './utils';
-import { Guest, ContentType } from '@craftercms/studio-guest';
+import { ContentType, Guest } from '@craftercms/studio-guest';
 import contentTypeMap from './contentTypeMap';
+import NotFound from '../pages/NotFound';
 
 const limit = 8;
 
@@ -32,7 +33,7 @@ export default function DynamicRoute(props) {
   const { match, location } = props;
   const [state, setState] = useState(null);
   let url = match.path.includes(':')
-    ? match.path.substring(0, match.path.indexOf(':') -1)
+    ? match.path.substring(0, match.path.indexOf(':') - 1)
     : match.url;
 
   useEffect(() => {
@@ -51,15 +52,16 @@ export default function DynamicRoute(props) {
     ).then(({ data }) => {
       if (!destroyed) {
         const model = parseDescriptor(data.content.items?.[0]);
-        const levelDescriptor = data.levelDescriptors.items
-          .filter(levelDescriptor => levelDescriptor.file__name === 'crafter-level-descriptor.level.xml')
-          .map(levelDescriptor => levelDescriptor)[0];
+        const levelDescriptor = parseDescriptor(
+          data.levelDescriptors.items
+            .filter(levelDescriptor => levelDescriptor.file__name === 'crafter-level-descriptor.level.xml')
+            .pop()
+        );
 
         setState({
           model,
           meta: {
-            siteTitle: levelDescriptor.siteTitle_s,
-            socialLinks: levelDescriptor.socialLinks_o.item,
+            levelDescriptor,
             disqus: {
               websiteShortname: levelDescriptor.websiteShortname_s
             },
@@ -96,7 +98,12 @@ export default function DynamicRoute(props) {
         isAuthoring={isAuthoring()}
         path={state.model?.craftercms.path}
       >
-        <ContentType {...state} {...props} contentTypeMap={contentTypeMap} />
+        <ContentType
+          {...state}
+          {...props}
+          contentTypeMap={contentTypeMap}
+          notFoundComponent={NotFound}
+        />
       </Guest>
     );
   }

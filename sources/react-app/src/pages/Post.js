@@ -32,8 +32,7 @@ export default function (props) {
   const {
     model,
     meta: {
-      siteTitle,
-      socialLinks,
+      levelDescriptor,
       disqus: {
         websiteShortname
       }
@@ -48,7 +47,7 @@ export default function (props) {
   const related = usePosts(paginationData, model.categories_o, model.tags_o, model.craftercms.path);
 
   return (
-    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
+    <BaseLayout model={levelDescriptor}>
       <section className="site-section py-lg">
         <div className="container">
           <div className="row blog-entries element-animate-disabled">
@@ -58,7 +57,7 @@ export default function (props) {
                 component="img"
                 model={model}
                 fieldId="mainImage_s"
-                target="src"
+                renderTarget="src"
                 alt=""
                 className="img-fluid mb-5"
               />

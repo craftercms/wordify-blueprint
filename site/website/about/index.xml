@@ -1,102 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
-  <content-type>/page/about</content-type>
-  <display-template>/templates/web/about.ftl</display-template>
-  <no-template-required />
-  <merge-strategy>inherit-levels</merge-strategy>
-  <objectGroupId>1ddb</objectGroupId>
-  <objectId>1ddb9b92-5968-bcfd-7ebe-85b54596eb00</objectId>
-  <file-name>index.xml</file-name>
-  <folder-name>about</folder-name>
-  <internal-name>About</internal-name>
-  <navLabel>About</navLabel>
-  <placeInNav>true</placeInNav>
-  <orderDefault_f>3000</orderDefault_f>
-  <createdDate>2020-03-21T11:22:32.098Z</createdDate>
-  <createdDate_dt>2020-03-21T11:22:32.098Z</createdDate_dt>
+	<content-type>/page/about</content-type>
+	<display-template>/templates/web/about.ftl</display-template>
+	<no-template-required/>
+	<merge-strategy>inherit-levels</merge-strategy>
+	<objectGroupId>1ddb</objectGroupId>
+	<objectId>1ddb9b92-5968-bcfd-7ebe-85b54596eb00</objectId>
+	<file-name>index.xml</file-name>
+	<folder-name>about</folder-name>
+	<internal-name>About</internal-name>
+	<navLabel>About</navLabel>
+	<placeInNav>true</placeInNav>
+	<orderDefault_f>3000</orderDefault_f>
+	<createdDate>2020-03-21T11:22:32.098Z</createdDate>
+	<createdDate_dt>2020-03-21T11:22:32.098Z</createdDate_dt>
   <lastModifiedDate>2020-11-11T18:06:10.920Z</lastModifiedDate>
   <lastModifiedDate_dt>2020-11-11T18:06:10.920Z</lastModifiedDate_dt>
-  <bios_o item-list="true">
-    <item>
-      <key>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
-      <value>John Doe's Bio</value>
-      <include>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
-      <disableFlattening>false</disableFlattening>
-    </item>
-    <item>
-      <key>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
-      <value>Jane Doe's Bio</value>
-      <include>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
-      <disableFlattening>false</disableFlattening>
-    </item>
-  </bios_o>
-  <pageTitle_s>Wordify - About The Author</pageTitle_s>
-  <pageDescription_s />
-  <headline_s>Hi There! I'm John Doe</headline_s>
-  <content_o item-list="true">
-    <item datasource="image" inline="true">
-      <key>8cb817ea-ad49-f1e1-1d3e-743b63a97bd6</key>
-      <value>About Hero Image</value>
-      <component id="8cb817ea-ad49-f1e1-1d3e-743b63a97bd6">
-        <content-type>/component/image</content-type>
-        <display-template>/templates/web/components/image.ftl</display-template>
-        <no-template-required />
-        <merge-strategy>inherit-levels</merge-strategy>
-        <objectGroupId>8cb8</objectGroupId>
-        <objectId>8cb817ea-ad49-f1e1-1d3e-743b63a97bd6</objectId>
-        <internal-name>About Hero Image</internal-name>
-        <alternativeText_s />
-        <image_s>/static-assets/images/img_6.jpg</image_s>
-        <file-name>8cb817ea-ad49-f1e1-1d3e-743b63a97bd6.xml</file-name>
-        <createdDate>2020-03-23T08:08:06.244Z</createdDate>
-        <createdDate_dt>2020-03-23T08:08:06.244Z</createdDate_dt>
+	<bios_o item-list="true">
+		<item>
+			<key>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
+			<value>John Doe's Bio</value>
+			<include>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
+			<disableFlattening>false</disableFlattening>
+		</item>
+		<item>
+			<key>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
+			<value>Jane Doe's Bio</value>
+			<include>/site/components/bio/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
+			<disableFlattening>false</disableFlattening>
+		</item>
+	</bios_o>
+	<pageTitle_s>Wordify - About The Author</pageTitle_s>
+	<pageDescription_s/>
+	<headline_s>Hi There! I'm John Doe</headline_s>
+	<content_o item-list="true">
+		<item datasource="image" inline="true">
+			<key>8cb817ea-ad49-f1e1-1d3e-743b63a97bd6</key>
+			<value>About Hero Image</value>
+			<component id="8cb817ea-ad49-f1e1-1d3e-743b63a97bd6">
+				<content-type>/component/image</content-type>
+				<display-template>/templates/web/components/image.ftl</display-template>
+				<no-template-required/>
+				<merge-strategy>inherit-levels</merge-strategy>
+				<objectGroupId>8cb8</objectGroupId>
+				<objectId>8cb817ea-ad49-f1e1-1d3e-743b63a97bd6</objectId>
+				<internal-name>About Hero Image</internal-name>
+				<alternativeText_s>Guy walking at the beach with surf board</alternativeText_s>
+				<image_s>/static-assets/images/img_6.jpg</image_s>
+				<file-name>8cb817ea-ad49-f1e1-1d3e-743b63a97bd6.xml</file-name>
+				<createdDate>2020-03-23T08:08:06.244Z</createdDate>
+				<createdDate_dt>2020-03-23T08:08:06.244Z</createdDate_dt>
         <lastModifiedDate>2020-03-23T08:08:06.244Z</lastModifiedDate>
         <lastModifiedDate_dt>2020-03-23T08:08:06.244Z</lastModifiedDate_dt>
-      </component>
-    </item>
-    <item datasource="richText" inline="true">
-      <key>ff3b8109-876f-fbd7-d289-a596f8f28a4e</key>
-      <value>About Copy</value>
-      <component id="ff3b8109-876f-fbd7-d289-a596f8f28a4e">
-        <content-type>/component/rich_text</content-type>
-        <display-template>/templates/web/components/rich_text.ftl</display-template>
-        <no-template-required />
-        <merge-strategy>inherit-levels</merge-strategy>
-        <objectGroupId>ff3b</objectGroupId>
-        <objectId>ff3b8109-876f-fbd7-d289-a596f8f28a4e</objectId>
-        <file-name>ff3b8109-876f-fbd7-d289-a596f8f28a4e.xml</file-name>
-        <internal-name>About Copy</internal-name>
-        <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
-          minima eveniet recusandae
-          suscipit eum laboriosam fugit amet deleniti iste et. Ad dolores, necessitatibus non saepe
-          tenetur impedit
-          commodi quibusdam natus repellat, exercitationem accusantium perferendis officiis.
-          Laboriosam impedit quia
-          minus pariatur!&lt;/p&gt;
-          &lt;p&gt;Dignissimos iste consectetur, nemo magnam nulla suscipit eius quibusdam, quo
-          aperiam quia quae est
-          explicabo nostrum ab aliquid vitae obcaecati tenetur beatae animi fugiat officia id ipsam
-          sint? Obcaecati ea
-          nisi fugit assumenda error totam molestiae saepe fugiat officiis quam?&lt;/p&gt;
-          &lt;p&gt;Culpa porro quod doloribus dolore sint. Distinctio facilis ullam voluptas nemo
-          voluptatum saepe
-          repudiandae adipisci officiis, explicabo eaque itaque sed necessitatibus, fuga, ea eius et
-          aliquam dignissimos
-          repellendus impedit pariatur voluptates. Dicta perferendis assumenda, nihil placeat, illum
-          quibusdam. Vel,
-          incidunt?&lt;/p&gt;
-          &lt;p&gt;Dolorum blanditiis illum quo quaerat, possimus praesentium perferendis! Quod
-          autem optio nobis,
-          placeat officiis dolorem praesentium odit. Vel, cum, a. Adipisci eligendi eaque laudantium
-          dicta tenetur quod,
-          pariatur sunt sed natus officia fuga accusamus reprehenderit ratione, provident possimus
-          ut voluptatum.&lt;/p&gt;
-        </content_html>
-        <createdDate>2020-03-23T08:07:28.756Z</createdDate>
-        <createdDate_dt>2020-03-23T08:07:28.756Z</createdDate_dt>
-        <lastModifiedDate>2020-03-23T08:07:28.756Z</lastModifiedDate>
-        <lastModifiedDate_dt>2020-03-23T08:07:28.756Z</lastModifiedDate_dt>
-      </component>
-    </item>
-  </content_o>
+			</component>
+		</item>
+		<item datasource="richText" inline="true">
+			<key>ff3b8109-876f-fbd7-d289-a596f8f28a4e</key>
+			<value>About Copy</value>
+			<component id="ff3b8109-876f-fbd7-d289-a596f8f28a4e">
+				<content-type>/component/rich_text</content-type>
+				<display-template>/templates/web/components/rich_text.ftl</display-template>
+				<no-template-required/>
+				<merge-strategy>inherit-levels</merge-strategy>
+				<objectGroupId>ff3b</objectGroupId>
+				<objectId>ff3b8109-876f-fbd7-d289-a596f8f28a4e</objectId>
+				<file-name>ff3b8109-876f-fbd7-d289-a596f8f28a4e.xml</file-name>
+				<internal-name>About Copy</internal-name>
+				<content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
+					minima eveniet recusandae
+					suscipit eum laboriosam fugit amet deleniti iste et. Ad dolores, necessitatibus non saepe
+					tenetur impedit
+					commodi quibusdam natus repellat, exercitationem accusantium perferendis officiis.
+					Laboriosam impedit quia
+					minus pariatur!&lt;/p&gt;
+					&lt;p&gt;Dignissimos iste consectetur, nemo magnam nulla suscipit eius quibusdam, quo
+					aperiam quia quae est
+					explicabo nostrum ab aliquid vitae obcaecati tenetur beatae animi fugiat officia id ipsam
+					sint? Obcaecati ea
+					nisi fugit assumenda error totam molestiae saepe fugiat officiis quam?&lt;/p&gt;
+					&lt;p&gt;Culpa porro quod doloribus dolore sint. Distinctio facilis ullam voluptas nemo
+					voluptatum saepe
+					repudiandae adipisci officiis, explicabo eaque itaque sed necessitatibus, fuga, ea eius et
+					aliquam dignissimos
+					repellendus impedit pariatur voluptates. Dicta perferendis assumenda, nihil placeat, illum
+					quibusdam. Vel,
+					incidunt?&lt;/p&gt;
+					&lt;p&gt;Dolorum blanditiis illum quo quaerat, possimus praesentium perferendis! Quod
+					autem optio nobis,
+					placeat officiis dolorem praesentium odit. Vel, cum, a. Adipisci eligendi eaque laudantium
+					dicta tenetur quod,
+					pariatur sunt sed natus officia fuga accusamus reprehenderit ratione, provident possimus
+					ut voluptatum.&lt;/p&gt;
+				</content_html>
+				<createdDate>2020-03-23T08:07:28.756Z</createdDate>
+				<createdDate_dt>2020-03-23T08:07:28.756Z</createdDate_dt>
+				<lastModifiedDate>2020-03-23T08:07:28.756Z</lastModifiedDate>
+				<lastModifiedDate_dt>2020-03-23T08:07:28.756Z</lastModifiedDate_dt>
+			</component>
+		</item>
+	</content_o>
 </page>

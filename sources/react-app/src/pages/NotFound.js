@@ -17,9 +17,9 @@
 import React from 'react';
 import BaseLayout from '../shared/BaseLayout';
 
-export default function NotFound() {
+export default function NotFound({ meta: { levelDescriptor } }) {
   return (
-    <BaseLayout>
+    <BaseLayout model={levelDescriptor}>
       <section style={{ textAlign: 'center', padding: '50px 0' }}>
         <h1>Not Found</h1>
         <p>The page you're looking for does not exist.</p>

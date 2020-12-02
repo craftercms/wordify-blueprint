@@ -19,9 +19,8 @@ import { Link } from 'react-router-dom';
 import { useFooter } from '../shared/hooks';
 import { Field, RenderField } from '@craftercms/studio-guest';
 
-export default function Footer({ socialLinks }) {
+export default function Footer({ model }) {
   const footer = useFooter();
-
   return (
     <>
       {
@@ -38,59 +37,75 @@ export default function Footer({ socialLinks }) {
                   <RenderField
                     component="img"
                     model={footer}
-                    target="src"
+                    renderTarget="src"
                     fieldId="aboutImage_s"
                     alt=""
                     className="img-fluid"
                   />
                 </p>
-
                 <RenderField component="p" model={footer} fieldId="about_t" />
               </div>
               <div className="col-md-6 ml-auto">
                 <div className="row">
                   <div className="col-md-6">
                     <RenderField component="h3" model={footer} fieldId="quickLinksTitle_s" />
-                    <Field
+                    <RenderField
                       component="ul"
+                      className="list-unstyled"
                       model={footer}
-                      className='list-unstyled'
                       fieldId="quickLinks_o"
-                    >
-                      {
-                        footer?.quickLinks_o.map((link, i) =>
-                          <li key={i}>
-                            <Link to={link.url_s}>{link.label_s}</Link>
-                          </li>
-                        )
-                      }
-                    </Field>
+                      format={(quickLinks_o) => quickLinks_o.map((link, i) =>
+                        <Field
+                          key={i}
+                          component="li"
+                          model={footer}
+                          fieldId="quickLinks_o"
+                          index={i}
+                        >
+                          <RenderField
+                            component={Link}
+                            model={footer}
+                            fieldId="quickLinks_o.label_s,quickLinks_o.url_s"
+                            index={i}
+                            renderTarget="children,to"
+                          />
+                        </Field>
+                      )}
+                    />
                   </div>
-                  <div className="col-md-1"></div>
-
+                  <div className="col-md-1"/>
                   <div className="col-md-5">
-
                     <div className="mb-5">
                       <RenderField component="h3" model={footer} fieldId="socialLinksTitle_s" />
-                      <ul className="list-unstyled footer-social">
-                        {
-                          socialLinks?.map((link) =>
-                            <li key={link.socialNetwork_s}>
-                              <a href={link.url_s} target="_blank" rel="noopener noreferrer">
-                                <span className={'fa fa-' + link.socialNetwork_s}></span>
-                                {link.label_s}
-                              </a>
-                            </li>
-                          )
-                        }
-                      </ul>
+                      <RenderField
+                        component="ul"
+                        className="list-unstyled footer-social"
+                        model={model}
+                        fieldId="socialLinks_o"
+                        format={(socialLinks) => socialLinks?.map((link, index) =>
+                          <Field
+                            key={link.socialNetwork_s}
+                            component="li"
+                            model={model}
+                            fieldId="socialLinks_o"
+                            index={index}
+                          >
+                            <a href={link.url_s} target="_blank" rel="noopener noreferrer">
+                              <span className={`fa fa-${link.socialNetwork_s}`}/> {link.label_s}
+                            </a>
+                          </Field>
+                        )}
+                      />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="row">
-              <div className="col-md-12 text-center" dangerouslySetInnerHTML={{ __html: footer.copyright_html_raw }}/>
+              <div
+                className="col-md-12 text-center"
+                dangerouslySetInnerHTML={{ __html: footer.copyright_html_raw }}
+              />
             </div>
           </div>
         </Field>

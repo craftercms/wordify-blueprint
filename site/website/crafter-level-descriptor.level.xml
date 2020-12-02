@@ -12,10 +12,9 @@
 	<createdDate_dt>2017-10-9T16:52:48.000Z</createdDate_dt>
 	<lastModifiedDate>2020-03-22T08:45:19.119Z</lastModifiedDate>
 	<lastModifiedDate_dt>2020-03-22T08:45:19.119Z</lastModifiedDate_dt>
-	<siteName_s>Wordify</siteName_s>
 	<siteTitle_s>Wordify Crafter CMS</siteTitle_s>
 	<pageDescription_s/>
-	<websiteShortname_s />
+	<websiteShortname_s/>
 	<socialLinks_o item-list="true">
 		<item>
 			<url_s>https://twitter.com</url_s>
@@ -60,8 +59,7 @@
 		<item datasource="sidebarTaxonomies">
 			<key>/site/components/sidebar_taxonomies/33ad68a4-d555-745b-2884-bc51aa310f85.xml</key>
 			<value>Sidebar Categories</value>
-			<include>/site/components/sidebar_taxonomies/33ad68a4-d555-745b-2884-bc51aa310f85.xml
-			</include>
+			<include>/site/components/sidebar_taxonomies/33ad68a4-d555-745b-2884-bc51aa310f85.xml</include>
 			<disableFlattening>false</disableFlattening>
 		</item>
 	</sidebarCategories_o>
@@ -69,8 +67,7 @@
 		<item datasource="sidebarTaxonomies">
 			<key>/site/components/sidebar_taxonomies/a515952f-99c8-7a5c-e3c3-628f3b512731.xml</key>
 			<value>Sidebar Tags</value>
-			<include>/site/components/sidebar_taxonomies/a515952f-99c8-7a5c-e3c3-628f3b512731.xml
-			</include>
+			<include>/site/components/sidebar_taxonomies/a515952f-99c8-7a5c-e3c3-628f3b512731.xml</include>
 			<disableFlattening>false</disableFlattening>
 		</item>
 	</sidebarTags_o>

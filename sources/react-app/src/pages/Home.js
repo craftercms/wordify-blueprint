@@ -34,8 +34,7 @@ export default function (props) {
       slider_o
     },
     meta: {
-      siteTitle,
-      socialLinks
+      levelDescriptor
     }
   } = props;
   const [paginationData, setPaginationData] = useState({
@@ -45,7 +44,7 @@ export default function (props) {
   const posts = usePosts(paginationData);
 
   return (
-    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
+    <BaseLayout model={levelDescriptor}>
       <section className="site-section pt-5 pb-5">
         <div className="container">
           <div className="row">

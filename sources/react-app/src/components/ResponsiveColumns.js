@@ -15,13 +15,13 @@
  */
 
 import React from 'react';
-import { ContentType, Field, Model, RenderField } from '@craftercms/studio-guest';
+import { ContentType, Field, RenderField } from '@craftercms/studio-guest';
 import contentTypeMap from '../shared/contentTypeMap';
 
 export default function (props) {
   const { model } = props;
   return (
-    <Model model={model}>
+    <Field model={model}>
       <RenderField
         model={model}
         fieldId="columns_o"
@@ -54,6 +54,6 @@ export default function (props) {
           </Field>
         )}
       />
-    </Model>
+    </Field>
   );
 }

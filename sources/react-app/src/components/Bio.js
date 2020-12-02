@@ -33,7 +33,7 @@ export default function (props) {
     <Field className="bio text-center" model={model}>
       <RenderField
         component="img"
-        target="src"
+        renderTarget="src"
         model={model}
         fieldId="profilePic_s"
         className="img-fluid"
@@ -49,7 +49,7 @@ export default function (props) {
               component="a"
               model={model}
               fieldId="linkButtonText_s,linkButtonUrl_s"
-              target="children,href"
+              renderTarget="children,href"
               className="btn btn-primary btn-sm rounded bio-link"
             />
           </p>
