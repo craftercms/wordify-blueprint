@@ -83,17 +83,18 @@ export default function Footer({ model }) {
                         model={model}
                         fieldId="socialLinks_o"
                         format={(socialLinks) => socialLinks?.map((link, index) =>
-                          <Field
-                            key={link.socialNetwork_s}
+                          <RenderField
                             component="li"
+                            key={link.socialNetwork_s}
                             model={model}
                             fieldId="socialLinks_o"
                             index={index}
-                          >
-                            <a href={link.url_s} target="_blank" rel="noopener noreferrer">
-                              <span className={`fa fa-${link.socialNetwork_s}`}/> {link.label_s}
-                            </a>
-                          </Field>
+                            format={(link) =>
+                              <a href={link.url_s} target="_blank" rel="noopener noreferrer">
+                                <span className={`fa fa-${link.socialNetwork_s}`}/> {link.label_s}
+                              </a>
+                            }
+                          />
                         )}
                       />
                     </div>

@@ -23,7 +23,6 @@ import { RenderField } from '@craftercms/studio-guest';
 
 export default function Header({ model }) {
   const nav = useNavigation();
-
   const [{ $ }] = useGlobalContext();
   const toggleNavBar = (e) => {
     e.preventDefault();
@@ -40,15 +39,15 @@ export default function Header({ model }) {
               fieldId="socialLinks_o"
               format={(socialLinks) => socialLinks?.map((link, index) =>
                 <RenderField
+                  component="a"
+                  key={`${link.socialNetwork_s}_${index}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={link.url_s}
                   model={model}
                   fieldId="socialLinks_o"
                   index={index}
-                  component="a"
-                  key={link.socialNetwork_s}
-                  href={link.url_s}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  format={(item) => <span className={`fa fa-${item.socialNetwork_s}`} />}
+                  format={(link) => <span className={`fa fa-${link.socialNetwork_s}`} />}
                 />
               )}
             />
