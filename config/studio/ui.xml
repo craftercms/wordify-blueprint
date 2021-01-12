@@ -341,4 +341,43 @@
 			</widgets>
 		</configuration>
 	</widget>
+  <widget id="craftercms.components.GlobalNavSiteLinks">
+    <configuration>
+			<title id="words.site" defaultMessage="Site"/>
+      <widgets>
+        <widget id="craftercms.components.GlobalNavLinkTile">
+          <configuration>
+            <title id="words.dashboard" defaultMessage="Dashboard"/>
+            <systemLinkId>siteDashboard</systemLinkId>
+            <icon id="@material-ui/icons/DashboardRounded"/>
+          </configuration>
+        </widget>
+        <widget id="craftercms.components.GlobalNavLinkTile">
+          <configuration>
+            <title id="words.preview" defaultMessage="Preview"/>
+            <systemLinkId>preview</systemLinkId>
+            <icon id="craftercms.icons.Preview"/>
+          </configuration>
+        </widget>
+        <widget id="craftercms.components.GlobalNavLinkTile">
+					<permittedRoles>
+						<role>admin</role>
+						<role>developer</role>
+					</permittedRoles>
+          <configuration>
+            <title id="siteTools.title" defaultMessage="Site Tools"/>
+            <systemLinkId>siteTools</systemLinkId>
+            <icon id="@material-ui/icons/BuildRounded"/>
+          </configuration>
+        </widget>
+        <widget id="craftercms.components.GlobalNavLinkTile">
+          <configuration>
+            <title id="words.search" defaultMessage="Search"/>
+            <systemLinkId>siteSearch</systemLinkId>
+            <icon id="@material-ui/icons/SearchRounded"/>
+          </configuration>
+        </widget>
+      </widgets>
+    </configuration>
+  </widget>
 </siteUi>
