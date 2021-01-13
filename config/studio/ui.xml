@@ -341,7 +341,7 @@
 			</widgets>
 		</configuration>
 	</widget>
-  <widget id="craftercms.components.GlobalNavSiteLinks">
+  <widget id="craftercms.components.GlobalNavSiteSection">
     <configuration>
 			<title id="words.site" defaultMessage="Site"/>
       <widgets>
