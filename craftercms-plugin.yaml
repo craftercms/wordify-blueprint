@@ -15,7 +15,7 @@ plugin:
   version:
     major: 1
     minor: 0
-    patch: 6
+    patch: 7
   description: |
     Wordify template blueprint
   website:
