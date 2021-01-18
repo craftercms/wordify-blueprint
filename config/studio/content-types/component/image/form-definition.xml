@@ -219,7 +219,7 @@
 		<datasource>
 			<type>img-repository-upload</type>
 			<id>repoImage</id>
-			<title>Repo Image</title>
+			<title>Image from CMS</title>
 			<interface>image</interface>
 			<properties>
 				<property>

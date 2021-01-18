@@ -11,30 +11,31 @@ plugin:
   tags:
     - blueprint
     - website
+    - blog
   version:
     major: 1
     minor: 0
-    patch: 5
+    patch: 6
   description: |
     Wordify template blueprint
   website:
     name: Wordify Blueprint
-    url: https://craftercms.org
+    url: https://github.com/craftercms/wordify-blueprint
   media:
     screenshots:
       - title: Homepage
         description: Screenshot of the homepage
         url: /studio/static-assets/images/blueprints/wordify/home.png
-      - title:
+      - title: Category page
         description: Screenshot of the category page
         url: /studio/static-assets/images/blueprints/wordify/category.png
-      - title:
+      - title: Post page
         description: Screenshot of the post page
         url: /studio/static-assets/images/blueprints/wordify/post.png
-      - title:
+      - title: About page
         description: Screenshot of the about page
         url: /studio/static-assets/images/blueprints/wordify/about.png
-      - title:
+      - title: Contact page
         description: Screenshot of the contact page
         url: /studio/static-assets/images/blueprints/wordify/contact.png
   developer:
@@ -49,24 +50,6 @@ plugin:
     name: MIT
     url: https://opensource.org/licenses/MIT
   crafterCmsVersions:
-    - major: 3
-      minor: 1
-      patch: 6
-    - major: 3
-      minor: 1
-      patch: 7
-    - major: 3
-      minor: 1
-      patch: 8
-    - major: 3
-      minor: 1
-      patch: 9
-    - major: 3
-      minor: 1
-      patch: 10
-    - major: 3
-      minor: 1
-      patch: 11
     - major: 3
       minor: 1
       patch: 12
