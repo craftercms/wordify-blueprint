@@ -19,7 +19,7 @@ import contentTypeMap from './contentTypeMap';
 import React from 'react';
 import { usePencil } from './hooks';
 
-export default function (props) {
+function ContentTypeWithPencil(props) {
   const ice = usePencil(props);
   return <ContentType ice={ice} {...props} />;
 }
@@ -59,3 +59,5 @@ export function WrappedContentType(props) {
     </Wrapper>
   );
 }
+
+export default ContentTypeWithPencil;

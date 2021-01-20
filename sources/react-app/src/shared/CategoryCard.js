@@ -17,7 +17,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function (props) {
+function CategoryCard(props) {
   const {
     category,
     isTag
@@ -35,3 +35,5 @@ export default function (props) {
     </Link>
   )
 }
+
+export default CategoryCard;

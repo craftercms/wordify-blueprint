@@ -18,7 +18,7 @@ import React from 'react';
 import ContentType from '../shared/ContentType';
 import DropZone from '../shared/DropZone';
 
-export default function (props) {
+function ResponsiveColumns(props) {
   const {
     ice,
     model,
@@ -52,3 +52,5 @@ export default function (props) {
     </div>
   );
 }
+
+export default ResponsiveColumns;

@@ -16,7 +16,7 @@
 
 import React from 'react';
 
-export default function (props) {
+function Toast(props) {
   const {
     display,
     text,
@@ -40,3 +40,5 @@ export default function (props) {
     </>
   );
 }
+
+export default Toast;

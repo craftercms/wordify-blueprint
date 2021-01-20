@@ -28,7 +28,7 @@ import { useIntl } from 'react-intl';
 import Paginate from '../shared/Paginate';
 import { usePosts } from '../shared/hooks';
 
-export default function (props) {
+function Post(props) {
   const {
     model,
     posts,
@@ -179,3 +179,5 @@ export default function (props) {
     </BaseLayout>
   );
 }
+
+export default Post;

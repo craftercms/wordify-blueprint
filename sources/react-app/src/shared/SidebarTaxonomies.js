@@ -89,10 +89,3 @@ export function SidebarCategories() {
 		/>
 	);
 }
-
-export default {
-	SidebarTaxonomies,
-	SidebarCategories,
-	SidebarTags
-};
-

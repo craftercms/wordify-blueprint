@@ -16,7 +16,7 @@
 
 import { lazy } from 'react';
 
-export default {
+const map = {
   '/page/entry': lazy(() => import('../pages/Home')),
   '/page/about': lazy(() => import('../pages/About')),
   '/page/contact': lazy(() => import('../pages/Contact')),
@@ -31,3 +31,5 @@ export default {
   '/component/slider': lazy(() => import('../components/Slider')),
   '/component/post': lazy(() => import('../pages/Post'))
 };
+
+export default map;

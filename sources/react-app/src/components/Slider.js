@@ -23,7 +23,7 @@ import { crafterConfig } from '../shared/utils';
 
 const D = '{-}'; // divider
 
-export default function (props) {
+function Slider(props) {
 
   const {
     model: {
@@ -32,11 +32,10 @@ export default function (props) {
       }
     }
   } = props;
-  let posts_o = props.model.posts_o;
 
-  // if no posts are set, use recent posts
-  if (posts_o.length === 0) {
-    posts_o = useRecentPosts();
+  let posts_o = useRecentPosts();
+  if (props.model.posts_o.length !== 0) {
+    posts_o = props.model.posts_o;
   }
 
   const [{ $ }] = useGlobalContext();
@@ -128,3 +127,5 @@ export default function (props) {
     </div>
   );
 }
+
+export default Slider;

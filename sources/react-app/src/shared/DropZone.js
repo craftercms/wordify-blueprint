@@ -17,7 +17,7 @@
 import { useDnD } from './hooks';
 import React from 'react';
 
-export default function (props) {
+function DropZone(props) {
   const ice = useDnD(props);
   const { component: Component = 'div' } = props;
   const cleanProps = { ...props };
@@ -26,3 +26,5 @@ export default function (props) {
   delete cleanProps.fieldId;
   return <Component {...ice} {...cleanProps} />;
 }
+
+export default DropZone;

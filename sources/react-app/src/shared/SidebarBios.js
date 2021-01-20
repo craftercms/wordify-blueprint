@@ -19,7 +19,7 @@ import Bio from '../components/Bio';
 import { usePencil } from './hooks';
 import DropZone from './DropZone';
 
-export default function (props) {
+function SidebarBios(props) {
   const { model, fieldId } = props;
   return (
     <DropZone
@@ -45,3 +45,5 @@ function SidebarBio(props) {
     </div>
   );
 }
+
+export default SidebarBios;
