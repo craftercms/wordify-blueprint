@@ -110,7 +110,7 @@ function CategoryContent({ resource, isTag, categoryId }) {
   );
 }
 
-export default function (props) {
+function Category(props) {
   const {
     model,
     match,
@@ -157,3 +157,5 @@ export default function (props) {
     </BaseLayout>
   );
 }
+
+export default Category;

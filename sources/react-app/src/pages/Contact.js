@@ -44,7 +44,7 @@ const initialToastData = {
   text: ''
 }
 
-export default function (props) {
+function Contact(props) {
   const {
     model,
     model: {
@@ -200,3 +200,5 @@ export default function (props) {
     </BaseLayout>
   );
 }
+
+export default Contact;

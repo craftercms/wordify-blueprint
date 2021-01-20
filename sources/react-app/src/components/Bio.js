@@ -16,7 +16,7 @@
 
 import React from 'react';
 
-export default function (props) {
+export default function Bio(props) {
   const {
     ice,
     model: {

@@ -123,7 +123,7 @@ const commonFragments = `
 `
 
 // language=GraphQL
-export default `
+const main = `
   ${commonFragments}
 
   fragment byUrlQueryHomepage on page_entry  {
@@ -310,3 +310,5 @@ export const postsQuery = `
     }
   }
 `;
+
+export default main;

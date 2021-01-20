@@ -16,7 +16,7 @@
 
 import React from 'react';
 
-export default function (props) {
+function Image(props) {
   const {
     ice,
     model: { image_s, alternativeText_s }
@@ -27,3 +27,5 @@ export default function (props) {
     </>
   );
 }
+
+export default Image;

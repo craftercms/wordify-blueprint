@@ -54,7 +54,7 @@ function SearchResults({ resource, paginationData, onPageChange }) {
   );
 }
 
-export default function (props) {
+function Search(props) {
   const {
     model,
     meta: {
@@ -124,3 +124,5 @@ export default function (props) {
     </BaseLayout>
   );
 }
+
+export default Search;

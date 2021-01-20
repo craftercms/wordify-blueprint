@@ -26,7 +26,7 @@ export const
   LANDSCAPE_COMPRESSED = 'landscapeCompressed',
   IMAGE_BACKGROUND = 'imageBackground';
 
-export default function (props) {
+function PostCard(props) {
   const { formatDate } = useIntl();
   const [{ isAuthoring }] = useGlobalContext();
   const {
@@ -164,3 +164,5 @@ export default function (props) {
       );
   }
 }
+
+export default PostCard;

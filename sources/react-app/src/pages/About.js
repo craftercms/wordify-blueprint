@@ -27,7 +27,7 @@ import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import { usePosts } from '../shared/hooks';
 import Paginate from '../shared/Paginate';
 
-export default function (props) {
+function About(props) {
   const {
     model,
     model: {
@@ -58,19 +58,19 @@ export default function (props) {
                 <div className="col-md-12">
                   <h2 className="mb-4">{headline_s}</h2>
                   <DropZone component="div" model={model} fieldId="content_o">
-                  {
-                    content_o?.map(component =>
-                      <WrappedContentType
-                        model={component}
-                        parentModelId={modelPath}
-                        key={component.craftercms.id}
-                        wrapper={{
-                          component: 'div',
-                          className: 'mb-5'
-                        }}
-                      />
-                    )
-                  }
+                    {
+                      content_o?.map(component =>
+                        <WrappedContentType
+                          model={component}
+                          parentModelId={modelPath}
+                          key={component.craftercms.id}
+                          wrapper={{
+                            component: 'div',
+                            className: 'mb-5'
+                          }}
+                        />
+                      )
+                    }
                   </DropZone>
                 </div>
               </div>
@@ -127,4 +127,6 @@ export default function (props) {
     </BaseLayout>
   );
 }
+
+export default About;
 

@@ -3,9 +3,6 @@
 echo "Making sure all deps are met"
 yarn
 
-echo "Compiling relay stuff"
-yarn relay
-
 echo "Running react build"
 react-scripts build
 

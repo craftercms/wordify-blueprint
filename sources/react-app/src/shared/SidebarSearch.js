@@ -25,7 +25,7 @@ const translations = defineMessages({
   }
 });
 
-export default function () {
+function SidebarSearch() {
   const { formatMessage } = useIntl();
   return (
     <div className="sidebar-box search-form-wrap">
@@ -41,3 +41,5 @@ export default function () {
     </div>
   );
 }
+
+export default SidebarSearch;

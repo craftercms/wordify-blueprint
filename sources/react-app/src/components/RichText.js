@@ -16,7 +16,7 @@
 
 import React from 'react';
 
-export default function (props) {
+function RichText(props) {
   const {
     ice,
     model: {
@@ -29,3 +29,5 @@ export default function (props) {
     </>
   );
 }
+
+export default RichText;
