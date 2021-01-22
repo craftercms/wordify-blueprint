@@ -36,7 +36,7 @@ plugin:
         description: About page
         url: /studio/static-assets/images/blueprints/wordify/about.png
       - title:
-        description:Contact page
+        description: Contact page
         url: /studio/static-assets/images/blueprints/wordify/contact.png
   developer:
     company:
