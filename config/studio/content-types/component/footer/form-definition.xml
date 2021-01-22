@@ -433,7 +433,7 @@
 		<section>
 			<title>Quick Links</title>
 			<description />
-			<defaultOpen>false</defaultOpen>
+			<defaultOpen>true</defaultOpen>
 			<fields>
 				<field>
 					<type>repeat</type>
