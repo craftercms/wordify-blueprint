@@ -28,10 +28,9 @@
                   <img src="${bio.profilePic_s}" alt="${bio.name_s}" class="mr-2">
                     ${bio.name_s}
                 </span>&bullet;
-                <span class="mr-2">${contentModel.createdDate_dt?date}</span> &bullet;
+                <span class="mr-2">${postModel.createdDate_dt?date}</span> &bullet;
                 <span class="ml-2">
-                  <span class="fa fa-comments"></span>
-                  <span class="disqus-comment-count ml-1" data-disqus-identifier="${postModel.objectId}"></span>
+                  <span class="fa fa-comments"></span
                 </span>
               </div>
                 <@studio.h1 $model=contentModel $field="headline_s" class="mb-4">
