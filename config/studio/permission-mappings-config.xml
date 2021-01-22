@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
   ~
@@ -14,6 +14,7 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
+
 <!-- permission-mappings-config.xml
 
   This files contains the permissions mappings for the roles defined in
@@ -75,7 +76,7 @@
 
 -->
 <permissions>
-	<version>11</version>
+	<version>12</version>
 	<role name="author">
 		<rule regex="/site/website/.*">
 			<allowed-permissions>
@@ -202,6 +203,7 @@
 				<permission>site_diff_conflicted_file</permission>
 				<permission>commit_resolution</permission>
 				<permission>cancel_failed_pull</permission>
+				<permission>encryption_tool</permission>
 			</allowed-permissions>
 		</rule>
 		<rule regex="^/(?!site/website/index\.xml)(.*)">
@@ -227,6 +229,7 @@
 				<permission>site_diff_conflicted_file</permission>
 				<permission>commit_resolution</permission>
 				<permission>cancel_failed_pull</permission>
+				<permission>encryption_tool</permission>
 			</allowed-permissions>
 		</rule>
 		<rule regex=".*">
@@ -265,6 +268,7 @@
 				<permission>site_diff_conflicted_file</permission>
 				<permission>commit_resolution</permission>
 				<permission>cancel_failed_pull</permission>
+				<permission>encryption_tool</permission>
 			</allowed-permissions>
 		</rule>
 		<rule regex="^/(?!site/website/index\.xml)(.*)">
@@ -290,6 +294,7 @@
 				<permission>site_diff_conflicted_file</permission>
 				<permission>commit_resolution</permission>
 				<permission>cancel_failed_pull</permission>
+				<permission>encryption_tool</permission>
 			</allowed-permissions>
 		</rule>
 		<rule regex=".*">
