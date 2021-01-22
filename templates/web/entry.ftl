@@ -53,8 +53,11 @@
                       </div>
                       <div class="blog-content-body">
                         <div class="post-meta">
-                          <span class="author mr-2"><img src="${post.authorBio.item[0].component.profilePic_s}" alt="Colorlib">
-                              ${post.authorBio.item[0].component.name_s}</span>&bullet;
+                          <#assign bio = post.authorBio.item?is_sequence?then(post.authorBio.item[0].component, post.authorBio.item.component) />
+                          <span class="author mr-2">
+                            <img src="${bio.profilePic_s}" alt=""/>
+                            ${bio.name_s}
+                          </span> &bullet;
                           <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span>
                         </div>
                         <@studio.h2 $model=postItem $field="headline_s">
