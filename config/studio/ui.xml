@@ -337,6 +337,17 @@
 									</widget>
 								</configuration>
 							</widget>
+							<widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
+								<configuration>
+									<title id="PluginManagement.title" defaultMessage="Plugin Management" />
+									<icon baseClass="fa fa-puzzle-piece" />
+									<widget id="craftercms.components.PluginManagement">
+										<configuration>
+											<embedded>true</embedded>
+										</configuration>
+									</widget>
+								</configuration>
+							</widget>
 						</widgets>
 					</configuration>
 				</widget>
