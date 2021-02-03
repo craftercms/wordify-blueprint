@@ -27,7 +27,7 @@ import { Field } from '@craftercms/studio-guest';
 import { usePosts } from '../shared/hooks';
 import Paginate from '../shared/Paginate';
 
-export default function (props) {
+function Home(props) {
   const {
     model,
     model: {
@@ -120,3 +120,5 @@ export default function (props) {
     </BaseLayout>
   );
 }
+
+export default Home;

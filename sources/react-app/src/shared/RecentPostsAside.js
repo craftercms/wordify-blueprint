@@ -19,7 +19,7 @@ import { FormattedMessage } from 'react-intl';
 import PostCard, { LANDSCAPE_COMPRESSED } from './PostCard';
 import { useRecentPosts } from './hooks';
 
-export default function () {
+function RecentPostsAside() {
   const posts = useRecentPosts();
   return (
     <div className="sidebar-box">
@@ -43,3 +43,5 @@ export default function () {
     </div>
   );
 }
+
+export default RecentPostsAside;

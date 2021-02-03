@@ -17,7 +17,7 @@
 import React from 'react';
 import { Field, RenderField } from '@craftercms/studio-guest';
 
-export default function (props) {
+function Bio(props) {
   const {
     model,
     model: {
@@ -85,3 +85,5 @@ export default function (props) {
     </Field>
   );
 }
+
+export default Bio;

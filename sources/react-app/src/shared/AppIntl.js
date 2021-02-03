@@ -25,7 +25,9 @@ const Locales = {
   es
 };
 
-export default (props) => {
+const AppIntl = (props) => {
   const [{ locale }] = useGlobalContext();
   return <IntlProvider {...props} locale={locale} messages={Locales[locale]}/>;
 };
+
+export default AppIntl;

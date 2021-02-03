@@ -27,7 +27,7 @@ import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import Paginate from '../shared/Paginate';
 import { usePosts } from '../shared/hooks';
 
-export default function (props) {
+function About(props) {
   const {
     model,
     meta: {
@@ -127,3 +127,4 @@ export default function (props) {
   );
 }
 
+export default About;

@@ -17,7 +17,7 @@
 import React, { useEffect, useState } from 'react';
 
 import CircularProgressSpinner from './CircularProgressSpinner';
-import { fetchQuery } from '../relayEnvironment';
+import { fetchQuery } from '../fetchQuery';
 import byUrlQuery from './queries.graphql';
 import { parseDescriptor } from '@craftercms/content';
 import { reportNavigation } from '@craftercms/ice';

@@ -18,15 +18,18 @@ import React, { useEffect } from 'react';
 import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
 import { useGlobalContext } from '../shared/context';
 import { Field } from '@craftercms/studio-guest';
+import { useRecentPosts } from '../shared/hooks';
 
-export default function (props) {
+function Slider(props) {
 
   const {
-    model,
-    model: {
-      posts_o
-    }
+    model
   } = props;
+
+  let posts_o = useRecentPosts();
+  if (props.model.posts_o.length !== 0) {
+    posts_o = props.model.posts_o;
+  }
 
   const [{ $ }] = useGlobalContext();
 
@@ -81,3 +84,5 @@ export default function (props) {
     </Field>
   );
 }
+
+export default Slider;

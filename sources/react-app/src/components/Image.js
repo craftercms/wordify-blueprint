@@ -17,7 +17,7 @@
 import React from 'react';
 import { Field, RenderField } from '@craftercms/studio-guest';
 
-export default function (props) {
+function Image(props) {
   const { model } = props;
   return (
     <Field model={model}>
@@ -31,3 +31,5 @@ export default function (props) {
     </Field>
   );
 }
+
+export default Image;

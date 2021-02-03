@@ -25,7 +25,7 @@ export const
   LANDSCAPE_COMPRESSED = 'landscapeCompressed',
   IMAGE_BACKGROUND = 'imageBackground';
 
-export default function (props) {
+function PostCard(props) {
   const { formatDate } = useIntl();
   const {
     classes,
@@ -200,3 +200,5 @@ function computeSlug(path) {
     .replace(/(\/\/)/g, '/')
     .replace('.xml', '');
 }
+
+export default PostCard;

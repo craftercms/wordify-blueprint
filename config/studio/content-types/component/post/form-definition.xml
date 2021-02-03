@@ -568,7 +568,7 @@
 		<datasource>
 			<type>img-desktop-upload</type>
 			<id>desktopImage</id>
-			<title>Desktop Image</title>
+			<title>Desktop Image Upload</title>
 			<interface>image</interface>
 			<properties>
 				<property>
@@ -581,7 +581,7 @@
 		<datasource>
 			<type>img-repository-upload</type>
 			<id>repoImage</id>
-			<title>Repo Image</title>
+			<title>Image from CMS</title>
 			<interface>image</interface>
 			<properties>
 				<property>
