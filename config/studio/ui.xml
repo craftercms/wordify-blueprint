@@ -103,7 +103,9 @@
 								<configuration>
 									<title id="previewComponentsPanel.title" defaultMessage="Add Components" />
 									<icon id="@material-ui/icons/ExtensionOutlined" />
-									<widget id="craftercms.components.PreviewComponentsPanel" />
+									<widgets>
+										<widget id="craftercms.components.PreviewComponentsPanel" />
+									</widgets>
 								</configuration>
 							</widget>
 							<widget id="craftercms.components.ToolsPanelPageButton">
