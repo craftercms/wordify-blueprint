@@ -17,7 +17,7 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 
-export default function (props) {
+function Paginate(props) {
   const {
     pageCount,
     onPageChange
@@ -44,3 +44,5 @@ export default function (props) {
     />
   )
 }
+
+export default Paginate;

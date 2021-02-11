@@ -20,7 +20,7 @@ import { useSearchQuery } from './hooks';
 
 let count = 0;
 
-export default function (props) {
+function SearchForm(props) {
   const history = useHistory();
   const { placeholder = '', id = `searchInput_${count++}` } = props;
   const classes = Object.assign({
@@ -51,3 +51,5 @@ export default function (props) {
     </form>
   );
 }
+
+export default SearchForm;

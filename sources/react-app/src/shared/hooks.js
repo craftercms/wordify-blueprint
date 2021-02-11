@@ -15,7 +15,7 @@
  */
 
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
-import { fetchQuery } from '../relayEnvironment';
+import { fetchQuery } from '../fetchQuery';
 import { useGlobalContext } from './context';
 import { parse } from 'query-string';
 import { useLocation } from 'react-router-dom';

@@ -19,7 +19,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Field } from '@craftercms/studio-guest';
 
-export default function (props) {
+function CategoryCard(props) {
   const {
     model,
     category,
@@ -38,3 +38,5 @@ export default function (props) {
     </Field>
   )
 }
+
+export default CategoryCard;

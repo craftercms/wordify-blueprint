@@ -3,10 +3,6 @@
 echo "Making sure all deps are met"
 # TODO: re-enable yarn
 
-# Disabled as relay is currently not used.
-# echo "Compiling relay stuff"
-# yarn relay
-
 echo "Running react build"
 react-scripts build
 

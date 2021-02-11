@@ -14,28 +14,28 @@ plugin:
   version:
     major: 1
     minor: 0
-    patch: 0
+    patch: 1
   description: |
     Wordify template blueprint - React
   website:
     name: Wordify Blueprint
-    url: https://craftercms.org
+    url: https://github.com/craftercms/wordify-blueprint
   media:
     screenshots:
       - title: Homepage
         description: Screenshot of the homepage
         url: /studio/static-assets/images/blueprints/wordify/home.png
       - title:
-        description: Screenshot of the category page
+        description: Category page
         url: /studio/static-assets/images/blueprints/wordify/category.png
       - title:
-        description: Screenshot of the post page
+        description: Post page
         url: /studio/static-assets/images/blueprints/wordify/post.png
       - title:
-        description: Screenshot of the about page
+        description: About page
         url: /studio/static-assets/images/blueprints/wordify/about.png
       - title:
-        description: Screenshot of the contact page
+        description: Contact page
         url: /studio/static-assets/images/blueprints/wordify/contact.png
   developer:
     company:

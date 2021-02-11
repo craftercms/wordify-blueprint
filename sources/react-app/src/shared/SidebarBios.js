@@ -18,7 +18,7 @@ import React from 'react';
 import Bio from '../components/Bio';
 import { Field, RenderField } from '@craftercms/studio-guest';
 
-export default function (props) {
+function SidebarBios(props) {
   const { bios } = props;
   return (
     <>
@@ -54,3 +54,5 @@ export function SidebarBiosWithICE(props) {
     />
   );
 }
+
+export default SidebarBios;
