@@ -358,7 +358,6 @@
     <configuration>
 			<title id="words.site" defaultMessage="Site"/>
       <widgets>
-	<widget id="craftercms.components.GlobalNavPublishingStatusTile" />
         <widget id="craftercms.components.GlobalNavLinkTile">
           <configuration>
             <title id="words.dashboard" defaultMessage="Dashboard"/>
@@ -391,6 +390,7 @@
             <icon id="@material-ui/icons/SearchRounded"/>
           </configuration>
         </widget>
+	<widget id="craftercms.components.GlobalNavPublishingStatusTile" />
       </widgets>
     </configuration>
   </widget>
