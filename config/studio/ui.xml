@@ -421,11 +421,6 @@
 						</widgets>
 					</configuration>
 				</widget>
-				<widget id="craftercms.components.LauncherGlobalNav">
-					<configuration>
-						<title id="words.global" defaultMessage="Global"/>
-					</configuration>
-				</widget>
 			</widgets>
 		</configuration>
 	</widget>
