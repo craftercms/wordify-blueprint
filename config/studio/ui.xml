@@ -151,16 +151,18 @@
 														<type>dropdown</type>
 														<defaultValue>anonymous</defaultValue>
 														<values>
-															<label>Guy</label>
-															<value>guy</value>
-														</values>
-														<values>
-															<label>Gal</label>
-															<value>gal</value>
-														</values>
-														<values>
-															<label>Anonymous</label>
-															<value>anonymous</value>
+															<value>
+																<label>Guy</label>
+																<value>guy</value>
+															</value>
+															<value>
+																<label>Gal</label>
+																<value>gal</value>
+															</value>
+															<value>
+																<label>Anonymous</label>
+																<value>anonymous</value>
+															</value>
 														</values>
 														<helpText>
 															Setting the segment will change content targeting to the
