@@ -17,7 +17,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Field } from '@craftercms/studio-guest';
+import { Field } from '@craftercms/studio-guest/react';
 
 function CategoryCard(props) {
   const {

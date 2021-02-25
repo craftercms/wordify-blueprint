@@ -21,7 +21,7 @@ import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
 import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import SidebarSearch from '../shared/SidebarSearch';
 import { SidebarBiosWithICE } from '../shared/SidebarBios';
-import { ContentType, Field, RenderField } from '@craftercms/studio-guest';
+import { ContentType, Field, RenderField } from '@craftercms/studio-guest/react';
 import contentTypeMap from '../shared/contentTypeMap';
 import { useIntl } from 'react-intl';
 import Comments, { CommentsCount } from '../shared/Comments';

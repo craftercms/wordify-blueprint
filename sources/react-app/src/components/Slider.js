@@ -17,7 +17,7 @@
 import React, { useEffect } from 'react';
 import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
 import { useGlobalContext } from '../shared/context';
-import { Field } from '@craftercms/studio-guest';
+import { Field } from '@craftercms/studio-guest/react';
 import { useRecentPosts } from '../shared/hooks';
 
 function Slider(props) {
