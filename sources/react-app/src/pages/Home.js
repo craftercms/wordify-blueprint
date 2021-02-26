@@ -23,7 +23,7 @@ import { SidebarBiosWithICE } from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import RecentPostsAside from '../shared/RecentPostsAside';
 import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
-import { Field } from '@craftercms/studio-guest';
+import { Field } from '@craftercms/studio-guest/react';
 import { usePosts } from '../shared/hooks';
 import Paginate from '../shared/Paginate';
 

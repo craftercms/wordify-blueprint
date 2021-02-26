@@ -23,7 +23,7 @@ import { parseDescriptor } from '@craftercms/content';
 import { reportNavigation } from '@craftercms/ice';
 import { parse } from 'query-string';
 import { isAuthoring } from './utils';
-import { ContentType, Guest } from '@craftercms/studio-guest';
+import { ContentType, Guest } from '@craftercms/studio-guest/react';
 import contentTypeMap from './contentTypeMap';
 import NotFound from '../pages/NotFound';
 

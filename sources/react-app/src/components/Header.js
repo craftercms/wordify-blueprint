@@ -19,7 +19,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useNavigation } from '../shared/hooks';
 import SearchForm from '../shared/SearchForm';
 import { useGlobalContext } from '../shared/context';
-import { RenderField } from '@craftercms/studio-guest';
+import { RenderField } from '@craftercms/studio-guest/react';
 
 export default function Header({ model }) {
   const nav = useNavigation();

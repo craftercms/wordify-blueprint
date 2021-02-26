@@ -17,7 +17,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useFooter } from '../shared/hooks';
-import { Field, RenderField } from '@craftercms/studio-guest';
+import { Field, RenderField } from '@craftercms/studio-guest/react';
 
 export default function Footer({ model }) {
   const footer = useFooter();

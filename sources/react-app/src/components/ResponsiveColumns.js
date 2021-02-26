@@ -15,7 +15,7 @@
  */
 
 import React from 'react';
-import { ContentType, Field, RenderField } from '@craftercms/studio-guest';
+import { ContentType, Field, RenderField } from '@craftercms/studio-guest/react';
 import contentTypeMap from '../shared/contentTypeMap';
 
 function ResponsiveColumns(props) {
