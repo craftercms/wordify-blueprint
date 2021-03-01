@@ -120,10 +120,10 @@
 							</widget>
 							<widget id="craftercms.components.ToolsPanelPageButton">
 								<configuration>
-									<title id="previewReceptaclesPanel.title" defaultMessage="Component Receptacles"/>
+									<title id="previewDropTargetsPanel.title" defaultMessage="Drop Targets"/>
 									<icon id="@material-ui/icons/ExtensionOutlined"/>
 									<widgets>
-										<widget id="craftercms.components.PreviewReceptaclesPanel"/>
+										<widget id="craftercms.components.PreviewDropTargetsPanel"/>
 									</widgets>
 								</configuration>
 							</widget>
@@ -238,7 +238,7 @@
 						<widgets>
 							<widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
 								<configuration>
-									<title id="receptaclesMessages.contentTypes" defaultMessage="Content Types"/>
+									<title id="dropTargetsMessages.contentTypes" defaultMessage="Content Types"/>
 									<icon baseClass="fa fa-th-large"/>
 									<widget id="craftercms.components.LegacySiteToolsFrame">
 										<configuration>
