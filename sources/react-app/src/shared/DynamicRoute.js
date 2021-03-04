@@ -20,10 +20,9 @@ import CircularProgressSpinner from './CircularProgressSpinner';
 import { fetchQuery } from '../fetchQuery';
 import byUrlQuery from './queries.graphql';
 import { parseDescriptor } from '@craftercms/content';
-import { reportNavigation } from '@craftercms/ice';
 import { parse } from 'query-string';
 import { isAuthoring } from './utils';
-import { ContentType, Guest } from '@craftercms/studio-guest';
+import { ContentType, Guest } from '@craftercms/studio-guest/react';
 import contentTypeMap from './contentTypeMap';
 import NotFound from '../pages/NotFound';
 
@@ -40,7 +39,6 @@ export default function DynamicRoute(props) {
     let destroyed = false;
     let page = parseInt(parse(location.search).page ?? 1) - 1;
     const pagination = { limit, offset: page ? (page * limit) : 0 };
-    reportNavigation(url);
     fetchQuery(
       { text: byUrlQuery },
       {

@@ -21,7 +21,7 @@ import { FormattedMessage } from 'react-intl';
 import RecentPostsAside from '../shared/RecentPostsAside';
 import { SidebarBiosWithICE } from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
-import { ContentType, Field, RenderField } from '@craftercms/studio-guest';
+import { ContentType, Field, RenderField } from '@craftercms/studio-guest/react';
 import contentTypeMap from '../shared/contentTypeMap';
 import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import Paginate from '../shared/Paginate';

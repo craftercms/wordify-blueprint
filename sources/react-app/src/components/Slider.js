@@ -14,10 +14,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
-import { useGlobalContext } from '../shared/context';
-import { Field } from '@craftercms/studio-guest';
+import { Field } from '@craftercms/studio-guest/react';
 import { useRecentPosts } from '../shared/hooks';
 
 function Slider(props) {
@@ -31,46 +30,21 @@ function Slider(props) {
     posts_o = props.model.posts_o;
   }
 
-  const [{ $ }] = useGlobalContext();
-
-  useEffect(() => {
-    const $carousel = $('.home-slider');
-    // noinspection CheckTagEmptyBody
-    $carousel.owlCarousel({
-      loop: true,
-      autoplay: false,
-      margin: 10,
-      animateOut: 'fadeOut',
-      animateIn: 'fadeIn',
-      nav: true,
-      autoplayHoverPause: true,
-      items: 1,
-      navText: ['<span class="ion-chevron-left"></span>', '<span class="ion-chevron-right"></span>'],
-      responsive: {
-        0: {
-          items: 1,
-          nav: false
-        },
-        600: {
-          items: 1,
-          nav: false
-        },
-        1000: {
-          items: 1,
-          nav: true
-        }
-      }
-    });
-    return () => {
-      $carousel.owlCarousel('destroy');
-    };
-  }, [$]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const component = posts_o[currentIndex];
 
   return (
-    <Field model={model} className="owl-carousel owl-theme home-slider">
-      {
-        posts_o?.map((component, index) =>
-          <Field model={model} fieldId="posts_o" index={index} key={component.craftercms.id}>
+    <Field model={model} className="owl-carousel owl-theme owl-loaded home-slider">
+      <div className="owl-stage-outer">
+        <Field model={model} fieldId="posts_o" className="owl-stage">
+          <Field
+            key={component.craftercms.id}
+            className="owl-item active"
+            model={model}
+            fieldId="posts_o"
+            index={currentIndex}
+            style={{ width: '100%' }}
+          >
             <PostCard
               tags="Food"
               model={component}
@@ -79,8 +53,19 @@ function Slider(props) {
               classes={{ root: 'height-lg', innerWrapper: 'half-to-full' }}
             />
           </Field>
-        )
-      }
+        </Field>
+        <div className="owl-dots">
+          {
+            posts_o?.map((component, index) =>
+              <button
+                key={index}
+                className={`owl-dot ${index === currentIndex ? 'active' : ''}`}
+                onClick={() => setCurrentIndex(index)}
+              ><span /></button>
+            )
+          }
+        </div>
+      </div>
     </Field>
   );
 }

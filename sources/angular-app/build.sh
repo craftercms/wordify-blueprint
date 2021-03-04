@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Making sure all deps are met"
-# TODO: re-enable yarn
-
-# Disabled as relay is currently not used.
-# echo "Compiling relay stuff"
-# yarn relay
+yarn
 
 echo "Deleting prior build"
 rm -rf ../../static-assets/app/*

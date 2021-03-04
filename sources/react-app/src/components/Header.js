@@ -14,20 +14,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useNavigation } from '../shared/hooks';
 import SearchForm from '../shared/SearchForm';
-import { useGlobalContext } from '../shared/context';
-import { RenderField } from '@craftercms/studio-guest';
+import { RenderField } from '@craftercms/studio-guest/react';
 
 export default function Header({ model }) {
   const nav = useNavigation();
-  const [{ $ }] = useGlobalContext();
-  const toggleNavBar = (e) => {
-    e.preventDefault();
-    $('#navbarMenu').toggleClass('show');
-  };
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const toggleNavBar = () => setShowMobileMenu(!showMobileMenu);
   return (
     <header role="banner">
       <div className="top-bar">
@@ -80,7 +76,7 @@ export default function Header({ model }) {
       </div>
       <nav className="navbar navbar-expand-md navbar-light bg-light">
         <div className="container">
-          <div className="collapse navbar-collapse" id="navbarMenu">
+          <div className={`collapse navbar-collapse ${showMobileMenu ? 'show' : ''}`} id="navbarMenu">
             <ul className="navbar-nav mx-auto">
               {
                 nav?.sort(
