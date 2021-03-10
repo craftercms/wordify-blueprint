@@ -34,12 +34,8 @@ function PostCard(props) {
     numOfComments,
     model,
     model: {
-      authorBio_o: [{
-        name_s: authorName,
-        profilePic_s: authorAvatarUrl
-      }],
+      authorBio_o,
       headline_s,
-      mainImage_s,
       mainImageAlt_s = '',
       categories_o,
       craftercms: {
@@ -47,6 +43,40 @@ function PostCard(props) {
       }
     }
   } = props;
+  const authorModel = authorBio_o?.[0];
+  const postMetaCommon = (
+    <div className="post-meta">
+      <Field
+        component="span"
+        model={model}
+        fieldId="authorBio_o"
+        index={0}
+        className="author mr-2"
+      >
+        <Field component="span" model={authorModel}>
+          <RenderField
+            component="img"
+            model={authorModel}
+            renderTarget="src"
+            fieldId="profilePic_s"
+            alt=""
+          />{' '}
+          <RenderField
+            component="span"
+            model={authorModel}
+            fieldId="name_s"
+          />
+        </Field>
+      </Field>
+      {' • '}<span className="mr-2">{formatDate(dateModified)}</span>
+      {
+        numOfComments &&
+        <>
+          {' • '}<span className="ml-2"><span className="fa fa-comments" /> {numOfComments}</span>
+        </>
+      }
+    </div>
+  );
   const slug = computeSlug(model.craftercms.path);
   switch (format) {
     case PORTRAIT:
@@ -67,25 +97,7 @@ function PostCard(props) {
             />
           </div>
           <div className="blog-content-body">
-            <div className="post-meta">
-              <Field
-                component="span"
-                model={model}
-                fieldId="authorBio_o"
-                index={0}
-                className="author mr-2"
-              >
-                <img src={authorAvatarUrl} alt="" /> {authorName}
-              </Field>
-              {' • '}<span className="mr-2">{formatDate(dateModified)}</span>
-              {
-                numOfComments &&
-                <>
-                  {' • '}<span className="ml-2"><span className="fa fa-comments" /> {numOfComments}
-                </span>
-                </>
-              }
-            </div>
+            {postMetaCommon}
             <RenderField component="h2" model={model} fieldId="headline_s" />
           </div>
         </Field>
@@ -100,22 +112,11 @@ function PostCard(props) {
               model={model}
               fieldId="mainImage_s"
               renderTarget="style.backgroundImage"
-              format={(src) => `url(${src})`}
+              format={(src) => `url("${src}")`}
               className="image"
             />
             <span className="text">
-              <div className="post-meta">
-                <Field className="author mr-2" model={model} fieldId="authorBio_o" index={0}>
-                  <img src={authorAvatarUrl} alt={mainImageAlt_s} /> {authorName}
-                </Field>
-                • <span className="mr-2">{formatDate(dateModified)}</span>
-                {
-                  numOfComments &&
-                  <>
-                    • <span className="ml-2"><span className="fa fa-comments" /> ${numOfComments}</span>
-                  </>
-                }
-              </div>
+              {postMetaCommon}
               <RenderField component="h2" fieldId="headline_s" model={model} />
             </span>
           </Field>
@@ -142,11 +143,12 @@ function PostCard(props) {
       );
     case IMAGE_BACKGROUND:
       return (
-        <Field
+        <RenderField
           model={model}
           fieldId="mainImage_s"
+          renderTarget="style"
           className={`a-block d-flex align-items-center ${classes?.root ?? ''}`}
-          style={{ backgroundImage: `url(${mainImage_s})` }}
+          format={(mainImage_s) => ({ backgroundImage: `url("${mainImage_s}")` })}
         >
           <Field
             component={Link}
@@ -181,7 +183,7 @@ function PostCard(props) {
               showBlurb && <RenderField component="p" model={model} fieldId="blurb_t" />
             }
           </Field>
-        </Field>
+        </RenderField>
       );
     default:
       console.error(`Unknown PostCard format "${format}" on post "${headline_s}"`);

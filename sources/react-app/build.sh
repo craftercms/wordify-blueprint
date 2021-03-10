@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Making sure all deps are met"
-# TODO: re-enable yarn
+yarn
 
 echo "Running react build"
 react-scripts build

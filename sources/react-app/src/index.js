@@ -25,12 +25,9 @@ if (Cookies.get('crafterSite') !== siteName) {
   Cookies.set('crafterSite', siteName);
 }
 
-// On occasions, Crafter's jQuery overrides the site's jQuery
-// briefly. This will get fixed on next releases of Crafter CMS,
-// but for now, adding jQuery to the global context to 'cache' it.
 ReactDOM.render(
   <React.StrictMode>
-    <App jQuery={window.jQuery} />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

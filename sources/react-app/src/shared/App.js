@@ -20,9 +20,9 @@ import CircularProgressSpinner from './CircularProgressSpinner';
 import { GlobalContextProvider } from './context';
 import AppIntl from './AppIntl';
 
-export default function App(props) {
+export default function App() {
   return (
-    <GlobalContextProvider jQuery={props.jQuery}>
+    <GlobalContextProvider>
       <AppIntl>
         <Suspense
           fallback={
