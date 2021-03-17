@@ -238,7 +238,7 @@
 						<widgets>
 							<widget id="craftercms.components.ToolsPanelEmbeddedAppViewButton">
 								<configuration>
-									<title id="receptaclesMessages.contentTypes" defaultMessage="Content Types"/>
+									<title id="dropTargetsMessages.contentTypes" defaultMessage="Content Types"/>
 									<icon baseClass="fa fa-th-large"/>
 									<widget id="craftercms.components.LegacySiteToolsFrame">
 										<configuration>

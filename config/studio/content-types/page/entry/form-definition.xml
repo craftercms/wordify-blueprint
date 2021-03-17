@@ -442,7 +442,7 @@
 			</properties>
 		</datasource>
 		<datasource>
-			<type>receptacles</type>
+			<type>dropTargets</type>
 			<id>bios</id>
 			<title>Bios</title>
 			<interface>item</interface>
@@ -490,7 +490,7 @@
 			</properties>
 		</datasource>
 		<datasource>
-			<type>receptacles</type>
+			<type>dropTargets</type>
 			<id>sliders</id>
 			<title>Sliders</title>
 			<interface>item</interface>

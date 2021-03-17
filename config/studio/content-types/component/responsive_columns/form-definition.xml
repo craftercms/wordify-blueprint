@@ -335,7 +335,7 @@
 			</properties>
 		</datasource>
 		<datasource>
-			<type>receptacles</type>
+			<type>dropTargets</type>
 			<id>allowedContent</id>
 			<title>Allowed Content</title>
 			<interface>item</interface>
