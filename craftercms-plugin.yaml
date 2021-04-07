@@ -15,7 +15,7 @@ plugin:
   version:
     major: 1
     minor: 0
-    patch: 14
+    patch: 15
   description: |
     A versatile blog blueprint. Built in a way as to have server-side HTML generation and/or browser-side React mode, you choose how and what to deploy.
   website:
