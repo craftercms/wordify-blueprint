@@ -14,7 +14,7 @@ plugin:
   version:
     major: 2
     minor: 0
-    patch: 0
+    patch: 1
   description: |
     Wordify template blueprint - React
   website:
