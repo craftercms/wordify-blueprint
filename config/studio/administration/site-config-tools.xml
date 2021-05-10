@@ -136,7 +136,13 @@
           </icon> 
         </control>  
         <control> 
-          <name>label</name>  
+          <name>transcoded-video-picker</name>
+          <icon>
+            <class>fa-video-camera</class>
+          </icon>
+        </control>
+        <control>
+          <name>label</name>
           <icon> 
             <class>fa-tag</class> 
           </icon> 
@@ -167,17 +173,17 @@
           </icon> 
         </control>  
         <control> 
-          <name>transcoded-video-picker</name>  
+          <name>locale-selector</name>
           <icon> 
-            <class>fa-video-camera</class> 
+            <class>fa-globe</class>
           </icon> 
         </control> 
       </controls>  
       <datasources> 
         <datasource> 
-          <name>child-content</name>  
+          <name>dropTargets</name>
           <icon> 
-            <class>fa-child</class> 
+            <class>fa-object-group</class>
           </icon> 
         </datasource>  
         <datasource> 
@@ -187,12 +193,6 @@
           </icon> 
         </datasource>
         <datasource>
-          <name>dropTargets</name>
-          <icon>
-            <class>fa-object-group</class>
-          </icon>
-        </datasource>
-        <datasource> 
           <name>embedded-content</name>  
           <icon> 
             <class>fa-dot-circle-o</class> 
@@ -422,7 +422,14 @@
           </properties> 
         </type> 
       </objectTypes> 
-    </tool>  
+    </tool>
+    <tool>
+      <name>encrypt-tool</name>
+      <label>Encryption Tool</label>
+      <icon>
+        <class>fa-lock</class>
+      </icon>
+    </tool>
     <tool> 
       <name>admin-configurations</name>  
       <label>Configuration</label> 
