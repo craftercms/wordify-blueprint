@@ -21,12 +21,11 @@ import { useRecentPosts } from './hooks';
 
 function RecentPostsAside() {
   const posts = useRecentPosts();
-
   return (
     <div className="sidebar-box">
       <h3 className="heading">
         <FormattedMessage
-          id="common.latestPostsTitle"
+          id="common.popularPostsTitle"
           defaultMessage="Latest Posts"
         />
       </h3>

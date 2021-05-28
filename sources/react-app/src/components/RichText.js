@@ -15,18 +15,19 @@
  */
 
 import React from 'react';
+import { Field, RenderField } from '@craftercms/studio-guest/react';
 
 function RichText(props) {
-  const {
-    ice,
-    model: {
-      content_html
-    }
-  } = props;
+  const { model } = props;
   return (
-    <>
-      <div {...ice} dangerouslySetInnerHTML={{ __html: content_html }} />
-    </>
+    <Field model={model}>
+      <RenderField
+        model={model}
+        fieldId="content_html"
+        renderTarget="dangerouslySetInnerHTML"
+        format={(content_html_raw) => ({ __html: content_html_raw })}
+      />
+    </Field>
   );
 }
 

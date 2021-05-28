@@ -16,39 +16,31 @@
 
 import React, { useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
-import { WrappedContentType } from '../shared/ContentType';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
 import { FormattedMessage } from 'react-intl';
 import RecentPostsAside from '../shared/RecentPostsAside';
-import DropZone from '../shared/DropZone';
-import SidebarBios from '../shared/SidebarBios';
+import { SidebarBiosWithICE } from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
+import { ContentType, Field, RenderField } from '@craftercms/studio-guest/react';
+import contentTypeMap from '../shared/contentTypeMap';
 import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
-import { usePosts } from '../shared/hooks';
 import Paginate from '../shared/Paginate';
+import { usePosts } from '../shared/hooks';
 
 function About(props) {
   const {
     model,
-    model: {
-      headline_s,
-      content_o
-    },
     meta: {
-      siteTitle,
-      socialLinks
+      levelDescriptor
     }
   } = props;
   const [paginationData, setPaginationData] = useState({
     itemsPerPage: 10,
     currentPage: 0
   });
-
   const posts = usePosts(paginationData);
-
-  const modelPath = model.craftercms.path;
   return (
-    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
+    <BaseLayout model={levelDescriptor}>
       <section className="site-section pt-5">
         <div className="container">
           <div className="row blog-entries">
@@ -56,22 +48,28 @@ function About(props) {
 
               <div className="row">
                 <div className="col-md-12">
-                  <h2 className="mb-4">{headline_s}</h2>
-                  <DropZone component="div" model={model} fieldId="content_o">
-                    {
-                      content_o?.map(component =>
-                        <WrappedContentType
+                  <RenderField component="h2" model={model} fieldId="headline_s" className="mb-4" />
+                  {/* Using render field here allows react to pick up updates but there are open
+                      issues when deleting and sometimes inserting. */}
+                  <RenderField
+                    model={model}
+                    fieldId="content_o"
+                    format={(content_o) => content_o?.map((component, index) =>
+                      /* Note: Please use index in conjunction with the model id */
+                      <Field
+                        key={`${component.craftercms.id}_${index}`}
+                        className="mb-5"
+                        model={model}
+                        fieldId="content_o"
+                        index={index}
+                      >
+                        <ContentType
                           model={component}
-                          parentModelId={modelPath}
-                          key={component.craftercms.id}
-                          wrapper={{
-                            component: 'div',
-                            className: 'mb-5'
-                          }}
+                          contentTypeMap={contentTypeMap}
                         />
-                      )
-                    }
-                  </DropZone>
+                      </Field>
+                    )}
+                  />
                 </div>
               </div>
 
@@ -107,12 +105,13 @@ function About(props) {
                   />
                 </nav>
               }
+
             </div>
             <div className="col-md-12 col-lg-4 sidebar">
 
               <SidebarSearch />
 
-              <SidebarBios model={model} fieldId="bios_o" />
+              <SidebarBiosWithICE model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 
@@ -129,4 +128,3 @@ function About(props) {
 }
 
 export default About;
-

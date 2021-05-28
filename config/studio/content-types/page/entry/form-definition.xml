@@ -382,7 +382,7 @@
 						</property>
 						<property>
 							<name>maxSize</name>
-							<value>0</value>
+							<value />
 							<type>int</type>
 						</property>
 						<property>
@@ -404,6 +404,11 @@
 							<name>useSingleValueFilename</name>
 							<value />
 							<type>boolean</type>
+						</property>
+						<property>
+							<name>contentTypes</name>
+							<value>,/component/bio</value>
+							<type>contentTypes</type>
 						</property>
 						<property>
 							<name>tags</name>
@@ -437,53 +442,98 @@
 			</properties>
 		</datasource>
 		<datasource>
-			<type>shared-content</type>
+			<type>dropTargets</type>
 			<id>bios</id>
 			<title>Bios</title>
 			<interface>item</interface>
 			<properties>
 				<property>
-					<name>enableCreateNew</name>
+					<name>allowShared</name>
 					<value>true</value>
-					<type>undefined</type>
+					<type>boolean</type>
 				</property>
 				<property>
-					<name>enableBrowseExisting</name>
-					<value>true</value>
-					<type>undefined</type>
+					<name>allowEmbedded</name>
+					<value>false</value>
+					<type>boolean</type>
 				</property>
 				<property>
-					<name>enableSearchExisting</name>
+					<name>enableBrowse</name>
 					<value>true</value>
-					<type>undefined</type>
+					<type>boolean</type>
 				</property>
 				<property>
-					<name>repoPath</name>
+					<name>enableSearch</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>baseRepositoryPath</name>
 					<value>/site/components/bio</value>
-					<type>undefined</type>
+					<type>string</type>
 				</property>
 				<property>
-					<name>browsePath</name>
+					<name>baseBrowsePath</name>
 					<value>/site/components/bio</value>
-					<type>undefined</type>
+					<type>string</type>
 				</property>
 				<property>
-					<name>type</name>
+					<name>contentTypes</name>
 					<value>/component/bio</value>
-					<type>undefined</type>
+					<type>contentTypes</type>
+				</property>
+				<property>
+					<name>tags</name>
+					<value />
+					<type>string</type>
 				</property>
 			</properties>
 		</datasource>
 		<datasource>
-			<type>embedded-content</type>
+			<type>dropTargets</type>
 			<id>sliders</id>
 			<title>Sliders</title>
 			<interface>item</interface>
 			<properties>
 				<property>
-					<name>contentType</name>
+					<name>allowShared</name>
+					<value>false</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>allowEmbedded</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>enableBrowse</name>
+					<value>false</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>enableSearch</name>
+					<value>false</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>baseRepositoryPath</name>
+					<value>/site/components</value>
+					<type>string</type>
+				</property>
+				<property>
+					<name>baseBrowsePath</name>
+					<value>/site/components</value>
+					<type>string</type>
+				</property>
+				<property>
+					<name>contentTypes</name>
 					<value>/component/slider</value>
-					<type>undefined</type>
+					<type>contentTypes</type>
+				</property>
+				<property>
+					<name>tags</name>
+					<value />
+					<type>string</type>
 				</property>
 			</properties>
 		</datasource>

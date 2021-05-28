@@ -23,9 +23,9 @@ import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import { useSearchQuery, useUrlSearchQueryFetchResource } from '../shared/hooks';
 import CircularProgressSpinner from '../shared/CircularProgressSpinner';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'
+import { SidebarBiosWithICE } from '../shared/SidebarBios';
 import Paginate from '../shared/Paginate';
-import SidebarBios from '../shared/SidebarBios';
 
 function SearchResults({ resource, paginationData, onPageChange }) {
   const { hits, total } = resource.read();
@@ -58,8 +58,7 @@ function Search(props) {
   const {
     model,
     meta: {
-      siteTitle,
-      socialLinks
+      levelDescriptor
     }
   } = props;
   const [paginationData, setPaginationData] = useState({
@@ -80,7 +79,7 @@ function Search(props) {
   }
 
   return (
-    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
+    <BaseLayout model={levelDescriptor}>
       <section className="site-section pt-5 py-sm">
         <div className="container">
           <div className="row">
@@ -109,7 +108,7 @@ function Search(props) {
 
               <SidebarSearch />
 
-              <SidebarBios model={model} fieldId="bios_o" />
+              <SidebarBiosWithICE model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 

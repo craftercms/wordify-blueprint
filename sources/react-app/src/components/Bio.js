@@ -15,22 +15,13 @@
  */
 
 import React from 'react';
+import { Field, RenderField } from '@craftercms/studio-guest/react';
 
-export default function Bio(props) {
+function Bio(props) {
   const {
-    ice,
+    model,
     model: {
-      // craftercms: {
-      //   id,
-      //   contentTypeId,
-      //   label,
-      //   path,
-      // },
-      bio_t,
-      name_s,
-      profilePic_s,
       linkButtonText_s,
-      linkButtonUrl_s,
       showLinkButton_b,
       facebookLink_s,
       twitterLink_s,
@@ -39,48 +30,60 @@ export default function Bio(props) {
     }
   } = props;
   return (
-    <>
-      <div className="bio text-center" {...ice}>
-        <img src={profilePic_s} alt="" className="img-fluid" />
-        <div className="bio-body">
-          <h2>{name_s}</h2>
-          <p>{bio_t}</p>
-          {
-            showLinkButton_b &&
-            <p>
-              <a href={linkButtonUrl_s} className="btn btn-primary btn-sm rounded">
-                {linkButtonText_s}
-              </a>
-            </p>
-          }
-          <p className="social">
-            {
-              facebookLink_s &&
-              <a href={facebookLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
-                <span className="fa fa-facebook" />
-              </a>
-            }
-            {
-              twitterLink_s &&
-              <a href={twitterLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
-                <span className="fa fa-twitter" />
-              </a>
-            }
-            {
-              instagramLink_s &&
-              <a href={instagramLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
-                <span className="fa fa-instagram" />
-              </a>
-            }
-            {
-              youTubeLink_s &&
-              <a href={youTubeLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
-                <span className="fa fa-youtube-play" />
-              </a>
-            }
+    <Field className="bio text-center" model={model}>
+      <RenderField
+        component="img"
+        renderTarget="src"
+        model={model}
+        fieldId="profilePic_s"
+        className="img-fluid"
+        alt=""
+      />
+      <div className="bio-body">
+        <RenderField component="h2" model={model} fieldId="name_s" />
+        {
+          showLinkButton_b &&
+          linkButtonText_s &&
+          <p>
+            <RenderField
+              component="a"
+              model={model}
+              fieldId="linkButtonText_s,linkButtonUrl_s"
+              renderTarget="children,href"
+              className="btn btn-primary btn-sm rounded bio-link"
+            />
           </p>
-        </div>
+        }
+        <RenderField component="p" model={model} fieldId="bio_t" />
+        <p className="social">
+          {
+            facebookLink_s &&
+            <a href={facebookLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
+              <span className="fa fa-facebook" />
+            </a>
+          }
+          {
+            twitterLink_s &&
+            <a href={twitterLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
+              <span className="fa fa-twitter" />
+            </a>
+          }
+          {
+            instagramLink_s &&
+            <a href={instagramLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
+              <span className="fa fa-instagram" />
+            </a>
+          }
+          {
+            youTubeLink_s &&
+            <a href={youTubeLink_s} className="p-2" target="_blank" rel="noreferrer noopener">
+              <span className="fa fa-youtube-play" />
+            </a>
+          }
+        </p>
       </div>
-    </>
+    </Field>
   );
 }
+
+export default Bio;

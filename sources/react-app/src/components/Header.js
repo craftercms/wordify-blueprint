@@ -14,35 +14,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useNavigation } from '../shared/hooks';
 import SearchForm from '../shared/SearchForm';
-import { useGlobalContext } from '../shared/context';
+import { RenderField } from '@craftercms/studio-guest/react';
 
-export default function Header({ siteTitle, socialLinks }) {
+export default function Header({ model }) {
   const nav = useNavigation();
-
-  const [{ $ }] = useGlobalContext();
-  const toggleNavBar = (e) => {
-    e.preventDefault();
-    $('#navbarMenu').toggleClass('show');
-  };
-
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const toggleNavBar = () => setShowMobileMenu(!showMobileMenu);
   return (
     <header role="banner">
       <div className="top-bar">
         <div className="container">
           <div className="row">
-            <div className="col-9 social">
-              {
-                socialLinks?.map((link) =>
-                  <a key={link.socialNetwork_s} href={link.url_s} target="_blank" rel="noopener noreferrer">
-                    <span className={'fa fa-' + link.socialNetwork_s} />
-                  </a>
-                )
-              }
-            </div>
+            <RenderField
+              className="col-9 social"
+              model={model}
+              fieldId="socialLinks_o"
+              format={(socialLinks) => socialLinks?.map((link, index) =>
+                <RenderField
+                  component="a"
+                  key={`${link.socialNetwork_s}_${index}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={link.url_s}
+                  model={model}
+                  fieldId="socialLinks_o"
+                  index={index}
+                  format={(link) => <span className={`fa fa-${link.socialNetwork_s}`} />}
+                />
+              )}
+            />
             <div className="col-3 search-top">
               <SearchForm
                 classes={{ form: 'search-top-form' }}
@@ -56,18 +60,23 @@ export default function Header({ siteTitle, socialLinks }) {
         <div className="row pt-5">
           <div className="col-12 text-center">
             <a
-              className="absolute-toggle d-block d-md-none" data-toggle="collapse"
-              href="#navbarMenu" role="button"
+              className="absolute-toggle d-block d-md-none"
+              data-toggle="collapse"
+              href="#navbarMenu"
               onClick={toggleNavBar}
-              aria-expanded="false" aria-controls="navbarMenu"
-            ><span className="burger-lines"></span></a>
-            <h1 className="site-logo"><Link to="/">{ siteTitle }</Link></h1>
+              role="button"
+              aria-expanded="false"
+              aria-controls="navbarMenu"
+            ><span className="burger-lines"/></a>
+            <h1 className="site-logo">
+              <RenderField model={model} fieldId="siteTitle_s" component={Link} to="/" />
+            </h1>
           </div>
         </div>
       </div>
       <nav className="navbar navbar-expand-md navbar-light bg-light">
         <div className="container">
-          <div className="collapse navbar-collapse" id="navbarMenu">
+          <div className={`collapse navbar-collapse ${showMobileMenu ? 'show' : ''}`} id="navbarMenu">
             <ul className="navbar-nav mx-auto">
               {
                 nav?.sort(

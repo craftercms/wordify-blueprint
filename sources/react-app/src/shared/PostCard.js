@@ -17,8 +17,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { useICE } from '@craftercms/ice/react';
-import { useGlobalContext } from './context';
+import { Field, RenderField } from '@craftercms/studio-guest/react';
 
 export const
   PORTRAIT = 'portrait',
@@ -28,106 +27,135 @@ export const
 
 function PostCard(props) {
   const { formatDate } = useIntl();
-  const [{ isAuthoring }] = useGlobalContext();
   const {
     classes,
-    parentModelId,
     format = PORTRAIT,
     showBlurb = false,
     numOfComments,
     model,
     model: {
-      // pageTitle_s,
-      // pageDescription_s,
-      // authorBio_o,
-      authorBio_o: [{
-        name_s: authorName,
-        profilePic_s: authorAvatarUrl
-      }],
-      blurb_t,
-      // content_o,
+      authorBio_o,
       headline_s,
-      mainImage_s,
       mainImageAlt_s = '',
       categories_o,
       craftercms: {
         dateModified
-      },
+      }
     }
   } = props;
-  const slug = model.craftercms.path
-    .replace(/(\/site\/components)|(index\.xml)/g, '')
-    .replace(/(\/site\/website)|(index\.xml)/g, '')
-    .replace(/(\/\/)/g, '/')
-    .replace('.xml', '');
-  const { props: ice } = useICE({ model, parentModelId, isAuthoring });
+  const authorModel = authorBio_o?.[0];
+  const postMetaCommon = (
+    <div className="post-meta">
+      <Field
+        component="span"
+        model={model}
+        fieldId="authorBio_o"
+        index={0}
+        className="author mr-2"
+      >
+        <Field component="span" model={authorModel}>
+          <RenderField
+            component="img"
+            model={authorModel}
+            renderTarget="src"
+            fieldId="profilePic_s"
+            alt=""
+          />{' '}
+          <RenderField
+            component="span"
+            model={authorModel}
+            fieldId="name_s"
+          />
+        </Field>
+      </Field>
+      {' • '}<span className="mr-2">{formatDate(dateModified)}</span>
+      {
+        numOfComments &&
+        <>
+          {' • '}<span className="ml-2"><span className="fa fa-comments" /> {numOfComments}</span>
+        </>
+      }
+    </div>
+  );
+  const slug = computeSlug(model.craftercms.path);
   switch (format) {
     case PORTRAIT:
       return (
-        <Link to={slug} className={`blog-entry ${classes?.root ?? ''}`} {...ice}>
+        <Field
+          component={Link}
+          model={model}
+          to={slug}
+          className={`blog-entry ${classes?.root ?? ''}`}
+        >
           <div className="img-container">
-            <img src={mainImage_s} alt={mainImageAlt_s} />
+            <RenderField
+              component="img"
+              model={model}
+              renderTarget="src"
+              fieldId="mainImage_s"
+              alt={mainImageAlt_s}
+            />
           </div>
           <div className="blog-content-body">
-            <div className="post-meta">
-              <span className="author mr-2">
-                <img src={authorAvatarUrl} alt="" /> {authorName}
-              </span>
-              {' • '}<span className="mr-2">{formatDate(dateModified)}</span>
-              {
-                numOfComments &&
-                <>
-                  {' • '}<span className="ml-2"><span className="fa fa-comments" /> {numOfComments}</span>
-                </>
-              }
-            </div>
-            <h2>{headline_s}</h2>
+            {postMetaCommon}
+            <RenderField component="h2" model={model} fieldId="headline_s" />
           </div>
-        </Link>
+        </Field>
       );
     case LANDSCAPE:
       return (
-        <div className="post-entry-horizontal" {...ice}>
-          <Link to={slug} className={classes?.root}>
-            <div className="image" style={{ backgroundImage: `url(${mainImage_s})` }} />
+        <div className="post-entry-horizontal">
+          {/* Notice: Adding the ICE to the above element wouldn't stop
+              the link from navigating when clicked */}
+          <Field component={Link} model={model} to={slug} className={classes?.root}>
+            <RenderField
+              model={model}
+              fieldId="mainImage_s"
+              renderTarget="style.backgroundImage"
+              format={(src) => `url("${src}")`}
+              className="image"
+            />
             <span className="text">
-              <div className="post-meta">
-                <span className="author mr-2">
-                  <img src={authorAvatarUrl} alt="" /> {authorName}
-                </span>
-                • <span className="mr-2">{formatDate(dateModified)}</span>
-                {
-                  numOfComments &&
-                  <>
-                    • <span className="ml-2"><span className="fa fa-comments" /> ${numOfComments}</span>
-                  </>
-                }
-              </div>
-              <h2>{headline_s}</h2>
+              {postMetaCommon}
+              <RenderField component="h2" fieldId="headline_s" model={model} />
             </span>
-          </Link>
+          </Field>
         </div>
       );
     case LANDSCAPE_COMPRESSED:
       return (
-        <Link to={slug} className={classes?.root} {...ice}>
-          <img src={mainImage_s} alt={mainImageAlt_s} className="mr-4" />
+        <Field component={Link} model={model} to={slug} className={classes?.root}>
+          <RenderField
+            component="img"
+            renderTarget="src"
+            model={model}
+            fieldId="mainImage_s"
+            className="mr-4"
+            alt=""
+          />
           <div className="text">
-            <h4>{headline_s}</h4>
+            <RenderField component="h4" model={model} fieldId="headline_s" />
             <div className="post-meta">
               <span className="mr-2">{formatDate(dateModified)}</span>
             </div>
           </div>
-        </Link>
+        </Field>
       );
     case IMAGE_BACKGROUND:
       return (
-        <Link
-          to={slug}
+        <RenderField
+          model={model}
+          fieldId="mainImage_s"
+          renderTarget="style"
           className={`a-block d-flex align-items-center ${classes?.root ?? ''}`}
-          style={{ backgroundImage: `url(${mainImage_s})` }}
+          format={(mainImage_s) => ({ backgroundImage: `url("${mainImage_s}")` })}
         >
-          <div className={`text ${classes?.innerWrapper}`} {...ice}>
+          <Field
+            component={Link}
+            model={model}
+            to={slug}
+            className={`text ${classes?.innerWrapper}`}
+          >
             <div className="post-meta">
               {
                 categories_o &&
@@ -137,6 +165,7 @@ function PostCard(props) {
                       <span className="category" key={category.key}>{category.value_smv}</span>
                     )
                   }
+
                   {' • '}
                 </>
               }
@@ -144,25 +173,34 @@ function PostCard(props) {
               {
                 numOfComments &&
                 <>
-                  {' • '}<span className="ml-2"><span className="fa fa-comments"/> {numOfComments}</span>
+                  {' • '}<span className="ml-2"><span className="fa fa-comments" /> {numOfComments}
+                </span>
                 </>
               }
             </div>
-            <h3>{headline_s.text??headline_s}</h3>
+            <RenderField component="h3" model={model} fieldId="headline_s" />
             {
-              showBlurb && <p>{blurb_t}</p>
+              showBlurb && <RenderField component="p" model={model} fieldId="blurb_t" />
             }
-          </div>
-        </Link>
+          </Field>
+        </RenderField>
       );
     default:
       console.error(`Unknown PostCard format "${format}" on post "${headline_s}"`);
       return (
-        <Link to={slug} className={classes?.root} {...ice}>
+        <Field component={Link} model={model} to={slug} className={classes?.root}>
           <h2>{headline_s}</h2>
-        </Link>
+        </Field>
       );
   }
+}
+
+function computeSlug(path) {
+  return path
+    .replace(/(\/site\/components)|(index\.xml)/g, '')
+    .replace(/(\/site\/website)|(index\.xml)/g, '')
+    .replace(/(\/\/)/g, '/')
+    .replace('.xml', '');
 }
 
 export default PostCard;

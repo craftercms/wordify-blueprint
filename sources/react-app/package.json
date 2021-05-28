@@ -1,30 +1,29 @@
 {
-  "name": "wordify-craftercms-react-app",
+  "name": "@craftercms/wordify-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craftercms/classes": "^1.2.4",
     "@craftercms/content": "^1.2.4",
-    "@craftercms/ice": "^1.2.4",
     "@craftercms/search": "^1.2.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "js-cookie": "^2.2.1",
+    "lorem-ipsum": "^2.0.3",
     "query-string": "^6.12.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
     "react-intl": "^4.2.2",
     "react-paginate": "^7.0.0",
-    "react-relay": "^9.0.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^4.0.1"
+    "react-scripts": "4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "chmod +x build.sh; ./build.sh",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "relay": "relay-compiler --src ./src --schema ./data/schema.graphql"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

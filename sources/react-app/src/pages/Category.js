@@ -18,14 +18,14 @@ import React, { useState, Suspense, useEffect } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import RecentPostsAside from '../shared/RecentPostsAside';
 import PostCard, { LANDSCAPE } from '../shared/PostCard';
-import SidebarBios from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
-import { usePencil, usePosts, useTaxonomiesResource } from '../shared/hooks';
+import { usePosts, useTaxonomiesResource } from '../shared/hooks';
 import CategoryCard from '../shared/CategoryCard';
 import { parseDescriptor } from '@craftercms/content';
 import { createTaxonomyFilter } from '../shared/utils';
 import CircularProgressSpinner from '../shared/CircularProgressSpinner';
+import { Field } from '@craftercms/studio-guest/react';
 import Paginate from '../shared/Paginate';
 
 function CategoryContent({ resource, isTag, categoryId }) {
@@ -36,7 +36,6 @@ function CategoryContent({ resource, isTag, categoryId }) {
   )[0];
 
   let category;
-  const ice = usePencil({ model: categories });
   const [paginationData, setPaginationData] = useState({
     itemsPerPage: 8,
     currentPage: 0
@@ -52,59 +51,61 @@ function CategoryContent({ resource, isTag, categoryId }) {
     <>
       {
         categoryId
-        ?
-        <>
-          <div className="col-md-12">
-            <h2 className="mb-4">{isTag ? 'Tag' : 'Category'}: {category?.value}</h2>
-          </div>
-          <div className="col-md-12 col-lg-8 main-content">
-            <div className="row mb-5 mt-5">
-              <div className="col-md-12">
-                {
-                  posts?.items.map((post) =>
-                    <PostCard key={post.craftercms.id} model={post} format={LANDSCAPE} />
-                  )
-                }
-              </div>
+          ?
+          <>
+            <div className="col-md-12">
+              <h2 className="mb-4">{isTag ? 'Tag' : 'Category'}: {category?.value}</h2>
             </div>
-            {
-              posts?.pageCount > 1 &&
-              <div className="row mt-5">
-                <div className="col-md-12 text-center">
-                  <nav aria-label="Categories navigation" className="text-center">
-                    <Paginate
-                      pageCount={posts.pageCount}
-                      onPageChange={(index) => {
-                        setPaginationData(
-                          {
-                            ...paginationData,
-                            currentPage: (index)
-                          });
-                      }}
-                    />
-                  </nav>
+            <div className="col-md-12 col-lg-8 main-content">
+              <div className="row mb-5 mt-5">
+                <div className="col-md-12">
+                  {
+                    posts?.items.map((post) =>
+                      <PostCard key={post.craftercms.id} model={post} format={LANDSCAPE} />
+                    )
+                  }
                 </div>
               </div>
-            }
-          </div>
-        </>
-        :
-        <>
-          <div className="col-md-12">
-            <h2 className="mb-4">{isTag ? 'Tags' : 'Categories'}:</h2>
-          </div>
-          <div className="col-md-12 col-lg-8">
-            <div className="row" {...ice}>
               {
-                categories?.items.item.map(category =>
-                  <div className="col-md-6 mb-4" key={category.key}>
-                    <CategoryCard category={category} isTag={isTag} />
+                posts?.pageCount > 1 &&
+                <div className="row mt-5">
+                  <div className="col-md-12 text-center">
+                    <nav aria-label="Categories navigation" className="text-center">
+                      <Paginate
+                        pageCount={posts.pageCount}
+                        onPageChange={(index) => setPaginationData(
+                          {
+                            ...paginationData,
+                            currentPage: index * paginationData.itemsPerPage
+                          })
+                        }
+                      />
+                    </nav>
                   </div>
-                )
+                </div>
               }
             </div>
-          </div>
-        </>
+          </>
+          :
+          <>
+            <div className="col-md-12">
+              <h2 className="mb-4">{isTag ? 'Tags' : 'Categories'}:</h2>
+            </div>
+            <div className="col-md-12 col-lg-8">
+              <Field
+                model={categories}
+                className='row'
+              >
+                {
+                  categories?.items.item.map(category =>
+                    <div className="col-md-6 mb-4" key={category.key}>
+                      <CategoryCard model={categories} category={category} isTag={isTag} />
+                    </div>
+                  )
+                }
+              </Field>
+            </div>
+          </>
       }
     </>
   );
@@ -112,11 +113,9 @@ function CategoryContent({ resource, isTag, categoryId }) {
 
 function Category(props) {
   const {
-    model,
     match,
     meta: {
-      siteTitle,
-      socialLinks
+      levelDescriptor
     }
   } = props;
 
@@ -124,14 +123,13 @@ function Category(props) {
   const [categoryId, setCategoryId] = useState();
   let resource = useTaxonomiesResource();
 
+
   useEffect(() => {
-    if (match.path === '/category/:id?' || match.path === '/tag/:id?') {
-      setCategoryId(match.params.id);
-    }
+    setCategoryId(match.params.id);
   }, [match.params, match.path]);
 
   return (
-    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
+    <BaseLayout model={levelDescriptor}>
       <section className="site-section pt-5">
         <div className="container">
           <div className="row blog-entries">
@@ -141,8 +139,6 @@ function Category(props) {
             <div className="col-md-12 col-lg-4 sidebar">
 
               <SidebarSearch />
-
-              <SidebarBios model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 

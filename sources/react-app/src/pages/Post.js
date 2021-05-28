@@ -16,46 +16,51 @@
 
 import React, { useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
-import ContentType from '../shared/ContentType';
 import RecentPostsAside from '../shared/RecentPostsAside';
 import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
 import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import SidebarSearch from '../shared/SidebarSearch';
-import SidebarBios from '../shared/SidebarBios';
-import DropZone from '../shared/DropZone';
-import Comments, { CommentsCount } from '../shared/Comments';
+import { SidebarBiosWithICE } from '../shared/SidebarBios';
+import { ContentType, Field, RenderField } from '@craftercms/studio-guest/react';
+import contentTypeMap from '../shared/contentTypeMap';
 import { useIntl } from 'react-intl';
+import Comments, { CommentsCount } from '../shared/Comments';
 import Paginate from '../shared/Paginate';
 import { usePosts } from '../shared/hooks';
 
 function Post(props) {
   const {
     model,
-    posts,
     meta: {
-      siteTitle,
-      socialLinks,
+      levelDescriptor,
       disqus: {
         websiteShortname
       }
     }
   } = props;
   const { formatDate } = useIntl();
-  const modelPath = model.craftercms.path;
   const [paginationData, setPaginationData] = useState({
     itemsPerPage: 10,
     currentPage: 0
   });
+
   const related = usePosts(paginationData, model.categories_o, model.tags_o, model.craftercms.path);
 
   return (
-    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
+    <BaseLayout model={levelDescriptor}>
       <section className="site-section py-lg">
         <div className="container">
           <div className="row blog-entries element-animate-disabled">
 
             <div className="col-md-12 col-lg-8 main-content">
-              <img src={model.mainImage_s} alt="" className="img-fluid mb-5" />
+              <RenderField
+                component="img"
+                model={model}
+                fieldId="mainImage_s"
+                renderTarget="src"
+                alt=""
+                className="img-fluid mb-5"
+              />
               <div className="post-meta">
                 <span className="author mr-2">
                   <img src={model.authorBio_o[0].profilePic_s} alt="" className="mr-2" /> {model.authorBio_o[0].name_s}
@@ -66,29 +71,37 @@ function Post(props) {
 
                 <CommentsCount id={model.craftercms.id} websiteShortname={websiteShortname} />
               </div>
-              <h1 className="mb-4">{model.headline_s}</h1>
+              <RenderField
+                component="h1"
+                model={model}
+                fieldId="headline_s"
+                className="mb-4"
+              />
               {
                 model.categories_o?.map(category =>
                   <a className="category mb-5" href={`/category/${category.key}`} key={category.key}>{category.value_smv}</a>
                 )
               }
 
-              <DropZone
+              <RenderField
                 model={model}
                 component="div"
                 fieldId="content_o"
                 className="post-content-body"
-              >
-                {
-                  model.content_o?.map(component =>
+                format={(content_o) => content_o?.map((component, index) =>
+                  <Field
+                    key={`${component.craftercms.id}_${index}`}
+                    model={model}
+                    index={index}
+                    fieldId="content_o"
+                  >
                     <ContentType
                       model={component}
-                      key={component.craftercms.id}
-                      parentModelId={modelPath}
+                      contentTypeMap={contentTypeMap}
                     />
-                  )
-                }
-              </DropZone>
+                  </Field>
+                )}
+              />
 
               <div className="pt-5">
                 {
@@ -96,7 +109,7 @@ function Post(props) {
                   <div>
                     Categories:
                     {
-                      model.categories_o.map((category, i) =>
+                      model.categories_o?.map((category, i) =>
                         <a href={`/category/${category.key}`} key={category.key}>{category.value_smv}{model.categories_o.length === i+1 ? '' : ','}</a>
                       )
                     }
@@ -107,8 +120,10 @@ function Post(props) {
                   <div>
                     Tags:
                     {
-                      model.tags_o.map((tag, i) =>
-                        <a href={`/tag/${tag.key}`} key={tag.key}>#{tag.value_smv}{model.tags_o.length === i+1 ? '' : ','}</a>
+                      model.tags_o?.map((tag, i) =>
+                        <a
+                          href={`/tag/${tag.key}`} key={tag.key}
+                        >#{tag.value_smv}{model.tags_o.length === i + 1 ? '' : ','}</a>
                       )
                     }
                   </div>
@@ -124,11 +139,11 @@ function Post(props) {
 
             <div className="col-md-12 col-lg-4 sidebar">
 
-              <SidebarSearch/>
+              <SidebarSearch />
 
-              <SidebarBios model={model} fieldId="authorBio_o" />
+              <SidebarBiosWithICE model={model} fieldId="authorBio_o" />
 
-              <RecentPostsAside posts={posts} />
+              <RecentPostsAside />
 
               <SidebarCategories />
 
@@ -146,7 +161,7 @@ function Post(props) {
             <>
               <div className="row">
                 <div className="col-md-12">
-                  <h2 className="mb-3 ">Related Posts</h2>
+                  <h2 className="mb-3">Related Posts</h2>
                 </div>
               </div>
               <div className="row">

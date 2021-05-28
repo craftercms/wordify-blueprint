@@ -1112,17 +1112,6 @@ type craftercms_site {
     "The order to sort items"
     sortOrder: SortOrder
   ): page_entry_query!
-  "Items of content-type /page/post"
-  page_post(
-    "The number of items to return"
-    limit: Int,
-    "The number of items to skip"
-    offset: Int,
-    "The name of the field to sort items"
-    sortBy: String,
-    "The order to sort items"
-    sortOrder: SortOrder
-  ): page_post_query!
   "Items of content-type /page/search"
   page_search(
     "The number of items to return"
@@ -1534,41 +1523,27 @@ type page_entry_query {
   total: Int!
 }
 
-"Post"
-type page_post implements ContentItem & Page {
-  "Author Bio"
-  authorBio_o: page_post_authorBio_o_items
-  "Blurb"
-  blurb_t(
-    "Values used to filter the results"
-    filter: TextFilters
-  ): String
-  "Categories"
-  categories_o: page_post_categories_o_items
+"Search"
+type page_search implements ContentItem & Page {
+  "Bios"
+  bios_o: page_search_bios_o_items
   "The content type of the item"
   content__type(
     "Values used to filter the results"
     filter: StringFilters
   ): String!
-  "Content"
-  content_o: ContentIncludeWrapper
   "The created date of the item"
   createdDate_dt(
     "Values used to filter the results"
     filter: DateFilters
   ): DateTime!
+  "Disable Page"
+  disabled(
+    "Values used to filter the results"
+    filter: BooleanFilters
+  ): Boolean
   "Page URL"
   file__name(
-    "Values used to filter the results"
-    filter: TextFilters
-  ): String
-  "Headline"
-  headline_s(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String
-  "Tokenized version of headline_s"
-  headline_t(
     "Values used to filter the results"
     filter: TextFilters
   ): String
@@ -1588,11 +1563,6 @@ type page_post implements ContentItem & Page {
     filter: StringFilters,
     "The name of the transformer to apply"
     transform: String
-  ): String
-  "Main Image"
-  mainImage_s(
-    "Values used to filter the results"
-    filter: StringFilters
   ): String
   "The label of the page in the navigation"
   navLabel(
@@ -1634,7 +1604,7 @@ type page_post implements ContentItem & Page {
 }
 
 "Contains the data from another item in the site"
-type page_post_authorBio_o_flattened_item {
+type page_search_bios_o_flattened_item {
   "The content of the item"
   component: component_bio
   "The path of the item"
@@ -1644,35 +1614,15 @@ type page_post_authorBio_o_flattened_item {
 }
 
 "Wrapper for flattened items"
-type page_post_authorBio_o_items {
+type page_search_bios_o_items {
   "List of flattened items"
-  item: [page_post_authorBio_o_flattened_item!]
+  item: [page_search_bios_o_flattened_item!]
 }
 
-"Item for field categories_o"
-type page_post_categories_o_item {
-  "The key of the item"
-  key(
-    "Values used to filter the results"
-    filter: TextFilters
-  ): String
-  "The value of the item"
-  value_smv(
-    "Values used to filter the results"
-    filter: StringFilters
-  ): String
-}
-
-"Wrapper for field categories_o"
-type page_post_categories_o_items {
-  "List of items for field categories_o"
-  item: [page_post_categories_o_item]
-}
-
-"Query for content-type /page/post"
-type page_post_query {
+"Query for content-type /page/search"
+type page_search_query {
   "List of items"
-  items: [page_post!]
+  items: [page_search!]
   "Total number of items found"
   total: Int!
 }

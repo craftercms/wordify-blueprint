@@ -311,13 +311,13 @@
 						<property>
 							<name>width</name>
 							<value
-							>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot; }</value>
+							>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;}</value>
 							<type>range</type>
 						</property>
 						<property>
 							<name>height</name>
 							<value
-							>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot; }</value>
+							>{ &quot;exact&quot;:&quot;&quot;, &quot;min&quot;:&quot;&quot;, &quot;max&quot;:&quot;&quot;}</value>
 							<type>range</type>
 						</property>
 						<property>
@@ -466,7 +466,7 @@
 						</property>
 						<property>
 							<name>itemManager</name>
-							<value>images,responsiveColumns,richTextSections</value>
+							<value>images,responsiveColumns,richTextSections,postContent</value>
 							<type>datasource:item</type>
 						</property>
 						<property>
@@ -541,6 +541,11 @@
 							<name>useSingleValueFilename</name>
 							<value />
 							<type>boolean</type>
+						</property>
+						<property>
+							<name>contentTypes</name>
+							<value>,/component/bio</value>
+							<type>contentTypes</type>
 						</property>
 						<property>
 							<name>tags</name>
@@ -631,116 +636,134 @@
 			</properties>
 		</datasource>
 		<datasource>
-			<type>shared-content</type>
+			<type>site-component</type>
+			<id>categories</id>
+			<title>Categories</title>
+			<interface>item</interface>
+			<properties>
+				<property>
+					<name>dataType</name>
+					<value>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;DataType&quot;,&quot;selected&quot;:false}]</value>
+					<type>undefined</type>
+				</property>
+				<property>
+					<name>componentPath</name>
+					<value>/site/taxonomy/categories.xml</value>
+					<type>undefined</type>
+				</property>
+			</properties>
+		</datasource>
+		<datasource>
+			<type>site-component</type>
+			<id>tags</id>
+			<title>Tags</title>
+			<interface>item</interface>
+			<properties>
+				<property>
+					<name>dataType</name>
+					<value>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;DataType&quot;,&quot;selected&quot;:false}]</value>
+					<type>undefined</type>
+				</property>
+				<property>
+					<name>componentPath</name>
+					<value>/site/taxonomy/tags.xml</value>
+						<type>undefined</type>
+				</property>
+			</properties>
+		</datasource>
+		<datasource>
+			<type>dropTargets</type>
+			<id>postContent</id>
+			<title>Post Content</title>
+			<interface>item</interface>
+			<properties>
+				<property>
+					<name>allowShared</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>allowEmbedded</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>enableBrowse</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>enableSearch</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>baseRepositoryPath</name>
+					<value>/site/components</value>
+					<type>string</type>
+				</property>
+				<property>
+					<name>baseBrowsePath</name>
+					<value>/site/components</value>
+					<type>string</type>
+				</property>
+				<property>
+					<name>contentTypes</name>
+					<value>/component/image,/component/responsive_columns,/component/rich_text</value>
+					<type>contentTypes</type>
+				</property>
+				<property>
+					<name>tags</name>
+					<value />
+					<type>string</type>
+				</property>
+			</properties>
+		</datasource>
+		<datasource>
+			<type>dropTargets</type>
 			<id>bios</id>
 			<title>Bios</title>
 			<interface>item</interface>
 			<properties>
 				<property>
-					<name>enableCreateNew</name>
+					<name>allowShared</name>
 					<value>true</value>
-					<type>undefined</type>
+					<type>boolean</type>
 				</property>
 				<property>
-					<name>enableBrowseExisting</name>
-					<value>true</value>
-					<type>undefined</type>
+					<name>allowEmbedded</name>
+					<value>false</value>
+					<type>boolean</type>
 				</property>
 				<property>
-					<name>enableSearchExisting</name>
+					<name>enableBrowse</name>
 					<value>true</value>
-					<type>undefined</type>
+					<type>boolean</type>
 				</property>
 				<property>
-					<name>repoPath</name>
+					<name>enableSearch</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>baseRepositoryPath</name>
 					<value>/site/components/bio</value>
-					<type>undefined</type>
+					<type>string</type>
 				</property>
 				<property>
-					<name>browsePath</name>
+					<name>baseBrowsePath</name>
 					<value>/site/components/bio</value>
-					<type>undefined</type>
+					<type>string</type>
 				</property>
 				<property>
-					<name>type</name>
+					<name>contentTypes</name>
 					<value>/component/bio</value>
-					<type>undefined</type>
-				</property>
-			</properties>
-		</datasource>
-		<datasource>
-			<type>site-component</type>
-			<id>categories</id>
-			<title>Categories</title>
-			<interface>item</interface>
-			<properties>
-				<property>
-					<name>dataType</name>
-					<value
-					>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;DataType&quot;,&quot;selected&quot;:false}]</value>
-					<type>undefined</type>
+					<type>contentTypes</type>
 				</property>
 				<property>
-					<name>componentPath</name>
-					<value>/site/taxonomy/categories.xml</value>
-					<type>undefined</type>
-				</property>
-			</properties>
-		</datasource>
-		<datasource>
-			<type>site-component</type>
-			<id>tags</id>
-			<title>Tags</title>
-			<interface>item</interface>
-			<properties>
-				<property>
-					<name>dataType</name>
-					<value
-					>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;DataType&quot;,&quot;selected&quot;:false}]</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>componentPath</name>
-					<value>/site/taxonomy/tags.xml</value>
-					<type>undefined</type>
-				</property>
-			</properties>
-		</datasource>
-		<datasource>
-			<type>site-component</type>
-			<id>categories</id>
-			<title>Categories</title>
-			<interface>item</interface>
-			<properties>
-				<property>
-					<name>dataType</name>
-					<value
-					>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;DataType&quot;,&quot;selected&quot;:false}]</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>componentPath</name>
-					<value>/site/taxonomy/categories.xml</value>
-					<type>undefined</type>
-				</property>
-			</properties>
-		</datasource>
-		<datasource>
-			<type>site-component</type>
-			<id>tags</id>
-			<title>Tags</title>
-			<interface>item</interface>
-			<properties>
-				<property>
-					<name>dataType</name>
-					<value
-					>[{&quot;value&quot;:&quot;value&quot;,&quot;label&quot;:&quot;&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_s&quot;,&quot;label&quot;:&quot;String&quot;,&quot;selected&quot;:true},{&quot;value&quot;:&quot;value_i&quot;,&quot;label&quot;:&quot;Integer&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_f&quot;,&quot;label&quot;:&quot;Float&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_dt&quot;,&quot;label&quot;:&quot;Date&quot;,&quot;selected&quot;:false},{&quot;value&quot;:&quot;value_html&quot;,&quot;label&quot;:&quot;DataType&quot;,&quot;selected&quot;:false}]</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>componentPath</name>
-					<value>/site/taxonomy/tags.xml</value>
-					<type>undefined</type>
+					<name>tags</name>
+					<value />
+					<type>string</type>
 				</property>
 			</properties>
 		</datasource>

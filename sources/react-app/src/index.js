@@ -17,14 +17,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './shared/App';
+import Cookies from 'js-cookie';
+import { siteName } from './shared/utils';
 // import * as serviceWorker from './serviceWorker';
 
-// On occasions, Crafter's jQuery overrides the site's jQuery
-// briefly. This will get fixed on next releases of Crafter CMS,
-// but for now, adding jQuery to the global context to 'cache' it.
+if (Cookies.get('crafterSite') !== siteName) {
+  Cookies.set('crafterSite', siteName);
+}
+
 ReactDOM.render(
   <React.StrictMode>
-    <App jQuery={window.jQuery} />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

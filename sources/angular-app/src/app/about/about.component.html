@@ -1,0 +1,58 @@
+<section class="site-section pt-5">
+  <div class="container">
+    <div class="row blog-entries">
+      <div class="col-md-12 col-lg-8 main-content">
+
+        <div class="row">
+          <div class="col-md-12">
+            <h2>{{headline_s}}</h2>
+
+            <div class="mb-5" *ngFor="let component of content_o">
+              <app-content-type [model]="component"></app-content-type>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-5 mt-5">
+          <div class="col-md-12 mb-5">
+            <h2>
+              Latest Posts
+            </h2>
+          </div>
+          <div class="col-md-12">
+            <app-post-card
+              *ngFor="let post of posts_o;" [format]="'landscape'" [model]="post"
+            ></app-post-card>
+          </div>
+        </div>
+
+        <div *ngIf="paginationData.pageCount > 1" class="row">
+          <div class="col-md-12 text-center">
+            <nav aria-label="Page navigation" class="text-center">
+              <app-pagination
+                [currentPage]="paginationData.currentPage"
+                [itemsPerPage]="paginationData.itemsPerPage"
+                [pageCount]="paginationData.pageCount"
+                [onPageChange]="onPageChange.bind(this)"
+              ></app-pagination>
+            </nav>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-12 col-lg-4 sidebar">
+
+        <app-sidebar-search></app-sidebar-search>
+
+        <app-sidebar-bios [bios]="bios_o"></app-sidebar-bios>
+
+        <app-recent-posts-aside></app-recent-posts-aside>
+
+        <app-sidebar-categories></app-sidebar-categories>
+
+        <app-sidebar-tags></app-sidebar-tags>
+
+      </div>
+    </div>
+  </div>
+</section>

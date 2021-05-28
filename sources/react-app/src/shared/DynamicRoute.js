@@ -19,10 +19,12 @@ import React, { useEffect, useState } from 'react';
 import CircularProgressSpinner from './CircularProgressSpinner';
 import { fetchQuery } from '../fetchQuery';
 import byUrlQuery from './queries.graphql';
-import ContentType from './ContentType';
 import { parseDescriptor } from '@craftercms/content';
-import { reportNavigation } from '@craftercms/ice';
 import { parse } from 'query-string';
+import { isAuthoring } from './utils';
+import { ContentType, Guest } from '@craftercms/studio-guest/react';
+import contentTypeMap from './contentTypeMap';
+import NotFound from '../pages/NotFound';
 
 const limit = 8;
 
@@ -30,16 +32,14 @@ export default function DynamicRoute(props) {
   const { match, location } = props;
   const [state, setState] = useState(null);
   let url = match.path.includes(':')
-    ? match.path.substring(0, match.path.indexOf(':') -1)
+    ? match.path.substring(0, match.path.indexOf(':') - 1)
     : match.url;
 
   useEffect(() => {
     let destroyed = false;
     let page = parseInt(parse(location.search).page ?? 1) - 1;
     const pagination = { limit, offset: page ? (page * limit) : 0 };
-    reportNavigation(url);
     fetchQuery(
-      // { text: byUrlQuery.params.text.replace(/__typename/g, '') },
       { text: byUrlQuery },
       {
         url: `.*${url === '/' ? 'website/index' : url}.*`,
@@ -50,15 +50,16 @@ export default function DynamicRoute(props) {
     ).then(({ data }) => {
       if (!destroyed) {
         const model = parseDescriptor(data.content.items?.[0]);
-        const levelDescriptor = data.levelDescriptors.items
-          .filter(levelDescriptor => levelDescriptor.file__name === 'crafter-level-descriptor.level.xml')
-          .map(levelDescriptor => levelDescriptor)[0];
+        const levelDescriptor = parseDescriptor(
+          data.levelDescriptors.items
+            .filter(levelDescriptor => levelDescriptor.file__name === 'crafter-level-descriptor.level.xml')
+            .pop()
+        );
 
         setState({
           model,
           meta: {
-            siteTitle: levelDescriptor.siteTitle_s,
-            socialLinks: levelDescriptor.socialLinks_o.item,
+            levelDescriptor,
             disqus: {
               websiteShortname: levelDescriptor.websiteShortname_s
             },
@@ -84,12 +85,24 @@ export default function DynamicRoute(props) {
 
   useEffect(() => {
     window.scroll(0, 0);
-  }, [url])
+  }, [url]);
 
   if (state === null) {
     return <CircularProgressSpinner />;
   } else {
-    return <ContentType {...state} {...props} />;
+    return (
+      <Guest
+        isAuthoring={isAuthoring()}
+        path={state.model?.craftercms.path}
+      >
+        <ContentType
+          {...state}
+          {...props}
+          contentTypeMap={contentTypeMap}
+          notFoundComponent={NotFound}
+        />
+      </Guest>
+    );
   }
 
 }

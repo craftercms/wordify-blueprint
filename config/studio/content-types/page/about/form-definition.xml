@@ -349,7 +349,7 @@
 						</property>
 						<property>
 							<name>itemManager</name>
-							<value>richText,image</value>
+							<value>richText,image,postContent</value>
 							<type>datasource:item</type>
 						</property>
 						<property>
@@ -444,44 +444,6 @@
 	</sections>
 	<datasources>
 		<datasource>
-			<type>shared-content</type>
-			<id>bio</id>
-			<title>Bio</title>
-			<interface>item</interface>
-			<properties>
-				<property>
-					<name>enableCreateNew</name>
-					<value>true</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>enableBrowseExisting</name>
-					<value>true</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>enableSearchExisting</name>
-					<value>true</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>repoPath</name>
-					<value>/site/components/bio</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>browsePath</name>
-					<value>/site/components/bio</value>
-					<type>undefined</type>
-				</property>
-				<property>
-					<name>type</name>
-					<value>/component/bio</value>
-					<type>undefined</type>
-				</property>
-			</properties>
-		</datasource>
-		<datasource>
 			<type>embedded-content</type>
 			<id>richText</id>
 			<title>Rich Text</title>
@@ -504,6 +466,102 @@
 					<name>contentType</name>
 					<value>/component/image</value>
 					<type>undefined</type>
+				</property>
+			</properties>
+		</datasource>
+		<datasource>
+			<type>dropTargets</type>
+			<id>postContent</id>
+			<title>Post Content</title>
+			<interface>item</interface>
+			<properties>
+				<property>
+					<name>allowShared</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>allowEmbedded</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>enableBrowse</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>enableSearch</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>baseRepositoryPath</name>
+					<value>/site/components</value>
+					<type>string</type>
+				</property>
+				<property>
+					<name>baseBrowsePath</name>
+					<value>/site/components</value>
+					<type>string</type>
+				</property>
+				<property>
+					<name>contentTypes</name>
+					<value>/component/image,/component/responsive_columns,/component/rich_text</value>
+					<type>contentTypes</type>
+				</property>
+				<property>
+					<name>tags</name>
+					<value />
+					<type>string</type>
+				</property>
+			</properties>
+		</datasource>
+		<datasource>
+			<type>dropTargets</type>
+			<id>bio</id>
+			<title>Bio</title>
+			<interface>item</interface>
+			<properties>
+				<property>
+					<name>allowShared</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>allowEmbedded</name>
+					<value>false</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>enableBrowse</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>enableSearch</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>baseRepositoryPath</name>
+					<value>/site/components/bio</value>
+					<type>string</type>
+				</property>
+				<property>
+					<name>baseBrowsePath</name>
+					<value>/site/components/bio</value>
+					<type>string</type>
+				</property>
+				<property>
+					<name>contentTypes</name>
+					<value>/component/bio</value>
+					<type>contentTypes</type>
+				</property>
+				<property>
+					<name>tags</name>
+					<value />
+					<type>string</type>
 				</property>
 			</properties>
 		</datasource>

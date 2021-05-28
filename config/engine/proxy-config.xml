@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
+ ~
+ ~ This program is free software: you can redistribute it and/or modify
+ ~ it under the terms of the GNU General Public License version 3 as published by
+ ~ the Free Software Foundation.
+ ~
+ ~ This program is distributed in the hope that it will be useful,
+ ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ ~ GNU General Public License for more details.
+ ~
+ ~ You should have received a copy of the GNU General Public License
+ ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<proxy-config>
+	<version>3</version>
+	<servers>
+		<server>
+			<id>static-assets</id>
+			<url />
+			<patterns>
+				<pattern>/static-assets/.*</pattern>
+			</patterns>
+		</server>
+		<server>
+			<id>graphql</id>
+			<url />
+			<patterns>
+				<pattern>/api/1/site/graphql.*</pattern>
+			</patterns>
+		</server>
+		<server>
+			<id>engine</id>
+			<url />
+			<patterns>
+				<pattern>/api/.*</pattern>
+			</patterns>
+		</server>
+		<server>
+			<id>catcher</id>
+			<url>http://localhost:8080/studio/nothing</url>
+			<patterns>
+				<pattern>/sources/.*</pattern>
+			</patterns>
+		</server>
+		<server>
+			<id>preview</id>
+			<url />
+			<patterns>
+				<pattern>.*</pattern>
+			</patterns>
+		</server>
+	</servers>
+</proxy-config>

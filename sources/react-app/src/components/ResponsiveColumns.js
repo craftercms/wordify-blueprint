@@ -15,41 +15,46 @@
  */
 
 import React from 'react';
-import ContentType from '../shared/ContentType';
-import DropZone from '../shared/DropZone';
+import { ContentType, Field, RenderField } from '@craftercms/studio-guest/react';
+import contentTypeMap from '../shared/contentTypeMap';
 
 function ResponsiveColumns(props) {
-  const {
-    ice,
-    model,
-    parentModelId,
-    model: { columns_o }
-  } = props;
-  const modelId = model.craftercms.id;
+  const { model } = props;
   return (
-    <div {...ice} className="row mb-5">
-      {
-        columns_o?.map(({ columnSize_s, content_o }, index) =>
-          <DropZone
+    <Field model={model}>
+      <RenderField
+        model={model}
+        fieldId="columns_o"
+        className="row mb-5"
+        format={(columns_o) => columns_o?.map(({ columnSize_s, content_o }, index) =>
+          <Field
+            key={`${model.craftercms.id}_columns_o_${index}`}
             model={model}
-            component="div"
-            fieldId="content_o"
+            fieldId="columns_o"
+            index={index}
             className={`col-md-${columnSize_s} mb-4`}
-            key={`${modelId}_${columnSize_s}_${index}`}
           >
-            {
-              content_o?.map?.(component =>
-                <ContentType
-                  key={component.craftercms.id}
-                  model={component}
-                  parentModelId={parentModelId}
-                />
-              )
-            }
-          </DropZone>
-        )
-      }
-    </div>
+            <Field model={model} fieldId="columns_o.content_o" index={index}>
+              {
+                content_o?.map((component, subIndex) =>
+                  <Field
+                    key={`${component.craftercms.id}_${subIndex}`}
+                    model={model}
+                    fieldId="columns_o.content_o"
+                    index={`${index}.${subIndex}`}
+                  >
+                    <ContentType
+                      model={component}
+                      contentTypeMap={contentTypeMap}
+                    />
+                  </Field>
+                )
+              }
+            </Field>
+          </Field>
+        )}
+      />
+    </Field>
   );
 }
 

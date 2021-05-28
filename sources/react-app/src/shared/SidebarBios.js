@@ -16,11 +16,10 @@
 
 import React from 'react';
 import Bio from '../components/Bio';
-import { usePencil } from './hooks';
-import DropZone from './DropZone';
+import { Field, RenderField } from '@craftercms/studio-guest/react';
 
 function SidebarBios(props) {
-  const { model, fieldId } = props;
+  const { bios } = props;
   return (
     <DropZone
       model={model}
@@ -30,19 +29,35 @@ function SidebarBios(props) {
       className="bio-zone"
     >
       {
-        model[fieldId]?.map(bio => <SidebarBio key={bio.craftercms.id} model={bio} />)
+        bios?.map(bio =>
+          <div key={bio.craftercms.id} className="sidebar-box">
+            <Bio model={bio} />
+          </div>
+        )
       }
     </DropZone>
   );
 }
 
-function SidebarBio(props) {
-  const bio = props.model;
-  const ice = usePencil(props);
+export function SidebarBiosWithICE(props) {
+  const { model, fieldId } = props;
   return (
-    <div className="sidebar-box">
-      <Bio ice={ice} model={bio} />
-    </div>
+    <RenderField
+      model={model}
+      fieldId={fieldId}
+      className="bio-zone"
+      format={(bios) => bios?.map((bio, index) =>
+        <Field
+          key={`${bio.craftercms.id}_${index}`}
+          model={model}
+          fieldId={fieldId}
+          index={index}
+          className="sidebar-box"
+        >
+          <Bio model={bio} />
+        </Field>
+      )}
+    />
   );
 }
 

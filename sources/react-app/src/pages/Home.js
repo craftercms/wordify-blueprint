@@ -19,25 +19,22 @@ import BaseLayout from '../shared/BaseLayout';
 import Slider from '../components/Slider';
 import { FormattedMessage } from 'react-intl';
 import PostCard from '../shared/PostCard';
-import SidebarBios from '../shared/SidebarBios';
+import { SidebarBiosWithICE } from '../shared/SidebarBios';
 import SidebarSearch from '../shared/SidebarSearch';
 import RecentPostsAside from '../shared/RecentPostsAside';
 import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
+import { Field } from '@craftercms/studio-guest/react';
 import { usePosts } from '../shared/hooks';
 import Paginate from '../shared/Paginate';
 
-export default function Home(props) {
+function Home(props) {
   const {
     model,
     model: {
-      craftercms: {
-        path
-      },
       slider_o
     },
     meta: {
-      siteTitle,
-      socialLinks
+      levelDescriptor
     }
   } = props;
   const [paginationData, setPaginationData] = useState({
@@ -47,15 +44,15 @@ export default function Home(props) {
   const posts = usePosts(paginationData);
 
   return (
-    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
+    <BaseLayout model={levelDescriptor}>
       <section className="site-section pt-5 pb-5">
         <div className="container">
           <div className="row">
             {
               slider_o?.map((slider, index) =>
-                <div className="col-md-12" key={index}>
-                  <Slider model={slider} parentModelId={path} />
-                </div>
+                <Field model={model} fieldId="slider_o" className="col-md-12" key={index}>
+                  <Slider model={slider} />
+                </Field>
               )
             }
           </div>
@@ -108,7 +105,7 @@ export default function Home(props) {
 
               <SidebarSearch />
 
-              <SidebarBios model={model} fieldId="bios_o" />
+              <SidebarBiosWithICE model={model} fieldId="bios_o" />
 
               <RecentPostsAside />
 
@@ -123,3 +120,5 @@ export default function Home(props) {
     </BaseLayout>
   );
 }
+
+export default Home;

@@ -14,13 +14,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { crafterConfig } from './shared/utils';
+import { siteName } from './shared/utils';
+
+let graphqlServer = process.env.REACT_APP_GRAPHQL_SERVER;
+if (!graphqlServer.includes(siteName)) {
+  graphqlServer += `?crafterSite=${siteName}`;
+}
 
 export function fetchQuery(
   operation,
   variables
 ) {
-  return fetch(`${crafterConfig.graphQLServer}?crafterSite=${crafterConfig.site}`, {
+  return fetch(graphqlServer, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

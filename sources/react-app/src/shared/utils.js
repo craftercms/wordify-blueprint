@@ -14,6 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import { crafterConf } from '@craftercms/classes';
 import Cookies from 'js-cookie';
 
 export function isAuthoring() {
@@ -52,38 +53,20 @@ export function createResource(factory) {
   };
 }
 
-let site = document.getElementById('2fb5164e').innerHTML;
-if (site === 'null') {
-  site = Cookies.get('crafterSite');
+export const siteName =
+  document.getElementById('2fb5164e').innerHTML ||
+  process.env.REACT_APP_CRAFTERCMS_SITE_ID ||
+  Cookies.get('crafterSite');
+if (!siteName) {
+  throw new Error('Site not set.');
 }
 
 export const crafterConfig = {
-  baseUrl: process.env.REACT_APP_CRAFTERCMS_BASE_URL,
-  site,
-  graphQLServer: process.env.REACT_APP_GRAPHQL_SERVER
+  baseUrl: process.env.REACT_APP_CRAFTERCMS_BASE_URL ?? '',
+  site: siteName
 };
 
-// TODO: To be moved to sdk and/or removed
-// https://github.com/craftercms/craftercms/issues/4057
-const propsToRemove = ['rootId', 'crafterSite', 'crafterPublishedDate', 'crafterPublishedDate_dt', 'inheritsFrom_smv'];
-export function preParseSearchResults(source) {
-  Object.entries(source).forEach(([prop, value]) => {
-    if (propsToRemove.includes(prop)) {
-      delete source[prop];
-    } else if (prop.endsWith('_o')) {
-      if (!Array.isArray(value.item)) {
-        source[prop] = { item: [value.item] };
-      }
-      source[prop].item.forEach((item, i) => {
-        source[prop].item[i] = preParseSearchResults(item);
-        if (item.component) {
-          source[prop].item[i].component = preParseSearchResults(item.component);
-        }
-      });
-    }
-  });
-  return source;
-}
+crafterConf.configure(crafterConfig);
 
 export function createTaxonomyFilter(name) {
   return (taxonomy => taxonomy.craftercms.path.includes(name));

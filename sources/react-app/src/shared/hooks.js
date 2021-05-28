@@ -17,13 +17,12 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import { fetchQuery } from '../fetchQuery';
 import { useGlobalContext } from './context';
-import { useDropZone, useICE } from '@craftercms/ice/react';
 import { parse } from 'query-string';
 import { useLocation } from 'react-router-dom';
-import { crafterConfig, createResource, preParseSearchResults } from './utils';
-import { createQuery, search } from '@craftercms/search';
+import { crafterConfig, createResource } from './utils';
 import { map } from 'rxjs/operators';
-import { parseDescriptor } from '@craftercms/content';
+import { createQuery, search } from '@craftercms/search';
+import { parseDescriptor, preParseSearchResults } from '@craftercms/content';
 import { postsQuery } from './queries.graphql';
 
 export const neverResource = createResource(() => new Promise(() => void 0));
@@ -70,6 +69,64 @@ export function useNavigation() {
   return pages;
 }
 
+export function useSearchQuery() {
+  const { search } = useLocation();
+  const [query, setQuery] = useState(() => parse(search).q ?? '');
+  const [page, setPage] = useState(() => parse(search).p ?? 0);
+  const onChange = useCallback((e) => setQuery(e.target.value), []);
+  useEffect(() => {
+    setQuery(parse(search).q ?? '');
+    setPage(parse(search).p ?? 0);
+  }, [search]);
+
+  return [query, onChange, setQuery, page];
+}
+
+const contentTypes = ['/component/post'];
+export function useUrlSearchQueryFetchResource(size = 1) {
+  const [query, , , page] = useSearchQuery();
+  const [resource, setResource] = useState(neverResource);
+
+  // https://github.com/facebook/react/issues/14413
+  useEffect(() => {
+    // FYI: A GraphQL query could also be used instead of a direct Elasticsearch
+    setResource(createResource(
+      () => search(
+        createQuery('elasticsearch', {
+          query: {
+            'bool': {
+              'filter': [
+                { 'bool': { 'should': contentTypes.map(id => ({ 'match': { 'content-type': id } })) } },
+                { 'multi_match': { 'query': query, 'type': 'phrase_prefix'} }
+              ]
+            }
+          },
+          size,
+          from: page
+        }),
+        crafterConfig
+      ).pipe(
+        map(({ hits, ...rest }) => {
+          const counted = {};
+          const parsedHits = hits.map(({ _source }) => parseDescriptor(
+            preParseSearchResults(_source)
+          )).filter((content) => {
+            // TODO: Search currently coming with duplicates. Should address at the elastic query level.
+            if (content.craftercms.id in counted) {
+              return false;
+            } else {
+              counted[content.craftercms.id] = true;
+              return true;
+            }
+          });
+          return { ...rest, hits: parsedHits };
+        })
+      ).toPromise()
+    ));
+  }, [query, page, size]);
+  return resource;
+}
+
 export function useFooter() {
   const [{ footer, footerLoading }, update] = useGlobalContext();
   const destroyedRef = useRef(false);
@@ -88,6 +145,12 @@ export function useFooter() {
           query Footer {
             component_footer {
               items {
+                guid: objectId
+                path: localId
+                contentTypeId: content__type
+                dateCreated: createdDate_dt
+                dateModified: lastModifiedDate_dt
+                label: internal__name              
                 aboutTitle_s
                 about_t
                 aboutImage_s
@@ -210,75 +273,3 @@ export function useTaxonomiesResource() {
   }, []);
   return resource;
 }
-
-export function usePencil(props) {
-  const { model, parentModelId } = props;
-  const [{ isAuthoring }] = useGlobalContext();
-  return useICE({ model, parentModelId, isAuthoring }).props;
-}
-
-export function useDnD(props) {
-  const { model, fieldId } = props;
-  const [{ isAuthoring }] = useGlobalContext();
-  // Note on version 1.2.3 of SDK, zoneName will be deprecated, in favour of fieldId
-  return useDropZone({ model, zoneName: fieldId, isAuthoring }).props;
-}
-
-export function useSearchQuery() {
-  const { search } = useLocation();
-  const [query, setQuery] = useState(() => parse(search).q ?? '');
-  const [page, setPage] = useState(() => parse(search).p ?? 0);
-  const onChange = useCallback((e) => setQuery(e.target.value), []);
-  useEffect(() => {
-    setQuery(parse(search).q ?? '');
-    setPage(parse(search).p ?? 0);
-  }, [search]);
-
-  return [query, onChange, setQuery, page];
-}
-
-const contentTypes = ['/component/post'];
-export function useUrlSearchQueryFetchResource(size = 1) {
-  const [query, , , page] = useSearchQuery();
-  const [resource, setResource] = useState(neverResource);
-
-  // https://github.com/facebook/react/issues/14413
-  useEffect(() => {
-    // FYI: A GraphQL query could also be used instead of a direct Elasticsearch
-    setResource(createResource(
-      () => search(
-        createQuery('elasticsearch', {
-          query: {
-            'bool': {
-              'filter': [
-                { 'bool': { 'should': contentTypes.map(id => ({ 'match': { 'content-type': id } })) } },
-                { 'multi_match': { 'query': query, 'type': 'phrase_prefix'} }
-              ]
-            }
-          },
-          size,
-          from: page
-        }),
-        crafterConfig
-      ).pipe(
-        map(({ hits, ...rest }) => {
-          const counted = {};
-          const parsedHits = hits.map(({ _source }) => parseDescriptor(
-            preParseSearchResults(_source)
-          )).filter((content) => {
-            // TODO: Search currently coming with duplicates. Should address at the elastic query level.
-            if (content.craftercms.id in counted) {
-              return false;
-            } else {
-              counted[content.craftercms.id] = true;
-              return true;
-            }
-          });
-          return { ...rest, hits: parsedHits };
-        })
-      ).toPromise()
-    ));
-  }, [query, page, size]);
-  return resource;
-}
-

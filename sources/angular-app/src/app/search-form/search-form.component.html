@@ -1,0 +1,13 @@
+<form class="{{classes?.form}}">
+  <div class="{{classes?.inputWrapper}}">
+    <span class="icon fa fa-search"></span>
+    <input
+      (keyup.enter)="onEnter()"
+      [(ngModel)]="keyword"
+      class="{{classes.input}}"
+      id="{{id}}"
+      name="keyword"
+      placeholder="{{placeholder}}"
+    />
+  </div>
+</form>

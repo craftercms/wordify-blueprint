@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
  *
@@ -16,9 +17,11 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Field } from '@craftercms/studio-guest/react';
 
 function CategoryCard(props) {
   const {
+    model,
     category,
     isTag
   } = props;
@@ -26,13 +29,13 @@ function CategoryCard(props) {
   const link = isTag ? 'tag' : 'category'
 
   return(
-    <Link to={`/${link}/${category.key}`} className="blog-entry category-card">
+    <Field component={Link} model={model} to={`/${link}/${category.key}`} className="blog-entry category-card">
       {
         category.image_s &&
         <img className="background" src={category.image_s} alt={category.value}/>
       }
       <h2 className="title">{category.value}</h2>
-    </Link>
+    </Field>
   )
 }
 

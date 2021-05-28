@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
-	<content-type>/page/category</content-type>
-	<display-template>/templates/web/category.ftl</display-template>
-	<no-template-required />
-	<merge-strategy>inherit-levels</merge-strategy>
-	<objectGroupId>fd1d</objectGroupId>
-	<objectId>fd1dc02b-15cb-a6d6-125d-f5692abdb1fd</objectId>
-	<file-name>index.xml</file-name>
-	<folder-name>category</folder-name>
-	<internal-name>Category</internal-name>
-	<navLabel>Category</navLabel>
-	<placeInNav>true</placeInNav>
-	<orderDefault_f>2000</orderDefault_f>
-	<createdDate>2020-03-21T11:23:23.127Z</createdDate>
-	<createdDate_dt>2020-03-21T11:23:23.127Z</createdDate_dt>
-	<lastModifiedDate>2020-03-26T08:54:57.417Z</lastModifiedDate>
-	<lastModifiedDate_dt>2020-03-26T08:54:57.417Z</lastModifiedDate_dt>
-	<pageTitle_s>Post Listing</pageTitle_s>
+  <content-type>/page/category</content-type>
+  <display-template>/templates/web/category.ftl</display-template>
+  <no-template-required />
+  <merge-strategy>inherit-levels</merge-strategy>
+  <objectGroupId>fd1d</objectGroupId>
+  <objectId>fd1dc02b-15cb-a6d6-125d-f5692abdb1fd</objectId>
+  <file-name>index.xml</file-name>
+  <folder-name>category</folder-name>
+  <internal-name>Category</internal-name>
+  <navLabel>Category</navLabel>
+  <placeInNav>true</placeInNav>
+  <orderDefault_f>2000</orderDefault_f>
+  <createdDate>2020-03-21T11:23:23.127Z</createdDate>
+  <createdDate_dt>2020-03-21T11:23:23.127Z</createdDate_dt>
+  <lastModifiedDate>2020-03-26T08:54:57.417Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-03-26T08:54:57.417Z</lastModifiedDate_dt>
+  <pageTitle_s>Post Listing</pageTitle_s>
 </page>

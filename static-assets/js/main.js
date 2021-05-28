@@ -173,9 +173,9 @@
 	};
 	contentWayPoint();
 
-	const showToast = (text, type) => {
+  const showToast = (text, type) => {
     const $toast = $(`<div class="alert alert-${type}" role="alert" style="position: fixed; top: 10px; right: 10px;">` +
-        text +
+      text +
       '</div>').appendTo('body');
 
     setTimeout(() => {
@@ -200,11 +200,10 @@
     });
   });
 
-	window.appendParam = function(name, value) {
-	  const url = new URL(window.location.href);
-	  url.searchParams.set(name, value);
+  window.appendParam = function(name, value) {
+    const url = new URL(window.location.href);
+    url.searchParams.set(name, value);
     window.location.href = url.toString();
   }
-
 
 })(jQuery);

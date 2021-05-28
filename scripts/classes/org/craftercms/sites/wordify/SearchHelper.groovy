@@ -25,7 +25,7 @@ import org.elasticsearch.search.sort.FieldSortBuilder
 import org.elasticsearch.search.sort.SortOrder
 
 class SearchHelper {
-  static final String POST_CONTENT_TYPE_QUERY = "content-type:\"/component/post\""
+  static final String POST_CONTENT_TYPE_QUERY = "content-type:\"/page/post\""
   static final String[] HIGHLIGHT_FIELDS = ["pageTitle_s", "pageDescription_s", "authorBio_o"]
   static final int DEFAULT_START = 0
   static final int DEFAULT_ROWS = 10
@@ -45,15 +45,15 @@ class SearchHelper {
       if(!userTerm.contains(" ")) {
         userTerm = "${userTerm}~1 OR *${userTerm}"
       }
-      def userTermQuery = "(headline_t:(${userTerm}) OR pageDescription_s:(${userTerm}) OR content_o.item.component.content_html:(${userTerm}) OR categories_o.item.value_smv:(${userTerm}))"
+      def userTermQuery = "(headline_s(${userTerm}) OR pageDescription_s:(${userTerm}))"    // TODO: improve search (fields)
 
       q = "${q} AND ${userTermQuery}"
     }
 
     def builder = new SearchSourceBuilder()
-      .query(QueryBuilders.queryStringQuery(q))
-      .from(start)
-      .size(rows)
+            .query(QueryBuilders.queryStringQuery(q))
+            .from(start)
+            .size(rows)
 
     def searchResult = elasticsearch.search(new SearchRequest().source(builder))
 
@@ -87,10 +87,10 @@ class SearchHelper {
     }
 
     def builder = new SearchSourceBuilder()
-      .query(QueryBuilders.queryStringQuery(q))
-      .from(start)
-      .size(rows)
-      .sort(new FieldSortBuilder("lastModifiedDate_dt").order(SortOrder.DESC))
+            .query(QueryBuilders.queryStringQuery(q))
+            .from(start)
+            .size(rows)
+            .sort(new FieldSortBuilder("lastModifiedDate_dt").order(SortOrder.DESC))
 
     def searchResult = elasticsearch.search(new SearchRequest().source(builder))
 
@@ -114,7 +114,7 @@ class SearchHelper {
       def pagination = [:]
       def posts = searchPosts(categories, page * postsPerPage, postsPerPage, exclude, tags)
 
-      pagination.totalPosts = posts.total instanceof String ? posts.total : posts.total.value
+      pagination.totalPosts = posts.total instanceof String ? posts.total : posts.total.value.toDouble()
       pagination.pages = Math.ceil(pagination.totalPosts/postsPerPage)
       pagination.currentPage = page + 1
 

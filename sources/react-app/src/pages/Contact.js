@@ -17,12 +17,12 @@
 import React, { useState } from 'react';
 import BaseLayout from '../shared/BaseLayout';
 import RecentPostsAside from '../shared/RecentPostsAside';
-import SidebarBios from '../shared/SidebarBios';
 import { SidebarCategories, SidebarTags } from '../shared/SidebarTaxonomies';
 import { ajax } from 'rxjs/ajax';
 import { catchError } from 'rxjs/operators';
 import Toast from '../components/Toast';
 import { defineMessages, useIntl } from 'react-intl';
+import { RenderField } from '@craftercms/studio-guest/react';
 
 const translations = defineMessages({
   contactSuccess: {
@@ -47,13 +47,8 @@ const initialToastData = {
 function Contact(props) {
   const {
     model,
-    model: {
-      headline_s,
-      message_t
-    },
     meta: {
-      siteTitle,
-      socialLinks
+      levelDescriptor
     }
   } = props;
 
@@ -100,17 +95,18 @@ function Contact(props) {
   }
 
   return (
-    <BaseLayout siteTitle={siteTitle} socialLinks={socialLinks}>
+    <BaseLayout model={levelDescriptor}>
       <section className="site-section">
         <div className="container">
           <div className="row mb-4">
             <div className="col-md-6">
-              <h1>{headline_s}</h1>
-              <p>{message_t}</p>
+              <RenderField component="h1" model={model} fieldId="headline_s" />
+              <RenderField component="p" model={model} fieldId="message_t" />
             </div>
           </div>
           <div className="row blog-entries">
             <div className="col-md-12 col-lg-8 main-content">
+
               <form onSubmit={handleSubmit}>
                 <div className="row">
                   <div className="col-md-12 form-group">
@@ -166,6 +162,7 @@ function Contact(props) {
                   </div>
                 </div>
               </form>
+
             </div>
 
             <div className="col-md-12 col-lg-4 sidebar">
@@ -178,8 +175,6 @@ function Contact(props) {
                 </form>
               </div>
 
-              <SidebarBios model={model} fieldId="bios_o" />
-
               <RecentPostsAside />
 
               <SidebarCategories />
@@ -191,7 +186,6 @@ function Contact(props) {
           </div>
         </div>
       </section>
-
       <Toast
         display={toastData.display}
         type={toastData.type}
@@ -202,3 +196,4 @@ function Contact(props) {
 }
 
 export default Contact;
+

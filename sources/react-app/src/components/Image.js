@@ -15,16 +15,20 @@
  */
 
 import React from 'react';
+import { Field, RenderField } from '@craftercms/studio-guest/react';
 
 function Image(props) {
-  const {
-    ice,
-    model: { image_s, alternativeText_s }
-  } = props;
+  const { model } = props;
   return (
-    <>
-      <img {...ice} src={image_s} alt={alternativeText_s || ''} className="img-fluid" />
-    </>
+    <Field model={model}>
+      <RenderField
+        component="img"
+        model={model}
+        fieldId="image_s,alternativeText_s"
+        renderTarget="src,alt"
+        className="img-fluid"
+      />
+    </Field>
   );
 }
 

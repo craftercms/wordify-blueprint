@@ -7,7 +7,7 @@ descriptorVersion: 2
 plugin:
   type: blueprint
   id: org.craftercms.blueprint.wordify
-  name: Wordify Blueprint
+  name: Wordify React
   tags:
     - blueprint
     - website
@@ -15,9 +15,9 @@ plugin:
   version:
     major: 2
     minor: 0
-    patch: 0
+    patch: 3
   description: |
-    A versatile blog blueprint. Built in a way as to have server-side HTML generation and/or browser-side React mode, you choose how and what to deploy.
+    Wordify template blueprint - React
   website:
     name: Wordify Blueprint
     url: https://github.com/craftercms/wordify-blueprint
@@ -25,19 +25,19 @@ plugin:
     screenshots:
       - title: Homepage
         description: Screenshot of the homepage
-        url: https://raw.githubusercontent.com/craftercms/wordify-blueprint/master/static-assets/images/screenshots/home.png
-      - title: Category page
-        description: Screenshot of the category page
-        url: https://raw.githubusercontent.com/craftercms/wordify-blueprint/master/static-assets/images/screenshots/category.png
-      - title: Post page
-        description: Screenshot of the post page
-        url: https://raw.githubusercontent.com/craftercms/wordify-blueprint/master/static-assets/images/screenshots/post.png
-      - title: About page
-        description: Screenshot of the about page
-        url: https://raw.githubusercontent.com/craftercms/wordify-blueprint/master/static-assets/images/screenshots/about.png
-      - title: Contact page
-        description: Screenshot of the contact page
-        url: https://raw.githubusercontent.com/craftercms/wordify-blueprint/master/static-assets/images/screenshots/contact.png
+        url: /studio/static-assets/images/blueprints/wordify/home.png
+      - title:
+        description: Category page
+        url: /studio/static-assets/images/blueprints/wordify/category.png
+      - title:
+        description: Post page
+        url: /studio/static-assets/images/blueprints/wordify/post.png
+      - title:
+        description: About page
+        url: /studio/static-assets/images/blueprints/wordify/about.png
+      - title:
+        description: Contact page
+        url: /studio/static-assets/images/blueprints/wordify/contact.png
   developer:
     company:
       name: Crafter Software

@@ -1,8 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Crafter CMS Wordify Blueprint
 
-## Available Scripts
+This is a Crafter CMS blueprint created using the [wordify template](https://colorlib.com/wp/template/wordify/) by [cololib](https://colorlib.com).
 
-In the project directory, you can run:
+## React App
+
+Please make sure to configure your .env.development & .env.production accordingly
+
+The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+In the `{sandbox}/sources/react-app` project directory, you can run:
 
 ### `yarn start`
 

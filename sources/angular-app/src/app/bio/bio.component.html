@@ -1,0 +1,25 @@
+<div class="bio text-center">
+  <img class="img-fluid" src="{{profilePic}}">
+  <div class="bio-body">
+    <h2>{{name}}</h2>
+
+    <p *ngIf="showLinkButton">
+      <a class="btn btn-primary btn-sm rounded" href="{{linkButtonUrl}}">{{linkButtonText}}</a>
+    </p>
+    <p>{{bioText}}</p>
+    <p class="social">
+      <a *ngIf="facebookLink" class="p-2" href="{{facebookLink}}">
+        <span class="fa fa-facebook"></span>
+      </a>
+      <a *ngIf="twitterLink" class="p-2" href="{{twitterLink}}">
+        <span class="fa fa-twitter"></span>
+      </a>
+      <a *ngIf="instagramLink" class="p-2" href="{{instagramLink}}">
+        <span class="fa fa-instagram"></span>
+      </a>
+      <a *ngIf="youTubeLink" class="p-2" href="{{youTubeLink}}">
+        <span class="fa fa-youtube-play"></span>
+      </a>
+    </p>
+  </div>
+</div>

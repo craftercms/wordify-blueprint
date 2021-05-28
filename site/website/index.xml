@@ -13,11 +13,11 @@
   <folder-name />
   <createdDate>2017-1-31T16:18:14.000Z</createdDate>
   <createdDate_dt>2017-1-31T16:18:14.000Z</createdDate_dt>
-  <lastModifiedDate>2020-11-11T20:45:05.141Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-11-11T20:45:05.141Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-11-11T17:58:51.764Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-11T17:58:51.764Z</lastModifiedDate_dt>
   <disabled>false</disabled>
   <bios_o item-list="true">
-    <item datasource="bios">
+    <item>
       <key>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
       <value>John Doe's Bio</value>
       <include>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
@@ -25,9 +25,10 @@
     </item>
   </bios_o>
   <slider_o item-list="true">
-    <item datasource="sliders" inline="true">
+    <item inline="true">
       <key>31e6f69a-e298-2201-695b-1de7db559352</key>
       <value>Home Slider</value>
+      <disableFlattening>false</disableFlattening>
       <component id="31e6f69a-e298-2201-695b-1de7db559352">
         <content-type>/component/slider</content-type>
         <display-template>/templates/web/components/slider.ftl</display-template>
@@ -39,22 +40,26 @@
         <internal-name>Home Slider</internal-name>
         <posts_o item-list="true">
           <item datasource="blogPosts">
-            <key>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml</key>
+            <key>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
+            </key>
             <value>Men Socks and Sandals</value>
-            <include>/site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml</include>
+            <include>
+              /site/components/post/2020/03/cool-new-way-for-men-to-wear-socks-and-sandals.xml
+            </include>
             <disableFlattening>false</disableFlattening>
           </item>
           <item datasource="blogPosts">
             <key>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml</key>
             <value>Video Games of Your Youth</value>
-            <include>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml</include>
+            <include>/site/components/post/2020/03/how-to-find-the-video-games-of-your-youth.xml
+            </include>
             <disableFlattening>false</disableFlattening>
           </item>
         </posts_o>
         <createdDate>2020-03-21T17:47:06.134Z</createdDate>
         <createdDate_dt>2020-03-21T17:47:06.134Z</createdDate_dt>
-        <lastModifiedDate>2020-11-03T16:36:36.391Z</lastModifiedDate>
-        <lastModifiedDate_dt>2020-11-03T16:36:36.391Z</lastModifiedDate_dt>
+        <lastModifiedDate>2020-11-11T17:44:28.067Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-11-11T17:44:28.067Z</lastModifiedDate_dt>
       </component>
     </item>
   </slider_o>

@@ -1,0 +1,12 @@
+<div class="sidebar-box">
+  <h3 class="heading">
+    Latest Posts
+  </h3>
+  <div class="post-entry-sidebar">
+    <ul>
+      <li *ngFor="let post of posts">
+        <app-post-card [format]="'landscapeCompressed'" [model]="post"></app-post-card>
+      </li>
+    </ul>
+  </div>
+</div>
