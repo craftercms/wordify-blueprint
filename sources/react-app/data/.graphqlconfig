@@ -1,5 +1,5 @@
 {
-  "name": "PLMc GraphQL Schema",
+  "name": "GraphQL Schema",
   "schemaPath": "schema.graphql",
   "extensions": {
     "endpoints": {
