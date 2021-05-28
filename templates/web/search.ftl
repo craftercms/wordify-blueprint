@@ -1,4 +1,4 @@
-<#import "/templates/system/common/ice.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <#--
 ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
@@ -20,8 +20,10 @@
 <html lang="en">
   <head>
     <#include "/templates/web/fragments/head_include.ftl"/>
+    <@crafter.head/>
   </head>
   <body>
+    <@crafter.body_top/>
     <div class="wrap">
       <#include "/templates/web/fragments/header.ftl"/>
 
@@ -39,7 +41,7 @@
 
                 <#list searchResults as post>
                   <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                  <@studio.tag $model=postItem class="post-entry-horizontal">
+                  <@crafter.tag $model=postItem class="post-entry-horizontal">
                     <#assign url = postItem.storeUrl
                       ?replace("/site/components", "")
                       ?replace(".xml", "")
@@ -60,12 +62,12 @@
                             <span class="mr-2">${post.categories.item.value_smv}</span>
                           </#if>
                         </div>
-                        <@studio.h2 $model=postItem $field="headline_s">
+                        <@crafter.h2 $model=postItem $field="headline_s">
                           ${post.headline}
-                        </@studio.h2>
+                        </@crafter.h2>
                       </span>
                     </a>
-                  </@studio.tag>
+                  </@crafter.tag>
                 </#list>
               </div>
 
@@ -78,7 +80,7 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
 
-              <@studio.renderComponentCollection $field="bios_o" />
+              <@crafter.renderComponentCollection $field="bios_o" />
 
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
@@ -116,6 +118,6 @@
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
-    <@studio.initPageBuilder/>
+    <@crafter.body_bottom/>
   </body>
 </html>

@@ -1,11 +1,13 @@
-<#import "/templates/system/common/ice.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <!doctype html>
 <html lang="en">
 <head>
     <#include "/templates/web/fragments/head_include.ftl"/>
+    <@crafter.head/>
 </head>
 <body>
+<@crafter.body_top/>
 <div class="wrap">
     <#include "/templates/web/fragments/header.ftl"/>
 
@@ -16,7 +18,7 @@
 
           <div class="row blog-entries element-animate">
             <div class="col-md-12 col-lg-8 main-content">
-                <@studio.img
+                <@crafter.img
                 $model=postModel
                 $field="mainImage_s"
                 src=postModel.mainImage_s
@@ -33,9 +35,9 @@
                   <span class="fa fa-comments"></span
                 </span>
               </div>
-                <@studio.h1 $model=contentModel $field="headline_s" class="mb-4">
+                <@crafter.h1 $model=contentModel $field="headline_s" class="mb-4">
                     ${postModel.headline_s}
-                </@studio.h1>
+                </@crafter.h1>
                 <#list postModel.categories_o.item as category>
                   <a class="category mb-5" href="/category?id=${category.key}">
                       ${category.value_smv}
@@ -81,7 +83,7 @@
               </div>
               <!-- END sidebar-box -->
 
-              <@studio.renderComponentCollection $field="authorBio_o" $model=postModel />
+              <@crafter.renderComponentCollection $field="authorBio_o" $model=postModel />
 
               <!-- END sidebar-box -->
               <div class="sidebar-box">
@@ -114,7 +116,7 @@
           <div class="row">
               <#list postsInfo.paginatedPosts as post>
                 <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                <@studio.tag $model=postItem class="col-md-6 col-lg-4">
+                <@crafter.tag $model=postItem class="col-md-6 col-lg-4">
                   <#assign url = postItem.storeUrl
                     ?replace("/site/components", "")
                     ?replace(".xml", "")
@@ -134,7 +136,7 @@
                       <h3>${post.headline}</h3>
                     </div>
                   </a>
-                </@studio.tag>
+                </@crafter.tag>
                 </div>
               </#list>
           </div>
@@ -181,6 +183,6 @@
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </#if>
 
-<@studio.initPageBuilder/>
+<@crafter.body_bottom/>
 </body>
 </html>

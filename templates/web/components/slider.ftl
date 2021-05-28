@@ -1,4 +1,4 @@
-<#import "/templates/system/common/ice.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <div class="owl-carousel owl-theme home-slider">
     <#if contentModel.posts_o?? && contentModel.posts_o.item??>
@@ -10,11 +10,11 @@
         />
         <#assign bio = siteItemService.getSiteItem(post.authorBio_o.item.key) />
 
-        <@studio.tag $model=contentModel>
+        <@crafter.tag $model=contentModel>
           <a href="${url}"
              class="a-block d-flex align-items-center height-lg"
              style="background-image: url('${post.mainImage_s!""}'); ">
-            <@studio.tag $model=post class="text half-to-full">
+            <@crafter.tag $model=post class="text half-to-full">
               <#list post.categories_o.item as category>
                 <span class="category mb-5">${category.value_smv}</span>
               </#list>
@@ -26,9 +26,9 @@
               </div>
               <h3>${post.headline_s!""}</h3>
               <p>${post.blurb_t!""}</p>
-            </@studio.tag>
+            </@crafter.tag>
           </a>
-        </@studio.tag>
+        </@crafter.tag>
       </#list>
     </#if>
 </div>

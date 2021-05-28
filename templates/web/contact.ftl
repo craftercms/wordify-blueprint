@@ -1,11 +1,13 @@
-<#import "/templates/system/common/ice.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <!doctype html>
 <html lang="en">
   <head>
     <#include "/templates/web/fragments/head_include.ftl"/>
+    <@crafter.head/>
   </head>
   <body>
+    <@crafter.body_top/>
     <div class="wrap">
       <#include "/templates/web/fragments/header.ftl"/>
 
@@ -13,13 +15,13 @@
         <div class="container">
           <div class="row mb-4">
             <div class="col-md-6">
-              <@studio.h1 $model=contentModel $field="headline_s">
+              <@crafter.h1 $model=contentModel $field="headline_s">
                 ${contentModel.headline_s!""}
-              </@studio.h1>
+              </@crafter.h1>
 
-              <@studio.p $model=contentModel $field="message_t">
+              <@crafter.p $model=contentModel $field="message_t">
                 ${contentModel.message_t!""}
-              </@studio.p>
+              </@crafter.p>
             </div>
           </div>
           <div class="row blog-entries">
@@ -92,6 +94,6 @@
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
-    <@studio.initPageBuilder/>
+    <@crafter.body_bottom/>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<#import "/templates/system/common/ice.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <h3 class="heading">Latest Posts</h3>
 <div class="post-entry-sidebar">
@@ -11,8 +11,8 @@
             ?replace(".xml", "")
           />
 
-          <@studio.a $model=postItem href="${url}">
-            <@studio.img
+          <@crafter.a $model=postItem href="${url}">
+            <@crafter.img
               $model=postItem
               $field="mainImage_s"
               src=postItem.mainImage_s
@@ -21,14 +21,14 @@
             />
 
             <div class="text">
-              <@studio.h4 $model=postItem $field="headline_s">
+              <@crafter.h4 $model=postItem $field="headline_s">
                 ${post.headline}
-              </@studio.h4>
+              </@crafter.h4>
               <div class="post-meta">
                 <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span>
               </div>
             </div>
-          </@studio.a>
+          </@crafter.a>
         </li>
       </#list>
   </ul>

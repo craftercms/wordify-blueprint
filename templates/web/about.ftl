@@ -1,11 +1,13 @@
-<#import "/templates/system/common/ice.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <!doctype html>
 <html lang="en">
 <head>
-    <#include "/templates/web/fragments/head_include.ftl"/>
+  <#include "/templates/web/fragments/head_include.ftl"/>
+  <@crafter.head/>
 </head>
   <body>
+    <@crafter.body_top/>
 
     <div class="wrap">
       <#include "/templates/web/fragments/header.ftl"/>
@@ -18,9 +20,9 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <@studio.h2 $model=contentModel $field="headline_s" class="mb-4">
+                  <@crafter.h2 $model=contentModel $field="headline_s" class="mb-4">
                     ${contentModel.headline_s}
-                  </@studio.h2>
+                  </@crafter.h2>
                   <#if contentModel.content_o?? && contentModel.content_o.item??>
                     <#list contentModel.content_o.item as component>
                       <div class="mb-5">
@@ -38,7 +40,7 @@
                 <div class="col-md-12">
                     <#list postsInfo.paginatedPosts as post>
                       <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                      <@studio.tag $model=postItem class="post-entry-horizontal">
+                      <@crafter.tag $model=postItem class="post-entry-horizontal">
                         <#assign url = postItem.storeUrl
                           ?replace("/site/components", "")
                           ?replace(".xml", "")
@@ -52,12 +54,12 @@
                               </span>&bullet;
                               <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
                             </div>
-                            <@studio.h2 $model=postItem $field="headline_s">
+                            <@crafter.h2 $model=postItem $field="headline_s">
                               ${post.headline}
-                            </@studio.h2>
+                            </@crafter.h2>
                           </span>
                         </a>
-                      </@studio.tag>
+                      </@crafter.tag>
                     </#list>
                 </div>
               </div>
@@ -79,7 +81,7 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
 
-              <@studio.renderComponentCollection $field="bios_o" />
+              <@crafter.renderComponentCollection $field="bios_o" />
 
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
@@ -116,6 +118,6 @@
     </div>
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
-    <@studio.initPageBuilder/>
+    <@crafter.body_bottom/>
   </body>
 </html>

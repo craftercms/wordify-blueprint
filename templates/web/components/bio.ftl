@@ -1,15 +1,15 @@
-<#import "/templates/system/common/ice.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
-<@studio.componentRootTag class="sidebar-box">
+<@crafter.componentRootTag class="sidebar-box">
   <div class="bio text-center">
     <img src="${contentModel.profilePic_s}" alt="" class="img-fluid">
     <div class="bio-body">
-      <@studio.h2 $model=contentModel $field="name_s">
+      <@crafter.h2 $model=contentModel $field="name_s">
         ${contentModel.name_s}
-      </@studio.h2>
-      <@studio.p $model=contentModel $field="bio_t">
+      </@crafter.h2>
+      <@crafter.p $model=contentModel $field="bio_t">
         ${contentModel.bio_t}
-      </@studio.p>
+      </@crafter.p>
       <#if contentModel.showLinkButton_b>
       <p>
         <a href="contentModel.linkButtonUrl_s" class="btn btn-primary btn-sm rounded bio-link">
@@ -33,4 +33,4 @@
       </p>
     </div>
   </div>
-</@studio.componentRootTag>
+</@crafter.componentRootTag>

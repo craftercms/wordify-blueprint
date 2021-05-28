@@ -1,4 +1,4 @@
-<#import "/templates/system/common/ice.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <#if contentModel.taxonomy_s=="categories">
     <#assign taxonomy=categories/>
@@ -10,13 +10,13 @@
 
 <#if taxonomy.items.item?has_content>
   <div>
-    <@studio.h3 $model=contentModel $field="title_s" class="heading">
+    <@crafter.h3 $model=contentModel $field="title_s" class="heading">
       ${contentModel.title_s}
-    </@studio.h3>
-    <@studio.ul $model=taxonomy class="${contentModel.taxonomy_s} clearfix">
+    </@crafter.h3>
+    <@crafter.ul $model=taxonomy class="${contentModel.taxonomy_s} clearfix">
       <#list taxonomy.items.item as item>
         <li><a href="${url}?id=${item.key}">${item.value}</a></li>
       </#list>
-    </@studio.ul>
+    </@crafter.ul>
   </div>
 </#if>

@@ -1,11 +1,13 @@
-<#import "/templates/system/common/ice.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <!doctype html>
 <html lang="en">
 <head>
     <#include "/templates/web/fragments/head_include.ftl"/>
+    <@crafter.head/>
 </head>
   <body>
+  <@crafter.body_top/>
   <div class="wrap">
       <#include "/templates/web/fragments/header.ftl"/>
 
@@ -29,7 +31,7 @@
                   <div class="col-md-12">
                     <#list postsInfo.paginatedPosts as post>
                       <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                      <@studio.tag $model=postItem class="post-entry-horizontal">
+                      <@crafter.tag $model=postItem class="post-entry-horizontal">
                         <#assign url = postItem.storeUrl
                           ?replace("/site/components", "")
                           ?replace(".xml", "")
@@ -53,12 +55,12 @@
                                   <span class="category">${post.categories.item.value_smv}</span>
                                 </#if>
                             </div>
-                            <@studio.h2 $model=postItem $field="headline_s">
+                            <@crafter.h2 $model=postItem $field="headline_s">
                               ${post.headline}
-                            </@studio.h2>
+                            </@crafter.h2>
                           </span>
                         </a>
-                      </@studio.tag>
+                      </@crafter.tag>
                     </#list>
                   </div>
                 </div>
@@ -82,7 +84,7 @@
               </div>
 
               <div class="col-md-12 col-lg-8">
-                <@studio.tag $model=taxonomy class="row">
+                <@crafter.tag $model=taxonomy class="row">
                   <#list taxonomy.items.item as item>
                     <div class="col-md-6 mb-4">
                       <a class="blog-entry category-card" href="<#if requestURI == '/category'>/category<#else>/tag</#if>?id=${item.key}">
@@ -93,7 +95,7 @@
                       </a>
                     </div>
                   </#list>
-                </@studio.tag>
+                </@crafter.tag>
               </div>
             </#if>
 
@@ -130,6 +132,6 @@
   <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
   <#include "/templates/web/fragments/bottom_include.ftl"/>
-  <@studio.initPageBuilder/>
+  <@crafter.body_bottom/>
   </body>
 </html>

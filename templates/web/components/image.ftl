@@ -1,6 +1,6 @@
-<#import "/templates/system/common/ice.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
-<@studio.img
+<@crafter.img
   $model=contentModel
   $field="image_s"
   src=contentModel.image_s

@@ -1,12 +1,13 @@
-<#import "/templates/system/common/ice.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <!doctype html>
 <html lang="en">
   <head>
     <#include "/templates/web/fragments/head_include.ftl"/>
+    <@crafter.head/>
   </head>
   <body>
-
+    <@crafter.body_top/>
     <div class="wrap">
       <#include "/templates/web/fragments/header.ftl"/>
 
@@ -40,11 +41,11 @@
                     ?replace("/site/components", "")
                     ?replace(".xml", "")
                   />
-                  <@studio.tag $model=postItem class="col-md-6">
+                  <@crafter.tag $model=postItem class="col-md-6">
                     <a href="${url}"
                        class="blog-entry element-animate" data-animate-effect="fadeIn">
                       <div class="img-container">
-                        <@studio.img
+                        <@crafter.img
                           $model=postItem
                           $field="mainImage_s"
                           src=postItem.mainImage_s
@@ -60,12 +61,12 @@
                           </span> &bullet;
                           <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span>
                         </div>
-                        <@studio.h2 $model=postItem $field="headline_s">
+                        <@crafter.h2 $model=postItem $field="headline_s">
                           ${post.headline}
-                        </@studio.h2>
+                        </@crafter.h2>
                       </div>
                     </a>
-                  </@studio.tag>
+                  </@crafter.tag>
                 </#list>
               </div>
 
@@ -85,7 +86,7 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
 
-              <@studio.renderComponentCollection $field="bios_o" />
+              <@crafter.renderComponentCollection $field="bios_o" />
 
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
@@ -123,6 +124,6 @@
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
-    <@studio.initPageBuilder/>
+    <@crafter.body_bottom/>
   </body>
 </html>
