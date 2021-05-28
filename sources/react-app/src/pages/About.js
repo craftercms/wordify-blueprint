@@ -115,9 +115,9 @@ function About(props) {
 
               <RecentPostsAside />
 
-              <SidebarCategories />
+              <SidebarCategories/>
 
-              <SidebarTags />
+              <SidebarTags/>
 
             </div>
           </div>

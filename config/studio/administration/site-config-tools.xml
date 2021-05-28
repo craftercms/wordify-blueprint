@@ -17,8 +17,10 @@
   -->
 <!--
     Site Configuration Tools
+
     This file helps configure the Site Config section with tools. The tools specified here appear on the left-
     hand-side of the Site Config section.
+
     The file has the the following structure:
     <config>
         <tools>

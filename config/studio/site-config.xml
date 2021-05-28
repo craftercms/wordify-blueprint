@@ -16,7 +16,9 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 <!-- site-config.xml
+
     This contains the primary site configuration.
+
 -->
 <site-config> 
   <version>8</version>  
@@ -67,6 +69,7 @@
     <!-- The section below classifies items into folders for two dashboard widgets:
         - Items Waiting For Approval
         - Approved Scheduled Items
+
         Items that match the paths specified will be grouped together in the dashboard widget
         -->  
     <folders> 

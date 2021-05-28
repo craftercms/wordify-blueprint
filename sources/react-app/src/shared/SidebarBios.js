@@ -21,13 +21,7 @@ import { Field, RenderField } from '@craftercms/studio-guest/react';
 function SidebarBios(props) {
   const { bios } = props;
   return (
-    <DropZone
-      model={model}
-      component="div"
-      fieldId={fieldId}
-      style={{'float': 'left'}}
-      className="bio-zone"
-    >
+    <>
       {
         bios?.map(bio =>
           <div key={bio.craftercms.id} className="sidebar-box">
@@ -35,7 +29,7 @@ function SidebarBios(props) {
           </div>
         )
       }
-    </DropZone>
+    </>
   );
 }
 

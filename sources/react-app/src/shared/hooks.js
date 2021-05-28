@@ -86,7 +86,6 @@ const contentTypes = ['/component/post'];
 export function useUrlSearchQueryFetchResource(size = 1) {
   const [query, , , page] = useSearchQuery();
   const [resource, setResource] = useState(neverResource);
-
   // https://github.com/facebook/react/issues/14413
   useEffect(() => {
     // FYI: A GraphQL query could also be used instead of a direct Elasticsearch

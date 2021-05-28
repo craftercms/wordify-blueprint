@@ -238,7 +238,7 @@ export default `
         )
         content__type(
           filter:{
-            regex: ".*(bio|post|entry|category|tag|contact|about|search).*"
+            regex: ".*(bio|post|entry|category|contact|about|search).*"
           }
         ) @skip (if: $skipContentType)
         ...on page_entry {

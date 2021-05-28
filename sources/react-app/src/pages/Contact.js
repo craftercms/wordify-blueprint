@@ -144,6 +144,8 @@ function Contact(props) {
                       required
                     />
                   </div>
+                </div>
+                <div className="row">
                   <div className="col-md-12 form-group">
                     <label htmlFor="message">Write Message</label>
                     <textarea
@@ -157,6 +159,8 @@ function Contact(props) {
                       required
                     />
                   </div>
+                </div>
+                <div className="row">
                   <div className="col-md-6 form-group">
                     <input type="submit" value="Send Message" className="btn btn-primary"/>
                   </div>
@@ -177,9 +181,9 @@ function Contact(props) {
 
               <RecentPostsAside />
 
-              <SidebarCategories />
+              <SidebarCategories/>
 
-              <SidebarTags />
+              <SidebarTags/>
 
             </div>
 
