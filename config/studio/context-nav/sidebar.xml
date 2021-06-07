@@ -57,7 +57,7 @@
 									<name>wcm-root-folder</name>
 									<params>
 										<label>Bios</label>
-										<path>/site/components/bio</path>
+										<path>/site/components/bios</path>
 										<showRootItem>true</showRootItem>
 										<icon>
 											<class>fa-user-circle-o</class>

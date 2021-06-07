@@ -469,12 +469,12 @@
 				</property>
 				<property>
 					<name>baseRepositoryPath</name>
-					<value>/site/components/bio</value>
+					<value>/site/components/bios</value>
 					<type>string</type>
 				</property>
 				<property>
 					<name>baseBrowsePath</name>
-					<value>/site/components/bio</value>
+					<value>/site/components/bios</value>
 					<type>string</type>
 				</property>
 				<property>
