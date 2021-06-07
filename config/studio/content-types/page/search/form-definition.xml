@@ -270,7 +270,7 @@
 	</sections>
 	<datasources>
 		<datasource>
-			<type>receptacles</type>
+			<type>dropTargets</type>
 			<id>bios</id>
 			<title>Bios</title>
 			<interface>item</interface>

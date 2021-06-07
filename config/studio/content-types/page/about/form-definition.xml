@@ -470,7 +470,7 @@
 			</properties>
 		</datasource>
 		<datasource>
-			<type>receptacles</type>
+			<type>dropTargets</type>
 			<id>postContent</id>
 			<title>Post Content</title>
 			<interface>item</interface>
@@ -518,7 +518,7 @@
 			</properties>
 		</datasource>
 		<datasource>
-			<type>receptacles</type>
+			<type>dropTargets</type>
 			<id>bio</id>
 			<title>Bio</title>
 			<interface>item</interface>
