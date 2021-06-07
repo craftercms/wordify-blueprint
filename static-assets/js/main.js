@@ -137,9 +137,6 @@
   	}
 	});
 
-
- 
-
 	var contentWayPoint = function() {
 		var i = 0;
 		$('.element-animate').waypoint( function( direction ) {

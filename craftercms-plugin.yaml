@@ -7,17 +7,17 @@ descriptorVersion: 2
 plugin:
   type: blueprint
   id: org.craftercms.blueprint.wordify
-  name: Wordify HTML
+  name: Wordify Blueprint
   tags:
     - blueprint
     - website
     - blog
   version:
-    major: 1
+    major: 2
     minor: 0
-    patch: 1
+    patch: 0
   description: |
-    Wordify template blueprint - HTML
+    A versatile blog blueprint. Built in a way as to have server-side HTML generation and/or browser-side React mode, you choose how and what to deploy.
   website:
     name: Wordify Blueprint
     url: https://github.com/craftercms/wordify-blueprint
@@ -25,19 +25,19 @@ plugin:
     screenshots:
       - title: Homepage
         description: Screenshot of the homepage
-        url: /studio/static-assets/images/blueprints/wordify/home.png
-      - title:
-        description: Category page
-        url: /studio/static-assets/images/blueprints/wordify/category.png
-      - title:
-        description: Post page
-        url: /studio/static-assets/images/blueprints/wordify/post.png
-      - title:
-        description: About page
-        url: /studio/static-assets/images/blueprints/wordify/about.png
-      - title:
-        description: Contact page
-        url: /studio/static-assets/images/blueprints/wordify/contact.png
+        url: https://raw.githubusercontent.com/craftercms/wordify-blueprint/master/static-assets/images/screenshots/home.png
+      - title: Category page
+        description: Screenshot of the category page
+        url: https://raw.githubusercontent.com/craftercms/wordify-blueprint/master/static-assets/images/screenshots/category.png
+      - title: Post page
+        description: Screenshot of the post page
+        url: https://raw.githubusercontent.com/craftercms/wordify-blueprint/master/static-assets/images/screenshots/post.png
+      - title: About page
+        description: Screenshot of the about page
+        url: https://raw.githubusercontent.com/craftercms/wordify-blueprint/master/static-assets/images/screenshots/about.png
+      - title: Contact page
+        description: Screenshot of the contact page
+        url: https://raw.githubusercontent.com/craftercms/wordify-blueprint/master/static-assets/images/screenshots/contact.png
   developer:
     company:
       name: Crafter Software
@@ -50,8 +50,8 @@ plugin:
     name: MIT
     url: https://opensource.org/licenses/MIT
   crafterCmsVersions:
-    - major: 3
-      minor: 2
+    - major: 4
+      minor: 0
       patch: 0
   crafterCmsEditions:
     - community

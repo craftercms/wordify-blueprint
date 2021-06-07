@@ -20,12 +20,12 @@ import java.util.logging.Logger
 Logger logger = Logger.getLogger("")
 
 try {
-  def data = request.reader.text
+    def data = request.reader.text
 
-  logger.info ("---CONTACT FORM DATA---")
-  logger.info (data)
+    logger.info ("---CONTACT FORM DATA---")
+    logger.info (data)
 
-  result = [success: true, messageKey: 'contactSuccess']
+    result = [success: true, messageKey: 'contactSuccess']
 } catch(e) {
-  throw new HttpStatusCodeException(500, "Internal Server Error", e)
+    throw new HttpStatusCodeException(500, "Internal Server Error", e)
 }

@@ -13,11 +13,11 @@
   <folder-name />
   <createdDate>2017-1-31T16:18:14.000Z</createdDate>
   <createdDate_dt>2017-1-31T16:18:14.000Z</createdDate_dt>
-  <lastModifiedDate>2020-11-12T20:41:20.828Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-11-12T20:41:20.828Z</lastModifiedDate_dt>
+  <lastModifiedDate>2020-11-11T20:45:05.141Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-11T20:45:05.141Z</lastModifiedDate_dt>
   <disabled>false</disabled>
   <bios_o item-list="true">
-    <item>
+    <item datasource="bios">
       <key>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
       <value>John Doe's Bio</value>
       <include>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
@@ -53,8 +53,8 @@
         </posts_o>
         <createdDate>2020-03-21T17:47:06.134Z</createdDate>
         <createdDate_dt>2020-03-21T17:47:06.134Z</createdDate_dt>
-        <lastModifiedDate>2020-11-12T20:41:27.721Z</lastModifiedDate>
-        <lastModifiedDate_dt>2020-11-12T20:41:27.721Z</lastModifiedDate_dt>
+        <lastModifiedDate>2020-11-03T16:36:36.391Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-11-03T16:36:36.391Z</lastModifiedDate_dt>
       </component>
     </item>
   </slider_o>

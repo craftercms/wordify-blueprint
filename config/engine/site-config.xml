@@ -19,6 +19,11 @@
 -->
 <site>
 	<version>2</version>
+	<!-- SPA Config: -->
+	<spa>
+		<enabled>false</enabled>
+		<viewName>/templates/web/app.ftl</viewName>
+	</spa>
 	<!-- CORS Properties -->
 	<cors>
 		<enable>true</enable>

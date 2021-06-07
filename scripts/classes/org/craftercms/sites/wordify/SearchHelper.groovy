@@ -51,9 +51,9 @@ class SearchHelper {
     }
 
     def builder = new SearchSourceBuilder()
-            .query(QueryBuilders.queryStringQuery(q))
-            .from(start)
-            .size(rows)
+      .query(QueryBuilders.queryStringQuery(q))
+      .from(start)
+      .size(rows)
 
     def searchResult = elasticsearch.search(new SearchRequest().source(builder))
 
@@ -87,10 +87,10 @@ class SearchHelper {
     }
 
     def builder = new SearchSourceBuilder()
-            .query(QueryBuilders.queryStringQuery(q))
-            .from(start)
-            .size(rows)
-            .sort(new FieldSortBuilder("lastModifiedDate_dt").order(SortOrder.DESC))
+      .query(QueryBuilders.queryStringQuery(q))
+      .from(start)
+      .size(rows)
+      .sort(new FieldSortBuilder("lastModifiedDate_dt").order(SortOrder.DESC))
 
     def searchResult = elasticsearch.search(new SearchRequest().source(builder))
 

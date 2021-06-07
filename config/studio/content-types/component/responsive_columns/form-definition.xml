@@ -118,7 +118,7 @@
 					<title>Columns</title>
 					<description>
 						Items of this column set. The sum of column sizes should not surpass 100% for items to display on a single
-            row.
+						row.
 					</description>
 					<minOccurs>1</minOccurs>
 					<maxOccurs>*</maxOccurs>
