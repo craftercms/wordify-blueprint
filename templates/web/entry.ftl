@@ -15,11 +15,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <#if contentModel.slider_o?? && contentModel.slider_o.item??>
-                <#list contentModel.slider_o.item as slider>
-                  <@renderComponent component=slider />
-                </#list>
-              </#if>
+              <@crafter.renderComponentCollection $field="slider_o"/>
             </div>
           </div>
         </div>

@@ -2,7 +2,12 @@
 
 <@crafter.componentRootTag class="sidebar-box">
   <div class="bio text-center">
-    <img src="${contentModel.profilePic_s}" alt="" class="img-fluid">
+    <@crafter.img
+      $field="profilePic_s"
+      src=contentModel.profilePic_s
+      alt=""
+      class="img-fluid"
+    />
     <div class="bio-body">
       <@crafter.h2 $model=contentModel $field="name_s">
         ${contentModel.name_s}
