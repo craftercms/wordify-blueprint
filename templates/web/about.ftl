@@ -23,13 +23,7 @@
                   <@crafter.h2 $model=contentModel $field="headline_s" class="mb-4">
                     ${contentModel.headline_s}
                   </@crafter.h2>
-                  <#if contentModel.content_o?? && contentModel.content_o.item??>
-                    <#list contentModel.content_o.item as component>
-                      <div class="mb-5">
-                          <@renderComponent component=component />
-                      </div>
-                    </#list>
-                  </#if>
+                  <@crafter.renderComponentCollection $field="content_o"/>
                 </div>
               </div>
 

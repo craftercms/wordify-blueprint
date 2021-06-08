@@ -45,11 +45,7 @@
                 </#list>
 
               <div class="post-content-body">
-                  <#if postModel.content_o?? && postModel.content_o.item??>
-                      <#list postModel.content_o.item as component>
-                          <@renderComponent component=component />
-                      </#list>
-                  </#if>
+                <@crafter.renderComponentCollection $field="content_o" $model=postModel/>
               </div>
 
               <#if postModel.categories_o.item?hasContent>
