@@ -405,16 +405,6 @@
 							<value />
 							<type>boolean</type>
 						</property>
-						<property>
-							<name>contentTypes</name>
-							<value>,/component/bio</value>
-							<type>contentTypes</type>
-						</property>
-						<property>
-							<name>tags</name>
-							<value />
-							<type>string</type>
-						</property>
 					</properties>
 					<constraints>
 						<constraint>
