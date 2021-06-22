@@ -1,5 +1,3 @@
-<#import "/templates/web/navigation2/navigation.ftl" as nav/>
-
 <header role="banner">
   <div class="top-bar">
     <div class="container">
@@ -32,13 +30,8 @@
 
   <nav class="navbar navbar-expand-md  navbar-light bg-light">
     <div class="container">
-
-
       <div class="collapse navbar-collapse" id="navbarMenu">
-        <ul class="navbar-nav mx-auto">
-            <@nav.renderNavigation "/site/website" 1 true/>
-        </ul>
-
+        <@crafter.navigation url="/site/website" containerElementClass="navbar-nav mx-auto" showNavElement=false />
       </div>
     </div>
   </nav>
