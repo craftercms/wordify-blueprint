@@ -9,6 +9,20 @@
   <mainImage_s>/static-assets/images/img_12.jpg</mainImage_s>
   <blurb_t>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt
   </blurb_t>
+  <authorBio_o item-list="true">
+    <item>
+      <key>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
+      <value>Jane Doe's Bio</value>
+      <include>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
+      <disableFlattening>false</disableFlattening>
+    </item>
+  </authorBio_o>
+  <file-name>cool-new-way-for-men-to-wear-socks-and-sandals.xml</file-name>
+  <internal-name>Men Socks and Sandals</internal-name>
+  <pageTitle_s>Cool New Way for Men to Wear Socks and Sandals</pageTitle_s>
+  <pageDescription_s />
+  <headline_s tokenized="true">There’s a Cool New Way for Men to Wear Socks and Sandals</headline_s>
+  <orderDefault_f>-1</orderDefault_f>
   <content_o item-list="true">
     <item datasource="richTextSections" inline="true">
       <key>5387e7fa-29ac-faa7-2436-6f865d123e46</key>
@@ -176,20 +190,6 @@
       </component>
     </item>
   </content_o>
-  <authorBio_o item-list="true">
-    <item>
-      <key>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</key>
-      <value>Jane Doe's Bio</value>
-      <include>/site/components/bios/29217b50-23b3-92e8-a30a-fe0778dbc6f5.xml</include>
-      <disableFlattening>false</disableFlattening>
-    </item>
-  </authorBio_o>
-  <file-name>cool-new-way-for-men-to-wear-socks-and-sandals.xml</file-name>
-  <internal-name>Men Socks and Sandals</internal-name>
-  <pageTitle_s>Cool New Way for Men to Wear Socks and Sandals</pageTitle_s>
-  <pageDescription_s />
-  <headline_s tokenized="true">There’s a Cool New Way for Men to Wear Socks and Sandals</headline_s>
-  <orderDefault_f>-1</orderDefault_f>
   <categories_o>
     <item>
       <key>lifestyle</key>
