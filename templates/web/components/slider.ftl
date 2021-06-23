@@ -10,11 +10,11 @@
         />
         <#assign bio = siteItemService.getSiteItem(post.authorBio_o.item.key) />
 
-        <@crafter.tag $model=contentModel>
+        <@crafter.div $model=contentModel>
           <a href="${url}"
              class="a-block d-flex align-items-center height-lg"
              style="background-image: url('${post.mainImage_s!""}'); ">
-            <@crafter.tag $model=post class="text half-to-full">
+            <@crafter.div $model=post class="text half-to-full">
               <#list post.categories_o.item as category>
                 <span class="category mb-5">${category.value_smv}</span>
               </#list>
@@ -26,9 +26,9 @@
               </div>
               <h3>${post.headline_s!""}</h3>
               <p>${post.blurb_t!""}</p>
-            </@crafter.tag>
+            </@crafter.div>
           </a>
-        </@crafter.tag>
+        </@crafter.div>
       </#list>
     </#if>
 </div>

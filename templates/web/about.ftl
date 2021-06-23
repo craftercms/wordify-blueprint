@@ -34,7 +34,7 @@
                 <div class="col-md-12">
                     <#list postsInfo.paginatedPosts as post>
                       <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                      <@crafter.tag $model=postItem class="post-entry-horizontal">
+                      <@crafter.div $model=postItem class="post-entry-horizontal">
                         <#assign url = postItem.storeUrl
                           ?replace("/site/components", "")
                           ?replace(".xml", "")
@@ -53,7 +53,7 @@
                             </@crafter.h2>
                           </span>
                         </a>
-                      </@crafter.tag>
+                      </@crafter.div>
                     </#list>
                 </div>
               </div>

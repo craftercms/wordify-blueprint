@@ -37,7 +37,7 @@
                     ?replace("/site/components", "")
                     ?replace(".xml", "")
                   />
-                  <@crafter.tag $model=postItem class="col-md-6">
+                  <@crafter.div $model=postItem class="col-md-6">
                     <a href="${url}"
                        class="blog-entry element-animate" data-animate-effect="fadeIn">
                       <div class="img-container">
@@ -62,7 +62,7 @@
                         </@crafter.h2>
                       </div>
                     </a>
-                  </@crafter.tag>
+                  </@crafter.div>
                 </#list>
               </div>
 

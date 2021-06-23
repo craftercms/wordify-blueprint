@@ -29,13 +29,13 @@
                 ${contentModel.quickLinksTitle_s!""}
               </@crafter.h3>
 
-              <@crafter.tag $model=contentModel $field="quickLinks_o" class="list-unstyled">
+              <@crafter.div $model=contentModel $field="quickLinks_o" class="list-unstyled">
                 <#list contentModel.quickLinks_o.item as link>
                   <li>
                     <a href="${link.url_s}"> ${link.label_s} </a>
                   </li>
                 </#list>
-              </@crafter.tag>
+              </@crafter.div>
             </div>
 
           </div>
@@ -63,9 +63,9 @@
       </div>
     </div>
     <div class="row">
-      <@crafter.tag $model=contentModel $field="copyright_html" class="col-md-12 text-center">
+      <@crafter.div $model=contentModel $field="copyright_html" class="col-md-12 text-center">
         ${contentModel.copyright_html!""}
-      </@crafter.tag>
+      </@crafter.div>
     </div>
   </div>
 </@crafter.tag>

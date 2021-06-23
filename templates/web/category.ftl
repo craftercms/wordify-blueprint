@@ -31,7 +31,7 @@
                   <div class="col-md-12">
                     <#list postsInfo.paginatedPosts as post>
                       <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                      <@crafter.tag $model=postItem class="post-entry-horizontal">
+                      <@crafter.div $model=postItem class="post-entry-horizontal">
                         <#assign url = postItem.storeUrl
                           ?replace("/site/components", "")
                           ?replace(".xml", "")
@@ -60,7 +60,7 @@
                             </@crafter.h2>
                           </span>
                         </a>
-                      </@crafter.tag>
+                      </@crafter.div>
                     </#list>
                   </div>
                 </div>
@@ -84,7 +84,7 @@
               </div>
 
               <div class="col-md-12 col-lg-8">
-                <@crafter.tag $model=taxonomy class="row">
+                <@crafter.div $model=taxonomy class="row">
                   <#list taxonomy.items.item as item>
                     <div class="col-md-6 mb-4">
                       <a class="blog-entry category-card" href="<#if requestURI == '/category'>/category<#else>/tag</#if>?id=${item.key}">
@@ -95,7 +95,7 @@
                       </a>
                     </div>
                   </#list>
-                </@crafter.tag>
+                </@crafter.div>
               </div>
             </#if>
 

@@ -18,13 +18,13 @@
 
           <div class="row blog-entries element-animate">
             <div class="col-md-12 col-lg-8 main-content">
-                <@crafter.img
+              <@crafter.img
                 $model=postModel
                 $field="mainImage_s"
                 src=postModel.mainImage_s
                 alt=""
                 class="img-fluid mb-5"
-                />
+              />
               <div class="post-meta">
                 <span class="author mr-2">
                   <img src="${bio.profilePic_s}" alt="${bio.name_s}" class="mr-2">
@@ -110,31 +110,30 @@
             </div>
           </div>
           <div class="row">
-              <#list postsInfo.paginatedPosts as post>
-                <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                <@crafter.tag $model=postItem class="col-md-6 col-lg-4">
-                  <#assign url = postItem.storeUrl
-                    ?replace("/site/components", "")
-                    ?replace(".xml", "")
-                  />
-                  <a href="${url}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('${post.mainImage}'); ">
-                    <div class="text">
-                      <div class="post-meta">
-                        <#if post.categories.item?isSequence>
-                          <#list post.categories.item as category>
-                            <span class="category">${category.value_smv}</span>
-                          </#list>
-                        <#else>
-                          <span class="category">${post.categories.item.value_smv}</span>
-                        </#if>
-                        <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
-                      </div>
-                      <h3>${post.headline}</h3>
+            <#list postsInfo.paginatedPosts as post>
+              <#assign postItem = siteItemService.getSiteItem(post.localId) />
+              <@crafter.div $model=postItem class="col-md-6 col-lg-4">
+                <#assign url = postItem.storeUrl
+                  ?replace("/site/components", "")
+                  ?replace(".xml", "")
+                />
+                <a href="${url}" class="a-block sm d-flex align-items-center height-md" style="background-image: url('${post.mainImage}'); ">
+                  <div class="text">
+                    <div class="post-meta">
+                      <#if post.categories.item?isSequence>
+                        <#list post.categories.item as category>
+                          <span class="category">${category.value_smv}</span>
+                        </#list>
+                      <#else>
+                        <span class="category">${post.categories.item.value_smv}</span>
+                      </#if>
+                      <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
                     </div>
-                  </a>
-                </@crafter.tag>
-                </div>
-              </#list>
+                    <h3>${post.headline}</h3>
+                  </div>
+                </a>
+              </@crafter.div>
+            </#list>
           </div>
           <div class="row">
             <div class="col-md-12 text-center">
