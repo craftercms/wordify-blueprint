@@ -1,4 +1,4 @@
-<#import "/templates/system/common/navigation.ftl" as nav/>
+<#import "/templates/system/common/crafter.ftl" as crafter/>
 
 <header role="banner">
   <div class="top-bar">
@@ -33,7 +33,7 @@
   <nav class="navbar navbar-expand-md  navbar-light bg-light">
     <div class="container">
       <div class="collapse navbar-collapse" id="navbarMenu">
-        <@nav.navigation containerElementClass="navbar-nav mx-auto" showNavElement=false />
+        <@crafter.navigation containerElementClass="navbar-nav mx-auto" showNavElement=false />
       </div>
     </div>
   </nav>
