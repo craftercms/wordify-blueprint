@@ -19,14 +19,22 @@ package org.craftercms.sites.wordify
 import org.apache.commons.lang3.StringUtils
 import org.craftercms.engine.service.UrlTransformationService
 import org.elasticsearch.action.search.SearchRequest
-import org.elasticsearch.index.query.QueryBuilders
-import org.elasticsearch.search.builder.SearchSourceBuilder
+import org.elasticsearch.index.search.MatchQuery
 import org.elasticsearch.search.sort.FieldSortBuilder
 import org.elasticsearch.search.sort.SortOrder
 
+import static org.elasticsearch.index.query.QueryBuilders.boolQuery
+import static org.elasticsearch.index.query.QueryBuilders.matchQuery
+import static org.elasticsearch.index.query.QueryBuilders.multiMatchQuery
+import static org.elasticsearch.search.builder.SearchSourceBuilder.searchSource
+
 class SearchHelper {
-  static final String POST_CONTENT_TYPE_QUERY = "content-type:\"/component/post\""
-  static final String[] HIGHLIGHT_FIELDS = ["pageTitle_s", "pageDescription_s", "authorBio_o"]
+
+  static final String POST_CONTENT_TYPE = "/component/post"
+  static final Map<String, Float> POST_SEARCH_FIELDS = [
+          'headline_t': 1.5f,
+          'content_o.item.component.content_html': 1.0f
+  ]
   static final int DEFAULT_START = 0
   static final int DEFAULT_ROWS = 10
 
@@ -39,19 +47,46 @@ class SearchHelper {
   }
 
   def search(userTerm, start = DEFAULT_START, rows = DEFAULT_ROWS) {
-    def q = "${POST_CONTENT_TYPE_QUERY}"
+    def query = boolQuery()
+
+    // Filter by content-type
+    query.filter(matchQuery("content-type", POST_CONTENT_TYPE))
 
     if (userTerm) {
-      if(!userTerm.contains(" ")) {
-        userTerm = "${userTerm}~1 OR *${userTerm}"
-      }
-      def userTermQuery = "(headline_t:(${userTerm}) OR pageDescription_s:(${userTerm}) OR content_o.item.component.content_html:(${userTerm}) OR categories_o.item.value_smv:(${userTerm}))"
+      // Check if the user is requesting an exact match with quotes
+      def matcher = userTerm =~ /.*("([^"]+)").*/
+      if (matcher.matches()) {
+        // Using must excludes any doc that doesn't match with the input from the user
+        query.must(multiMatchQuery(matcher.group(2))
+                .fields(POST_SEARCH_FIELDS)
+                .fuzzyTranspositions(false)
+                .autoGenerateSynonymsPhraseQuery(false))
 
-      q = "${q} AND ${userTermQuery}"
+        // Remove the exact match to continue processing the user input
+        userTerm = StringUtils.remove(userTerm, matcher.group(1))
+      } else {
+        // Exclude docs that do not have any optional matches
+        query.minimumShouldMatch(1)
+      }
+
+      if (userTerm) {
+        // Using should makes it optional and each additional match will increase the score of the doc
+        query
+        // Search for phrase matches including a wildcard at the end and increase the score for this match
+        .should(multiMatchQuery(userTerm)
+                .fields(POST_SEARCH_FIELDS)
+                .type(MatchQuery.Type.PHRASE_PREFIX)
+                .boost(1.5f))
+        // Search for matches on individual terms
+        .should(multiMatchQuery(userTerm).fields(POST_SEARCH_FIELDS))
+        // Search for matches on additional _s fields (not supported by multi_match)
+        .should(matchQuery("pageDescription_s", userTerm))
+        .should(matchQuery("categories_o.item.value_smv", userTerm))
+      }
     }
 
-    def builder = new SearchSourceBuilder()
-      .query(QueryBuilders.queryStringQuery(q))
+    def builder = searchSource()
+      .query(query)
       .from(start)
       .size(rows)
 
@@ -70,24 +105,22 @@ class SearchHelper {
   }
 
   def searchPosts(categories = null, start = DEFAULT_START, rows = DEFAULT_ROWS, exclude = null, tags = null) {
-    def q = "${POST_CONTENT_TYPE_QUERY}"
+    def query = boolQuery()
+
+    query.filter(matchQuery("content-type", POST_CONTENT_TYPE))
 
     if (categories) {
-      def categoriesQuery = getFieldQueryWithMultipleValues("categories_o.item.key", categories)
-      q = "${q} AND ${categoriesQuery}"
+      query.filter(getFieldQueryWithMultipleValues("categories_o.item.key", categories))
+    }
+    if (tags) {
+      query.filter(getFieldQueryWithMultipleValues("tags_o.item.key", tags))
+    }
+    if (exclude) {
+      query.mustNot(matchQuery("objectId", exclude))
     }
 
-    if(tags) {
-      def tagsQuery = getFieldQueryWithMultipleValues("tags_o.item.key", tags)
-      q = "${q} AND ${tagsQuery}"
-    }
-
-    if(exclude) {
-      q = "${q} AND NOT objectId:\"${exclude}\""
-    }
-
-    def builder = new SearchSourceBuilder()
-      .query(QueryBuilders.queryStringQuery(q))
+    def builder = searchSource()
+      .query(query)
       .from(start)
       .size(rows)
       .sort(new FieldSortBuilder("lastModifiedDate_dt").order(SortOrder.DESC))
@@ -127,33 +160,6 @@ class SearchHelper {
     return postsInfo
   }
 
-  private def processUserSearchResults(result) {
-    def posts = []
-    def hits = result.hits.hits
-
-    if (hits) {
-      hits.each {hit ->
-        def doc = hit.getSourceAsMap()
-        def post = [:]
-        post.title = doc.title_s
-        post.localId = doc.localId
-        post.url = urlTransformationService.transform("storeUrlToRenderUrl", doc.localId)
-        post.headline = doc.headline_s
-        post.mainImage = doc.mainImage_s
-        post.blurb = doc.blurb_t
-        post.content = doc.content_o
-        post.authorBio = doc.authorBio_o
-        post.categories = doc.categories_o
-        post.tags = doc.tags_o
-        post.lastModifiedDate = doc.lastModifiedDate_dt
-
-        posts << post
-      }
-    }
-
-    return posts
-  }
-
   private def processPostListingResults(result) {
     def posts = []
     def documents = result.hits.hits*.getSourceAsMap()
@@ -185,12 +191,12 @@ class SearchHelper {
     }
 
     if (values instanceof Iterable) {
-      values = "(" + StringUtils.join((Iterable)values, " OR ") + ")"
+      values = StringUtils.join((Iterable)values, " ") as String
     } else {
-      values = "\"${values}\""
+      values = values as String
     }
 
-    return "${field}:${values}"
+    return matchQuery(field, values)
   }
 
 }
