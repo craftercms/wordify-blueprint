@@ -1,19 +1,27 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
+
 <!doctype html>
 <html lang="en">
   <head>
     <#include "/templates/web/fragments/head_include.ftl"/>
+    <@crafter.head/>
   </head>
   <body>
+    <@crafter.body_top/>
     <div class="wrap">
       <#include "/templates/web/fragments/header.ftl"/>
 
       <section class="site-section">
         <div class="container">
           <div class="row mb-4">
-            <div class="col-md-6" <@studio.componentAttr component=contentModel ice=true />>
-              <h1>${contentModel.headline_s!""}</h1>
-              <p>${contentModel.message_t!""}</p>
+            <div class="col-md-6">
+              <@crafter.h1 $model=contentModel $field="headline_s">
+                ${contentModel.headline_s!""}
+              </@crafter.h1>
+
+              <@crafter.p $model=contentModel $field="message_t">
+                ${contentModel.message_t!""}
+              </@crafter.p>
             </div>
           </div>
           <div class="row blog-entries">
@@ -86,6 +94,6 @@
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
-    <@studio.toolSupport/>
+    <@crafter.body_bottom/>
   </body>
 </html>

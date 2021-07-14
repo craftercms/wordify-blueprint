@@ -1,9 +1,9 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
-<#assign model = postModel!contentModel />
-<img
-  <@studio.componentAttr component=model ice=true />
-  src="${contentModel.image_s!""}"
-  alt="${contentModel.alternativeText_s!""}"
+<@crafter.img
+  $model=contentModel
+  $field="image_s"
+  src=contentModel.image_s
+  alt=contentModel.alternativeText_s
   class="img-fluid"
 />

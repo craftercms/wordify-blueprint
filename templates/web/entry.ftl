@@ -1,12 +1,13 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <!doctype html>
 <html lang="en">
   <head>
     <#include "/templates/web/fragments/head_include.ftl"/>
+    <@crafter.head/>
   </head>
   <body>
-
+    <@crafter.body_top/>
     <div class="wrap">
       <#include "/templates/web/fragments/header.ftl"/>
 
@@ -14,11 +15,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <#if contentModel.slider_o?? && contentModel.slider_o.item??>
-                <#list contentModel.slider_o.item as slider>
-                  <@renderComponent component=slider />
-                </#list>
-              </#if>
+              <@crafter.renderComponentCollection $field="slider_o"/>
             </div>
           </div>
         </div>
@@ -40,11 +37,16 @@
                     ?replace("/site/components", "")
                     ?replace(".xml", "")
                   />
-                  <div class="col-md-6" <@studio.componentAttr component=postItem ice=true />>
+                  <@crafter.div $model=postItem class="col-md-6">
                     <a href="${url}"
                        class="blog-entry element-animate" data-animate-effect="fadeIn">
                       <div class="img-container">
-                        <img src="${post.mainImage}" alt="Image placeholder">
+                        <@crafter.img
+                          $model=postItem
+                          $field="mainImage_s"
+                          src=postItem.mainImage_s
+                          alt=""
+                        />
                       </div>
                       <div class="blog-content-body">
                         <div class="post-meta">
@@ -55,10 +57,12 @@
                           </span> &bullet;
                           <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span>
                         </div>
-                        <h2>${post.headline}</h2>
+                        <@crafter.h2 $model=postItem $field="headline_s">
+                          ${post.headline}
+                        </@crafter.h2>
                       </div>
                     </a>
-                  </div>
+                  </@crafter.div>
                 </#list>
               </div>
 
@@ -78,15 +82,7 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
 
-              <div class="bio-zone" style="float: left" <@studio.componentContainerAttr target="bios_o" component=contentModel/>>
-                <#if contentModel.bios_o?? && contentModel.bios_o.item??>
-                    <#list contentModel.bios_o.item as component>
-                      <div class="sidebar-box">
-                        <@renderComponent component=component />
-                      </div>
-                    </#list>
-                </#if>
-              </div>
+              <@crafter.renderComponentCollection $field="bios_o" />
 
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
@@ -124,6 +120,6 @@
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
-    <@studio.toolSupport/>
+    <@crafter.body_bottom/>
   </body>
 </html>

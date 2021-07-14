@@ -18,9 +18,9 @@
   <disabled>false</disabled>
   <bios_o item-list="true">
     <item datasource="bios">
-      <key>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
+      <key>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
       <value>John Doe's Bio</value>
-      <include>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
+      <include>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
       <disableFlattening>false</disableFlattening>
     </item>
   </bios_o>

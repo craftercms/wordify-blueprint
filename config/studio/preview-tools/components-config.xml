@@ -32,6 +32,6 @@
 	</category>
 	<browse>
 		<label>Bios</label>
-		<path>/site/components/bio</path>
+		<path>/site/components/bios</path>
 	</browse>
 </config>

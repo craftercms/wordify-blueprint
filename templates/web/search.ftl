@@ -1,4 +1,4 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <#--
 ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
@@ -19,9 +19,11 @@
 <!doctype html>
 <html lang="en">
   <head>
-      <#include "/templates/web/fragments/head_include.ftl"/>
+    <#include "/templates/web/fragments/head_include.ftl"/>
+    <@crafter.head/>
   </head>
   <body>
+    <@crafter.body_top/>
     <div class="wrap">
       <#include "/templates/web/fragments/header.ftl"/>
 
@@ -39,7 +41,7 @@
 
                 <#list searchResults as post>
                   <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                  <div class="post-entry-horizontal" <@studio.componentAttr component=postItem ice=true />>
+                  <@crafter.div $model=postItem class="post-entry-horizontal">
                     <#assign url = postItem.storeUrl
                       ?replace("/site/components", "")
                       ?replace(".xml", "")
@@ -49,21 +51,23 @@
                       <span class="text">
                         <div class="post-meta">
                           <span class="author mr-2">
-                            <img src="${post.authorBio.item.component.profilePic_s}" alt="${post.authorBio.item.component.name_s}">
-                              ${post.authorBio.item.component.name_s}</span>&bullet;
+                            <img src="${post.authorBio.item[0].component.profilePic_s}" alt="${post.authorBio.item[0].component.name_s}">
+                            ${post.authorBio.item[0].component.name_s}</span>&bullet;
                           <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span> &bullet;
-                            <#if post.categories.item?is_sequence>
-                                <#list post.categories.item as category>
-                                  <span class="mr-2">${category.value_smv}</span>
-                                </#list>
-                            <#else>
-                              <span class="mr-2">${post.categories.item.value_smv}</span>
-                            </#if>
+                          <#if post.categories.item?is_sequence>
+                            <#list post.categories.item as category>
+                              <span class="mr-2">${category.value_smv}</span>
+                            </#list>
+                          <#else>
+                            <span class="mr-2">${post.categories.item.value_smv}</span>
+                          </#if>
                         </div>
-                        <h2>${post.headline}</h2>
+                        <@crafter.h2 $model=postItem $field="headline_s">
+                          ${post.headline}
+                        </@crafter.h2>
                       </span>
                     </a>
-                  </div>
+                  </@crafter.div>
                 </#list>
               </div>
 
@@ -76,15 +80,7 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
 
-              <div class="bio-zone" style="float: left" <@studio.componentContainerAttr target="bios_o" component=contentModel/>>
-                <#if contentModel.bios_o?? && contentModel.bios_o.item??>
-                  <#list contentModel.bios_o.item as component>
-                    <div class="sidebar-box">
-                        <@renderComponent component=component />
-                    </div>
-                  </#list>
-                </#if>
-              </div>
+              <@crafter.renderComponentCollection $field="bios_o" />
 
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
@@ -107,7 +103,7 @@
       </section>
 
       <!-- Footer -->
-        <@renderComponent component=contentModel.footer_o.item additionalModel={ 'socialLinks': contentModel.socialLinks_o } />
+      <@renderComponent component=contentModel.footer_o.item additionalModel={ 'socialLinks': contentModel.socialLinks_o } />
       <!-- /Footer -->
 
     </div>
@@ -122,6 +118,6 @@
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
 
-    <@studio.toolSupport/>
+    <@crafter.body_bottom/>
   </body>
 </html>

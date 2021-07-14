@@ -1,20 +1,22 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <#if contentModel.taxonomy_s=="categories">
-  <#assign taxonomy=categories/>
-  <#assign url="/category"/>
+    <#assign taxonomy=categories/>
+    <#assign url="/category"/>
 <#else>
-  <#assign taxonomy=tags/>
-  <#assign url="/tag"/>
+    <#assign taxonomy=tags/>
+    <#assign url="/tag"/>
 </#if>
 
 <#if taxonomy.items.item?has_content>
   <div>
-    <h3 class="heading">${contentModel.title_s}</h3>
-    <ul class="${contentModel.taxonomy_s}" <@studio.iceAttr component=taxonomy />>
-        <#list taxonomy.items.item as item>
-          <li><a href="${url}?id=${item.key}">${item.value}</a></li>
-        </#list>
-    </ul>
+    <@crafter.h3 $model=contentModel $field="title_s" class="heading">
+      ${contentModel.title_s}
+    </@crafter.h3>
+    <@crafter.ul $model=taxonomy class="${contentModel.taxonomy_s} clearfix">
+      <#list taxonomy.items.item as item>
+        <li><a href="${url}?id=${item.key}">${item.value}</a></li>
+      </#list>
+    </@crafter.ul>
   </div>
 </#if>

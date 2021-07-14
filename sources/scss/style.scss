@@ -385,6 +385,10 @@ header {
   }
 
   .bio-body {
+    .bio-link {
+      white-space: normal;
+    }
+
     .social {
       a {
         color: $black;
@@ -1183,12 +1187,8 @@ textarea.form-control {
 
 .sidebar-box {
   margin-bottom: 4em;
-  // padding: 0 25px;
   font-size: 15px;
   width: 100%;
-
-  float: left;
-
   background: $white;
 
   *:last-child {
@@ -1956,9 +1956,4 @@ blockquote {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px;
   }
-}
-
-// disqus
-#disqus_recommendations {
-  display: none;
 }

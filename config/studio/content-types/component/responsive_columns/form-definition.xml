@@ -189,7 +189,7 @@
 								</property>
 								<property>
 									<name>itemManager</name>
-									<value>columnsSection,images,richTextSection</value>
+									<value>columnsSection,images,richTextSection,allowedContent</value>
 									<type>datasource:item</type>
 								</property>
 								<property>
@@ -331,6 +331,54 @@
 					<name>type</name>
 					<value />
 					<type>undefined</type>
+				</property>
+			</properties>
+		</datasource>
+		<datasource>
+			<type>dropTargets</type>
+			<id>allowedContent</id>
+			<title>Allowed Content</title>
+			<interface>item</interface>
+			<properties>
+				<property>
+					<name>allowShared</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>allowEmbedded</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>enableBrowse</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>enableSearch</name>
+					<value>true</value>
+					<type>boolean</type>
+				</property>
+				<property>
+					<name>baseRepositoryPath</name>
+					<value>/site/components</value>
+					<type>string</type>
+				</property>
+				<property>
+					<name>baseBrowsePath</name>
+					<value>/site/components</value>
+					<type>string</type>
+				</property>
+				<property>
+					<name>contentTypes</name>
+					<value>/component/image,/component/responsive_columns,/component/rich_text</value>
+					<type>contentTypes</type>
+				</property>
+				<property>
+					<name>tags</name>
+					<value />
+					<type>string</type>
 				</property>
 			</properties>
 		</datasource>

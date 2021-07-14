@@ -1,5 +1,5 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
-<div <@studio.componentAttr component=contentModel ice=true />>
-    ${contentModel.content_html!""}
-</div>
+<@crafter.div $model=contentModel $field="content_html">
+  ${contentModel.content_html!""}
+</@crafter.div>

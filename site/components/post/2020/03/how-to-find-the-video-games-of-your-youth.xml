@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
   <content-type>/component/post</content-type>
-  <display-template />
   <no-template-required>true</no-template-required>
   <merge-strategy>inherit-levels</merge-strategy>
-  <objectGroupId>ab5b</objectGroupId>
-  <objectId>ab5bf552-aeae-1bb9-44c7-313b99e1aa70</objectId>
+  <objectGroupId>feb3</objectGroupId>
+  <objectId>feb3f1e7-0c71-1275-d580-3e56b965eae0</objectId>
+  <mainImage_s>/static-assets/images/img_1.jpg</mainImage_s>
+  <blurb_t />
+  <authorBio_o item-list="true">
+    <item>
+      <key>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
+      <value>John Doe's Bio</value>
+      <include>/site/components/bios/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
+      <disableFlattening>false</disableFlattening>
+    </item>
+  </authorBio_o>
   <file-name>how-to-find-the-video-games-of-your-youth.xml</file-name>
   <internal-name>Video Games of Your Youth</internal-name>
   <pageTitle_s>How to Find the Video Games of Your Youth</pageTitle_s>
@@ -14,112 +23,104 @@
   <orderDefault_f>-1</orderDefault_f>
   <content_o item-list="true">
     <item datasource="richTextSections" inline="true">
-      <key>8735718d-8633-375f-9271-07840f2bae1c</key>
+      <key>ae3a1f35-6d99-a8e5-0345-30ae9aa56043</key>
       <value>Text Piece One</value>
-      <component id="8735718d-8633-375f-9271-07840f2bae1c">
+      <component id="ae3a1f35-6d99-a8e5-0345-30ae9aa56043">
         <content-type>/component/rich_text</content-type>
         <display-template>/templates/web/components/rich_text.ftl</display-template>
         <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
-        <objectGroupId>8735</objectGroupId>
-        <objectId>8735718d-8633-375f-9271-07840f2bae1c</objectId>
-        <file-name>8735718d-8633-375f-9271-07840f2bae1c.xml</file-name>
+        <objectGroupId>ae3a</objectGroupId>
+        <objectId>ae3a1f35-6d99-a8e5-0345-30ae9aa56043</objectId>
+        <file-name>ae3a1f35-6d99-a8e5-0345-30ae9aa56043.xml</file-name>
         <internal-name>Text Piece One</internal-name>
         <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium
           nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore earum autem nobis
           et numquam, minima eius. Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.&lt;/p&gt;
         </content_html>
-        <createdDate>2020-11-02T18:02:18.321Z</createdDate>
-        <createdDate_dt>2020-11-02T18:02:18.321Z</createdDate_dt>
-        <lastModifiedDate>2020-11-02T18:02:18.321Z</lastModifiedDate>
-        <lastModifiedDate_dt>2020-11-02T18:02:18.321Z</lastModifiedDate_dt>
+        <createdDate>2020-11-12T20:33:30.927Z</createdDate>
+        <createdDate_dt>2020-11-12T20:33:30.927Z</createdDate_dt>
+        <lastModifiedDate>2020-11-12T20:33:30.927Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-11-12T20:33:30.927Z</lastModifiedDate_dt>
       </component>
     </item>
     <item datasource="responsiveColumns" inline="true">
-      <key>e04f588d-21e0-e79c-f9e9-b18c7cc89ced</key>
+      <key>b5fa9967-73be-5927-6f33-dd8a5a900ef6</key>
       <value>Rich Text Two</value>
-      <component id="e04f588d-21e0-e79c-f9e9-b18c7cc89ced">
+      <component id="b5fa9967-73be-5927-6f33-dd8a5a900ef6">
         <content-type>/component/responsive_columns</content-type>
         <display-template>/templates/web/components/responsive_columns.ftl</display-template>
         <no-template-required />
         <merge-strategy>inherit-levels</merge-strategy>
-        <objectGroupId>e04f</objectGroupId>
-        <objectId>e04f588d-21e0-e79c-f9e9-b18c7cc89ced</objectId>
+        <objectGroupId>b5fa</objectGroupId>
+        <objectId>b5fa9967-73be-5927-6f33-dd8a5a900ef6</objectId>
         <columns_o item-list="true">
           <item>
+            <columnSize_s>6</columnSize_s>
             <content_o item-list="true">
               <item datasource="richTextSection" inline="true">
-                <key>89124152-5346-9ee7-3b92-72a876ca26a4</key>
+                <key>a737cc4c-d95d-c740-8ab4-e1564dabc7b2</key>
                 <value>Text Piece One</value>
-                <component id="89124152-5346-9ee7-3b92-72a876ca26a4">
+                <component id="a737cc4c-d95d-c740-8ab4-e1564dabc7b2">
                   <content-type>/component/rich_text</content-type>
                   <display-template>/templates/web/components/rich_text.ftl</display-template>
                   <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
-                  <objectGroupId>8912</objectGroupId>
-                  <objectId>89124152-5346-9ee7-3b92-72a876ca26a4</objectId>
-                  <file-name>89124152-5346-9ee7-3b92-72a876ca26a4.xml</file-name>
+                  <objectGroupId>a737</objectGroupId>
+                  <objectId>a737cc4c-d95d-c740-8ab4-e1564dabc7b2</objectId>
+                  <file-name>a737cc4c-d95d-c740-8ab4-e1564dabc7b2.xml</file-name>
                   <internal-name>Text Piece One</internal-name>
                   <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Praesentium nam quas inventore, ut iure iste modi eos adipisci ad ea itaque
                     labore earum autem nobis et numquam, minima eius. Nam eius, non unde ut aut sunt
                     eveniet rerum repellendus porro.&lt;/p&gt;
                   </content_html>
-                  <createdDate>2020-11-02T18:02:59.328Z</createdDate>
-                  <createdDate_dt>2020-11-02T18:02:59.328Z</createdDate_dt>
-                  <lastModifiedDate>2020-11-02T18:02:59.328Z</lastModifiedDate>
-                  <lastModifiedDate_dt>2020-11-02T18:02:59.328Z</lastModifiedDate_dt>
+                  <createdDate>2020-11-12T20:34:10.251Z</createdDate>
+                  <createdDate_dt>2020-11-12T20:34:10.251Z</createdDate_dt>
+                  <lastModifiedDate>2020-11-12T20:34:10.251Z</lastModifiedDate>
+                  <lastModifiedDate_dt>2020-11-12T20:34:10.251Z</lastModifiedDate_dt>
                 </component>
               </item>
             </content_o>
-            <columnSize_s>6</columnSize_s>
           </item>
           <item>
             <columnSize_s>6</columnSize_s>
             <content_o item-list="true">
               <item datasource="richTextSection" inline="true">
-                <key>1e54824a-741d-5b6c-9589-fb97c2322ea1</key>
+                <key>6d73c975-5915-e87e-ce8e-3ea4256964ef</key>
                 <value>Text Piece Two</value>
-                <component id="1e54824a-741d-5b6c-9589-fb97c2322ea1">
+                <component id="6d73c975-5915-e87e-ce8e-3ea4256964ef">
                   <content-type>/component/rich_text</content-type>
                   <display-template>/templates/web/components/rich_text.ftl</display-template>
                   <no-template-required />
                   <merge-strategy>inherit-levels</merge-strategy>
-                  <objectGroupId>1e54</objectGroupId>
-                  <objectId>1e54824a-741d-5b6c-9589-fb97c2322ea1</objectId>
-                  <file-name>1e54824a-741d-5b6c-9589-fb97c2322ea1.xml</file-name>
+                  <objectGroupId>6d73</objectGroupId>
+                  <objectId>6d73c975-5915-e87e-ce8e-3ea4256964ef</objectId>
+                  <file-name>6d73c975-5915-e87e-ce8e-3ea4256964ef.xml</file-name>
                   <internal-name>Text Piece Two</internal-name>
                   <content_html>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Praesentium nam quas inventore, ut iure iste modi eos adipisci ad ea itaque
                     labore earum autem nobis et numquam, minima eius. Nam eius, non unde ut aut sunt
                     eveniet rerum repellendus porro.&lt;/p&gt;
                   </content_html>
-                  <createdDate>2020-11-02T18:03:33.900Z</createdDate>
-                  <createdDate_dt>2020-11-02T18:03:33.900Z</createdDate_dt>
-                  <lastModifiedDate>2020-11-02T18:03:33.900Z</lastModifiedDate>
-                  <lastModifiedDate_dt>2020-11-02T18:03:33.900Z</lastModifiedDate_dt>
+                  <createdDate>2020-11-12T20:34:21.528Z</createdDate>
+                  <createdDate_dt>2020-11-12T20:34:21.528Z</createdDate_dt>
+                  <lastModifiedDate>2020-11-12T20:34:21.528Z</lastModifiedDate>
+                  <lastModifiedDate_dt>2020-11-12T20:34:21.528Z</lastModifiedDate_dt>
                 </component>
               </item>
             </content_o>
           </item>
         </columns_o>
-        <file-name>e04f588d-21e0-e79c-f9e9-b18c7cc89ced.xml</file-name>
+        <file-name>b5fa9967-73be-5927-6f33-dd8a5a900ef6.xml</file-name>
         <internal-name>Rich Text Two</internal-name>
-        <createdDate>2020-11-02T18:02:40.562Z</createdDate>
-        <createdDate_dt>2020-11-02T18:02:40.562Z</createdDate_dt>
-        <lastModifiedDate>2020-11-02T18:02:40.562Z</lastModifiedDate>
-        <lastModifiedDate_dt>2020-11-02T18:02:40.562Z</lastModifiedDate_dt>
+        <createdDate>2020-11-12T20:33:58.795Z</createdDate>
+        <createdDate_dt>2020-11-12T20:33:58.795Z</createdDate_dt>
+        <lastModifiedDate>2020-11-12T20:33:58.795Z</lastModifiedDate>
+        <lastModifiedDate_dt>2020-11-12T20:33:58.795Z</lastModifiedDate_dt>
       </component>
     </item>
   </content_o>
-  <authorBio_o item-list="true">
-    <item datasource="bios">
-      <key>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</key>
-      <value>John Doe's Bio</value>
-      <include>/site/components/bio/f4b2297e-af30-a288-6b54-1e838a0eadf5.xml</include>
-      <disableFlattening>false</disableFlattening>
-    </item>
-  </authorBio_o>
   <categories_o>
     <item>
       <key>lifestyle</key>
@@ -132,19 +133,17 @@
   </categories_o>
   <tags_o>
     <item>
-      <key>lifestyle</key>
-      <value_smv>Lifestyle</value_smv>
-    </item>
-    <item>
       <key>adventure</key>
       <value_smv>Adventure</value_smv>
     </item>
+    <item>
+      <key>lifestyle</key>
+      <value_smv>Lifestyle</value_smv>
+    </item>
   </tags_o>
-  <mainImage_s>/static-assets/images/img_1.jpg</mainImage_s>
-  <blurb_t />
-  <createdDate>2020-11-02T18:01:36.409Z</createdDate>
-  <createdDate_dt>2020-11-02T18:01:36.409Z</createdDate_dt>
-  <lastModifiedDate>2020-11-16T21:57:40.634Z</lastModifiedDate>
-  <lastModifiedDate_dt>2020-11-16T21:57:40.634Z</lastModifiedDate_dt>
+  <createdDate>2020-11-12T20:33:00.180Z</createdDate>
+  <createdDate_dt>2020-11-12T20:33:00.180Z</createdDate_dt>
+  <lastModifiedDate>2020-11-18T02:36:55.760Z</lastModifiedDate>
+  <lastModifiedDate_dt>2020-11-18T02:36:55.760Z</lastModifiedDate_dt>
   <folder-name />
 </component>

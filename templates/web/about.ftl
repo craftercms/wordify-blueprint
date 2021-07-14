@@ -1,59 +1,60 @@
-<#import "/templates/system/common/cstudio-support.ftl" as studio />
+<#import "/templates/system/common/crafter.ftl" as crafter />
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <#include "/templates/web/fragments/head_include.ftl"/>
-  </head>
+<head>
+  <#include "/templates/web/fragments/head_include.ftl"/>
+  <@crafter.head/>
+</head>
   <body>
+    <@crafter.body_top/>
 
     <div class="wrap">
       <#include "/templates/web/fragments/header.ftl"/>
 
       <section class="site-section pt-5">
         <div class="container">
+
           <div class="row blog-entries">
             <div class="col-md-12 col-lg-8 main-content">
 
               <div class="row">
                 <div class="col-md-12">
-                  <h2 class="mb-4">${contentModel.headline_s}</h2>
-                    <#if contentModel.content_o?? && contentModel.content_o.item??>
-                        <#list contentModel.content_o.item as component>
-                          <div class="mb-5">
-                              <@renderComponent component=component />
-                          </div>
-                        </#list>
-                    </#if>
+                  <@crafter.h2 $model=contentModel $field="headline_s" class="mb-4">
+                    ${contentModel.headline_s}
+                  </@crafter.h2>
+                  <@crafter.renderComponentCollection $field="content_o"/>
                 </div>
               </div>
 
               <div class="row mb-5 mt-5">
                 <div class="col-md-12 mb-5">
-                  <h2>Latest Posts</h2>
+                  <h2>My Latest Posts</h2>
                 </div>
                 <div class="col-md-12">
-                  <#list postsInfo.paginatedPosts as post>
-                    <#assign postItem = siteItemService.getSiteItem(post.localId) />
-                    <div class="post-entry-horizontal" <@studio.componentAttr component=postItem ice=true />>
-                      <#assign url = postItem.storeUrl
-                        ?replace("/site/components", "")
-                        ?replace(".xml", "")
+                    <#list postsInfo.paginatedPosts as post>
+                      <#assign postItem = siteItemService.getSiteItem(post.localId) />
+                      <@crafter.div $model=postItem class="post-entry-horizontal">
+                        <#assign url = postItem.storeUrl
+                          ?replace("/site/components", "")
+                          ?replace(".xml", "")
                         />
-                      <a href="${url}">
-                        <div class="image" style="background-image: url(${post.mainImage});"></div>
-                        <span class="text">
-                          <div class="post-meta">
-                            <span class="author mr-2"><img src="${post.authorBio.item.component.profilePic_s}" alt="Colorlib">
-                                ${post.authorBio.item.component.name_s}
-                            </span>&bullet;
-                            <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
-                          </div>
-                          <h2>${post.headline}</h2>
-                        </span>
-                      </a>
-                    </div>
-                  </#list>
+                        <a href="${url}">
+                          <div class="image" style="background-image: url(${post.mainImage});"></div>
+                          <span class="text">
+                            <div class="post-meta">
+                              <span class="author mr-2"><img src="${post.authorBio.item[0].component.profilePic_s}" alt="Colorlib">
+                                  ${post.authorBio.item[0].component.name_s}
+                              </span>&bullet;
+                              <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
+                            </div>
+                            <@crafter.h2 $model=postItem $field="headline_s">
+                              ${post.headline}
+                            </@crafter.h2>
+                          </span>
+                        </a>
+                      </@crafter.div>
+                    </#list>
                 </div>
               </div>
 
@@ -64,6 +65,7 @@
                 </div>
               </div>
 
+
             </div>
 
             <!-- END main-content -->
@@ -73,15 +75,7 @@
                 <#include "/templates/web/fragments/sidebar_search.ftl" />
               </div>
 
-              <div class="bio-zone" style="float: left" <@studio.componentContainerAttr target="bios_o" component=contentModel/>>
-                <#if contentModel.bios_o?? && contentModel.bios_o.item??>
-                    <#list contentModel.bios_o.item as component>
-                      <div class="sidebar-box">
-                          <@renderComponent component=component />
-                      </div>
-                    </#list>
-                </#if>
-              </div>
+              <@crafter.renderComponentCollection $field="bios_o" />
 
               <div class="sidebar-box">
                 <#include "/templates/web/fragments/recent_posts_aside.ftl"/>
@@ -104,8 +98,9 @@
       </section>
 
       <!-- Footer -->
-      <@renderComponent component=contentModel.footer_o.item additionalModel={ 'socialLinks': contentModel.socialLinks_o } />
+        <@renderComponent component=contentModel.footer_o.item additionalModel={ 'socialLinks': contentModel.socialLinks_o } />
       <!-- /Footer -->
+
     </div>
 
     <!-- loader -->
@@ -117,6 +112,6 @@
     </div>
 
     <#include "/templates/web/fragments/bottom_include.ftl"/>
-    <@studio.toolSupport/>
+    <@crafter.body_bottom/>
   </body>
 </html>

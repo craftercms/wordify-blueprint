@@ -30,6 +30,7 @@
 										<path>/site-dashboard</path>
 									</params>
 								</modulehook>
+
 								<!-- Site IA Pages -->
 								<modulehook>
 									<name>wcm-root-folder</name>
@@ -40,6 +41,7 @@
 										<onClick>preview</onClick>
 									</params>
 								</modulehook>
+
 								<!-- Components -->
 								<modulehook>
 									<name>wcm-root-folder</name>
@@ -49,16 +51,20 @@
 										<showRootItem>true</showRootItem>
 									</params>
 								</modulehook>
-								<!-- Bios -->
+
+								<!-- Components -->
 								<modulehook>
 									<name>wcm-root-folder</name>
 									<params>
 										<label>Bios</label>
-										<path>/site/components/bio</path>
+										<path>/site/components/bios</path>
 										<showRootItem>true</showRootItem>
-										<onClick>preview</onClick>
+										<icon>
+											<class>fa-user-circle-o</class>
+										</icon>
 									</params>
 								</modulehook>
+
 								<!-- Taxonomy -->
 								<modulehook>
 									<name>wcm-root-folder</name>
@@ -68,6 +74,7 @@
 										<showRootItem>true</showRootItem>
 									</params>
 								</modulehook>
+
 								<!-- Static Assets -->
 								<modulehook>
 									<name>wcm-assets-folder</name>
@@ -78,6 +85,7 @@
 										<onClick>none</onClick>
 									</params>
 								</modulehook>
+
 								<!-- Templates -->
 								<modulehook>
 									<name>wcm-assets-folder</name>
@@ -88,6 +96,7 @@
 										<onClick>none</onClick>
 									</params>
 								</modulehook>
+
 								<!-- Scripts -->
 								<modulehook>
 									<name>wcm-assets-folder</name>
@@ -98,6 +107,7 @@
 										<onClick>none</onClick>
 									</params>
 								</modulehook>
+
 								<!-- Site Config -->
 								<modulehook>
 									<name>site-config</name>
