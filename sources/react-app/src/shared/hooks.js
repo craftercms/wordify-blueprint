@@ -89,16 +89,78 @@ export function useUrlSearchQueryFetchResource(size = 1) {
   // https://github.com/facebook/react/issues/14413
   useEffect(() => {
     // FYI: A GraphQL query could also be used instead of a direct Elasticsearch
+
+    const fields = ['headline_t^1.5', 'content_o.item.component.content_html^1'];
+    let searchQuery = {};
+    let userTerm = query;
+    searchQuery.filter = [
+      {
+        'terms': {
+          'content-type': contentTypes.map(id => id)
+        }
+      }
+    ];
+
+    if (userTerm) {
+      // Check if the user is requesting an exact match with quotes
+      const regex = /.*("([^"]+)").*/;
+      const matcher = userTerm.match(regex);
+      if (matcher) {
+        // Using must excludes any doc that doesn't match with the input from the user
+        searchQuery.must = [
+          {
+            'multi_match': {
+              'query': matcher[2],
+              'fields': fields,
+              'fuzzy_transpositions': false,
+              'auto_generate_synonyms_phrase_query': false
+            }
+          }
+        ];
+
+        // Remove the exact match to continue processing the user input
+        userTerm = userTerm.replace(matcher[1], '');
+      } else {
+        // Exclude docs that do not have any optional matches
+        searchQuery.minimum_should_match = 1;
+      }
+
+      if (userTerm) {
+        // Using should makes it optional and each additional match will increase the score of the doc
+        searchQuery.should = [
+          {
+            'multi_match': {
+              'query': userTerm,
+              'fields': fields,
+              'type': 'phrase_prefix',
+              'boost': 1.5
+            }
+          },
+          {
+            'multi_match': {
+              'query': userTerm,
+              'fields': fields
+            }
+          },
+          {
+            'match': {
+              'pageDescription_s': userTerm
+            }
+          },
+          {
+            'match': {
+              'categories_o.item.value_smv': userTerm
+            }
+          }
+        ]
+      }
+    }
+
     setResource(createResource(
       () => search(
         createQuery('elasticsearch', {
           query: {
-            'bool': {
-              'filter': [
-                { 'bool': { 'should': contentTypes.map(id => ({ 'match': { 'content-type': id } })) } },
-                { 'multi_match': { 'query': query, 'type': 'phrase_prefix'} }
-              ]
-            }
+            'bool': searchQuery
           },
           size,
           from: page
