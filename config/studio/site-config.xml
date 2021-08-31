@@ -68,6 +68,8 @@
          <!-- <bulk-publish-required/> -->
 
          <!-- <publish-by-commit-required/> -->
+
+         <!-- <publish-required/> -->
       </comments>
    </publishing>
    <form-engine>
