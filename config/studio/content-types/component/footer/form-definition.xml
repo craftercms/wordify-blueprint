@@ -253,7 +253,7 @@
 					</constraints>
 				</field>
 				<field>
-					<type>rte-tinymce5</type>
+					<type>rte</type>
 					<id>copyright_html</id>
 					<iceId />
 					<title>Copyright</title>
