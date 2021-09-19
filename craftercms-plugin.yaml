@@ -15,9 +15,9 @@ plugin:
   version:
     major: 2
     minor: 0
-    patch: 2
+    patch: 3
   description: |
-    A versatile blog blueprint. Built in a way as to have server-side HTML generation and/or browser-side React mode, you choose how and what to deploy.
+    A versatile blog blueprint.
   website:
     name: Wordify Blueprint
     url: https://github.com/craftercms/wordify-blueprint
