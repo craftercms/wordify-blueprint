@@ -158,7 +158,7 @@ export function useUrlSearchQueryFetchResource(size = 1) {
 
     setResource(createResource(
       () => search(
-        createQuery('elasticsearch', {
+        createQuery({
           query: {
             'bool': searchQuery
           },
