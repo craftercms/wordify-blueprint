@@ -6,6 +6,8 @@
     "@craftercms/classes": "^2.0.1",
     "@craftercms/content": "^2.0.1",
     "@craftercms/search": "^2.0.1",
+    "@craftercms/studio-guest": "/path/to/your/guest/build",
+    "@craftercms/studio-ui": "/path/to/your/studio-ui/build",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
