@@ -22,7 +22,7 @@ import byUrlQuery from './queries.graphql';
 import { parseDescriptor } from '@craftercms/content';
 import { parse } from 'query-string';
 import { isAuthoring } from './utils';
-import { ContentType, Guest } from '@craftercms/studio-guest/react';
+import { ContentType, Guest } from '@craftercms/experience-builder/react';
 import contentTypeMap from './contentTypeMap';
 import NotFound from '../pages/NotFound';
 

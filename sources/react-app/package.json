@@ -5,9 +5,12 @@
   "dependencies": {
     "@craftercms/classes": "^2.0.1",
     "@craftercms/content": "^2.0.1",
+    "@craftercms/experience-builder": "^1.0.0-beta.1",
     "@craftercms/search": "^2.0.1",
-    "@craftercms/studio-guest": "/path/to/your/guest/build",
-    "@craftercms/studio-ui": "/path/to/your/studio-ui/build",
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.2.0",
+    "@mui/material": "^5.2.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -18,8 +21,10 @@
     "react-dom": "^17.0.1",
     "react-intl": "^4.2.2",
     "react-paginate": "^7.0.0",
+    "react-redux": "^7.2.6",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "4.0.3"
+    "react-scripts": "4.0.3",
+    "redux-observable": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

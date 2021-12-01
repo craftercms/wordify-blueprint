@@ -16,7 +16,7 @@
 
 import React from 'react';
 import Bio from '../components/Bio';
-import { Field, RenderField } from '@craftercms/studio-guest/react';
+import { Field, RenderField } from '@craftercms/experience-builder/react';
 
 function SidebarBios(props) {
   const { bios } = props;

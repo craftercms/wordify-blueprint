@@ -22,7 +22,7 @@ import { ajax } from 'rxjs/ajax';
 import { catchError } from 'rxjs/operators';
 import Toast from '../components/Toast';
 import { defineMessages, useIntl } from 'react-intl';
-import { RenderField } from '@craftercms/studio-guest/react';
+import { RenderField } from '@craftercms/experience-builder/react';
 
 const translations = defineMessages({
   contactSuccess: {

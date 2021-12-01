@@ -22,7 +22,7 @@ import {
 import { createTaxonomyFilter } from './utils';
 import CircularProgressSpinner from './CircularProgressSpinner';
 import { parseDescriptor } from '@craftercms/content';
-import { Field } from '@craftercms/studio-guest/react';
+import { Field } from '@craftercms/experience-builder/react';
 
 function SidebarListContent(props) {
   const {

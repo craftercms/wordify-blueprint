@@ -17,7 +17,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { Field, RenderField } from '@craftercms/studio-guest/react';
+import { Field, RenderField } from '@craftercms/experience-builder/react';
 
 export const
   PORTRAIT = 'portrait',
