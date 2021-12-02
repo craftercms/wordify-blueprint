@@ -25,7 +25,7 @@ import CategoryCard from '../shared/CategoryCard';
 import { parseDescriptor } from '@craftercms/content';
 import { createTaxonomyFilter } from '../shared/utils';
 import CircularProgressSpinner from '../shared/CircularProgressSpinner';
-import { Field } from '@craftercms/studio-guest/react';
+import { Field } from '@craftercms/experience-builder/react';
 import Paginate from '../shared/Paginate';
 
 function CategoryContent({ resource, isTag, categoryId }) {

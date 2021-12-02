@@ -15,7 +15,7 @@
  */
 
 import React from 'react';
-import { Field, RenderField } from '@craftercms/studio-guest/react';
+import { Field, RenderField } from '@craftercms/experience-builder/react';
 
 function Image(props) {
   const { model } = props;

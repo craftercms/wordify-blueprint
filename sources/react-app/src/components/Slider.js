@@ -16,7 +16,7 @@
 
 import React, { useState } from 'react';
 import PostCard, { IMAGE_BACKGROUND } from '../shared/PostCard';
-import { Field } from '@craftercms/studio-guest/react';
+import { Field } from '@craftercms/experience-builder/react';
 import { useRecentPosts } from '../shared/hooks';
 
 function Slider(props) {
