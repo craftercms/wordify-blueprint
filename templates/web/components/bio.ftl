@@ -1,6 +1,6 @@
 <#import "/templates/system/common/crafter.ftl" as crafter />
 
-<@crafter.componentRootTag class="sidebar-box">
+<@crafter.div class="sidebar-box">
   <div class="bio text-center">
     <@crafter.img
       $field="profilePic_s"
@@ -38,4 +38,4 @@
       </p>
     </div>
   </div>
-</@crafter.componentRootTag>
+</@crafter.div>
