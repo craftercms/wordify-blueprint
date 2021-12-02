@@ -1,2 +1,0 @@
-(this["webpackJsonp@craftercms/wordify-react"]=this["webpackJsonp@craftercms/wordify-react"]||[]).push([[14],{151:function(e,t,r){"use strict";r.r(t);var n=r(0),a=r.n(n),c=r(14);t.default=function(e){var t=e.model;return a.a.createElement(c.b,{model:t},a.a.createElement(c.d,{model:t,fieldId:"content_html",renderTarget:"dangerouslySetInnerHTML",format:function(e){return{__html:e}}}))}}}]);
-//# sourceMappingURL=14.e921839d.chunk.js.map
