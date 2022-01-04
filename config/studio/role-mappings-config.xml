@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!--
   ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
   ~
@@ -47,23 +48,23 @@
     get roles within a site based on their LDAP group membership.
 
 -->
-<role-mappings>
-	<version>2</version>
-	<groups>
-		<group name="site_admin">
-			<role>admin</role>
-		</group>
-		<group name="site_developer">
-			<role>developer</role>
-		</group>
-		<group name="site_author">
-			<role>author</role>
-		</group>
-		<group name="site_publisher">
-			<role>publisher</role>
-		</group>
-		<group name="site_reviewer">
-			<role>reviewer</role>
-		</group>
-	</groups>
+<role-mappings> 
+  <version>4.0.1</version>  
+  <groups> 
+    <group name="site_admin"> 
+      <role>admin</role> 
+    </group>  
+    <group name="site_developer"> 
+      <role>developer</role> 
+    </group>  
+    <group name="site_author"> 
+      <role>author</role> 
+    </group>  
+    <group name="site_publisher"> 
+      <role>publisher</role> 
+    </group>  
+    <group name="site_reviewer"> 
+      <role>reviewer</role> 
+    </group> 
+  </groups> 
 </role-mappings>
