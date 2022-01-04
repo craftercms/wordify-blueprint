@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!--
   ~ Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
   ~
@@ -14,17 +15,17 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-<code-editor-config>
-	<version>2</version>
-	<!--
+<code-editor-config> 
+  <version>4.0.1</version>  
+  <!--
   <theme>light</theme>
   <enable-basic-autocompletion>true</enable-basic-autocompletion>
   <enable-live-autocompletion>true</enable-live-autocompletion>
   <font-size>11pt</font-size>
   <tab-size>4</tab-size>
-  -->
-	<snippets>
-		<!--
+  -->  
+  <snippets> 
+    <!--
     <snippet>
       <key>freemarker-example</key>
       <label>Freemarker Example</label>
@@ -35,6 +36,6 @@
         ]]>
       </content>
     </snippet> 
-    -->
-	</snippets>
+    --> 
+  </snippets> 
 </code-editor-config>
