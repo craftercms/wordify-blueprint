@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--
   ~ Copyright (C) 2007-2021 Crafter Software Corporation. All Rights Reserved.
   ~
@@ -14,7 +15,6 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-
 <!--
     This file configures the list of configurations available in the SiteConfig section for this site/blueprint.
 
@@ -37,7 +37,7 @@
     - samplePath: the path to a sample file to help the user update the file
 -->
 <config>
-  <version>13</version>
+  <version>4.0.1</version>
   <files>
     <file>
       <module>studio</module>
@@ -140,8 +140,8 @@
     <file>
       <module>studio</module>
       <path>mime-type.xml</path>
-      <title>confTabMimeTypes</title>
-      <description>confTabMimeTypesDesc</description>
+      <title>Mime Types</title>
+      <description>mime Types</description>
       <samplePath>sample-mime-type.xml</samplePath>
     </file>
     <file>
@@ -161,57 +161,57 @@
     <file>
       <module>engine</module>
       <path>urlrewrite.xml</path>
-      <title>confTabEngineUrlRewriteConf</title>
-      <description>confTabEngineUrlRewriteConfDesc</description>
+      <title>Engine URL Rewrite Configuration (XML Style)</title>
+      <description>Engine URL Rewrite Configuration (XML Style)</description>
       <samplePath>sample-urlrewrite.xml</samplePath>
     </file>
     <file>
       <module>studio</module>
       <path>dependency/resolver-config.xml</path>
-      <title>confTabDependencyResolverConf</title>
-      <description>confTabDependencyResolverConfDesc</description>
+      <title>Dependency Resolver Configuration</title>
+      <description>Dependency Resolver Configuration</description>
       <samplePath>sample-resolver-config.xml</samplePath>
     </file>
     <file>
       <module>studio</module>
       <path>aws/aws.xml</path>
-      <title>confTabAWSProfiles</title>
-      <description>confTabAWSProfilesDesc</description>
+      <title>AWS Profiles</title>
+      <description>AWS Profiles</description>
       <samplePath>sample-aws.xml</samplePath>
     </file>
     <file>
       <module>studio</module>
       <path>box/box.xml</path>
-      <title>confTabBoxProfiles</title>
-      <description>confTabBoxProfilesDesc</description>
+      <title>Box Profiles</title>
+      <description>Box Profiles</description>
       <samplePath>sample-box.xml</samplePath>
     </file>
     <file>
       <module>studio</module>
       <path>webdav/webdav.xml</path>
-      <title>confTabWebDAVProfiles</title>
-      <description>confTabWebDAVProfilesDesc</description>
+      <title>WebDAV Profiles</title>
+      <description>WebDAV Profiles</description>
       <samplePath>sample-webdav.xml</samplePath>
     </file>
     <file>
       <module>studio</module>
       <path>asset-processing/asset-processing-config.xml</path>
-      <title>confTabAssetProcessing</title>
-      <description>confTabAssetProcessingDesc</description>
+      <title>Asset Processing</title>
+      <description>Asset Processing</description>
       <samplePath>sample-asset-processing-config.xml</samplePath>
     </file>
     <file>
       <module>studio</module>
       <path>blob-stores-config.xml</path>
-      <title>confTabBlobStores</title>
-      <description>confTabBlobStoresDesc</description>
+      <title>Blob Stores</title>
+      <description>Blob Stores</description>
       <samplePath>sample-blob-stores-config.xml</samplePath>
     </file>
     <file>
       <module>engine</module>
       <path>proxy-config.xml</path>
-      <title>confTabProxyConfig</title>
-      <description>confTabProxyConfigDesc</description>
+      <title>Proxy Config</title>
+      <description>Proxy Config</description>
       <samplePath>sample-proxy-config.xml</samplePath>
     </file>
     <file>
