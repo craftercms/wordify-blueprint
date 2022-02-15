@@ -69,7 +69,7 @@ export default function DynamicRoute(props) {
           }
         });
         if (model) {
-          document.title = model.pageTitle_s ?? 'Wordify Crafter CMS';
+          document.title = model.pageTitle_s ?? 'Wordify CrafterCMS';
           if (model.pageDescription_s) {
             const description = document.head.querySelector('meta[name="description"]');
             description && description.setAttribute('content', model.pageDescription_s ?? '');
@@ -93,4 +93,3 @@ export default function DynamicRoute(props) {
   }
 
 }
-
