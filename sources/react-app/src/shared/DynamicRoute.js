@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007-2020 Crafter Software Corporation. All Rights Reserved.
+ * Copyright (C) 2007-2022 Crafter Software Corporation. All Rights Reserved.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published by
@@ -70,7 +70,7 @@ export default function DynamicRoute(props) {
           }
         });
         if (model) {
-          document.title = model.pageTitle_s ?? 'Wordify Crafter CMS';
+          document.title = model.pageTitle_s ?? 'Wordify CrafterCMS';
           if (model.pageDescription_s) {
             const description = document.head.querySelector('meta[name="description"]');
             description && description.setAttribute('content', model.pageDescription_s ?? '');
@@ -106,4 +106,3 @@ export default function DynamicRoute(props) {
   }
 
 }
-
