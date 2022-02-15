@@ -13,4 +13,4 @@
 <#-- Theme Style: Edit @ sources/scss and build using sass compiler -->
 <link rel="stylesheet" href="/static-assets/css/style.css">
 
-<title>${contentModel.pageTitle_t!"Wordify Crafter CMS Template"}</title>
+<title>${contentModel.pageTitle_t!"Wordify CrafterCMS Template"}</title>
