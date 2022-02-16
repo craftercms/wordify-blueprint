@@ -1,6 +1,6 @@
-# Crafter CMS Wordify Blueprint
+# CrafterCMS Wordify Blueprint
 
-This is a Crafter CMS blueprint created using the [wordify template](https://colorlib.com/wp/template/wordify/) by [cololib](https://colorlib.com).
+This is a CrafterCMS blueprint created using the [wordify template](https://colorlib.com/wp/template/wordify/) by [cololib](https://colorlib.com).
 
 ## React App
 
