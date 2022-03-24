@@ -16,84 +16,112 @@
 
 package org.craftercms.sites.wordify
 
+import co.elastic.clients.elasticsearch._types.query_dsl.BoolQuery
+import co.elastic.clients.elasticsearch._types.query_dsl.Query
+import co.elastic.clients.elasticsearch._types.query_dsl.TextQueryType
 import org.apache.commons.lang3.StringUtils
 import org.craftercms.engine.service.UrlTransformationService
-import org.elasticsearch.action.search.SearchRequest
-import org.elasticsearch.index.search.MatchQuery
-import org.elasticsearch.search.sort.FieldSortBuilder
-import org.elasticsearch.search.sort.SortOrder
-
-import static org.elasticsearch.index.query.QueryBuilders.boolQuery
-import static org.elasticsearch.index.query.QueryBuilders.matchQuery
-import static org.elasticsearch.index.query.QueryBuilders.multiMatchQuery
-import static org.elasticsearch.search.builder.SearchSourceBuilder.searchSource
+import org.craftercms.search.elasticsearch.client.ElasticsearchClientWrapper
 
 class SearchHelper {
 
   static final String POST_CONTENT_TYPE = "/component/post"
-  static final Map<String, Float> POST_SEARCH_FIELDS = [
-          'headline_t': 1.5f,
-          'content_o.item.component.content_html': 1.0f
+  static final List<String> POST_SEARCH_FIELDS = [
+    'headline_t^1.5',
+    'content_o.item.component.content_html^1.0'
   ]
   static final int DEFAULT_START = 0
   static final int DEFAULT_ROWS = 10
 
-  def elasticsearch
+  ElasticsearchClientWrapper elasticsearchClient
   UrlTransformationService urlTransformationService
 
-  SearchHelper(elasticsearch, UrlTransformationService urlTransformationService) {
-    this.elasticsearch = elasticsearch
+  SearchHelper(ElasticsearchClientWrapper elasticsearchClient, UrlTransformationService urlTransformationService) {
+    this.elasticsearchClient = elasticsearchClient
     this.urlTransformationService = urlTransformationService
   }
 
   def search(userTerm, start = DEFAULT_START, rows = DEFAULT_ROWS) {
-    def query = boolQuery()
+    def query = new BoolQuery.Builder()
 
     // Filter by content-type
-    query.filter(matchQuery("content-type", POST_CONTENT_TYPE))
+    query.filter(q -> q
+      .match(m -> m
+        .field("content-type")
+        .query(v -> v
+            .stringValue(POST_CONTENT_TYPE)
+        )
+      )
+    )
 
     if (userTerm) {
       // Check if the user is requesting an exact match with quotes
       def matcher = userTerm =~ /.*("([^"]+)").*/
       if (matcher.matches()) {
         // Using must excludes any doc that doesn't match with the input from the user
-        query.must(multiMatchQuery(matcher.group(2))
-                .fields(POST_SEARCH_FIELDS)
-                .fuzzyTranspositions(false)
-                .autoGenerateSynonymsPhraseQuery(false))
+        query.must(q -> q
+          .multiMatch(m -> m
+            .query(matcher.group(2))
+            .fields(POST_SEARCH_FIELDS)
+            .fuzzyTranspositions(false)
+            .autoGenerateSynonymsPhraseQuery(false)
+          )
+        )
 
         // Remove the exact match to continue processing the user input
         userTerm = StringUtils.remove(userTerm, matcher.group(1))
       } else {
         // Exclude docs that do not have any optional matches
-        query.minimumShouldMatch(1)
+        query.minimumShouldMatch('1')
       }
 
       if (userTerm) {
         // Using should makes it optional and each additional match will increase the score of the doc
         query
         // Search for phrase matches including a wildcard at the end and increase the score for this match
-        .should(multiMatchQuery(userTerm)
-                .fields(POST_SEARCH_FIELDS)
-                .type(MatchQuery.Type.PHRASE_PREFIX)
-                .boost(1.5f))
+        .should(q -> q
+          .multiMatch(m -> m
+            .query(userTerm)
+            .fields(POST_SEARCH_FIELDS)
+            .type(TextQueryType.PhrasePrefix)
+            .boost(1.5f)
+          )
+        )
         // Search for matches on individual terms
-        .should(multiMatchQuery(userTerm).fields(POST_SEARCH_FIELDS))
+        .should(q -> q
+          .multiMatch(m -> m
+            .query(userTerm)
+            .fields(POST_SEARCH_FIELDS)
+          )
+        )
         // Search for matches on additional _s fields (not supported by multi_match)
-        .should(matchQuery("pageDescription_s", userTerm))
-        .should(matchQuery("categories_o.item.value_smv", userTerm))
+        .should(q -> q
+          .match(m -> m
+            .field('pageDescription_s')
+            .query(v -> v
+              .stringValue(userTerm)
+            )
+          )
+        )
+        .should(q -> q
+          .match(m -> m
+            .field('categories_o.item.value_smv')
+            .query(v -> v
+              .stringValue(userTerm)
+            )
+          )
+        )
       }
     }
 
-    def builder = searchSource()
-      .query(query)
+    def searchResult = elasticsearchClient.search(r -> r
+      .query(query.build()._toQuery())
       .from(start)
       .size(rows)
-
-    def searchResult = elasticsearch.search(new SearchRequest().source(builder))
+    , Map.class)
 
     def result = [:]
-    result.total = searchResult.hits.getTotalHits()
+    result.total = searchResult.hits().total().value()
 
     if (searchResult) {
       result.hits = processPostListingResults(searchResult)
@@ -105,9 +133,16 @@ class SearchHelper {
   }
 
   def searchPosts(categories = null, start = DEFAULT_START, rows = DEFAULT_ROWS, exclude = null, tags = null) {
-    def query = boolQuery()
+    def query = new BoolQuery.Builder()
 
-    query.filter(matchQuery("content-type", POST_CONTENT_TYPE))
+    query.filter(q -> q
+      .match(m -> m
+        .field('content-type')
+        .query(v -> v
+          .stringValue(POST_CONTENT_TYPE)
+        )
+      )
+    )
 
     if (categories) {
       query.filter(getFieldQueryWithMultipleValues("categories_o.item.key", categories))
@@ -116,19 +151,30 @@ class SearchHelper {
       query.filter(getFieldQueryWithMultipleValues("tags_o.item.key", tags))
     }
     if (exclude) {
-      query.mustNot(matchQuery("objectId", exclude))
+      query.mustNot(q -> q
+        .match(m -> m
+          .field('objectId')
+          .query(v -> v
+            .stringValue(exclude)
+          )
+        )
+      )
     }
 
-    def builder = searchSource()
-      .query(query)
+    def searchResult = elasticsearchClient.search(r -> r
+      .query(query.build()._toQuery())
       .from(start)
       .size(rows)
-      .sort(new FieldSortBuilder("lastModifiedDate_dt").order(SortOrder.DESC))
-
-    def searchResult = elasticsearch.search(new SearchRequest().source(builder))
+      .sort(s -> s
+        .field(f -> f
+          .field('lastModifiedDate_dt')
+          .order(co.elastic.clients.elasticsearch._types.SortOrder.Desc)
+        )
+      )
+    , Map.class)
 
     def result = [:]
-    result.total = searchResult.hits.getTotalHits()
+    result.total = searchResult.hits().total().value()
 
     if (searchResult) {
       result.hits = processPostListingResults(searchResult)
@@ -162,7 +208,7 @@ class SearchHelper {
 
   private def processPostListingResults(result) {
     def posts = []
-    def documents = result.hits.hits*.getSourceAsMap()
+    def documents = result.hits().hits()*.source()
 
     if (documents) {
       documents.each {doc ->
@@ -196,7 +242,14 @@ class SearchHelper {
       values = values as String
     }
 
-    return matchQuery(field, values)
+    return Query.of(q -> q
+      .match(m -> m
+        .field(field)
+        .query(v -> v
+          .stringValue(values)
+        )
+      )
+    )
   }
 
 }
