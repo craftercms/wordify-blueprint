@@ -16,5 +16,5 @@
 
 import org.craftercms.sites.wordify.SearchHelper
 
-def searchHelper = new SearchHelper(elasticsearch, urlTransformationService)
+def searchHelper = new SearchHelper(elasticsearchClient, urlTransformationService)
 templateModel.postsInfo = searchHelper.getPostsInfo()
