@@ -19,7 +19,7 @@ import org.craftercms.sites.wordify.SearchHelper
 
 def requestURI = request.requestURI
 def taxonomyHelper = new TaxonomyHelper(siteItemService)
-def searchHelper = new SearchHelper(elasticsearch, urlTransformationService)
+def searchHelper = new SearchHelper(elasticsearchClient, urlTransformationService)
 def itemId = params.id
 def taxonomy
 

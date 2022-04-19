@@ -16,7 +16,7 @@
 
 import org.craftercms.sites.wordify.SearchHelper
 
-def searchHelper = new SearchHelper(elasticsearch, urlTransformationService)
+def searchHelper = new SearchHelper(elasticsearchClient, urlTransformationService)
 def page = (params.page && Integer.parseInt(params.page) > 0) ? (Integer.parseInt(params.page) - 1) : 0
 def postsPerPage = 8
 
