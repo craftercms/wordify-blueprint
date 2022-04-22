@@ -43,7 +43,7 @@
 								<configuration>
 									<id>Components</id>
 									<label>Components</label>
-									<icon id="craftercms.icons.Component"/>
+									<icon id="@mui/icons-material/ExtensionOutlined"/>
 									<rootPath>/site/components</rootPath>
 									<locale>en</locale>
 								</configuration>
