@@ -25,7 +25,11 @@
     <div class="row pt-5">
       <div class="col-12 text-center">
         <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-        <h1 class="site-logo"><a href="/">${contentModel.siteTitle_s!""}</a></h1>
+        <h1 class="site-logo">
+          <a href="/">
+            <@crafter.span $field="siteTitle_s">${contentModel.siteTitle_s!""}</@crafter.span>
+          </a>
+        </h1>
       </div>
     </div>
   </div>

@@ -29,13 +29,17 @@
                 ${contentModel.quickLinksTitle_s!""}
               </@crafter.h3>
 
-              <@crafter.div $model=contentModel $field="quickLinks_o" class="list-unstyled">
-                <#list contentModel.quickLinks_o.item as link>
-                  <li>
-                    <a href="${link.url_s}"> ${link.label_s} </a>
-                  </li>
-                </#list>
-              </@crafter.div>
+              <@crafter.renderRepeatGroup
+                $field="quickLinks_o"
+                $containerTag="ul"
+                $containerAttributes={'class': 'list-unstyled'}
+                $itemTag="li";
+                link, index
+              >
+                <@crafter.a $field="quickLinks_o.label_s" $index=index href="${link.url_s}">
+                  ${link.label_s}
+                </@crafter.a>
+              </@crafter.renderRepeatGroup>
             </div>
 
           </div>
@@ -46,6 +50,21 @@
               <@crafter.h3 $model=contentModel $field="socialLinksTitle_s">
                 ${contentModel.socialLinksTitle_s!""}
               </@crafter.h3>
+
+              <#--<@crafter.renderRepeatGroup
+                $model=parentModel
+                $field="socialLinks_o"
+                $containerTag="ul"
+                $containerAttributes={'class': 'list-unstyled footer-social'}
+                $itemTag="li";
+                socialLink, index
+              >
+                <a href="${socialLink.url_s}">
+                  <span class="fa fa-${socialLink.socialNetwork_s}"></span>
+                    ${socialLink.label_s}
+                  <@crafter.span $model=parentModel $field="socialLinks_o.label_s" $index=index>${socialLink.label_s}</@crafter.span>
+                </a>
+              </@crafter.renderRepeatGroup>-->
 
               <ul class="list-unstyled footer-social">
                 <#list socialLinks.item as socialLink>

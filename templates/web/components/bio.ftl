@@ -18,7 +18,9 @@
       <#if contentModel.showLinkButton_b>
       <p>
         <a href="contentModel.linkButtonUrl_s" class="btn btn-primary btn-sm rounded bio-link">
-          ${contentModel.linkButtonText_s}
+          <@crafter.span $field="linkButtonText_s">
+            ${contentModel.linkButtonText_s}
+          </@crafter.span>
         </a>
       </p>
       </#if>

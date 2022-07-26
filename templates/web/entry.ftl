@@ -52,8 +52,8 @@
                         <div class="post-meta">
                           <#assign bio = post.authorBio.item?is_sequence?then(post.authorBio.item[0].component, post.authorBio.item.component) />
                           <span class="author mr-2">
-                            <img src="${bio.profilePic_s}" alt=""/>
-                            ${bio.name_s}
+                            <@crafter.img $model=bio $field="profilePic_s" src="${bio.profilePic_s}" alt=""/>
+                            <@crafter.span $model=bio $field="name_s">${bio.name_s}</@crafter.span>
                           </span> &bullet;
                           <span class="mr-2">${post.lastModifiedDate?datetime.iso?date}</span>
                         </div>

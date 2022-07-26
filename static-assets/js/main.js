@@ -64,6 +64,15 @@
     }
 	});
 
+    document.addEventListener('craftercms.editMode', (e) => {
+      const isEditMode = e.detail;
+      if (isEditMode) {
+        $('.home-slider').trigger('stop.owl.autoplay');
+      } else {
+        $('.home-slider').trigger('play.owl.autoplay');
+      }
+    });
+
 	// owl carousel
 	var majorCarousel = $('.js-carousel-1');
 	majorCarousel.owlCarousel({
