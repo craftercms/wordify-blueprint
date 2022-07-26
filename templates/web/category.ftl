@@ -108,20 +108,6 @@
                     <@crafter.h2 $model=taxonomy $field="items.value" $index=index class="title">${item.value}</@crafter.h2>
                   </a>
                 </@crafter.renderRepeatGroup>
-
-                <#--<@crafter.div $model=taxonomy class="row">
-
-                  <#list taxonomy.items.item as item>
-                    <div class="col-md-6 mb-4">
-                      <a class="blog-entry category-card" href="<#if requestURI == '/category'>/category<#else>/tag</#if>?id=${item.key}">
-                          <#if item.image_s??>
-                            <img class="background" src="${item.image_s!''}" alt="${item.value}">
-                          </#if>
-                        <h2 class="title">${item.value}</h2>
-                      </a>
-                    </div>
-                  </#list>
-                </@crafter.div>-->
               </div>
             </#if>
 
