@@ -928,9 +928,14 @@ textarea.form-control {
       a {
         padding: 0;
 
+        &:before {
+          content: unset;
+        }
+
         img {
           height: 100%;
           object-fit: cover;
+          filter: brightness(70%)
         }
         .text {
           position: absolute;
