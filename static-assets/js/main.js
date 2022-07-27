@@ -39,7 +39,8 @@
 
 	// home slider
 	$('.home-slider').owlCarousel({
-    loop:true,
+    loop: false,
+    rewind: true,
     autoplay: true,
     margin:10,
     animateOut: 'fadeOut',
