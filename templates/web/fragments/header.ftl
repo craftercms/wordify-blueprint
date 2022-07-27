@@ -27,7 +27,8 @@
         <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
         <h1 class="site-logo">
           <a href="/">
-            <@crafter.span $field="siteTitle_s">${contentModel.siteTitle_s!""}</@crafter.span>
+            <#assign levelDescriptor = siteItemService.getSiteItem(contentModel['/*/siteTitle_s/@crafter-source']) />
+            <@crafter.span $model=levelDescriptor $field="siteTitle_s">${levelDescriptor.siteTitle_s!""}</@crafter.span>
           </a>
         </h1>
       </div>

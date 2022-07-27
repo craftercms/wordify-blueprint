@@ -51,8 +51,10 @@
                 ${contentModel.socialLinksTitle_s!""}
               </@crafter.h3>
 
-              <#--<@crafter.renderRepeatGroup
-                $model=parentModel
+              <#assign levelDescriptor = siteItemService.getSiteItem(parentModel['/*/socialLinks_o/@crafter-source']) />
+
+              <@crafter.renderRepeatGroup
+                $model=levelDescriptor
                 $field="socialLinks_o"
                 $containerTag="ul"
                 $containerAttributes={'class': 'list-unstyled footer-social'}
@@ -61,21 +63,9 @@
               >
                 <a href="${socialLink.url_s}">
                   <span class="fa fa-${socialLink.socialNetwork_s}"></span>
-                    ${socialLink.label_s}
-                  <@crafter.span $model=parentModel $field="socialLinks_o.label_s" $index=index>${socialLink.label_s}</@crafter.span>
+                  <@crafter.span $model=levelDescriptor $field="socialLinks_o.label_s" $index=index>${socialLink.label_s}</@crafter.span>
                 </a>
-              </@crafter.renderRepeatGroup>-->
-
-              <ul class="list-unstyled footer-social">
-                <#list socialLinks.item as socialLink>
-                  <li>
-                    <a href="${socialLink.url_s}">
-                      <span class="fa fa-${socialLink.socialNetwork_s}"></span>
-                        ${socialLink.label_s}
-                    </a>
-                  </li>
-                </#list>
-              </ul>
+              </@crafter.renderRepeatGroup>
             </div>
           </div>
         </div>

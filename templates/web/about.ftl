@@ -117,7 +117,7 @@
       </section>
 
       <!-- Footer -->
-        <@renderComponent component=contentModel.footer_o.item additionalModel={ 'socialLinks': contentModel.socialLinks_o } />
+      <@renderComponent component=contentModel.footer_o.item additionalModel={ 'parentModel': contentModel } />
       <!-- /Footer -->
 
     </div>
