@@ -40,11 +40,30 @@
                           ?replace(".xml", "")
                         />
                         <a href="${url}">
-                          <div class="image" style="background-image: url(${post.mainImage});"></div>
+                          <@crafter.img
+                            $model=postItem
+                            $field="mainImage_s"
+                            src="${postItem.mainImage_s}"
+                            $attributes={
+                            'class': 'image element-animate',
+                            'data-animate-effect': 'fadeIn'
+                            }
+                          ></@crafter.img>
                           <span class="text">
                             <div class="post-meta">
-                              <span class="author mr-2"><img src="${post.authorBio.item[0].component.profilePic_s}" alt="Colorlib">
+                              <span class="author mr-2">
+                                <@crafter.img
+                                  $model=post.authorBio.item[0].component
+                                  $field="profilePic_s"
+                                  src="${post.authorBio.item[0].component.profilePic_s}"
+                                  alt=""
+                                ></@crafter.img>
+                                <@crafter.span
+                                  $model=post.authorBio.item[0].component
+                                  $field="name_s"
+                                >
                                   ${post.authorBio.item[0].component.name_s}
+                                </@crafter.span>
                               </span>&bullet;
                               <span class="mr-2">${post.lastModifiedDate?datetime.iso?date} </span>
                             </div>
@@ -98,7 +117,7 @@
       </section>
 
       <!-- Footer -->
-        <@renderComponent component=contentModel.footer_o.item additionalModel={ 'socialLinks': contentModel.socialLinks_o } />
+      <@renderComponent component=contentModel.footer_o.item additionalModel={ 'parentModel': contentModel } />
       <!-- /Footer -->
 
     </div>

@@ -39,7 +39,8 @@
 
 	// home slider
 	$('.home-slider').owlCarousel({
-    loop:true,
+    loop: false,
+    rewind: true,
     autoplay: true,
     margin:10,
     animateOut: 'fadeOut',
@@ -63,6 +64,15 @@
       }
     }
 	});
+
+    document.addEventListener('craftercms.editMode', (e) => {
+      const isEditMode = e.detail;
+      if (isEditMode) {
+        $('.home-slider').trigger('stop.owl.autoplay');
+      } else {
+        $('.home-slider').trigger('play.owl.autoplay');
+      }
+    });
 
 	// owl carousel
 	var majorCarousel = $('.js-carousel-1');
