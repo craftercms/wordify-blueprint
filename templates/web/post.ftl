@@ -35,8 +35,8 @@
                   <span class="fa fa-comments"></span
                 </span>
               </div>
-                <@crafter.h1 $model=contentModel $field="headline_s" class="mb-4">
-                    ${postModel.headline_s}
+                <@crafter.h1 $model=postModel $field="headline_s" class="mb-4">
+                  ${postModel.headline_s}
                 </@crafter.h1>
                 <#list postModel.categories_o.item as category>
                   <a class="category mb-5" href="/category?id=${category.key}">
