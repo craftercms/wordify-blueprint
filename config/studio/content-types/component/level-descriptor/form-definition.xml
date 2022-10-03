@@ -542,7 +542,7 @@
 	</sections>
 	<datasources>
 		<datasource>
-			<type>site-component</type>
+			<type>simpleTaxonomy</type>
 			<id>socialNetwork</id>
 			<title>Social Network</title>
 			<interface>item</interface>
