@@ -1,0 +1,11 @@
+{
+  "name": "scss",
+  "version": "1.0.0",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "build": "sass src/style.scss ../../static-assets/css/style.css --no-source-map --style=compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.56.1"
+  }
+}
