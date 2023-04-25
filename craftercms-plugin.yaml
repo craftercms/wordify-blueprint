@@ -14,7 +14,7 @@ plugin:
   version:
     major: 2
     minor: 0
-    patch: 25
+    patch: 26
   description: |
     Wordify template blueprint - React
   website:
@@ -47,8 +47,8 @@ plugin:
     url: https://opensource.org/licenses/MIT
   crafterCmsVersions:
     - major: 4
-      minor: 0
-      patch: 3
+      minor: 1
+      patch: 0
   crafterCmsEditions:
     - community
     - enterprise
