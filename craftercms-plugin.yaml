@@ -15,7 +15,7 @@ plugin:
   version:
     major: 2
     minor: 0
-    patch: 34
+    patch: 35
   description: |
     A versatile blog blueprint.
   website:
@@ -50,6 +50,9 @@ plugin:
     - major: 4
       minor: 1
       patch: 0
+    - major: 4
+      minor: 1
+      patch: 1
   crafterCmsEditions:
     - community
     - enterprise
