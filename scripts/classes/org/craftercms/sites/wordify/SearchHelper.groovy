@@ -19,6 +19,7 @@ package org.craftercms.sites.wordify
 import co.elastic.clients.elasticsearch._types.query_dsl.BoolQuery
 import co.elastic.clients.elasticsearch._types.query_dsl.Query
 import co.elastic.clients.elasticsearch._types.query_dsl.TextQueryType
+import co.elastic.clients.elasticsearch._types.SortOrder
 import org.apache.commons.lang3.StringUtils
 import org.craftercms.engine.service.UrlTransformationService
 import org.craftercms.search.elasticsearch.client.ElasticsearchClientWrapper
@@ -168,7 +169,7 @@ class SearchHelper {
       .sort(s -> s
         .field(f -> f
           .field('lastModifiedDate_dt')
-          .order(co.elastic.clients.elasticsearch._types.SortOrder.Desc)
+          .order(SortOrder.Desc)
         )
       )
     , Map.class)
