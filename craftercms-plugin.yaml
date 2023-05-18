@@ -15,7 +15,7 @@ plugin:
   version:
     major: 2
     minor: 0
-    patch: 30
+    patch: 35
   description: |
     A versatile blog blueprint.
   website:
@@ -48,14 +48,11 @@ plugin:
     url: https://opensource.org/licenses/MIT
   crafterCmsVersions:
     - major: 4
-      minor: 0
-      patch: 2
+      minor: 1
+      patch: 0
     - major: 4
-      minor: 0
-      patch: 3
-    - major: 4
-      minor: 0
-      patch: 4
+      minor: 1
+      patch: 1
   crafterCmsEditions:
     - community
     - enterprise
