@@ -188,6 +188,8 @@
                 <permission>content_read</permission>
                 <permission>content_write</permission>
                 <permission>publish</permission>
+                <permission>get_publishing_queue</permission>
+                <permission>cancel_publish</permission>
                 <permission>folder_create</permission>
                 <permission>content_create</permission>
                 <permission>change_content_type</permission>
@@ -330,6 +332,7 @@
                 <permission>s3_write</permission>
                 <permission>webdav_read</permission>
                 <permission>webdav_write</permission>
+                <permission>edit_site</permission>
                 <permission>list_plugins</permission>
                 <permission>install_plugins</permission>
                 <permission>get_children</permission>
