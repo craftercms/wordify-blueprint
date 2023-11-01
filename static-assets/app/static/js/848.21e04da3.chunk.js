@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_craftercms_wordify_react=self.webpackChunk_craftercms_wordify_react||[]).push([[848],{4848:function(e,r,t){t.r(r);t(2791);var n=t(8612),c=t(184);r.default=function(e){var r=e.model;return(0,c.jsx)(n.gN,{model:r,children:(0,c.jsx)(n.Tf,{model:r,fieldId:"content_html",renderTarget:"dangerouslySetInnerHTML",format:function(e){return{__html:e}}})})}}}]);
+//# sourceMappingURL=848.21e04da3.chunk.js.map
