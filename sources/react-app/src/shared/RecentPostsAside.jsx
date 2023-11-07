@@ -34,7 +34,7 @@ function RecentPostsAside() {
           {
             posts?.map((post) =>
               <li key={post.craftercms.id}>
-                <PostCard model={post} format={LANDSCAPE_COMPRESSED} />
+                <PostCard model={post} render={LANDSCAPE_COMPRESSED} />
               </li>
             )
           }

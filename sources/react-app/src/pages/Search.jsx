@@ -37,7 +37,7 @@ function SearchResults({ resource, paginationData, onPageChange }) {
       <p>{totalResults} result{totalResults === 0 || totalResults > 1 ? 's' : ''} found.</p>
       {
         hits.map((post) =>
-          <PostCard key={post.craftercms.id} model={post} format={LANDSCAPE} />
+          <PostCard key={post.craftercms.id} model={post} render={LANDSCAPE} />
         )
       }
 

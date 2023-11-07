@@ -61,7 +61,7 @@ function CategoryContent({ resource, isTag, categoryId }) {
                 <div className="col-md-12">
                   {
                     posts?.items.map((post) =>
-                      <PostCard key={post.craftercms.id} model={post} format={LANDSCAPE} />
+                      <PostCard key={post.craftercms.id} model={post} render={LANDSCAPE} />
                     )
                   }
                 </div>

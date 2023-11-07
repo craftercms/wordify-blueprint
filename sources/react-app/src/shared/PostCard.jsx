@@ -112,7 +112,7 @@ function PostCard(props) {
               model={model}
               fieldId="mainImage_s"
               renderTarget="style.backgroundImage"
-              format={(src) => `url("${src}")`}
+              render={(src) => `url("${src}")`}
               className="image"
             />
             <span className="text">
@@ -148,7 +148,7 @@ function PostCard(props) {
           fieldId="mainImage_s"
           renderTarget="style"
           className={`a-block d-flex align-items-center ${classes?.root ?? ''}`}
-          format={(mainImage_s) => ({ backgroundImage: `url("${mainImage_s}")` })}
+          render={(mainImage_s) => ({ backgroundImage: `url("${mainImage_s}")` })}
         >
           <Field
             component={Link}

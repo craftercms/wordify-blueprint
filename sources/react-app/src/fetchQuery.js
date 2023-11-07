@@ -16,7 +16,7 @@
 
 import { siteName } from './shared/utils';
 
-let graphqlServer = process.env.REACT_APP_GRAPHQL_SERVER;
+let graphqlServer = import.meta.env.VITE_APP_GRAPHQL_SERVER;
 if (!graphqlServer.includes(siteName)) {
   graphqlServer += `?crafterSite=${siteName}`;
 }

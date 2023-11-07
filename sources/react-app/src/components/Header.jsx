@@ -33,7 +33,7 @@ export default function Header({ model }) {
               className="col-9 social"
               model={model}
               fieldId="socialLinks_o"
-              format={(socialLinks) => socialLinks?.map((link, index) =>
+              render={(socialLinks) => socialLinks?.map((link, index) =>
                 <RenderField
                   component="a"
                   key={`${link.socialNetwork_s}_${index}`}
@@ -43,7 +43,7 @@ export default function Header({ model }) {
                   model={model}
                   fieldId="socialLinks_o"
                   index={index}
-                  format={(link) => <span className={`fa fa-${link.socialNetwork_s}`} />}
+                  render={(link) => <span className={`fa fa-${link.socialNetwork_s}`} />}
                 />
               )}
             />

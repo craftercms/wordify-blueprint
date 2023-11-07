@@ -25,7 +25,7 @@ function RichText(props) {
         model={model}
         fieldId="content_html"
         renderTarget="dangerouslySetInnerHTML"
-        format={(content_html_raw) => ({ __html: content_html_raw })}
+        render={(content_html_raw) => ({ __html: content_html_raw })}
       />
     </Field>
   );

@@ -88,7 +88,7 @@ function Post(props) {
                 component="div"
                 fieldId="content_o"
                 className="post-content-body"
-                format={(content_o) => content_o?.map((component, index) =>
+                render={(content_o) => content_o?.map((component, index) =>
                   <Field
                     key={`${component.craftercms.id}_${index}`}
                     model={model}
@@ -168,7 +168,7 @@ function Post(props) {
                 {
                   related?.items.map((post) =>
                     <div key={post.craftercms.id} className="col-md-6 col-lg-4">
-                      <PostCard model={post} format={IMAGE_BACKGROUND} classes={{ root: 'sm height-md' }} />
+                      <PostCard model={post} render={IMAGE_BACKGROUND} classes={{ root: 'sm height-md' }} />
                     </div>
                   )
                 }

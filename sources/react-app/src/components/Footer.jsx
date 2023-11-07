@@ -54,7 +54,7 @@ export default function Footer({ model }) {
                       className="list-unstyled"
                       model={footer}
                       fieldId="quickLinks_o"
-                      format={(quickLinks_o) => quickLinks_o.map((link, i) =>
+                      render={(quickLinks_o) => quickLinks_o.map((link, i) =>
                         <Field
                           key={i}
                           component="li"
@@ -82,14 +82,14 @@ export default function Footer({ model }) {
                         className="list-unstyled footer-social"
                         model={model}
                         fieldId="socialLinks_o"
-                        format={(socialLinks) => socialLinks?.map((link, index) =>
+                        render={(socialLinks) => socialLinks?.map((link, index) =>
                           <RenderField
                             component="li"
                             key={link.socialNetwork_s}
                             model={model}
                             fieldId="socialLinks_o"
                             index={index}
-                            format={(link) =>
+                            render={(link) =>
                               <a href={link.url_s} target="_blank" rel="noopener noreferrer">
                                 <span className={`fa fa-${link.socialNetwork_s}`}/> {link.label_s}
                               </a>

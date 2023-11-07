@@ -4,7 +4,7 @@ echo "Making sure all deps are met"
 yarn
 
 echo "Running react build"
-react-scripts build
+tsc && vite build
 
 echo "Deleting prior build"
 rm -rf ../../static-assets/app/*

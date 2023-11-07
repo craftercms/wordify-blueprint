@@ -54,7 +54,7 @@ function About(props) {
                   <RenderField
                     model={model}
                     fieldId="content_o"
-                    format={(content_o) => content_o?.map((component, index) =>
+                    render={(content_o) => content_o?.map((component, index) =>
                       /* Note: Please use index in conjunction with the model id */
                       <Field
                         key={`${component.craftercms.id}_${index}`}
@@ -85,7 +85,7 @@ function About(props) {
                 <div className="col-md-12">
                   {
                     posts?.items.map((post) =>
-                      <PostCard model={post} format={LANDSCAPE} key={post.craftercms.id} />
+                      <PostCard model={post} render={LANDSCAPE} key={post.craftercms.id} />
                     )
                   }
                 </div>

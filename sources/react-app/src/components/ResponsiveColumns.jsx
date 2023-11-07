@@ -26,7 +26,7 @@ function ResponsiveColumns(props) {
         model={model}
         fieldId="columns_o"
         className="row mb-5"
-        format={(columns_o) => columns_o?.map(({ columnSize_s, content_o }, index) =>
+        render={(columns_o) => columns_o?.map(({ columnSize_s, content_o }, index) =>
           <Field
             key={`${model.craftercms.id}_columns_o_${index}`}
             model={model}
