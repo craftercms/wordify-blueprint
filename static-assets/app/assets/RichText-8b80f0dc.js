@@ -1,0 +1,1 @@
+import{j as r,F as d,R as s}from"./index-402d5ccc.js";function o(t){const{model:e}=t;return r.jsx(d,{model:e,children:r.jsx(s,{model:e,fieldId:"content_html",renderTarget:"dangerouslySetInnerHTML",render:n=>({__html:n})})})}export{o as default};
