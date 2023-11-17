@@ -1,1 +1,0 @@
-import{j as r,R as t,F as i}from"./index-cb8144fe.js";import l from"./Bio-5ca2bb13.js";function x(o){const{model:s,fieldId:a}=o;return r.jsx(t,{model:s,fieldId:a,className:"bio-zone",render:e=>e==null?void 0:e.map((d,m)=>r.jsx(i,{model:s,fieldId:a,index:m,className:"sidebar-box",children:r.jsx(l,{model:d})},`${d.craftercms.id}_${m}`))})}export{x as S};

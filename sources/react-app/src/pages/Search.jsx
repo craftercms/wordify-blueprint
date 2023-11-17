@@ -35,12 +35,13 @@ function SearchResults({ resource, paginationData, onPageChange }) {
   return (
     <>
       <p>{totalResults} result{totalResults === 0 || totalResults > 1 ? 's' : ''} found.</p>
+      <div className="row">
       {
         hits.map((post) =>
-          <PostCard key={post.craftercms.id} model={post} render={LANDSCAPE} />
+            <div className="col-md-6"><PostCard key={post.craftercms.id} model={post} render={LANDSCAPE} /></div>
         )
       }
-
+      </div>
       {
         pageCount > 1 &&
         <div className="col-md-12 text-center mt-5">
@@ -94,7 +95,6 @@ function Search(props) {
           </div>
           <div className="row blog-entries">
             <div className="col-md-12 col-lg-8 main-content">
-              <div className="row">
                 <Suspense fallback={<CircularProgressSpinner screenHeight={false} />}>
                   <SearchResults
                     resource={resource}
@@ -102,7 +102,6 @@ function Search(props) {
                     onPageChange={onPageChange}
                   />
                 </Suspense>
-              </div>
             </div>
             <div className="col-md-12 col-lg-4 sidebar">
 
