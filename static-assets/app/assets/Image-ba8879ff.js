@@ -1,0 +1,1 @@
+import{j as s,F as a,R as r}from"./index-34635784.js";function n(t){const{model:e}=t;return s.jsx(a,{model:e,children:s.jsx(r,{component:"img",model:e,fieldId:"image_s,alternativeText_s",renderTarget:"src,alt",className:"img-fluid"})})}export{n as default};
