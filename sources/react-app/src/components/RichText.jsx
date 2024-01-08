@@ -14,25 +14,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { siteName } from './shared/utils';
+import React from 'react';
+import { Field, RenderField } from '@craftercms/experience-builder/react';
 
-let graphqlServer = import.meta.env.VITE_APP_GRAPHQL_SERVER;
-if (!graphqlServer.includes(siteName)) {
-  graphqlServer += `?crafterSite=${siteName}`;
+function RichText(props) {
+  const { model } = props;
+  return (
+    <Field model={model}>
+      <RenderField
+        model={model}
+        fieldId="content_html"
+        renderTarget="dangerouslySetInnerHTML"
+        render={(content_html_raw) => ({ __html: content_html_raw })}
+      />
+    </Field>
+  );
 }
 
-export function fetchQuery(
-  operation,
-  variables
-) {
-  return fetch(graphqlServer, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: operation.text,
-      variables
-    })
-  }).then(response => response.json());
-}
+export default RichText;

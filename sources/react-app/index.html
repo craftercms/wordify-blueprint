@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" data-craftercms-preview="${modePreview?c}">
+<html lang="en" data-craftercms-preview="%VITE_APP_PREVIEW_MODE%">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/static-assets/app/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created with CrafterCMS and Wordify template"
     />
-    <link rel="apple-touch-icon" href="/static-assets/app/logo192.png" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="/static-assets/app/manifest.json" crossorigin="use-credentials" />
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -103,8 +103,7 @@
     <link rel="stylesheet" href="/static-assets/css/style.css">
 
     <title>Wordify CrafterCMS</title>
-    <script id="2fb5164e" type="text/plain"></script>
-    <script type="module" crossorigin src="/static-assets/app/assets/index-34635784.js"></script>
+    <script id="2fb5164e" type="text/plain">%VITE_APP_CRAFTERCMS_SITE_ID%</script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -126,6 +125,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    
+    <script type="module" src="/src/index.jsx"></script>
   </body>
 </html>
