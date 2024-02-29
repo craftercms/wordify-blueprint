@@ -1,13 +1,10 @@
 <#import "/templates/system/common/crafter.ftl" as crafter/>
 
-<#assign levelDescriptor = siteItemService.getSiteItem(contentModel['/*/siteTitle_s/@crafter-source']) />
-
 <header role="banner">
   <div class="top-bar">
     <div class="container">
       <div class="row">
         <@crafter.renderRepeatGroup
-          $model=levelDescriptor
           $field="socialLinks_o"
           $containerTag="div"
           $containerAttributes={'class': 'col-9 social'}
@@ -34,7 +31,7 @@
         <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
         <h1 class="site-logo">
           <a href="/">
-            <@crafter.span $model=levelDescriptor $field="siteTitle_s">${levelDescriptor.siteTitle_s!""}</@crafter.span>
+            <@crafter.span $field="siteTitle_s">${contentModel.siteTitle_s!""}</@crafter.span>
           </a>
         </h1>
       </div>
