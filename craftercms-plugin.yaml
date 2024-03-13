@@ -15,7 +15,7 @@ plugin:
   version:
     major: 2
     minor: 0
-    patch: 42
+    patch: 43
   description: |
     A versatile blog blueprint.
   website:
@@ -62,6 +62,12 @@ plugin:
     - major: 4
       minor: 1
       patch: 4
+    - major: 4
+      minor: 1
+      patch: 5
+    - major: 4
+      minor: 1
+      patch: 6
     - major: 4
       minor: 2
       patch: 0
