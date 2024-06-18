@@ -31,12 +31,19 @@
     </style>
   </head>
   <body>
-  <div class="wrap">
-    <p>${errorCode}</p>
-    <h1 class="title">${errorTitle}</h1>
-    <p>${errorMessage}</p>
-    <a href="/" class="btn btn-primary rounded">Go back home</a>
-  </div>
+    <div class="wrap">
+      <p>${errorCode}</p>
+      <h1 class="title">${errorTitle}</h1>
+      <p>${errorMessage}</p>
+      <a href="/" class="btn btn-primary rounded">Go back home</a>
+    </div>
+
+    <script defer src="/studio/static-assets/scripts/craftercms-xb.umd.js"></script>
+    <script>
+      document.addEventListener('craftercms.xb:loaded', () => {
+        window.craftercms.xb.post('ERROR_PAGE_CHECK_IN', { code: ${errorCode}, message: "${errorMessage}"});
+      });
+    </script>
   </body>
   </html>
 </#macro>
