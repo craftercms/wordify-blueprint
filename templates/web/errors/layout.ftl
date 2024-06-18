@@ -35,6 +35,7 @@
     <p>${errorCode}</p>
     <h1 class="title">${errorTitle}</h1>
     <p>${errorMessage}</p>
+    <a href="/" class="btn btn-primary rounded">Go back home</a>
   </div>
   </body>
   </html>
