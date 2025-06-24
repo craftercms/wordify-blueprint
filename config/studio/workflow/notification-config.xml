@@ -89,7 +89,7 @@
             </emailTemplate>
     
             <emailTemplate key="contentApproved">
-                <subject><![CDATA[<#if scheduleDate??>Content Scheduled <#else>Content Approved</#if>]]></subject>
+                <subject><![CDATA[<#if publishPackage.schedule??>Content Scheduled <#else>Content Approved</#if>]]></subject>
                 <!-- Timezone can/is being overwritten in the following template -->
                 <body><![CDATA[
                         <#setting time_zone='EST'>
