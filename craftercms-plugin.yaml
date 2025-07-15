@@ -13,9 +13,9 @@ plugin:
     - website
     - blog
   version:
-    major: 2
+    major: 3
     minor: 0
-    patch: 54
+    patch: 0
   description: |
     A versatile blog blueprint.
   website:
@@ -47,14 +47,6 @@ plugin:
     name: MIT
     url: https://opensource.org/licenses/MIT
   crafterCmsVersions:
-    - major: 4
-      minor: 1
-    - major: 4
-      minor: 2
-    - major: 4
-      minor: 3
-    - major: 4
-      minor: 4
     - major: 5
       minor: 0
   crafterCmsEditions:
