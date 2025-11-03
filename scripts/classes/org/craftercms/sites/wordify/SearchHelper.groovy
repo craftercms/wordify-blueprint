@@ -116,7 +116,7 @@ class SearchHelper {
     }
 
     def searchResult = elasticsearchClient.search(r -> r
-      .query(query.build()._toQuery())
+      .query(query.build().toQuery())
       .from(start)
       .size(rows)
     , Map.class)
@@ -163,7 +163,7 @@ class SearchHelper {
     }
 
     def searchResult = elasticsearchClient.search(r -> r
-      .query(query.build()._toQuery())
+      .query(query.build().toQuery())
       .from(start)
       .size(rows)
       .sort(s -> s
