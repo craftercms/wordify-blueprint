@@ -43,7 +43,7 @@
                      <transforms>
                         <transform>
                            <match>href=["'](\/((?!index\.xml)[^"'?#])+((?!index\.xml)[^"'?#\/])+)([^"']*)["']</match>
-                           <replace>/site/website$1</replace>
+                           <replace>/site/website$1/index.xml</replace>
                         </transform>
                      </transforms>
                   </pattern>
@@ -122,7 +122,7 @@
                      <transforms>
                         <transform>
                            <match>href=["'](\/((?!index\.xml)[^"'?#])+((?!index\.xml)[^"'?#\/])+)([^"']*)["']</match>
-                           <replace>/site/website$1</replace>
+                           <replace>/site/website$1/index.xml</replace>
                         </transform>
                      </transforms>
                   </pattern>
@@ -200,7 +200,7 @@
                      <transforms>
                         <transform>
                            <match>href=["'](\/((?!index\.xml)[^"'?#])+((?!index\.xml)[^"'?#\/])+)([^"']*)["']</match>
-                           <replace>/site/website$1</replace>
+                           <replace>/site/website$1/index.xml</replace>
                         </transform>
                      </transforms>
                   </pattern>
